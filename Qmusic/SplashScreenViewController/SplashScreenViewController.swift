@@ -41,6 +41,7 @@ class SplashScreenViewController: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         clContent.collectionViewLayout = layout
+        clContent.contentOffset = CGPoint(x: 0, y: 0)
     }
 
     
