@@ -8,7 +8,15 @@
 import Foundation
 import UIKit
 
+extension NSObject {
+    func copyObject<T:NSObject>() throws -> T? {
+        let data = try NSKeyedArchiver.archivedData(withRootObject:self, requiringSecureCoding:false)
+        return try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? T
+    }
+}
 extension UIView {
+    
+    
     static var nib: UINib {
         return UINib(nibName: String(describing: self), bundle: nil)
     }

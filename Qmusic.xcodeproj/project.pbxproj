@@ -102,7 +102,14 @@
 		F975A5E42A8B394B00DA41B7 /* CarouselConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5DC2A8B394B00DA41B7 /* CarouselConfiguration.swift */; };
 		F975A5E52A8B394B00DA41B7 /* CarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5DD2A8B394B00DA41B7 /* CarouselFlowLayout.swift */; };
 		F975A5E62A8B394B00DA41B7 /* CarouselDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5DE2A8B394B00DA41B7 /* CarouselDataSource.swift */; };
-		FA39E3972A8B67D000B7FBD0 /* ExploreViewController in Resources */ = {isa = PBXBuildFile; fileRef = FA39E3962A8B67D000B7FBD0 /* ExploreViewController */; };
+		F975A5E82A8B76AD00DA41B7 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5E72A8B76AD00DA41B7 /* HomeHeaderView.swift */; };
+		F975A5EA2A8B76B500DA41B7 /* HomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F975A5E92A8B76B500DA41B7 /* HomeHeaderView.xib */; };
+		F975A5F42A8B81F100DA41B7 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5EC2A8B81F100DA41B7 /* ExploreViewController.swift */; };
+		F975A5F52A8B81F100DA41B7 /* ExploreGeezChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F975A5EE2A8B81F100DA41B7 /* ExploreGeezChartTableViewCell.xib */; };
+		F975A5F62A8B81F100DA41B7 /* ExploreGeezChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5EF2A8B81F100DA41B7 /* ExploreGeezChartTableViewCell.swift */; };
+		F975A5F72A8B81F100DA41B7 /* ExploreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F975A5F02A8B81F100DA41B7 /* ExploreViewController.xib */; };
+		F975A5F82A8B81F100DA41B7 /* Explore_GeezChartSubView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F975A5F22A8B81F100DA41B7 /* Explore_GeezChartSubView.xib */; };
+		F975A5F92A8B81F100DA41B7 /* Explore_GeezChartSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5F32A8B81F100DA41B7 /* Explore_GeezChartSubView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,7 +225,14 @@
 		F975A5DC2A8B394B00DA41B7 /* CarouselConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselConfiguration.swift; sourceTree = "<group>"; };
 		F975A5DD2A8B394B00DA41B7 /* CarouselFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselFlowLayout.swift; sourceTree = "<group>"; };
 		F975A5DE2A8B394B00DA41B7 /* CarouselDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselDataSource.swift; sourceTree = "<group>"; };
-		FA39E3962A8B67D000B7FBD0 /* ExploreViewController */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ExploreViewController; sourceTree = "<group>"; };
+		F975A5E72A8B76AD00DA41B7 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
+		F975A5E92A8B76B500DA41B7 /* HomeHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeHeaderView.xib; sourceTree = "<group>"; };
+		F975A5EC2A8B81F100DA41B7 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		F975A5EE2A8B81F100DA41B7 /* ExploreGeezChartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExploreGeezChartTableViewCell.xib; sourceTree = "<group>"; };
+		F975A5EF2A8B81F100DA41B7 /* ExploreGeezChartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreGeezChartTableViewCell.swift; sourceTree = "<group>"; };
+		F975A5F02A8B81F100DA41B7 /* ExploreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExploreViewController.xib; sourceTree = "<group>"; };
+		F975A5F22A8B81F100DA41B7 /* Explore_GeezChartSubView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Explore_GeezChartSubView.xib; sourceTree = "<group>"; };
+		F975A5F32A8B81F100DA41B7 /* Explore_GeezChartSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Explore_GeezChartSubView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,7 +343,7 @@
 		F969A76D2A88BFCD00C8CA2F /* Qmusic */ = {
 			isa = PBXGroup;
 			children = (
-				FA39E3962A8B67D000B7FBD0 /* ExploreViewController */,
+				F975A5EB2A8B81F100DA41B7 /* ExploreViewController */,
 				F969A79F2A88C13400C8CA2F /* Resources */,
 				F969A79E2A88C12300C8CA2F /* Components */,
 				F969A76E2A88BFCD00C8CA2F /* AppDelegate.swift */,
@@ -439,11 +453,13 @@
 		F975A5C62A8B391800DA41B7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F975A5C72A8B391800DA41B7 /* HomeAlbumsTableViewCell.xib */,
 				F975A5C82A8B391800DA41B7 /* HomeAlbumsTableViewCell.swift */,
+				F975A5C72A8B391800DA41B7 /* HomeAlbumsTableViewCell.xib */,
+				F975A5CB2A8B391800DA41B7 /* HomeViewController.swift */,
+				F975A5E72A8B76AD00DA41B7 /* HomeHeaderView.swift */,
+				F975A5E92A8B76B500DA41B7 /* HomeHeaderView.xib */,
 				F975A5C92A8B391800DA41B7 /* HomeViewController.xib */,
 				F975A5CA2A8B391800DA41B7 /* HomeWeeklyTableViewCell.swift */,
-				F975A5CB2A8B391800DA41B7 /* HomeViewController.swift */,
 				F975A5CC2A8B391800DA41B7 /* HomeWeeklyTableViewCell.xib */,
 			);
 			path = Home;
@@ -470,6 +486,35 @@
 				F975A5DE2A8B394B00DA41B7 /* CarouselDataSource.swift */,
 			);
 			path = Carousel;
+			sourceTree = "<group>";
+		};
+		F975A5EB2A8B81F100DA41B7 /* ExploreViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F975A5EC2A8B81F100DA41B7 /* ExploreViewController.swift */,
+				F975A5ED2A8B81F100DA41B7 /* ExploreTableView */,
+				F975A5F02A8B81F100DA41B7 /* ExploreViewController.xib */,
+				F975A5F12A8B81F100DA41B7 /* ExploreSubViews */,
+			);
+			path = ExploreViewController;
+			sourceTree = "<group>";
+		};
+		F975A5ED2A8B81F100DA41B7 /* ExploreTableView */ = {
+			isa = PBXGroup;
+			children = (
+				F975A5EE2A8B81F100DA41B7 /* ExploreGeezChartTableViewCell.xib */,
+				F975A5EF2A8B81F100DA41B7 /* ExploreGeezChartTableViewCell.swift */,
+			);
+			path = ExploreTableView;
+			sourceTree = "<group>";
+		};
+		F975A5F12A8B81F100DA41B7 /* ExploreSubViews */ = {
+			isa = PBXGroup;
+			children = (
+				F975A5F22A8B81F100DA41B7 /* Explore_GeezChartSubView.xib */,
+				F975A5F32A8B81F100DA41B7 /* Explore_GeezChartSubView.swift */,
+			);
+			path = ExploreSubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -591,26 +636,29 @@
 				F969A7B92A88C18A00C8CA2F /* Roboto-Bold.ttf in Resources */,
 				F969A7B72A88C18A00C8CA2F /* LICENSE.txt in Resources */,
 				F94F99FE2A8A1D4C005FA560 /* SignUpViewController.xib in Resources */,
-				FA39E3972A8B67D000B7FBD0 /* ExploreViewController in Resources */,
 				F975A5D42A8B391800DA41B7 /* HomeWeeklyTableViewCell.xib in Resources */,
 				F969A7B42A88C18A00C8CA2F /* Roboto-BoldItalic.ttf in Resources */,
+				F975A5EA2A8B76B500DA41B7 /* HomeHeaderView.xib in Resources */,
 				F975A5CF2A8B391800DA41B7 /* HomeAlbumsTableViewCell.xib in Resources */,
 				F969A7CB2A88D91900C8CA2F /* LoginViewController.xib in Resources */,
 				F969A7B12A88C18900C8CA2F /* Roboto-Regular.ttf in Resources */,
 				F969A7B52A88C18A00C8CA2F /* Roboto-LightItalic.ttf in Resources */,
 				F94F99F32A8A15DE005FA560 /* Colors.xcassets in Resources */,
 				F969A7C72A88CF4B00C8CA2F /* SplashScreenCellCollectionViewCell.xib in Resources */,
+				F975A5F82A8B81F100DA41B7 /* Explore_GeezChartSubView.xib in Resources */,
 				F975A5CE2A8B391800DA41B7 /* HomeMasterViewController.xib in Resources */,
 				F969A7AF2A88C18900C8CA2F /* Roboto-Medium.ttf in Resources */,
 				F969A77B2A88BFCE00C8CA2F /* LaunchScreen.storyboard in Resources */,
 				F969A7B82A88C18A00C8CA2F /* Roboto-BlackItalic.ttf in Resources */,
 				F969A7BA2A88C18A00C8CA2F /* Roboto-Thin.ttf in Resources */,
+				F975A5F52A8B81F100DA41B7 /* ExploreGeezChartTableViewCell.xib in Resources */,
 				F969A7B02A88C18900C8CA2F /* Roboto-Light.ttf in Resources */,
 				F975A5E02A8B394B00DA41B7 /* CarouselCollectionViewCell.xib in Resources */,
 				F969A7BF2A88C49A00C8CA2F /* SplashScreenViewController.xib in Resources */,
 				F969A7B32A88C18A00C8CA2F /* Roboto-ThinItalic.ttf in Resources */,
 				F969A7BB2A88C18A00C8CA2F /* Roboto-Black.ttf in Resources */,
 				F969A7B22A88C18900C8CA2F /* Roboto-MediumItalic.ttf in Resources */,
+				F975A5F72A8B81F100DA41B7 /* ExploreViewController.xib in Resources */,
 				F969A7782A88BFCE00C8CA2F /* Assets.xcassets in Resources */,
 				F969A7B62A88C18A00C8CA2F /* Roboto-Italic.ttf in Resources */,
 				F975A5D12A8B391800DA41B7 /* HomeViewController.xib in Resources */,
@@ -645,6 +693,8 @@
 				F975A5DF2A8B394B00DA41B7 /* CarouselCollectionView.swift in Sources */,
 				F975A5D22A8B391800DA41B7 /* HomeWeeklyTableViewCell.swift in Sources */,
 				F94F99DA2A8A13D5005FA560 /* WEExtensions+UINib.swift in Sources */,
+				F975A5F62A8B81F100DA41B7 /* ExploreGeezChartTableViewCell.swift in Sources */,
+				F975A5F42A8B81F100DA41B7 /* ExploreViewController.swift in Sources */,
 				F94F99E32A8A13D5005FA560 /* WEExtensions+Data.swift in Sources */,
 				F94F99E42A8A13D5005FA560 /* WEExtensions+KingFisher.swift in Sources */,
 				F975A5D02A8B391800DA41B7 /* HomeAlbumsTableViewCell.swift in Sources */,
@@ -663,6 +713,7 @@
 				F969A76F2A88BFCD00C8CA2F /* AppDelegate.swift in Sources */,
 				F94F99E62A8A13D5005FA560 /* WEExtensions+UIApplication.swift in Sources */,
 				F969A7BE2A88C49A00C8CA2F /* SplashScreenViewController.swift in Sources */,
+				F975A5F92A8B81F100DA41B7 /* Explore_GeezChartSubView.swift in Sources */,
 				F94F99C92A8A13D5005FA560 /* WEExtensions+GradientView.swift in Sources */,
 				F94F99DB2A8A13D5005FA560 /* WEExtensions+Double.swift in Sources */,
 				F94F99D62A8A13D5005FA560 /* WEExtensions+Notification.Name.swift in Sources */,
@@ -678,6 +729,7 @@
 				F94F99D22A8A13D5005FA560 /* WEExtensions+Calendar.swift in Sources */,
 				F94F99E22A8A13D5005FA560 /* WEExtensions+Date.swift in Sources */,
 				F975A5E42A8B394B00DA41B7 /* CarouselConfiguration.swift in Sources */,
+				F975A5E82A8B76AD00DA41B7 /* HomeHeaderView.swift in Sources */,
 				F94F99D82A8A13D5005FA560 /* WEExtensions+UILabel.swift in Sources */,
 				F94F99D32A8A13D5005FA560 /* WEExtensions+UIView.swift in Sources */,
 				F94F99C62A8A13D5005FA560 /* WEExtensions+UIImageView.swift in Sources */,
@@ -883,8 +935,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -914,8 +966,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

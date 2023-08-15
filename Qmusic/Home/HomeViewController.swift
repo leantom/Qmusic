@@ -18,6 +18,15 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tbContent: UITableView!
     let headerTitles = ["New Albums", "Cyme Weekly"]
+    
+    @IBOutlet var header1: UIView!
+    
+    @IBOutlet weak var lblHeaderTitle1: UILabel!
+    
+    @IBOutlet var header2: UIView!
+    
+    @IBOutlet weak var lblHeaderTitle2: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,18 +53,27 @@ class HomeViewController: UIViewController {
 }
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: ConstantsUI.widthScreen, height: 26))
-        label.text = headerTitles[section]
-        label.textColor = .white
-        label.font = UIFont(name: "Roboto-Bold", size: 22)
-        return label
+        
+        
+        let sectionHeader = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        
+        let homeHeaderView = HomeHeaderView.instantiate()
+        homeHeaderView.lblTitle.text = headerTitles[section]
+        
+        sectionHeader.addSubview(homeHeaderView)
+        
+        return sectionHeader
+       
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 54
+        return 45
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return headerTitles.count
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
