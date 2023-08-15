@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExploreViewController" customModule="Qmusic" customModuleProvider="target">
+            <connections>
+                <outlet property="tbView" destination="4Uq-uC-zfb" id="Jrm-m3-jf4"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mfv-M6-1C7" userLabel="Container">
+                    <rect key="frame" x="24" y="0.0" width="345" height="852"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AN4-1A-G0N" userLabel="ViewHeader">
+                            <rect key="frame" x="0.0" y="59" width="345" height="56"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1g-GU-PxM">
+                                    <rect key="frame" x="0.0" y="0.0" width="151.33333333333334" height="56"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wvd-81-6Vg">
+                                    <rect key="frame" x="321" y="16" width="24" height="24"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="Wvd-81-6Vg" secondAttribute="height" id="Q7k-f9-JaC"/>
+                                        <constraint firstAttribute="width" constant="24" id="rZO-0z-kwf"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system">
+                                        <color key="baseForegroundColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                                    </buttonConfiguration>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="N1g-GU-PxM" firstAttribute="leading" secondItem="AN4-1A-G0N" secondAttribute="leading" id="5rp-IE-a6d"/>
+                                <constraint firstAttribute="height" constant="56" id="9O1-BS-f4N"/>
+                                <constraint firstItem="N1g-GU-PxM" firstAttribute="top" secondItem="AN4-1A-G0N" secondAttribute="top" id="Hvf-eA-d6l"/>
+                                <constraint firstItem="Wvd-81-6Vg" firstAttribute="centerY" secondItem="AN4-1A-G0N" secondAttribute="centerY" id="eyr-Tr-LnC"/>
+                                <constraint firstAttribute="bottom" secondItem="N1g-GU-PxM" secondAttribute="bottom" id="fsM-gS-n1f"/>
+                                <constraint firstAttribute="trailing" secondItem="Wvd-81-6Vg" secondAttribute="trailing" id="qS3-99-CSr"/>
+                            </constraints>
+                        </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4Uq-uC-zfb">
+                            <rect key="frame" x="0.0" y="145" width="345" height="707"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="AN4-1A-G0N" firstAttribute="leading" secondItem="Mfv-M6-1C7" secondAttribute="leading" id="0uQ-lM-Ltf"/>
+                        <constraint firstItem="4Uq-uC-zfb" firstAttribute="top" secondItem="AN4-1A-G0N" secondAttribute="bottom" constant="30" id="D5p-KS-mFc"/>
+                        <constraint firstAttribute="bottom" secondItem="4Uq-uC-zfb" secondAttribute="bottom" id="Oce-dB-p8u"/>
+                        <constraint firstAttribute="trailing" secondItem="4Uq-uC-zfb" secondAttribute="trailing" id="QgF-8V-Haw"/>
+                        <constraint firstItem="4Uq-uC-zfb" firstAttribute="leading" secondItem="Mfv-M6-1C7" secondAttribute="leading" id="T5K-gh-qqB"/>
+                        <constraint firstAttribute="trailing" secondItem="AN4-1A-G0N" secondAttribute="trailing" id="U5i-Qh-nDu"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.054901960784313725" green="0.043137254901960784" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Mfv-M6-1C7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aDf-Li-6nS"/>
+                <constraint firstAttribute="bottom" secondItem="Mfv-M6-1C7" secondAttribute="bottom" id="c68-Je-H0Q"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Mfv-M6-1C7" secondAttribute="trailing" constant="24" id="cAi-e0-x7p"/>
+                <constraint firstItem="AN4-1A-G0N" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="r1w-rZ-wK3"/>
+                <constraint firstItem="Mfv-M6-1C7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="rRp-cV-LVw"/>
+            </constraints>
+            <point key="canvasLocation" x="6.8702290076335872" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+    </resources>
+</document>

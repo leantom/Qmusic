@@ -102,6 +102,7 @@
 		F975A5E42A8B394B00DA41B7 /* CarouselConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5DC2A8B394B00DA41B7 /* CarouselConfiguration.swift */; };
 		F975A5E52A8B394B00DA41B7 /* CarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5DD2A8B394B00DA41B7 /* CarouselFlowLayout.swift */; };
 		F975A5E62A8B394B00DA41B7 /* CarouselDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5DE2A8B394B00DA41B7 /* CarouselDataSource.swift */; };
+		FA39E3972A8B67D000B7FBD0 /* ExploreViewController in Resources */ = {isa = PBXBuildFile; fileRef = FA39E3962A8B67D000B7FBD0 /* ExploreViewController */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,6 +218,7 @@
 		F975A5DC2A8B394B00DA41B7 /* CarouselConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselConfiguration.swift; sourceTree = "<group>"; };
 		F975A5DD2A8B394B00DA41B7 /* CarouselFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselFlowLayout.swift; sourceTree = "<group>"; };
 		F975A5DE2A8B394B00DA41B7 /* CarouselDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselDataSource.swift; sourceTree = "<group>"; };
+		FA39E3962A8B67D000B7FBD0 /* ExploreViewController */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ExploreViewController; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +329,7 @@
 		F969A76D2A88BFCD00C8CA2F /* Qmusic */ = {
 			isa = PBXGroup;
 			children = (
+				FA39E3962A8B67D000B7FBD0 /* ExploreViewController */,
 				F969A79F2A88C13400C8CA2F /* Resources */,
 				F969A79E2A88C12300C8CA2F /* Components */,
 				F969A76E2A88BFCD00C8CA2F /* AppDelegate.swift */,
@@ -588,6 +591,7 @@
 				F969A7B92A88C18A00C8CA2F /* Roboto-Bold.ttf in Resources */,
 				F969A7B72A88C18A00C8CA2F /* LICENSE.txt in Resources */,
 				F94F99FE2A8A1D4C005FA560 /* SignUpViewController.xib in Resources */,
+				FA39E3972A8B67D000B7FBD0 /* ExploreViewController in Resources */,
 				F975A5D42A8B391800DA41B7 /* HomeWeeklyTableViewCell.xib in Resources */,
 				F969A7B42A88C18A00C8CA2F /* Roboto-BoldItalic.ttf in Resources */,
 				F975A5CF2A8B391800DA41B7 /* HomeAlbumsTableViewCell.xib in Resources */,
