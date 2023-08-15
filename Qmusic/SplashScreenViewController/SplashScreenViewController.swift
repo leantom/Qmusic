@@ -29,7 +29,11 @@ class SplashScreenViewController: UIViewController {
     }
 
     @IBAction func actionStart(_ sender: Any) {
-        let vc = LoginViewController(nibName: "LoginViewController", bundle: nil)
+//        let vc = LoginViewController(nibName: "LoginViewController", bundle: nil)
+//        self.navigationController?.pushViewController(vc, animated: true)
+//
+        
+        let vc = HomeMasterViewController(nibName: "HomeMasterViewController", bundle: nil)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     override func viewDidAppear(_ animated: Bool) {

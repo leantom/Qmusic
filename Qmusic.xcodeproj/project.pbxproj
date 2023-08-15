@@ -86,6 +86,22 @@
 		F969A7CB2A88D91900C8CA2F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F969A7C92A88D91900C8CA2F /* LoginViewController.xib */; };
 		F969A7CF2A88D95400C8CA2F /* QTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969A7CE2A88D95400C8CA2F /* QTextView.swift */; };
 		F969A7D12A88D95C00C8CA2F /* QTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F969A7D02A88D95C00C8CA2F /* QTextView.xib */; };
+		F975A5CD2A8B391800DA41B7 /* HomeMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5C42A8B391800DA41B7 /* HomeMasterViewController.swift */; };
+		F975A5CE2A8B391800DA41B7 /* HomeMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F975A5C52A8B391800DA41B7 /* HomeMasterViewController.xib */; };
+		F975A5CF2A8B391800DA41B7 /* HomeAlbumsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F975A5C72A8B391800DA41B7 /* HomeAlbumsTableViewCell.xib */; };
+		F975A5D02A8B391800DA41B7 /* HomeAlbumsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5C82A8B391800DA41B7 /* HomeAlbumsTableViewCell.swift */; };
+		F975A5D12A8B391800DA41B7 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F975A5C92A8B391800DA41B7 /* HomeViewController.xib */; };
+		F975A5D22A8B391800DA41B7 /* HomeWeeklyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5CA2A8B391800DA41B7 /* HomeWeeklyTableViewCell.swift */; };
+		F975A5D32A8B391800DA41B7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5CB2A8B391800DA41B7 /* HomeViewController.swift */; };
+		F975A5D42A8B391800DA41B7 /* HomeWeeklyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F975A5CC2A8B391800DA41B7 /* HomeWeeklyTableViewCell.xib */; };
+		F975A5DF2A8B394B00DA41B7 /* CarouselCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5D62A8B394B00DA41B7 /* CarouselCollectionView.swift */; };
+		F975A5E02A8B394B00DA41B7 /* CarouselCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F975A5D72A8B394B00DA41B7 /* CarouselCollectionViewCell.xib */; };
+		F975A5E12A8B394B00DA41B7 /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5D82A8B394B00DA41B7 /* CarouselCollectionViewCell.swift */; };
+		F975A5E22A8B394B00DA41B7 /* CarouselAnimatedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5DA2A8B394B00DA41B7 /* CarouselAnimatedFlowLayout.swift */; };
+		F975A5E32A8B394B00DA41B7 /* CarouselNonAnimatedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5DB2A8B394B00DA41B7 /* CarouselNonAnimatedFlowLayout.swift */; };
+		F975A5E42A8B394B00DA41B7 /* CarouselConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5DC2A8B394B00DA41B7 /* CarouselConfiguration.swift */; };
+		F975A5E52A8B394B00DA41B7 /* CarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5DD2A8B394B00DA41B7 /* CarouselFlowLayout.swift */; };
+		F975A5E62A8B394B00DA41B7 /* CarouselDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5DE2A8B394B00DA41B7 /* CarouselDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +201,22 @@
 		F969A7C92A88D91900C8CA2F /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		F969A7CE2A88D95400C8CA2F /* QTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QTextView.swift; sourceTree = "<group>"; };
 		F969A7D02A88D95C00C8CA2F /* QTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QTextView.xib; sourceTree = "<group>"; };
+		F975A5C42A8B391800DA41B7 /* HomeMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMasterViewController.swift; sourceTree = "<group>"; };
+		F975A5C52A8B391800DA41B7 /* HomeMasterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeMasterViewController.xib; sourceTree = "<group>"; };
+		F975A5C72A8B391800DA41B7 /* HomeAlbumsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeAlbumsTableViewCell.xib; sourceTree = "<group>"; };
+		F975A5C82A8B391800DA41B7 /* HomeAlbumsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeAlbumsTableViewCell.swift; sourceTree = "<group>"; };
+		F975A5C92A8B391800DA41B7 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		F975A5CA2A8B391800DA41B7 /* HomeWeeklyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeWeeklyTableViewCell.swift; sourceTree = "<group>"; };
+		F975A5CB2A8B391800DA41B7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F975A5CC2A8B391800DA41B7 /* HomeWeeklyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeWeeklyTableViewCell.xib; sourceTree = "<group>"; };
+		F975A5D62A8B394B00DA41B7 /* CarouselCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselCollectionView.swift; sourceTree = "<group>"; };
+		F975A5D72A8B394B00DA41B7 /* CarouselCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarouselCollectionViewCell.xib; sourceTree = "<group>"; };
+		F975A5D82A8B394B00DA41B7 /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewCell.swift; sourceTree = "<group>"; };
+		F975A5DA2A8B394B00DA41B7 /* CarouselAnimatedFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselAnimatedFlowLayout.swift; sourceTree = "<group>"; };
+		F975A5DB2A8B394B00DA41B7 /* CarouselNonAnimatedFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselNonAnimatedFlowLayout.swift; sourceTree = "<group>"; };
+		F975A5DC2A8B394B00DA41B7 /* CarouselConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselConfiguration.swift; sourceTree = "<group>"; };
+		F975A5DD2A8B394B00DA41B7 /* CarouselFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselFlowLayout.swift; sourceTree = "<group>"; };
+		F975A5DE2A8B394B00DA41B7 /* CarouselDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +330,9 @@
 				F969A79F2A88C13400C8CA2F /* Resources */,
 				F969A79E2A88C12300C8CA2F /* Components */,
 				F969A76E2A88BFCD00C8CA2F /* AppDelegate.swift */,
+				F975A5C62A8B391800DA41B7 /* Home */,
+				F975A5C42A8B391800DA41B7 /* HomeMasterViewController.swift */,
+				F975A5C52A8B391800DA41B7 /* HomeMasterViewController.xib */,
 				F969A7CD2A88D92300C8CA2F /* Login */,
 				F94F99FB2A8A1D4C005FA560 /* Singup */,
 				F969A7702A88BFCD00C8CA2F /* SceneDelegate.swift */,
@@ -340,6 +375,7 @@
 		F969A79F2A88C13400C8CA2F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F975A5D52A8B394B00DA41B7 /* CarouselCollectionView */,
 				F94F99F62A8A16C3005FA560 /* Logger.swift */,
 				F94F99F42A8A1673005FA560 /* Constants.swift */,
 				F94F99F22A8A15DE005FA560 /* Colors.xcassets */,
@@ -395,6 +431,42 @@
 				F969A7C92A88D91900C8CA2F /* LoginViewController.xib */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		F975A5C62A8B391800DA41B7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F975A5C72A8B391800DA41B7 /* HomeAlbumsTableViewCell.xib */,
+				F975A5C82A8B391800DA41B7 /* HomeAlbumsTableViewCell.swift */,
+				F975A5C92A8B391800DA41B7 /* HomeViewController.xib */,
+				F975A5CA2A8B391800DA41B7 /* HomeWeeklyTableViewCell.swift */,
+				F975A5CB2A8B391800DA41B7 /* HomeViewController.swift */,
+				F975A5CC2A8B391800DA41B7 /* HomeWeeklyTableViewCell.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F975A5D52A8B394B00DA41B7 /* CarouselCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				F975A5D62A8B394B00DA41B7 /* CarouselCollectionView.swift */,
+				F975A5D72A8B394B00DA41B7 /* CarouselCollectionViewCell.xib */,
+				F975A5D82A8B394B00DA41B7 /* CarouselCollectionViewCell.swift */,
+				F975A5D92A8B394B00DA41B7 /* Carousel */,
+			);
+			path = CarouselCollectionView;
+			sourceTree = "<group>";
+		};
+		F975A5D92A8B394B00DA41B7 /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				F975A5DA2A8B394B00DA41B7 /* CarouselAnimatedFlowLayout.swift */,
+				F975A5DB2A8B394B00DA41B7 /* CarouselNonAnimatedFlowLayout.swift */,
+				F975A5DC2A8B394B00DA41B7 /* CarouselConfiguration.swift */,
+				F975A5DD2A8B394B00DA41B7 /* CarouselFlowLayout.swift */,
+				F975A5DE2A8B394B00DA41B7 /* CarouselDataSource.swift */,
+			);
+			path = Carousel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -516,23 +588,28 @@
 				F969A7B92A88C18A00C8CA2F /* Roboto-Bold.ttf in Resources */,
 				F969A7B72A88C18A00C8CA2F /* LICENSE.txt in Resources */,
 				F94F99FE2A8A1D4C005FA560 /* SignUpViewController.xib in Resources */,
+				F975A5D42A8B391800DA41B7 /* HomeWeeklyTableViewCell.xib in Resources */,
 				F969A7B42A88C18A00C8CA2F /* Roboto-BoldItalic.ttf in Resources */,
+				F975A5CF2A8B391800DA41B7 /* HomeAlbumsTableViewCell.xib in Resources */,
 				F969A7CB2A88D91900C8CA2F /* LoginViewController.xib in Resources */,
 				F969A7B12A88C18900C8CA2F /* Roboto-Regular.ttf in Resources */,
 				F969A7B52A88C18A00C8CA2F /* Roboto-LightItalic.ttf in Resources */,
 				F94F99F32A8A15DE005FA560 /* Colors.xcassets in Resources */,
 				F969A7C72A88CF4B00C8CA2F /* SplashScreenCellCollectionViewCell.xib in Resources */,
+				F975A5CE2A8B391800DA41B7 /* HomeMasterViewController.xib in Resources */,
 				F969A7AF2A88C18900C8CA2F /* Roboto-Medium.ttf in Resources */,
 				F969A77B2A88BFCE00C8CA2F /* LaunchScreen.storyboard in Resources */,
 				F969A7B82A88C18A00C8CA2F /* Roboto-BlackItalic.ttf in Resources */,
 				F969A7BA2A88C18A00C8CA2F /* Roboto-Thin.ttf in Resources */,
 				F969A7B02A88C18900C8CA2F /* Roboto-Light.ttf in Resources */,
+				F975A5E02A8B394B00DA41B7 /* CarouselCollectionViewCell.xib in Resources */,
 				F969A7BF2A88C49A00C8CA2F /* SplashScreenViewController.xib in Resources */,
 				F969A7B32A88C18A00C8CA2F /* Roboto-ThinItalic.ttf in Resources */,
 				F969A7BB2A88C18A00C8CA2F /* Roboto-Black.ttf in Resources */,
 				F969A7B22A88C18900C8CA2F /* Roboto-MediumItalic.ttf in Resources */,
 				F969A7782A88BFCE00C8CA2F /* Assets.xcassets in Resources */,
 				F969A7B62A88C18A00C8CA2F /* Roboto-Italic.ttf in Resources */,
+				F975A5D12A8B391800DA41B7 /* HomeViewController.xib in Resources */,
 				F969A7762A88BFCD00C8CA2F /* Main.storyboard in Resources */,
 				F969A7D12A88D95C00C8CA2F /* QTextView.xib in Resources */,
 			);
@@ -559,10 +636,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F975A5E12A8B394B00DA41B7 /* CarouselCollectionViewCell.swift in Sources */,
 				F94F99D42A8A13D5005FA560 /* FEExtension+WKWebview.swift in Sources */,
+				F975A5DF2A8B394B00DA41B7 /* CarouselCollectionView.swift in Sources */,
+				F975A5D22A8B391800DA41B7 /* HomeWeeklyTableViewCell.swift in Sources */,
 				F94F99DA2A8A13D5005FA560 /* WEExtensions+UINib.swift in Sources */,
 				F94F99E32A8A13D5005FA560 /* WEExtensions+Data.swift in Sources */,
 				F94F99E42A8A13D5005FA560 /* WEExtensions+KingFisher.swift in Sources */,
+				F975A5D02A8B391800DA41B7 /* HomeAlbumsTableViewCell.swift in Sources */,
 				F94F99CE2A8A13D5005FA560 /* WEExtensions+TimerInterval.swift in Sources */,
 				F94F99EF2A8A15A3005FA560 /* AppColors.swift in Sources */,
 				F94F99C22A8A13D5005FA560 /* WEExtensions+Reactive.swift in Sources */,
@@ -581,6 +662,8 @@
 				F94F99C92A8A13D5005FA560 /* WEExtensions+GradientView.swift in Sources */,
 				F94F99DB2A8A13D5005FA560 /* WEExtensions+Double.swift in Sources */,
 				F94F99D62A8A13D5005FA560 /* WEExtensions+Notification.Name.swift in Sources */,
+				F975A5E32A8B394B00DA41B7 /* CarouselNonAnimatedFlowLayout.swift in Sources */,
+				F975A5E22A8B394B00DA41B7 /* CarouselAnimatedFlowLayout.swift in Sources */,
 				F94F99C52A8A13D5005FA560 /* WEExtensions+LAContext.swift in Sources */,
 				F94F99F52A8A1673005FA560 /* Constants.swift in Sources */,
 				F969A7CF2A88D95400C8CA2F /* QTextView.swift in Sources */,
@@ -590,6 +673,7 @@
 				F94F99DC2A8A13D5005FA560 /* WEExtensions+UITextFiled.swift in Sources */,
 				F94F99D22A8A13D5005FA560 /* WEExtensions+Calendar.swift in Sources */,
 				F94F99E22A8A13D5005FA560 /* WEExtensions+Date.swift in Sources */,
+				F975A5E42A8B394B00DA41B7 /* CarouselConfiguration.swift in Sources */,
 				F94F99D82A8A13D5005FA560 /* WEExtensions+UILabel.swift in Sources */,
 				F94F99D32A8A13D5005FA560 /* WEExtensions+UIView.swift in Sources */,
 				F94F99C62A8A13D5005FA560 /* WEExtensions+UIImageView.swift in Sources */,
@@ -598,8 +682,11 @@
 				F94F99D52A8A13D5005FA560 /* WEExtension+Enum.swift in Sources */,
 				F94F99CB2A8A13D5005FA560 /* WEExtensions+UITapGestureRecognizer.swift in Sources */,
 				F94F99FF2A8A1D4C005FA560 /* SignUpViewController.swift in Sources */,
+				F975A5D32A8B391800DA41B7 /* HomeViewController.swift in Sources */,
+				F975A5E52A8B394B00DA41B7 /* CarouselFlowLayout.swift in Sources */,
 				F94F99CA2A8A13D5005FA560 /* WEExtensions+UITextView.swift in Sources */,
 				F94F99D92A8A13D5005FA560 /* WEExtensions+MDCFilledTextField.swift in Sources */,
+				F975A5CD2A8B391800DA41B7 /* HomeMasterViewController.swift in Sources */,
 				F94F99E02A8A13D5005FA560 /* WEExtensions+String.swift in Sources */,
 				F969A7C62A88CF4B00C8CA2F /* SplashScreenCellCollectionViewCell.swift in Sources */,
 				F94F99D12A8A13D5005FA560 /* WEExtensions+UISlider.swift in Sources */,
@@ -608,6 +695,7 @@
 				F94F99CF2A8A13D5005FA560 /* WEExtensions+UITableView.swift in Sources */,
 				F94F99C32A8A13D5005FA560 /* WEExtensions+Number.swift in Sources */,
 				F94F99D72A8A13D5005FA560 /* WEGradientView.swift in Sources */,
+				F975A5E62A8B394B00DA41B7 /* CarouselDataSource.swift in Sources */,
 				F94F99E12A8A13D5005FA560 /* DateExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
