@@ -21,6 +21,6 @@ class CarouselCollectionViewCell: UICollectionViewCell {
     /// Method to populate the secondary view with the recommendation detail
     /// - Parameter recommendation: Recommendation object
     func populate(item: Item) {
-        textLabel.text = "Item: " + item.value
+       
     }
 }

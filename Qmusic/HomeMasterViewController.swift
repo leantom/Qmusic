@@ -21,7 +21,27 @@ class HomeMasterViewController: UIViewController {
         
     }
 
-
+    @IBAction func actionHome(_ sender: Any) {
+        let btn = sender as! UIButton
+        //btn.tintColor = UIColor(hexString: "8D92A3")
+        btn.tintColor = UIColor(hexString: "CBFB5E")
+        
+    }
+    
+    @IBAction func actionExplore(_ sender: Any) {
+        let btn = sender as! UIButton
+        btn.tintColor = UIColor(hexString: "CBFB5E")
+    }
+    
+    @IBAction func actionRadio(_ sender: Any) {
+        let btn = sender as! UIButton
+        btn.tintColor = UIColor(hexString: "CBFB5E")
+    }
+    
+    @IBAction func actionAccount(_ sender: Any) {
+        let btn = sender as! UIButton
+        btn.tintColor = UIColor(hexString: "CBFB5E")
+    }
     /*
     // MARK: - Navigation
 
@@ -33,3 +53,5 @@ class HomeMasterViewController: UIViewController {
     */
 
 }
+
+

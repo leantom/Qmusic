@@ -65,6 +65,9 @@
                                                     <color key="tintColor" red="0.79607843140000001" green="0.98431372549999996" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="house" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="actionHome:" destination="-1" eventType="touchUpInside" id="ecH-tX-vcZ"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2A8-3J-0Nf">
                                                     <rect key="frame" x="0.0" y="37" width="98.333333333333329" height="12"/>
@@ -82,6 +85,9 @@
                                                     <color key="tintColor" red="0.55294117649999996" green="0.57254901960000004" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="pin" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="actionExplore:" destination="-1" eventType="touchUpInside" id="3RL-bv-HbL"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explore" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LiU-7w-IOp">
                                                     <rect key="frame" x="0.0" y="37" width="98.333333333333329" height="12"/>
@@ -99,6 +105,9 @@
                                                     <color key="tintColor" red="0.55294117649999996" green="0.57254901960000004" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="book" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="actionRadio:" destination="-1" eventType="touchUpInside" id="9gX-Al-ehf"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlo-bk-98S">
                                                     <rect key="frame" x="0.0" y="37" width="98" height="12"/>
@@ -116,6 +125,9 @@
                                                     <color key="tintColor" red="0.55294117649999996" green="0.57254901960000004" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="person" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="actionAccount:" destination="-1" eventType="touchUpInside" id="aq7-Df-MM2"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pX4-JE-3fB">
                                                     <rect key="frame" x="0.0" y="37" width="98.333333333333329" height="12"/>

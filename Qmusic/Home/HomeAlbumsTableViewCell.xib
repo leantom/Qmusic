@@ -106,7 +106,7 @@
                                             <constraint firstAttribute="height" constant="22" id="jIR-GO-9YV"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="Group"/>
+                                        <state key="normal" image="ic_radio"/>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -162,10 +162,10 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Group" width="13" height="8"/>
         <image name="albums" width="327" height="188"/>
         <image name="arrowtriangle.left" catalog="system" width="128" height="113"/>
         <image name="arrowtriangle.right" catalog="system" width="128" height="113"/>
+        <image name="ic_radio" width="13" height="8"/>
         <image name="play.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
