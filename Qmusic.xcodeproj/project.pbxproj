@@ -55,6 +55,8 @@
 		F94F99FA2A8A1B62005FA560 /* TPKeyboardAvoiding in Frameworks */ = {isa = PBXBuildFile; productRef = F94F99F92A8A1B62005FA560 /* TPKeyboardAvoiding */; };
 		F94F99FE2A8A1D4C005FA560 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F94F99FC2A8A1D4C005FA560 /* SignUpViewController.xib */; };
 		F94F99FF2A8A1D4C005FA560 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94F99FD2A8A1D4C005FA560 /* SignUpViewController.swift */; };
+		F965C0FA2A8BDB53000DF320 /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F965C0F82A8BDB53000DF320 /* CarouselCollectionViewCell.swift */; };
+		F965C0FB2A8BDB53000DF320 /* CarouselCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F965C0F92A8BDB53000DF320 /* CarouselCollectionViewCell.xib */; };
 		F969A76F2A88BFCD00C8CA2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969A76E2A88BFCD00C8CA2F /* AppDelegate.swift */; };
 		F969A7712A88BFCD00C8CA2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969A7702A88BFCD00C8CA2F /* SceneDelegate.swift */; };
 		F969A7732A88BFCD00C8CA2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969A7722A88BFCD00C8CA2F /* ViewController.swift */; };
@@ -95,8 +97,6 @@
 		F975A5D32A8B391800DA41B7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5CB2A8B391800DA41B7 /* HomeViewController.swift */; };
 		F975A5D42A8B391800DA41B7 /* HomeWeeklyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F975A5CC2A8B391800DA41B7 /* HomeWeeklyTableViewCell.xib */; };
 		F975A5DF2A8B394B00DA41B7 /* CarouselCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5D62A8B394B00DA41B7 /* CarouselCollectionView.swift */; };
-		F975A5E02A8B394B00DA41B7 /* CarouselCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F975A5D72A8B394B00DA41B7 /* CarouselCollectionViewCell.xib */; };
-		F975A5E12A8B394B00DA41B7 /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5D82A8B394B00DA41B7 /* CarouselCollectionViewCell.swift */; };
 		F975A5E22A8B394B00DA41B7 /* CarouselAnimatedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5DA2A8B394B00DA41B7 /* CarouselAnimatedFlowLayout.swift */; };
 		F975A5E32A8B394B00DA41B7 /* CarouselNonAnimatedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5DB2A8B394B00DA41B7 /* CarouselNonAnimatedFlowLayout.swift */; };
 		F975A5E42A8B394B00DA41B7 /* CarouselConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5DC2A8B394B00DA41B7 /* CarouselConfiguration.swift */; };
@@ -110,6 +110,8 @@
 		F975A5F72A8B81F100DA41B7 /* ExploreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F975A5F02A8B81F100DA41B7 /* ExploreViewController.xib */; };
 		F975A5F82A8B81F100DA41B7 /* Explore_GeezChartSubView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F975A5F22A8B81F100DA41B7 /* Explore_GeezChartSubView.xib */; };
 		F975A5F92A8B81F100DA41B7 /* Explore_GeezChartSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5F32A8B81F100DA41B7 /* Explore_GeezChartSubView.swift */; };
+		F975A5FC2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5FA2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.swift */; };
+		F975A5FD2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F975A5FB2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +177,8 @@
 		F94F99F62A8A16C3005FA560 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		F94F99FC2A8A1D4C005FA560 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		F94F99FD2A8A1D4C005FA560 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		F965C0F82A8BDB53000DF320 /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewCell.swift; sourceTree = "<group>"; };
+		F965C0F92A8BDB53000DF320 /* CarouselCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselCollectionViewCell.xib; sourceTree = "<group>"; };
 		F969A76B2A88BFCD00C8CA2F /* Qmusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qmusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F969A76E2A88BFCD00C8CA2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F969A7702A88BFCD00C8CA2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -218,8 +222,6 @@
 		F975A5CB2A8B391800DA41B7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F975A5CC2A8B391800DA41B7 /* HomeWeeklyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeWeeklyTableViewCell.xib; sourceTree = "<group>"; };
 		F975A5D62A8B394B00DA41B7 /* CarouselCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselCollectionView.swift; sourceTree = "<group>"; };
-		F975A5D72A8B394B00DA41B7 /* CarouselCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarouselCollectionViewCell.xib; sourceTree = "<group>"; };
-		F975A5D82A8B394B00DA41B7 /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewCell.swift; sourceTree = "<group>"; };
 		F975A5DA2A8B394B00DA41B7 /* CarouselAnimatedFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselAnimatedFlowLayout.swift; sourceTree = "<group>"; };
 		F975A5DB2A8B394B00DA41B7 /* CarouselNonAnimatedFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselNonAnimatedFlowLayout.swift; sourceTree = "<group>"; };
 		F975A5DC2A8B394B00DA41B7 /* CarouselConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselConfiguration.swift; sourceTree = "<group>"; };
@@ -233,6 +235,8 @@
 		F975A5F02A8B81F100DA41B7 /* ExploreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExploreViewController.xib; sourceTree = "<group>"; };
 		F975A5F22A8B81F100DA41B7 /* Explore_GeezChartSubView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Explore_GeezChartSubView.xib; sourceTree = "<group>"; };
 		F975A5F32A8B81F100DA41B7 /* Explore_GeezChartSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Explore_GeezChartSubView.swift; sourceTree = "<group>"; };
+		F975A5FA2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyMusicTableViewCell.swift; sourceTree = "<group>"; };
+		F975A5FB2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentlyMusicTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -454,6 +458,8 @@
 			isa = PBXGroup;
 			children = (
 				F975A5C82A8B391800DA41B7 /* HomeAlbumsTableViewCell.swift */,
+				F975A5FA2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.swift */,
+				F975A5FB2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib */,
 				F975A5C72A8B391800DA41B7 /* HomeAlbumsTableViewCell.xib */,
 				F975A5CB2A8B391800DA41B7 /* HomeViewController.swift */,
 				F975A5E72A8B76AD00DA41B7 /* HomeHeaderView.swift */,
@@ -469,8 +475,8 @@
 			isa = PBXGroup;
 			children = (
 				F975A5D62A8B394B00DA41B7 /* CarouselCollectionView.swift */,
-				F975A5D72A8B394B00DA41B7 /* CarouselCollectionViewCell.xib */,
-				F975A5D82A8B394B00DA41B7 /* CarouselCollectionViewCell.swift */,
+				F965C0F82A8BDB53000DF320 /* CarouselCollectionViewCell.swift */,
+				F965C0F92A8BDB53000DF320 /* CarouselCollectionViewCell.xib */,
 				F975A5D92A8B394B00DA41B7 /* Carousel */,
 			);
 			path = CarouselCollectionView;
@@ -650,14 +656,15 @@
 				F969A7AF2A88C18900C8CA2F /* Roboto-Medium.ttf in Resources */,
 				F969A77B2A88BFCE00C8CA2F /* LaunchScreen.storyboard in Resources */,
 				F969A7B82A88C18A00C8CA2F /* Roboto-BlackItalic.ttf in Resources */,
+				F965C0FB2A8BDB53000DF320 /* CarouselCollectionViewCell.xib in Resources */,
 				F969A7BA2A88C18A00C8CA2F /* Roboto-Thin.ttf in Resources */,
 				F975A5F52A8B81F100DA41B7 /* ExploreGeezChartTableViewCell.xib in Resources */,
 				F969A7B02A88C18900C8CA2F /* Roboto-Light.ttf in Resources */,
-				F975A5E02A8B394B00DA41B7 /* CarouselCollectionViewCell.xib in Resources */,
 				F969A7BF2A88C49A00C8CA2F /* SplashScreenViewController.xib in Resources */,
 				F969A7B32A88C18A00C8CA2F /* Roboto-ThinItalic.ttf in Resources */,
 				F969A7BB2A88C18A00C8CA2F /* Roboto-Black.ttf in Resources */,
 				F969A7B22A88C18900C8CA2F /* Roboto-MediumItalic.ttf in Resources */,
+				F975A5FD2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib in Resources */,
 				F975A5F72A8B81F100DA41B7 /* ExploreViewController.xib in Resources */,
 				F969A7782A88BFCE00C8CA2F /* Assets.xcassets in Resources */,
 				F969A7B62A88C18A00C8CA2F /* Roboto-Italic.ttf in Resources */,
@@ -688,7 +695,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F975A5E12A8B394B00DA41B7 /* CarouselCollectionViewCell.swift in Sources */,
 				F94F99D42A8A13D5005FA560 /* FEExtension+WKWebview.swift in Sources */,
 				F975A5DF2A8B394B00DA41B7 /* CarouselCollectionView.swift in Sources */,
 				F975A5D22A8B391800DA41B7 /* HomeWeeklyTableViewCell.swift in Sources */,
@@ -733,6 +739,7 @@
 				F94F99D82A8A13D5005FA560 /* WEExtensions+UILabel.swift in Sources */,
 				F94F99D32A8A13D5005FA560 /* WEExtensions+UIView.swift in Sources */,
 				F94F99C62A8A13D5005FA560 /* WEExtensions+UIImageView.swift in Sources */,
+				F965C0FA2A8BDB53000DF320 /* CarouselCollectionViewCell.swift in Sources */,
 				F94F99C42A8A13D5005FA560 /* FEExtension+Sequence.swift in Sources */,
 				F94F99DF2A8A13D5005FA560 /* WEExtensions+Device.swift in Sources */,
 				F94F99D52A8A13D5005FA560 /* WEExtension+Enum.swift in Sources */,
@@ -752,6 +759,7 @@
 				F94F99C32A8A13D5005FA560 /* WEExtensions+Number.swift in Sources */,
 				F94F99D72A8A13D5005FA560 /* WEGradientView.swift in Sources */,
 				F975A5E62A8B394B00DA41B7 /* CarouselDataSource.swift in Sources */,
+				F975A5FC2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.swift in Sources */,
 				F94F99E12A8A13D5005FA560 /* DateExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

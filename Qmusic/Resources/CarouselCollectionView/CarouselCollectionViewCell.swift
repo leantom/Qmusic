@@ -1,26 +1,28 @@
 //
-//  CarouselCollectionViewCell.swift
-//  CarouselExample
+//  CarouselCollectionViewCell1.swift
+//  Qmusic
 //
-//  Created by Kumar, Sumit on 25/03/20.
-//  Copyright © 2020 sk. All rights reserved.
+//  Created by QuangHo on 15/08/2023.
 //
 
 import UIKit
 
 class CarouselCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var imgAlbumBG: UIImageView!
+    @IBOutlet weak var imgAlbum: UIImageView!
     
-    // MARK: - IBOutlets
-    @IBOutlet weak private var textLabel: UILabel!
+    @IBOutlet weak var lblTitle: UILabel!
+    
+    @IBOutlet weak var lblDesc: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        // Initialization code
     }
-    
-    // MARK: - Custom methods
-    /// Method to populate the secondary view with the recommendation detail
-    /// - Parameter recommendation: Recommendation object
     func populate(item: Item) {
-       
+        self.imgAlbum.image = UIImage(named: item.imgAlbumsBG)
+        self.imgAlbumBG.image = UIImage(named: item.imgAlbums)
+        lblTitle.text = item.value
     }
+
 }

@@ -20,5 +20,8 @@ class HomeHeaderView: UIView {
         // Drawing code
     }
     
+    @IBAction func actionViewAll(_ sender: Any) {
+        
+    }
     
 }

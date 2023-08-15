@@ -8,6 +8,8 @@
 import UIKit
 struct Item {
     var value: String = ""
+    var imgAlbums: String = ""
+    var imgAlbumsBG: String = ""
 }
 
 
@@ -30,7 +32,11 @@ class HomeWeeklyTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         carouselView.register(UINib(nibName: "CarouselCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CarouselCollectionViewCell")
-        self.items = [Item(value: "1"), Item(value: "2"), Item(value: "3"), Item(value: "4"), Item(value: "5")]
+        self.items = [Item(value: "1", imgAlbums: "albums1", imgAlbumsBG: "albums1"),
+                      Item(value: "2", imgAlbums: "albums2", imgAlbumsBG: "albums2_bg"),
+                      Item(value: "3", imgAlbums: "albums3", imgAlbumsBG: "albums3_bg"),
+                      Item(value: "4", imgAlbums: "albums4", imgAlbumsBG: "albums4_bg"),
+                      Item(value: "5", imgAlbums: "albums5", imgAlbumsBG: "albums5_bg")]
     }
     
     // MARK: - Userdefined methods

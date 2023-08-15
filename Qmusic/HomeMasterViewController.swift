@@ -18,7 +18,7 @@ class HomeMasterViewController: UIViewController {
         // Do any additional setup after loading the view.
         homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
         if let viewHome = homeVC?.view {
-            
+            viewHome.frame = contentView.bounds
             contentView.addSubview(viewHome)
         }
         
@@ -35,7 +35,7 @@ class HomeMasterViewController: UIViewController {
         
         homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
         if let viewHome = homeVC?.view {
-            
+            viewHome.frame = contentView.bounds
             contentView.addSubview(viewHome)
         }
     }

@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     // mainView
     
     @IBOutlet weak var tbContent: UITableView!
-    let headerTitles = ["New Albums", "Cyme Weekly"]
+    let headerTitles = ["New Albums", "Cyme Weekly", "Recently Music "]
     
     @IBOutlet var header1: UIView!
     
@@ -35,6 +35,9 @@ class HomeViewController: UIViewController {
         tbContent.register(UINib(nibName: "HomeWeeklyTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeWeeklyTableViewCell")
         
         tbContent.register(UINib(nibName: "HomeAlbumsTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeAlbumsTableViewCell")
+        
+        tbContent.register(UINib(nibName: "RecentlyMusicTableViewCell", bundle: nil), forCellReuseIdentifier: "RecentlyMusicTableViewCell")
+        
         tbContent.delegate = self
         tbContent.dataSource = self
     }
@@ -75,6 +78,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 2 {
+            return 5
+        }
         return 1
     }
     
@@ -83,6 +89,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeWeeklyTableViewCell", for: indexPath)
             return cell
         }
+        
+        if indexPath.section == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RecentlyMusicTableViewCell", for: indexPath)
+            return cell
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeAlbumsTableViewCell", for: indexPath)
         return cell
         
