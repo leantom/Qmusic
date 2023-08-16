@@ -6,11 +6,18 @@
 //
 
 import UIKit
+enum TypeMenuBottomHome {
+    case Home
+    case Explore
+    case Radio
+    case Account
+}
 
 class HomeMasterViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     var homeVC : HomeViewController?
     var exploreVC: ExploreViewController?
+    var currentType: TypeMenuBottomHome = .Home
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +32,12 @@ class HomeMasterViewController: UIViewController {
     }
 
     @IBAction func actionHome(_ sender: Any) {
+        
+        if currentType == .Home {return}
+        
+        currentType = .Home
         let btn = sender as! UIButton
-        //btn.tintColor = UIColor(hexString: "8D92A3")
+        
         btn.tintColor = UIColor(hexString: "CBFB5E")
         
         if let view = exploreVC?.view {
@@ -41,6 +52,9 @@ class HomeMasterViewController: UIViewController {
     }
     
     @IBAction func actionExplore(_ sender: Any) {
+        if currentType == .Explore {return}
+        currentType = .Explore
+        
         let btn = sender as! UIButton
         btn.tintColor = UIColor(hexString: "CBFB5E")
         if let view = homeVC?.view {
@@ -55,11 +69,15 @@ class HomeMasterViewController: UIViewController {
     }
     
     @IBAction func actionRadio(_ sender: Any) {
+        if currentType == .Radio {return}
+        currentType = .Radio
         let btn = sender as! UIButton
         btn.tintColor = UIColor(hexString: "CBFB5E")
     }
     
     @IBAction func actionAccount(_ sender: Any) {
+        if currentType == .Account {return}
+        currentType = .Account
         let btn = sender as! UIButton
         btn.tintColor = UIColor(hexString: "CBFB5E")
     }
