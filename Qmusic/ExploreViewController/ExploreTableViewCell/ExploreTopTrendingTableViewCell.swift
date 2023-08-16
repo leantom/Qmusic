@@ -16,6 +16,24 @@ struct FakeExploreTopTrendingData{
 
 class ExploreTopTrendingTableViewCell: UITableViewCell {
 
+    
+    let listImage = ["splash_1", "splash_2", "splash_3", "splash_4", "splash_5", "splash_6"]
+    let titles = ["Your Melody, Your Mood",
+                  "Your Groove, Your Rules",
+                  "Drown in Sound, Elevate Your Soul",
+                  "Every Note, Every Emotion",
+                  "Harmonize Your Day with Cyme",
+                  "Discover, Stream, Repeat"
+    ]
+    
+    let contents = ["Cyme Delivers the Soundtrack to Your Life",
+                    "Cyme Customizes Your Music Experience.",
+                    "Cyme Takes You on a Musical Journey.",
+                    "Cyme Connects You to the Power of Music.",
+                    "Where Rhythm Meets Routine.",
+                    "Cyme Unlocks a World of Musical Exploration."
+]
+    
     @IBOutlet weak var clView: UICollectionView!
     @IBOutlet weak var vPageControl: UIPageControl!
     
@@ -36,7 +54,7 @@ extension ExploreTopTrendingTableViewCell: UICollectionViewDataSource,
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSizeMake(UIScreen.main.bounds.width, self.clContent.frame.height)
+        return CGSizeMake(UIScreen.main.bounds.width, self.clView.frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -54,11 +72,10 @@ extension ExploreTopTrendingTableViewCell: UICollectionViewDataSource,
     // MARK: --scrollViewDidScroll
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         print(scrollView.contentOffset)
-        if let indexPath = clContent.indexPathForItem(at: scrollView.contentOffset),
-           let cell = clContent.cellForItem(at: indexPath) {
-            pageControl.currentPage = indexPath.row
-            lblTitle.text = titles[indexPath.row]
-            lblDesc.text = contents[indexPath.row]
+        if let indexPath = clView.indexPathForItem(at: scrollView.contentOffset),
+           let cell = clView.cellForItem(at: indexPath) {
+            vPageControl.currentPage = indexPath.row
+            
         }
     }
     
