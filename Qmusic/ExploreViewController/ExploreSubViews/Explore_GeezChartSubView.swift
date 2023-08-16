@@ -9,12 +9,16 @@ import UIKit
 
 class Explore_GeezChartSubView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBOutlet weak var lblDesc: UILabel!
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var imgAvatar: UIImageView!
+    @IBOutlet weak var lblID: UILabel!
+   
+    func setupData(item: FakeDataGeekchart){
+        self.lblID.text = item.id
+        self.lblTitle.text = item.name
+        self.lblDesc.text = item.des
+        self.imgAvatar.image = UIImage(named: item.image)
     }
-    */
 
 }

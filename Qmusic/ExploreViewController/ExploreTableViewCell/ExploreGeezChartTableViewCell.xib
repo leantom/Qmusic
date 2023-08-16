@@ -15,20 +15,33 @@
                 <rect key="frame" x="0.0" y="0.0" width="405" height="221"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="lKI-ts-l9W">
-                        <rect key="frame" x="0.0" y="0.0" width="405" height="100"/>
+                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="lKI-ts-l9W">
+                        <rect key="frame" x="12" y="0.0" width="381" height="100"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" priority="250" constant="100" id="ELK-xd-52o"/>
                         </constraints>
                     </stackView>
                 </subviews>
+                <color key="backgroundColor" red="0.11372549019607843" green="0.098039215686274508" blue="0.21568627450980393" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="lKI-ts-l9W" secondAttribute="trailing" id="9GA-Om-Xih"/>
+                    <constraint firstAttribute="trailing" secondItem="lKI-ts-l9W" secondAttribute="trailing" constant="12" id="9GA-Om-Xih"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lKI-ts-l9W" secondAttribute="bottom" id="UXF-En-G3o"/>
-                    <constraint firstItem="lKI-ts-l9W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="d2e-t7-eaD"/>
+                    <constraint firstItem="lKI-ts-l9W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="d2e-t7-eaD"/>
                     <constraint firstItem="lKI-ts-l9W" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ef3-gS-Hkd"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius_">
+                        <real key="value" value="8"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.11372549019607843" green="0.098039215686274508" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius_">
+                    <real key="value" value="8"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="containerView" destination="lKI-ts-l9W" id="mzL-lk-XpO"/>
             </connections>

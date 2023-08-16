@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="477" id="KGk-i7-Jjw" customClass="ExploreTopTrendingTableViewCell" customModule="Qmusic" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="477"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="477"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RaE-Ff-h6r">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="241.66666666666666"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="wju-gk-rMD">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="195.66666666666666"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wju-gk-rMD" secondAttribute="height" multiplier="327:200" id="fUc-tz-dfg"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bs3-LJ-dZo">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="TUK-Mb-Phz">
+                                <rect key="frame" x="0.0" y="205.66666666666666" width="320" height="26"/>
+                                <color key="currentPageIndicatorTintColor" red="0.79607843140000001" green="0.98431372549999996" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="wju-gk-rMD" secondAttribute="trailing" id="Acy-lc-dl8"/>
+                            <constraint firstItem="TUK-Mb-Phz" firstAttribute="leading" secondItem="RaE-Ff-h6r" secondAttribute="leading" id="GNa-Ir-iAy"/>
+                            <constraint firstAttribute="trailing" secondItem="TUK-Mb-Phz" secondAttribute="trailing" id="JXZ-ga-aIl"/>
+                            <constraint firstItem="wju-gk-rMD" firstAttribute="leading" secondItem="RaE-Ff-h6r" secondAttribute="leading" id="dfD-M2-Pub"/>
+                            <constraint firstItem="wju-gk-rMD" firstAttribute="top" secondItem="RaE-Ff-h6r" secondAttribute="top" id="ijz-dl-npL"/>
+                            <constraint firstAttribute="bottom" secondItem="TUK-Mb-Phz" secondAttribute="bottom" constant="10" id="rbh-C8-CSa"/>
+                            <constraint firstItem="TUK-Mb-Phz" firstAttribute="top" secondItem="wju-gk-rMD" secondAttribute="bottom" constant="10" id="vJo-Ur-cf3"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="RaE-Ff-h6r" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="54g-G8-yWo"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="RaE-Ff-h6r" secondAttribute="bottom" id="tjT-4V-Djj"/>
+                    <constraint firstItem="RaE-Ff-h6r" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ype-B1-cRL"/>
+                    <constraint firstAttribute="trailing" secondItem="RaE-Ff-h6r" secondAttribute="trailing" id="zIt-j8-5Kd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="clView" destination="wju-gk-rMD" id="Qxn-7r-6NR"/>
+                <outlet property="vPageControl" destination="TUK-Mb-Phz" id="JG3-HL-5lT"/>
+            </connections>
+            <point key="canvasLocation" x="33.587786259541986" y="141.19718309859155"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -49,6 +49,7 @@ class HomeMasterViewController: UIViewController {
         
         exploreVC = ExploreViewController(nibName: "ExploreViewController", bundle: nil)
         if let viewHome = exploreVC?.view {
+            viewHome.frame = contentView.bounds
             contentView.addSubview(viewHome)
         }
         

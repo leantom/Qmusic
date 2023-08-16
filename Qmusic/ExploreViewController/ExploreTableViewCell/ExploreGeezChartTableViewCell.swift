@@ -15,7 +15,7 @@ struct FakeDataGeekchart{
 }
 
 class ExploreGeezChartTableViewCell: UITableViewCell {
-
+ 
     @IBOutlet weak var containerView: UIStackView!
     
     lazy var subView: Explore_GeezChartSubView = {
@@ -30,13 +30,7 @@ class ExploreGeezChartTableViewCell: UITableViewCell {
             let sub = Explore_GeezChartSubView.instantiate()
             sub.translatesAutoresizingMaskIntoConstraints = false
             self.containerView.addArrangedSubview(sub)
-//            NSLayoutConstraint.activate([
-//                sub.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: topConstraint),
-//                sub.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor, constant: 0),
-//                sub.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: 0),
-//                sub.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: 0)
-//            ])
-//            topConstraint += sub.frame.height
+            sub.setupData(item: item)
         }
     }
 
