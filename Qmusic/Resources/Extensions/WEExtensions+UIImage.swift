@@ -9,6 +9,53 @@ import Foundation
 import UIKit
 
 extension UIImage {
+    func getPrimaryColor() -> UIColor? {
+        guard let cgImage = self.cgImage else {
+            return nil
+        }
+        
+        let width = cgImage.width
+        let height = cgImage.height
+        let bytesPerPixel = 4 // Assuming RGBA format
+        let bytesPerRow = width * bytesPerPixel
+        
+        guard let pixelData = cgImage.dataProvider?.data else {
+            return nil
+        }
+        
+        let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
+        
+        var colorCount: [UIColor: Int] = [:]
+        
+        for y in 0..<height {
+            for x in 0..<width {
+                let offset = (y * bytesPerRow) + (x * bytesPerPixel)
+                let red = CGFloat(data[offset]) / 255.0
+                let green = CGFloat(data[offset + 1]) / 255.0
+                let blue = CGFloat(data[offset + 2]) / 255.0
+                let alpha = CGFloat(data[offset + 3]) / 255.0
+                
+                let pixelColor = UIColor(red: red, green: green, blue: blue, alpha: alpha)
+                
+                if colorCount[pixelColor] != nil {
+                    colorCount[pixelColor]! += 1
+                } else {
+                    colorCount[pixelColor] = 1
+                }
+            }
+        }
+        
+        if let primaryColor = colorCount.max(by: { $0.value < $1.value })?.key {
+            return primaryColor
+        }
+        
+        return nil
+    }
+}
+
+
+
+extension UIImage {
     enum JPEGQuality: CGFloat {
         case lowest  = 0
         case low     = 0.25

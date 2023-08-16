@@ -9,6 +9,16 @@ import UIKit
 
 class RecentlyMusicTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var lblTitle: UILabel!
+    
+    @IBOutlet weak var imgAlbums: UIImageView!
+    
+    @IBOutlet weak var lblNameSong: UILabel!
+    
+    @IBOutlet weak var lblArtist: UILabel!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -18,6 +28,11 @@ class RecentlyMusicTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func popuplate(item: Item) {
+        self.imgAlbums.image = UIImage(named: item.imgAlbums)
+        self.lblTitle.text = item.value
     }
     
 }

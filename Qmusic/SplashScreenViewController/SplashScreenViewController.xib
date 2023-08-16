@@ -2,8 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -18,9 +19,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SplashScreenViewController" customModule="Qmusic" customModuleProvider="target">
             <connections>
                 <outlet property="btnStart" destination="VhD-ZH-olZ" id="gjv-Q4-t6o"/>
+                <outlet property="btnStartContraintWidth" destination="k2R-yZ-Sx0" id="EWq-G7-oM6"/>
                 <outlet property="clContent" destination="Jyw-FC-oYy" id="m5W-WF-GnE"/>
                 <outlet property="lblDesc" destination="htA-Wj-19u" id="hlP-nB-TJw"/>
                 <outlet property="lblTitle" destination="cN9-tw-7iZ" id="32z-gR-eOu"/>
+                <outlet property="mainView" destination="FZH-Ii-czE" id="J7n-HV-b3z"/>
                 <outlet property="pageControl" destination="3Xv-dO-hrH" id="pKn-Op-Gzd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -47,12 +50,18 @@
                             <color key="backgroundColor" red="0.79607843137254897" green="0.98431372549019602" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="DLt-0O-rMl"/>
+                                <constraint firstAttribute="width" constant="313" id="k2R-yZ-Sx0"/>
                             </constraints>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="GET STARTED">
                                 <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                 <color key="baseForegroundColor" systemColor="labelColor"/>
                             </buttonConfiguration>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius_">
+                                    <real key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="actionStart:" destination="-1" eventType="touchUpInside" id="Kiq-yR-Kgq"/>
                             </connections>
@@ -80,11 +89,9 @@
                         </stackView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="VhD-ZH-olZ" firstAttribute="leading" secondItem="FZH-Ii-czE" secondAttribute="leading" constant="40" id="5ax-hu-WaX"/>
                         <constraint firstItem="dUt-6K-b73" firstAttribute="leading" secondItem="FZH-Ii-czE" secondAttribute="leading" constant="40" id="5bs-2n-UcQ"/>
                         <constraint firstItem="3Xv-dO-hrH" firstAttribute="leading" secondItem="FZH-Ii-czE" secondAttribute="leading" constant="40" id="D1a-1a-0Bu"/>
                         <constraint firstItem="VhD-ZH-olZ" firstAttribute="top" secondItem="3Xv-dO-hrH" secondAttribute="bottom" constant="77" id="G4i-3q-dT7"/>
-                        <constraint firstAttribute="trailing" secondItem="VhD-ZH-olZ" secondAttribute="trailing" constant="40" id="Iko-Qb-eVE"/>
                         <constraint firstAttribute="trailing" secondItem="dUt-6K-b73" secondAttribute="trailing" constant="40" id="JiO-kK-IMJ"/>
                         <constraint firstAttribute="trailing" secondItem="3Xv-dO-hrH" secondAttribute="trailing" constant="40" id="bDB-HV-NdR"/>
                         <constraint firstItem="3Xv-dO-hrH" firstAttribute="top" secondItem="dUt-6K-b73" secondAttribute="bottom" constant="173" id="fO9-Kp-8Jv"/>
@@ -93,6 +100,7 @@
                         <constraint firstItem="Jyw-FC-oYy" firstAttribute="leading" secondItem="FZH-Ii-czE" secondAttribute="leading" id="muY-Lq-lyO"/>
                         <constraint firstAttribute="trailing" secondItem="Jyw-FC-oYy" secondAttribute="trailing" id="o7i-dI-jYF"/>
                         <constraint firstItem="Jyw-FC-oYy" firstAttribute="top" secondItem="FZH-Ii-czE" secondAttribute="top" id="wdY-i5-RwS"/>
+                        <constraint firstItem="VhD-ZH-olZ" firstAttribute="centerX" secondItem="FZH-Ii-czE" secondAttribute="centerX" id="zTs-kI-yWa"/>
                     </constraints>
                 </view>
             </subviews>

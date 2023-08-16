@@ -16,6 +16,7 @@ class HomeHeaderView: UIView {
     */
     @IBOutlet weak var lblTitle: UILabel!
     
+    @IBOutlet weak var btnViewAll: UIButton!
     override func draw(_ rect: CGRect) {
         // Drawing code
     }

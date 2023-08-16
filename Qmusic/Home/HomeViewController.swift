@@ -27,6 +27,12 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var lblHeaderTitle2: UILabel!
     
+    public var items = [Item]() {
+        didSet {
+            tbContent.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +46,13 @@ class HomeViewController: UIViewController {
         
         tbContent.delegate = self
         tbContent.dataSource = self
+        
+        self.items = [Item(value: "1", imgAlbums: "albums1", imgAlbumsBG: "albums1"),
+                      Item(value: "2", imgAlbums: "albums2", imgAlbumsBG: "albums2_bg"),
+                      Item(value: "3", imgAlbums: "albums3", imgAlbumsBG: "albums3_bg"),
+                      Item(value: "4", imgAlbums: "albums4", imgAlbumsBG: "albums4_bg"),
+                      Item(value: "5", imgAlbums: "albums5", imgAlbumsBG: "albums5_bg")]
+        
     }
 
 
@@ -61,10 +74,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let sectionHeader = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
         
         let homeHeaderView = HomeHeaderView.instantiate()
+        
         homeHeaderView.lblTitle.text = headerTitles[section]
-        
+        if section != 0 {
+            homeHeaderView.btnViewAll.isHidden = true
+        }
         sectionHeader.addSubview(homeHeaderView)
-        
+        homeHeaderView.layoutAttachAll()
         return sectionHeader
        
     }
@@ -87,15 +103,19 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeWeeklyTableViewCell", for: indexPath)
+            cell.selectionStyle = .none
             return cell
         }
         
         if indexPath.section == 2 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "RecentlyMusicTableViewCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RecentlyMusicTableViewCell", for: indexPath) as! RecentlyMusicTableViewCell
+            cell.popuplate(item: items[indexPath.row])
+            cell.selectionStyle = .none
             return cell
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeAlbumsTableViewCell", for: indexPath)
+        cell.selectionStyle = .none
         return cell
         
     }

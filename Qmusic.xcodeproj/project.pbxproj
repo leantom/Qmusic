@@ -57,6 +57,7 @@
 		F94F99FF2A8A1D4C005FA560 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94F99FD2A8A1D4C005FA560 /* SignUpViewController.swift */; };
 		F965C0FA2A8BDB53000DF320 /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F965C0F82A8BDB53000DF320 /* CarouselCollectionViewCell.swift */; };
 		F965C0FB2A8BDB53000DF320 /* CarouselCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F965C0F92A8BDB53000DF320 /* CarouselCollectionViewCell.xib */; };
+		F96914A32A8C81FD0092B4AD /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = F96914A22A8C81FD0092B4AD /* loading.json */; };
 		F969A76F2A88BFCD00C8CA2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969A76E2A88BFCD00C8CA2F /* AppDelegate.swift */; };
 		F969A7712A88BFCD00C8CA2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969A7702A88BFCD00C8CA2F /* SceneDelegate.swift */; };
 		F969A7732A88BFCD00C8CA2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969A7722A88BFCD00C8CA2F /* ViewController.swift */; };
@@ -179,6 +180,7 @@
 		F94F99FD2A8A1D4C005FA560 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F965C0F82A8BDB53000DF320 /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewCell.swift; sourceTree = "<group>"; };
 		F965C0F92A8BDB53000DF320 /* CarouselCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselCollectionViewCell.xib; sourceTree = "<group>"; };
+		F96914A22A8C81FD0092B4AD /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		F969A76B2A88BFCD00C8CA2F /* Qmusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qmusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F969A76E2A88BFCD00C8CA2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F969A7702A88BFCD00C8CA2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -324,6 +326,14 @@
 			path = Singup;
 			sourceTree = "<group>";
 		};
+		F96914A12A8C81F10092B4AD /* Lotties */ = {
+			isa = PBXGroup;
+			children = (
+				F96914A22A8C81FD0092B4AD /* loading.json */,
+			);
+			path = Lotties;
+			sourceTree = "<group>";
+		};
 		F969A7622A88BFCD00C8CA2F = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +406,7 @@
 		F969A79F2A88C13400C8CA2F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F96914A12A8C81F10092B4AD /* Lotties */,
 				F975A5D52A8B394B00DA41B7 /* CarouselCollectionView */,
 				F94F99F62A8A16C3005FA560 /* Logger.swift */,
 				F94F99F42A8A1673005FA560 /* Constants.swift */,
@@ -458,15 +469,15 @@
 			isa = PBXGroup;
 			children = (
 				F975A5C82A8B391800DA41B7 /* HomeAlbumsTableViewCell.swift */,
-				F975A5FA2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.swift */,
-				F975A5FB2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib */,
 				F975A5C72A8B391800DA41B7 /* HomeAlbumsTableViewCell.xib */,
-				F975A5CB2A8B391800DA41B7 /* HomeViewController.swift */,
 				F975A5E72A8B76AD00DA41B7 /* HomeHeaderView.swift */,
 				F975A5E92A8B76B500DA41B7 /* HomeHeaderView.xib */,
+				F975A5CB2A8B391800DA41B7 /* HomeViewController.swift */,
 				F975A5C92A8B391800DA41B7 /* HomeViewController.xib */,
 				F975A5CA2A8B391800DA41B7 /* HomeWeeklyTableViewCell.swift */,
 				F975A5CC2A8B391800DA41B7 /* HomeWeeklyTableViewCell.xib */,
+				F975A5FA2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.swift */,
+				F975A5FB2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -657,6 +668,7 @@
 				F969A77B2A88BFCE00C8CA2F /* LaunchScreen.storyboard in Resources */,
 				F969A7B82A88C18A00C8CA2F /* Roboto-BlackItalic.ttf in Resources */,
 				F965C0FB2A8BDB53000DF320 /* CarouselCollectionViewCell.xib in Resources */,
+				F96914A32A8C81FD0092B4AD /* loading.json in Resources */,
 				F969A7BA2A88C18A00C8CA2F /* Roboto-Thin.ttf in Resources */,
 				F975A5F52A8B81F100DA41B7 /* ExploreGeezChartTableViewCell.xib in Resources */,
 				F969A7B02A88C18900C8CA2F /* Roboto-Light.ttf in Resources */,

@@ -8,11 +8,16 @@
 import UIKit
 
 class SplashScreenCellCollectionViewCell: UICollectionViewCell {
-
+    var primaryColor: UIColor?
+    
     @IBOutlet weak var imgCell: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func setPrimaryColor(color: UIColor?) {
+        self.primaryColor = color
     }
 
 }

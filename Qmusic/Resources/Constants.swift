@@ -24,6 +24,7 @@ class Constants {
     static let color_Gray_G30             = UIColor(named: "Gray-G30") ?? UIColor(red: 227/255, green: 227/255, blue: 227/255, alpha: 1.0)
     
     static let maximumPhotoSize = 5 * 1024 * 1024
+    static let urlAudio = "https://scd.dlod.link/?expire=1692142297724&p=BcK1r01CnVyJ9odgCrbO2aHI40TBTFoa2XSm4UuqbQI1RbBXyk7BR51IDoIAZMfrwMVVK1S-ThMacWTrv3RyjUksPrV9hPPG6bhWOfHnz0L-mTloTzUNtYF1QKPuIr7xNWRzq9bBYl7_e-LtkA8AViPc1RJ0pLqrHMJg3DaQxKg&s=x6twVV5wx-EA-g2AehgNpFWnoX5Fj0YcsaLLgJy0B_c"
 }
 
 class ConstantsUI {
