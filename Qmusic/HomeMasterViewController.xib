@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +18,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeMasterViewController" customModule="Qmusic" customModuleProvider="target">
             <connections>
+                <outlet property="btnAccount" destination="zpb-yV-BUI" id="S41-QO-nZ6"/>
+                <outlet property="btnExplore" destination="883-YR-moh" id="Ev8-wg-Up7"/>
+                <outlet property="btnHome" destination="TXA-vG-FkS" id="IDa-RS-IAU"/>
+                <outlet property="btnRadio" destination="lpr-eL-rKu" id="DUT-8F-IqP"/>
                 <outlet property="contentView" destination="iqK-ys-wCH" id="ZsJ-sV-Umh"/>
+                <outlet property="heightContraintMusicBar" destination="uvF-EU-pff" id="Ugw-jg-Dd3"/>
+                <outlet property="musicBarContainView" destination="xij-6j-zuT" id="KJw-hC-HUJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -48,8 +54,15 @@
                             </subviews>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iqK-ys-wCH" userLabel="ContainView">
-                            <rect key="frame" x="0.0" y="64" width="393" height="646"/>
+                            <rect key="frame" x="0.0" y="64" width="393" height="575"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xij-6j-zuT" userLabel="Musicbar">
+                            <rect key="frame" x="0.0" y="639" width="393" height="71"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="71" id="uvF-EU-pff"/>
+                            </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vLf-Dz-NjE" userLabel="BottomView">
                             <rect key="frame" x="0.0" y="710" width="393" height="49"/>
@@ -150,16 +163,19 @@
                         </view>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="xij-6j-zuT" firstAttribute="leading" secondItem="0Cz-QZ-Wpg" secondAttribute="leading" id="9Ol-ag-62l"/>
+                        <constraint firstAttribute="trailing" secondItem="xij-6j-zuT" secondAttribute="trailing" id="Aiv-bN-hbj"/>
                         <constraint firstAttribute="bottom" secondItem="vLf-Dz-NjE" secondAttribute="bottom" id="BZC-Hc-rEi"/>
                         <constraint firstItem="dGB-DZ-Hgq" firstAttribute="top" secondItem="0Cz-QZ-Wpg" secondAttribute="top" id="DZA-ae-vxG"/>
                         <constraint firstAttribute="trailing" secondItem="vLf-Dz-NjE" secondAttribute="trailing" id="Etl-cN-oaX"/>
-                        <constraint firstItem="vLf-Dz-NjE" firstAttribute="top" secondItem="iqK-ys-wCH" secondAttribute="bottom" id="WZg-3n-F9A"/>
+                        <constraint firstItem="vLf-Dz-NjE" firstAttribute="top" secondItem="xij-6j-zuT" secondAttribute="bottom" id="Lka-7I-vh1"/>
                         <constraint firstAttribute="trailing" secondItem="dGB-DZ-Hgq" secondAttribute="trailing" id="WjC-ul-mLt"/>
                         <constraint firstItem="iqK-ys-wCH" firstAttribute="leading" secondItem="0Cz-QZ-Wpg" secondAttribute="leading" id="fc1-9e-j1P"/>
                         <constraint firstItem="iqK-ys-wCH" firstAttribute="top" secondItem="0Cz-QZ-Wpg" secondAttribute="top" constant="64" id="h13-xo-iuD"/>
                         <constraint firstItem="dGB-DZ-Hgq" firstAttribute="leading" secondItem="0Cz-QZ-Wpg" secondAttribute="leading" constant="24" id="s0C-PC-kza"/>
                         <constraint firstAttribute="trailing" secondItem="iqK-ys-wCH" secondAttribute="trailing" id="txt-sa-jI1"/>
                         <constraint firstItem="vLf-Dz-NjE" firstAttribute="leading" secondItem="0Cz-QZ-Wpg" secondAttribute="leading" id="vPh-at-w5t"/>
+                        <constraint firstItem="xij-6j-zuT" firstAttribute="top" secondItem="iqK-ys-wCH" secondAttribute="bottom" id="x8c-4Y-icO"/>
                     </constraints>
                 </view>
             </subviews>

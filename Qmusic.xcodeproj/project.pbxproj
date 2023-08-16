@@ -58,6 +58,8 @@
 		F965C0FA2A8BDB53000DF320 /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F965C0F82A8BDB53000DF320 /* CarouselCollectionViewCell.swift */; };
 		F965C0FB2A8BDB53000DF320 /* CarouselCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F965C0F92A8BDB53000DF320 /* CarouselCollectionViewCell.xib */; };
 		F96914A32A8C81FD0092B4AD /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = F96914A22A8C81FD0092B4AD /* loading.json */; };
+		F96914A52A8CD2940092B4AD /* MusicBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96914A42A8CD2940092B4AD /* MusicBarView.swift */; };
+		F96914A72A8CD29F0092B4AD /* MusicBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96914A62A8CD29F0092B4AD /* MusicBarView.xib */; };
 		F969A76F2A88BFCD00C8CA2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969A76E2A88BFCD00C8CA2F /* AppDelegate.swift */; };
 		F969A7712A88BFCD00C8CA2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969A7702A88BFCD00C8CA2F /* SceneDelegate.swift */; };
 		F969A7732A88BFCD00C8CA2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969A7722A88BFCD00C8CA2F /* ViewController.swift */; };
@@ -181,6 +183,8 @@
 		F965C0F82A8BDB53000DF320 /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewCell.swift; sourceTree = "<group>"; };
 		F965C0F92A8BDB53000DF320 /* CarouselCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselCollectionViewCell.xib; sourceTree = "<group>"; };
 		F96914A22A8C81FD0092B4AD /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		F96914A42A8CD2940092B4AD /* MusicBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBarView.swift; sourceTree = "<group>"; };
+		F96914A62A8CD29F0092B4AD /* MusicBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicBarView.xib; sourceTree = "<group>"; };
 		F969A76B2A88BFCD00C8CA2F /* Qmusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qmusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F969A76E2A88BFCD00C8CA2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F969A7702A88BFCD00C8CA2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -334,6 +338,24 @@
 			path = Lotties;
 			sourceTree = "<group>";
 		};
+		F96914A82A8CD2A30092B4AD /* MusicBarView */ = {
+			isa = PBXGroup;
+			children = (
+				F96914A42A8CD2940092B4AD /* MusicBarView.swift */,
+				F96914A62A8CD29F0092B4AD /* MusicBarView.xib */,
+			);
+			path = MusicBarView;
+			sourceTree = "<group>";
+		};
+		F96914A92A8CD3010092B4AD /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				F975A5CB2A8B391800DA41B7 /* HomeViewController.swift */,
+				F975A5C92A8B391800DA41B7 /* HomeViewController.xib */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
 		F969A7622A88BFCD00C8CA2F = {
 			isa = PBXGroup;
 			children = (
@@ -472,12 +494,12 @@
 				F975A5C72A8B391800DA41B7 /* HomeAlbumsTableViewCell.xib */,
 				F975A5E72A8B76AD00DA41B7 /* HomeHeaderView.swift */,
 				F975A5E92A8B76B500DA41B7 /* HomeHeaderView.xib */,
-				F975A5CB2A8B391800DA41B7 /* HomeViewController.swift */,
-				F975A5C92A8B391800DA41B7 /* HomeViewController.xib */,
+				F96914A92A8CD3010092B4AD /* HomeView */,
 				F975A5CA2A8B391800DA41B7 /* HomeWeeklyTableViewCell.swift */,
 				F975A5CC2A8B391800DA41B7 /* HomeWeeklyTableViewCell.xib */,
 				F975A5FA2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.swift */,
 				F975A5FB2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib */,
+				F96914A82A8CD2A30092B4AD /* MusicBarView */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -680,6 +702,7 @@
 				F975A5F72A8B81F100DA41B7 /* ExploreViewController.xib in Resources */,
 				F969A7782A88BFCE00C8CA2F /* Assets.xcassets in Resources */,
 				F969A7B62A88C18A00C8CA2F /* Roboto-Italic.ttf in Resources */,
+				F96914A72A8CD29F0092B4AD /* MusicBarView.xib in Resources */,
 				F975A5D12A8B391800DA41B7 /* HomeViewController.xib in Resources */,
 				F969A7762A88BFCD00C8CA2F /* Main.storyboard in Resources */,
 				F969A7D12A88D95C00C8CA2F /* QTextView.xib in Resources */,
@@ -773,6 +796,7 @@
 				F975A5E62A8B394B00DA41B7 /* CarouselDataSource.swift in Sources */,
 				F975A5FC2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.swift in Sources */,
 				F94F99E12A8A13D5005FA560 /* DateExtensions.swift in Sources */,
+				F96914A52A8CD2940092B4AD /* MusicBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

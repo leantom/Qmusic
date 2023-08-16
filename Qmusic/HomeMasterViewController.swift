@@ -19,6 +19,23 @@ class HomeMasterViewController: UIViewController {
     var exploreVC: ExploreViewController?
     var currentType: TypeMenuBottomHome = .Home
     
+    @IBOutlet weak var btnHome: UIButton!
+    
+    @IBOutlet weak var btnExplore: UIButton!
+    
+    @IBOutlet weak var btnRadio: UIButton!
+    
+    @IBOutlet weak var btnAccount: UIButton!
+    var listBtnHome : [UIButton] = []
+    
+    @IBOutlet weak var heightContraintMusicBar: NSLayoutConstraint!
+    @IBOutlet weak var musicBarContainView: UIView!
+    var musicBar: MusicBarView = {
+        let v = MusicBarView.instantiate()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        return v
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,11 +45,18 @@ class HomeMasterViewController: UIViewController {
             viewHome.frame = contentView.bounds
             contentView.addSubview(viewHome)
         }
-        
+        listBtnHome.append(btnHome)
+        listBtnHome.append(btnExplore)
+        listBtnHome.append(btnRadio)
+        listBtnHome.append(btnAccount)
+        musicBarContainView.addSubview(musicBar)
+        musicBar.layoutAttachAll()
     }
 
     @IBAction func actionHome(_ sender: Any) {
-        
+        listBtnHome.forEach { btn in
+            btn.tintColor = UIColor(hexString: "8D92A3")
+        }
         if currentType == .Home {return}
         
         currentType = .Home
@@ -52,9 +76,12 @@ class HomeMasterViewController: UIViewController {
     }
     
     @IBAction func actionExplore(_ sender: Any) {
+        
         if currentType == .Explore {return}
         currentType = .Explore
-        
+        listBtnHome.forEach { btn in
+            btn.tintColor = UIColor(hexString: "8D92A3")
+        }
         let btn = sender as! UIButton
         btn.tintColor = UIColor(hexString: "CBFB5E")
         if let view = homeVC?.view {
@@ -70,6 +97,9 @@ class HomeMasterViewController: UIViewController {
     
     @IBAction func actionRadio(_ sender: Any) {
         if currentType == .Radio {return}
+        listBtnHome.forEach { btn in
+            btn.tintColor = UIColor(hexString: "8D92A3")
+        }
         currentType = .Radio
         let btn = sender as! UIButton
         btn.tintColor = UIColor(hexString: "CBFB5E")
@@ -77,6 +107,9 @@ class HomeMasterViewController: UIViewController {
     
     @IBAction func actionAccount(_ sender: Any) {
         if currentType == .Account {return}
+        listBtnHome.forEach { btn in
+            btn.tintColor = UIColor(hexString: "8D92A3")
+        }
         currentType = .Account
         let btn = sender as! UIButton
         btn.tintColor = UIColor(hexString: "CBFB5E")
