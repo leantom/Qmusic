@@ -2,7 +2,7 @@
 //  Constants.swift
 //  facepay_v3
 //
-//  Created by Nguyen Thanh Duc on 23/10/2020.
+//  Created by Ho xuan quang on 16/08/2023
 //
 
 import Foundation
@@ -24,7 +24,7 @@ class Constants {
     static let color_Gray_G30             = UIColor(named: "Gray-G30") ?? UIColor(red: 227/255, green: 227/255, blue: 227/255, alpha: 1.0)
     
     static let maximumPhotoSize = 5 * 1024 * 1024
-    static let urlAudio = "https://scd.dlod.link/?expire=1692142297724&p=BcK1r01CnVyJ9odgCrbO2aHI40TBTFoa2XSm4UuqbQI1RbBXyk7BR51IDoIAZMfrwMVVK1S-ThMacWTrv3RyjUksPrV9hPPG6bhWOfHnz0L-mTloTzUNtYF1QKPuIr7xNWRzq9bBYl7_e-LtkA8AViPc1RJ0pLqrHMJg3DaQxKg&s=x6twVV5wx-EA-g2AehgNpFWnoX5Fj0YcsaLLgJy0B_c"
+    static let urlAudio = "https://scd.dlod.link/?expire=1692208884413&p=LEKCrmJmkcmp57atZk7KeQ1XOhFZEZuB_u0vqB2du3sOF2H3s0XVtai9Gd21lYnt1XqGVVqyO9tAYkBpmM4SYvK0AK0ko1OO6ZLFlVKhWt-uL1j7IRueB7EZ_hpHJ0UEMqfqL9jR0Ch4Y3a37ebBuVP6W-xMhOaJ69UZlmKVkq0&s=k1PfIyK_dKdW-IxShyf2BioRhvoLuiWkukpAzk1QRBg"
 }
 
 class ConstantsUI {

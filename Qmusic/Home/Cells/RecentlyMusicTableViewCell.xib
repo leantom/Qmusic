@@ -67,6 +67,9 @@
                                 <state key="normal">
                                     <imageReference key="image" image="ellipsis" catalog="system" symbolScale="large"/>
                                 </state>
+                                <connections>
+                                    <action selector="actionShowDetail:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="TM8-LE-Cl6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.054901960780000002" green="0.043137254899999998" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

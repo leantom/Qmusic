@@ -29,8 +29,8 @@
                                 <constraint firstAttribute="width" constant="43" id="u6i-bK-RVv"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Back to home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkS-2f-TOa">
-                            <rect key="frame" x="80" y="26" width="98" height="19"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Back to home" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkS-2f-TOa">
+                            <rect key="frame" x="80" y="26" width="153" height="19"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -42,6 +42,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="24" height="40"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" image="skip_previous_black"/>
+                                    <connections>
+                                        <action selector="actionPrevious:" destination="iN0-l3-epB" eventType="touchUpInside" id="q4d-F4-UP7"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5r-UP-fcb">
                                     <rect key="frame" x="44" y="0.0" width="40" height="40"/>
@@ -54,22 +57,31 @@
                                     <state key="normal">
                                         <imageReference key="image" image="ic_playing_black" symbolScale="large"/>
                                     </state>
+                                    <connections>
+                                        <action selector="actionPlay:" destination="iN0-l3-epB" eventType="touchUpInside" id="ruj-4B-H1i"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bw6-xn-YaZ">
                                     <rect key="frame" x="104" y="0.0" width="24" height="40"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" image="skip_next_black"/>
+                                    <connections>
+                                        <action selector="actionNext:" destination="iN0-l3-epB" eventType="touchUpInside" id="P3u-pG-5yi"/>
+                                    </connections>
                                 </button>
                             </subviews>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="128" id="Jib-yq-5gg"/>
+                            </constraints>
                         </stackView>
                     </subviews>
                     <color key="backgroundColor" red="0.79607843140000001" green="0.98431372549999996" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
+                        <constraint firstItem="Jma-dQ-RZ9" firstAttribute="leading" secondItem="vkS-2f-TOa" secondAttribute="trailing" constant="8" id="14Q-cw-CZs"/>
                         <constraint firstItem="vkS-2f-TOa" firstAttribute="centerY" secondItem="IkN-Rf-ntZ" secondAttribute="centerY" id="65z-uF-QFN"/>
                         <constraint firstAttribute="trailing" secondItem="Jma-dQ-RZ9" secondAttribute="trailing" constant="24" id="Td0-TH-Sdb"/>
                         <constraint firstItem="Dlz-lW-KbT" firstAttribute="leading" secondItem="IkN-Rf-ntZ" secondAttribute="leading" constant="21" id="WYr-xG-EWJ"/>
                         <constraint firstItem="vkS-2f-TOa" firstAttribute="leading" secondItem="Dlz-lW-KbT" secondAttribute="trailing" constant="16" id="d76-DG-9z1"/>
-                        <constraint firstItem="Jma-dQ-RZ9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vkS-2f-TOa" secondAttribute="trailing" priority="251" constant="19" id="nsq-bs-Fh8"/>
                         <constraint firstItem="Dlz-lW-KbT" firstAttribute="centerY" secondItem="IkN-Rf-ntZ" secondAttribute="centerY" id="sfm-NC-zx3"/>
                         <constraint firstItem="Jma-dQ-RZ9" firstAttribute="centerY" secondItem="IkN-Rf-ntZ" secondAttribute="centerY" id="yKG-qz-5vV"/>
                     </constraints>
@@ -83,6 +95,13 @@
                 <constraint firstItem="IkN-Rf-ntZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="NBe-iE-JvG"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btnNext" destination="Bw6-xn-YaZ" id="0Ln-P3-0Dp"/>
+                <outlet property="btnPlay" destination="R5r-UP-fcb" id="FLe-ey-ydu"/>
+                <outlet property="btnPrevious" destination="A2e-d3-aag" id="T3v-LT-O19"/>
+                <outlet property="imgAlbums" destination="Dlz-lW-KbT" id="C2x-fc-LiZ"/>
+                <outlet property="lblNameSong" destination="vkS-2f-TOa" id="vSq-Qd-nsB"/>
+            </connections>
             <point key="canvasLocation" x="31.297709923664122" y="20.774647887323944"/>
         </view>
     </objects>

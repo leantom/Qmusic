@@ -36,6 +36,7 @@ class SplashScreenViewController: UIViewController {
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var lblDesc: UILabel!
     
+    @IBOutlet weak var pageControlLedingContraint: NSLayoutConstraint!
     @IBOutlet weak var btnStartContraintWidth: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,12 +111,7 @@ extension SplashScreenViewController: UICollectionViewDataSource,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? SplashScreenCellCollectionViewCell else {return UICollectionViewCell()}
         cell.imgCell.image = UIImage(named: listImage[indexPath.row])
-//        if let image = cell.imgCell.image {
-//            let primaryColor = image.getPrimaryColor()
-//            cell.primaryColor = primaryColor
-//            collectionView.backgroundColor = primaryColor
-//
-//        }
+
         return cell
     }
     
@@ -124,10 +120,52 @@ extension SplashScreenViewController: UICollectionViewDataSource,
         print(scrollView.contentOffset)
         if let indexPath = clContent.indexPathForItem(at: scrollView.contentOffset),
            let cell = clContent.cellForItem(at: indexPath) {
+            
             pageControl.currentPage = indexPath.row
             lblTitle.text = titles[indexPath.row]
             lblDesc.text = contents[indexPath.row]
+            
+            if ((indexPath.row % 2) != 0) {
+                animationMoveCenterTitleAndDesc()
+            } else {
+                animationMoveLeadingTitleAndDesc()
+            }
+            
+            
         }
+    }
+    
+    func animationMoveCenterTitleAndDesc() {
+        self.pageControlLedingContraint.constant = 40
+        
+        UIView.transition(with: self.lblTitle, duration: 0.3) {
+            self.lblTitle.textAlignment = .center
+        }
+        UIView.transition(with: self.lblDesc, duration: 0.3) {
+            self.lblDesc.textAlignment = .center
+        }
+        
+        
+        UIView.animate(withDuration: 0.3) {
+            self.pageControl.layoutIfNeeded()
+        }
+        
+    }
+    
+    func animationMoveLeadingTitleAndDesc() {
+        self.pageControlLedingContraint.constant = 0
+        UIView.transition(with: self.lblTitle, duration: 0.3) {
+            self.lblTitle.textAlignment = .left
+        }
+        UIView.transition(with: self.lblDesc, duration: 0.3) {
+            self.lblDesc.textAlignment = .left
+        }
+        
+        UIView.animate(withDuration: 0.3) {
+            
+            self.pageControl.layoutIfNeeded()
+        }
+        
     }
     
     

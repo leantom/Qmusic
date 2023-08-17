@@ -6,6 +6,9 @@
 //
 
 import UIKit
+protocol HomeViewControllerDelegate: AnyObject {
+    func didSelectRecentlySong(indexPath: IndexPath, item: Item)
+}
 
 class HomeViewController: UIViewController {
 
@@ -18,7 +21,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tbContent: UITableView!
     let headerTitles = ["New Albums", "Cyme Weekly", "Recently Music "]
-    
+    weak var delegate: HomeViewControllerDelegate?
+     
     @IBOutlet var header1: UIView!
     
     @IBOutlet weak var lblHeaderTitle1: UILabel!
@@ -47,11 +51,12 @@ class HomeViewController: UIViewController {
         tbContent.delegate = self
         tbContent.dataSource = self
         
-        self.items = [Item(value: "1", imgAlbums: "albums1", imgAlbumsBG: "albums1"),
-                      Item(value: "2", imgAlbums: "albums2", imgAlbumsBG: "albums2_bg"),
-                      Item(value: "3", imgAlbums: "albums3", imgAlbumsBG: "albums3_bg"),
-                      Item(value: "4", imgAlbums: "albums4", imgAlbumsBG: "albums4_bg"),
-                      Item(value: "5", imgAlbums: "albums5", imgAlbumsBG: "albums5_bg")]
+        self.items = [Item(value: "1", imgAlbums: "albums1", imgAlbumsBG: "albums1", artist: "Thuỳ Chi", nameSong: "Xe đạp"),
+                      Item(value: "2", imgAlbums: "albums2", imgAlbumsBG: "albums2_bg", artist: "Quốc Thiên", nameSong: "Nắng ấm xa dần"),
+                      Item(value: "3", imgAlbums: "albums3", imgAlbumsBG: "albums3_bg", artist: "Sơn Tùng MTP", nameSong: "Người ấy không phải là lựa chọn của em"),
+                      Item(value: "4", imgAlbums: "albums4", imgAlbumsBG: "albums4_bg", artist: "Thanh hà", nameSong: "Sức mạnh của gió"),
+                      Item(value: "5", imgAlbums: "albums5", imgAlbumsBG: "albums5_bg", artist: "Thuỷ Tiên", nameSong: "Ngôi nhà hoa hồng")]
+        
         
     }
 
@@ -110,6 +115,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "RecentlyMusicTableViewCell", for: indexPath) as! RecentlyMusicTableViewCell
             cell.popuplate(item: items[indexPath.row])
+            cell.delegate = self
             cell.selectionStyle = .none
             return cell
         }
@@ -119,6 +125,37 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let delegate = self.delegate {
+            delegate.didSelectRecentlySong(indexPath: indexPath, item: items[indexPath.row])
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+    
+}
+
+extension HomeViewController: RecentlyMusicTableViewCellDelegate {
+    func didSelectShowDetail(cell: RecentlyMusicTableViewCell) {
+        if let fromIndex = tbContent.indexPath(for: cell)
+            {
+            let firstIndex = IndexPath(row: 0, section: fromIndex.section)
+            self.move(from: fromIndex, to: firstIndex)
+        }
+    }
+    
+    func move(from: IndexPath, to: IndexPath) {
+        UIView.animate(withDuration: 0.3, animations: {
+                self.tbContent.moveRow(at: from, to: to)
+            }) { (true) in
+                // write here code to remove score from array at position "at" and insert at position "to" and after reloadData()
+            }
+        }
     
     
 }

@@ -60,6 +60,16 @@
 		F96914A32A8C81FD0092B4AD /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = F96914A22A8C81FD0092B4AD /* loading.json */; };
 		F96914A52A8CD2940092B4AD /* MusicBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96914A42A8CD2940092B4AD /* MusicBarView.swift */; };
 		F96914A72A8CD29F0092B4AD /* MusicBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96914A62A8CD29F0092B4AD /* MusicBarView.xib */; };
+		F96914AC2A8D155B0092B4AD /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96914AA2A8D155B0092B4AD /* RadioViewController.swift */; };
+		F96914AD2A8D155B0092B4AD /* RadioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96914AB2A8D155B0092B4AD /* RadioViewController.xib */; };
+		F96914B22A8D15AE0092B4AD /* RadioWeeklyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96914B02A8D15AE0092B4AD /* RadioWeeklyTableViewCell.swift */; };
+		F96914B32A8D15AE0092B4AD /* RadioWeeklyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96914B12A8D15AE0092B4AD /* RadioWeeklyTableViewCell.xib */; };
+		F96914B62A8D15C00092B4AD /* RadioPopularTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96914B42A8D15C00092B4AD /* RadioPopularTableViewCell.swift */; };
+		F96914B72A8D15C00092B4AD /* RadioPopularTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96914B52A8D15C00092B4AD /* RadioPopularTableViewCell.xib */; };
+		F96914B92A8D17060092B4AD /* HeaderRadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96914B82A8D17060092B4AD /* HeaderRadioView.swift */; };
+		F96914BB2A8D170A0092B4AD /* HeaderRadioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96914BA2A8D170A0092B4AD /* HeaderRadioView.xib */; };
+		F96914BF2A8D1A7F0092B4AD /* RadioWeeklyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96914BD2A8D1A7F0092B4AD /* RadioWeeklyCollectionViewCell.swift */; };
+		F96914C02A8D1A7F0092B4AD /* RadioWeeklyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96914BE2A8D1A7F0092B4AD /* RadioWeeklyCollectionViewCell.xib */; };
 		F969A76F2A88BFCD00C8CA2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969A76E2A88BFCD00C8CA2F /* AppDelegate.swift */; };
 		F969A7712A88BFCD00C8CA2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969A7702A88BFCD00C8CA2F /* SceneDelegate.swift */; };
 		F969A7732A88BFCD00C8CA2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969A7722A88BFCD00C8CA2F /* ViewController.swift */; };
@@ -189,6 +199,16 @@
 		F96914A22A8C81FD0092B4AD /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		F96914A42A8CD2940092B4AD /* MusicBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBarView.swift; sourceTree = "<group>"; };
 		F96914A62A8CD29F0092B4AD /* MusicBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicBarView.xib; sourceTree = "<group>"; };
+		F96914AA2A8D155B0092B4AD /* RadioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
+		F96914AB2A8D155B0092B4AD /* RadioViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioViewController.xib; sourceTree = "<group>"; };
+		F96914B02A8D15AE0092B4AD /* RadioWeeklyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioWeeklyTableViewCell.swift; sourceTree = "<group>"; };
+		F96914B12A8D15AE0092B4AD /* RadioWeeklyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioWeeklyTableViewCell.xib; sourceTree = "<group>"; };
+		F96914B42A8D15C00092B4AD /* RadioPopularTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPopularTableViewCell.swift; sourceTree = "<group>"; };
+		F96914B52A8D15C00092B4AD /* RadioPopularTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioPopularTableViewCell.xib; sourceTree = "<group>"; };
+		F96914B82A8D17060092B4AD /* HeaderRadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderRadioView.swift; sourceTree = "<group>"; };
+		F96914BA2A8D170A0092B4AD /* HeaderRadioView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderRadioView.xib; sourceTree = "<group>"; };
+		F96914BD2A8D1A7F0092B4AD /* RadioWeeklyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioWeeklyCollectionViewCell.swift; sourceTree = "<group>"; };
+		F96914BE2A8D1A7F0092B4AD /* RadioWeeklyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioWeeklyCollectionViewCell.xib; sourceTree = "<group>"; };
 		F969A76B2A88BFCD00C8CA2F /* Qmusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qmusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F969A76E2A88BFCD00C8CA2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F969A7702A88BFCD00C8CA2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -364,6 +384,46 @@
 			path = HomeView;
 			sourceTree = "<group>";
 		};
+		F96914AE2A8D155E0092B4AD /* Radio */ = {
+			isa = PBXGroup;
+			children = (
+				F96914AF2A8D15930092B4AD /* Cell */,
+				F96914AA2A8D155B0092B4AD /* RadioViewController.swift */,
+				F96914AB2A8D155B0092B4AD /* RadioViewController.xib */,
+			);
+			path = Radio;
+			sourceTree = "<group>";
+		};
+		F96914AF2A8D15930092B4AD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F96914B82A8D17060092B4AD /* HeaderRadioView.swift */,
+				F96914BA2A8D170A0092B4AD /* HeaderRadioView.xib */,
+				F96914B42A8D15C00092B4AD /* RadioPopularTableViewCell.swift */,
+				F96914B52A8D15C00092B4AD /* RadioPopularTableViewCell.xib */,
+				F96914BD2A8D1A7F0092B4AD /* RadioWeeklyCollectionViewCell.swift */,
+				F96914BE2A8D1A7F0092B4AD /* RadioWeeklyCollectionViewCell.xib */,
+				F96914B02A8D15AE0092B4AD /* RadioWeeklyTableViewCell.swift */,
+				F96914B12A8D15AE0092B4AD /* RadioWeeklyTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		F96914BC2A8D17E90092B4AD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F975A5C82A8B391800DA41B7 /* HomeAlbumsTableViewCell.swift */,
+				F975A5C72A8B391800DA41B7 /* HomeAlbumsTableViewCell.xib */,
+				F975A5E72A8B76AD00DA41B7 /* HomeHeaderView.swift */,
+				F975A5E92A8B76B500DA41B7 /* HomeHeaderView.xib */,
+				F975A5CA2A8B391800DA41B7 /* HomeWeeklyTableViewCell.swift */,
+				F975A5CC2A8B391800DA41B7 /* HomeWeeklyTableViewCell.xib */,
+				F975A5FA2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.swift */,
+				F975A5FB2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		F969A7622A88BFCD00C8CA2F = {
 			isa = PBXGroup;
 			children = (
@@ -397,6 +457,7 @@
 				F969A7CD2A88D92300C8CA2F /* Login */,
 				F94F99FB2A8A1D4C005FA560 /* Singup */,
 				F969A7702A88BFCD00C8CA2F /* SceneDelegate.swift */,
+				F96914AE2A8D155E0092B4AD /* Radio */,
 				F969A7722A88BFCD00C8CA2F /* ViewController.swift */,
 				F969A7C02A88C4A000C8CA2F /* SplashScreenViewController */,
 				F969A7742A88BFCD00C8CA2F /* Main.storyboard */,
@@ -498,15 +559,8 @@
 		F975A5C62A8B391800DA41B7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F975A5C82A8B391800DA41B7 /* HomeAlbumsTableViewCell.swift */,
-				F975A5C72A8B391800DA41B7 /* HomeAlbumsTableViewCell.xib */,
-				F975A5E72A8B76AD00DA41B7 /* HomeHeaderView.swift */,
-				F975A5E92A8B76B500DA41B7 /* HomeHeaderView.xib */,
+				F96914BC2A8D17E90092B4AD /* Cells */,
 				F96914A92A8CD3010092B4AD /* HomeView */,
-				F975A5CA2A8B391800DA41B7 /* HomeWeeklyTableViewCell.swift */,
-				F975A5CC2A8B391800DA41B7 /* HomeWeeklyTableViewCell.xib */,
-				F975A5FA2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.swift */,
-				F975A5FB2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib */,
 				F96914A82A8CD2A30092B4AD /* MusicBarView */,
 			);
 			path = Home;
@@ -689,13 +743,17 @@
 				F94F99FE2A8A1D4C005FA560 /* SignUpViewController.xib in Resources */,
 				F975A5D42A8B391800DA41B7 /* HomeWeeklyTableViewCell.xib in Resources */,
 				F969A7B42A88C18A00C8CA2F /* Roboto-BoldItalic.ttf in Resources */,
+				F96914B72A8D15C00092B4AD /* RadioPopularTableViewCell.xib in Resources */,
+				F96914C02A8D1A7F0092B4AD /* RadioWeeklyCollectionViewCell.xib in Resources */,
 				F975A5EA2A8B76B500DA41B7 /* HomeHeaderView.xib in Resources */,
+				F96914BB2A8D170A0092B4AD /* HeaderRadioView.xib in Resources */,
 				F975A5CF2A8B391800DA41B7 /* HomeAlbumsTableViewCell.xib in Resources */,
 				F969A7CB2A88D91900C8CA2F /* LoginViewController.xib in Resources */,
 				F969A7B12A88C18900C8CA2F /* Roboto-Regular.ttf in Resources */,
 				F969A7B52A88C18A00C8CA2F /* Roboto-LightItalic.ttf in Resources */,
 				F94F99F32A8A15DE005FA560 /* Colors.xcassets in Resources */,
 				F969A7C72A88CF4B00C8CA2F /* SplashScreenCellCollectionViewCell.xib in Resources */,
+				F96914B32A8D15AE0092B4AD /* RadioWeeklyTableViewCell.xib in Resources */,
 				FAD34CC12A8CB886007FE90D /* ExploreGeezChartHeaderTableView.xib in Resources */,
 				F975A5F82A8B81F100DA41B7 /* Explore_GeezChartSubView.xib in Resources */,
 				F975A5CE2A8B391800DA41B7 /* HomeMasterViewController.xib in Resources */,
@@ -711,6 +769,7 @@
 				FAD34CC72A8CC319007FE90D /* ExploreTopTrendingTableViewCell.xib in Resources */,
 				F969A7B32A88C18A00C8CA2F /* Roboto-ThinItalic.ttf in Resources */,
 				F969A7BB2A88C18A00C8CA2F /* Roboto-Black.ttf in Resources */,
+				F96914AD2A8D155B0092B4AD /* RadioViewController.xib in Resources */,
 				F969A7B22A88C18900C8CA2F /* Roboto-MediumItalic.ttf in Resources */,
 				F975A5FD2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib in Resources */,
 				F975A5F72A8B81F100DA41B7 /* ExploreViewController.xib in Resources */,
@@ -764,10 +823,12 @@
 				F969A7CA2A88D91900C8CA2F /* LoginViewController.swift in Sources */,
 				F94F99CD2A8A13D5005FA560 /* WEExtensions+UIViewController.swift in Sources */,
 				F94F99E52A8A13D5005FA560 /* WEExtensions+CIImage.swift in Sources */,
+				F96914B92A8D17060092B4AD /* HeaderRadioView.swift in Sources */,
 				F94F99DD2A8A13D5005FA560 /* WEExtensions+Object.swift in Sources */,
 				F969A7732A88BFCD00C8CA2F /* ViewController.swift in Sources */,
 				F969A76F2A88BFCD00C8CA2F /* AppDelegate.swift in Sources */,
 				F94F99E62A8A13D5005FA560 /* WEExtensions+UIApplication.swift in Sources */,
+				F96914BF2A8D1A7F0092B4AD /* RadioWeeklyCollectionViewCell.swift in Sources */,
 				F969A7BE2A88C49A00C8CA2F /* SplashScreenViewController.swift in Sources */,
 				F975A5F92A8B81F100DA41B7 /* Explore_GeezChartSubView.swift in Sources */,
 				F94F99C92A8A13D5005FA560 /* WEExtensions+GradientView.swift in Sources */,
@@ -780,6 +841,8 @@
 				F969A7CF2A88D95400C8CA2F /* QTextView.swift in Sources */,
 				F94F99F72A8A16C3005FA560 /* Logger.swift in Sources */,
 				F94F99C82A8A13D5005FA560 /* WEExtentions+UIColor.swift in Sources */,
+				F96914AC2A8D155B0092B4AD /* RadioViewController.swift in Sources */,
+				F96914B22A8D15AE0092B4AD /* RadioWeeklyTableViewCell.swift in Sources */,
 				F969A7712A88BFCD00C8CA2F /* SceneDelegate.swift in Sources */,
 				F94F99DC2A8A13D5005FA560 /* WEExtensions+UITextFiled.swift in Sources */,
 				F94F99D22A8A13D5005FA560 /* WEExtensions+Calendar.swift in Sources */,
@@ -797,6 +860,7 @@
 				F94F99CB2A8A13D5005FA560 /* WEExtensions+UITapGestureRecognizer.swift in Sources */,
 				F94F99FF2A8A1D4C005FA560 /* SignUpViewController.swift in Sources */,
 				F975A5D32A8B391800DA41B7 /* HomeViewController.swift in Sources */,
+				F96914B62A8D15C00092B4AD /* RadioPopularTableViewCell.swift in Sources */,
 				F975A5E52A8B394B00DA41B7 /* CarouselFlowLayout.swift in Sources */,
 				F94F99CA2A8A13D5005FA560 /* WEExtensions+UITextView.swift in Sources */,
 				F94F99D92A8A13D5005FA560 /* WEExtensions+MDCFilledTextField.swift in Sources */,

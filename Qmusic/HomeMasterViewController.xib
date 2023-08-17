@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -23,6 +24,8 @@
                 <outlet property="btnRadio" destination="lpr-eL-rKu" id="DUT-8F-IqP"/>
                 <outlet property="contentView" destination="iqK-ys-wCH" id="ZsJ-sV-Umh"/>
                 <outlet property="heightContraintMusicBar" destination="uvF-EU-pff" id="Ugw-jg-Dd3"/>
+                <outlet property="lblTitle" destination="qSs-wA-fGP" id="xYs-lQ-D1O"/>
+                <outlet property="mainView" destination="0Cz-QZ-Wpg" id="ehD-6I-05y"/>
                 <outlet property="musicBarContainView" destination="xij-6j-zuT" id="KJw-hC-HUJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -56,7 +59,7 @@
                             <rect key="frame" x="0.0" y="64" width="393" height="575"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xij-6j-zuT" userLabel="Musicbar">
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xij-6j-zuT" userLabel="Musicbar">
                             <rect key="frame" x="0.0" y="639" width="393" height="71"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
@@ -121,7 +124,7 @@
                                                         <action selector="actionRadio:" destination="-1" eventType="touchUpInside" id="9gX-Al-ehf"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlo-bk-98S">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Podcast" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlo-bk-98S">
                                                     <rect key="frame" x="0.0" y="37" width="98" height="12"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -195,5 +198,8 @@
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="pin" catalog="system" width="116" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

@@ -10,6 +10,8 @@ struct Item {
     var value: String = ""
     var imgAlbums: String = ""
     var imgAlbumsBG: String = ""
+    var artist: String = ""
+    var nameSong: String = ""
 }
 
 
@@ -32,11 +34,11 @@ class HomeWeeklyTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         carouselView.register(UINib(nibName: "CarouselCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CarouselCollectionViewCell")
-        self.items = [Item(value: "1", imgAlbums: "albums1", imgAlbumsBG: "albums1"),
-                      Item(value: "2", imgAlbums: "albums2", imgAlbumsBG: "albums2_bg"),
-                      Item(value: "3", imgAlbums: "albums3", imgAlbumsBG: "albums3_bg"),
-                      Item(value: "4", imgAlbums: "albums4", imgAlbumsBG: "albums4_bg"),
-                      Item(value: "5", imgAlbums: "albums5", imgAlbumsBG: "albums5_bg")]
+        self.items = [Item(value: "1", imgAlbums: "albums1", imgAlbumsBG: "albums1", artist: "Thuỳ Chi", nameSong: "Xe đạp"),
+                      Item(value: "2", imgAlbums: "albums2", imgAlbumsBG: "albums2_bg", artist: "Quốc Thiên", nameSong: "Nắng ấm xa dần"),
+                      Item(value: "3", imgAlbums: "albums3", imgAlbumsBG: "albums3_bg", artist: "Sơn Tùng MTP", nameSong: "Người ấy không phải là lựa chọn của em"),
+                      Item(value: "4", imgAlbums: "albums4", imgAlbumsBG: "albums4_bg", artist: "Thanh hà", nameSong: "Sức mạnh của gió"),
+                      Item(value: "5", imgAlbums: "albums5", imgAlbumsBG: "albums5_bg", artist: "Thuỷ Tiên", nameSong: "Ngôi nhà hoa hồng")]
     }
     
     // MARK: - Userdefined methods

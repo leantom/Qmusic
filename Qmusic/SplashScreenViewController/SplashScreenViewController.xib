@@ -25,6 +25,7 @@
                 <outlet property="lblTitle" destination="cN9-tw-7iZ" id="32z-gR-eOu"/>
                 <outlet property="mainView" destination="FZH-Ii-czE" id="J7n-HV-b3z"/>
                 <outlet property="pageControl" destination="3Xv-dO-hrH" id="pKn-Op-Gzd"/>
+                <outlet property="pageControlLedingContraint" destination="D1a-1a-0Bu" id="Cfr-6u-6JM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -45,6 +46,23 @@
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </collectionViewFlowLayout>
                         </collectionView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dUt-6K-b73">
+                            <rect key="frame" x="40" y="492.33333333333331" width="313" height="108.66666666666669"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME TO CYME APP" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cN9-tw-7iZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="313" height="65.666666666666671"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="28"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tune In to Your World - CYME Puts Your Favorite Music at Your Fingertips." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htA-Wj-19u">
+                                    <rect key="frame" x="0.0" y="75.666666666666686" width="313" height="33"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VhD-ZH-olZ">
                             <rect key="frame" x="40" y="762" width="313" height="40"/>
                             <color key="backgroundColor" red="0.79607843137254897" green="0.98431372549019602" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
@@ -66,35 +84,17 @@
                                 <action selector="actionStart:" destination="-1" eventType="touchUpInside" id="Kiq-yR-Kgq"/>
                             </connections>
                         </button>
-                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="3Xv-dO-hrH">
-                            <rect key="frame" x="40" y="659" width="313" height="26"/>
+                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="3Xv-dO-hrH">
+                            <rect key="frame" x="0.0" y="622" width="133.66666666666666" height="26"/>
                             <color key="currentPageIndicatorTintColor" red="0.79607843140000001" green="0.98431372549999996" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                         </pageControl>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dUt-6K-b73">
-                            <rect key="frame" x="40" y="377.33333333333331" width="313" height="108.66666666666669"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME TO CYME APP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cN9-tw-7iZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="313" height="65.666666666666671"/>
-                                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="28"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tune In to Your World - CYME Puts Your Favorite Music at Your Fingertips." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htA-Wj-19u">
-                                    <rect key="frame" x="0.0" y="75.666666666666686" width="313" height="33"/>
-                                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                        </stackView>
                     </subviews>
                     <constraints>
                         <constraint firstItem="dUt-6K-b73" firstAttribute="leading" secondItem="FZH-Ii-czE" secondAttribute="leading" constant="40" id="5bs-2n-UcQ"/>
-                        <constraint firstItem="3Xv-dO-hrH" firstAttribute="leading" secondItem="FZH-Ii-czE" secondAttribute="leading" constant="40" id="D1a-1a-0Bu"/>
-                        <constraint firstItem="VhD-ZH-olZ" firstAttribute="top" secondItem="3Xv-dO-hrH" secondAttribute="bottom" constant="77" id="G4i-3q-dT7"/>
+                        <constraint firstItem="3Xv-dO-hrH" firstAttribute="leading" secondItem="FZH-Ii-czE" secondAttribute="leading" id="D1a-1a-0Bu"/>
+                        <constraint firstItem="VhD-ZH-olZ" firstAttribute="top" secondItem="3Xv-dO-hrH" secondAttribute="bottom" constant="114" id="G4i-3q-dT7"/>
                         <constraint firstAttribute="trailing" secondItem="dUt-6K-b73" secondAttribute="trailing" constant="40" id="JiO-kK-IMJ"/>
-                        <constraint firstAttribute="trailing" secondItem="3Xv-dO-hrH" secondAttribute="trailing" constant="40" id="bDB-HV-NdR"/>
-                        <constraint firstItem="3Xv-dO-hrH" firstAttribute="top" secondItem="dUt-6K-b73" secondAttribute="bottom" constant="173" id="fO9-Kp-8Jv"/>
+                        <constraint firstItem="3Xv-dO-hrH" firstAttribute="top" secondItem="dUt-6K-b73" secondAttribute="bottom" constant="21" id="fO9-Kp-8Jv"/>
                         <constraint firstAttribute="bottom" secondItem="VhD-ZH-olZ" secondAttribute="bottom" constant="50" id="kKn-gY-nuM"/>
                         <constraint firstAttribute="bottom" secondItem="Jyw-FC-oYy" secondAttribute="bottom" id="ki3-qU-pdh"/>
                         <constraint firstItem="Jyw-FC-oYy" firstAttribute="leading" secondItem="FZH-Ii-czE" secondAttribute="leading" id="muY-Lq-lyO"/>
