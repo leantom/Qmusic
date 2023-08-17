@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -19,6 +19,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Qmusic" customModuleProvider="target">
             <connections>
+                <outlet property="btnApple" destination="XEu-xJ-tIa" id="4Tc-k7-Uan"/>
+                <outlet property="btnFacebook" destination="Zm9-ax-6DS" id="b8H-2h-HcL"/>
+                <outlet property="btnGoogle" destination="93j-q6-ac0" id="fnL-Bo-l5A"/>
+                <outlet property="mainView" destination="3pd-E6-5eM" id="1Qx-de-2Y7"/>
                 <outlet property="tfEmail" destination="tU9-rc-bzz" id="GGq-hN-nEJ"/>
                 <outlet property="tfPassword" destination="g75-5F-Y6v" id="hWT-hC-gSM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -189,6 +193,9 @@
                                             <state key="normal" image="icons8-facebook">
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                             </state>
+                                            <connections>
+                                                <action selector="actionLoginWithFacebook:" destination="-1" eventType="touchUpInside" id="ckD-FM-w7A"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93j-q6-ac0">
                                             <rect key="frame" x="61.999999999999986" y="0.0" width="50" height="50"/>
@@ -196,6 +203,9 @@
                                             <state key="normal" image="icons8-google">
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                             </state>
+                                            <connections>
+                                                <action selector="actionLoginWithGoogle:" destination="-1" eventType="touchUpInside" id="g21-CR-Mtk"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEu-xJ-tIa">
                                             <rect key="frame" x="124" y="0.0" width="50" height="50"/>
@@ -204,6 +214,9 @@
                                             <state key="normal">
                                                 <imageReference key="image" image="icons8-apple-logo-50()" symbolScale="large"/>
                                             </state>
+                                            <connections>
+                                                <action selector="actionLoginWithApple:" destination="-1" eventType="touchUpInside" id="hfr-jf-gc4"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>

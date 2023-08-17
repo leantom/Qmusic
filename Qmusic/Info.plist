@@ -2,6 +2,26 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb983633879456184</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>983633879456184</string>
+	<key>FacebookClientToken</key>
+	<string>9879cf151d7d885a5d0e98d31b80f756</string>
+	<key>FacebookDisplayName</key>
+	<string>Cyme</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -26,5 +46,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>FacebookAutoLogAppEventsEnabled</key>
+	<true/>
 </dict>
 </plist>

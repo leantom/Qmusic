@@ -47,10 +47,7 @@ class SplashScreenViewController: UIViewController {
     }
 
     @IBAction func actionStart(_ sender: Any) {
-//        let vc = LoginViewController(nibName: "LoginViewController", bundle: nil)
-//        self.navigationController?.pushViewController(vc, animated: true)
-//
-  // transform sender
+        // MARK: -- start transform sender
         self.btnStartContraintWidth.constant = 50
         self.btnStart.titleLabel?.alpha = 0
         UIView.animate(withDuration: 0.3, animations: {
@@ -60,8 +57,10 @@ class SplashScreenViewController: UIViewController {
             if finished {
                 self.mainView.addLoadingLotties(frame: self.btnStart.frame, name: "loading")
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    let vc = HomeMasterViewController(nibName: "HomeMasterViewController", bundle: nil)
-                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                            let vc = LoginViewController(nibName: "LoginViewController", bundle: nil)
+                            self.navigationController?.pushViewController(vc, animated: true)
+
                 }
             }
             

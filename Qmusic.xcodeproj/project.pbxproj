@@ -55,6 +55,8 @@
 		F94F99FA2A8A1B62005FA560 /* TPKeyboardAvoiding in Frameworks */ = {isa = PBXBuildFile; productRef = F94F99F92A8A1B62005FA560 /* TPKeyboardAvoiding */; };
 		F94F99FE2A8A1D4C005FA560 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F94F99FC2A8A1D4C005FA560 /* SignUpViewController.xib */; };
 		F94F99FF2A8A1D4C005FA560 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94F99FD2A8A1D4C005FA560 /* SignUpViewController.swift */; };
+		F96167042A8DD11D00392860 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = F96167032A8DD11D00392860 /* FacebookCore */; };
+		F96167062A8DD11D00392860 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = F96167052A8DD11D00392860 /* FacebookLogin */; };
 		F965C0FA2A8BDB53000DF320 /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F965C0F82A8BDB53000DF320 /* CarouselCollectionViewCell.swift */; };
 		F965C0FB2A8BDB53000DF320 /* CarouselCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F965C0F92A8BDB53000DF320 /* CarouselCollectionViewCell.xib */; };
 		F96914A32A8C81FD0092B4AD /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = F96914A22A8C81FD0092B4AD /* loading.json */; };
@@ -279,6 +281,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F94F99FA2A8A1B62005FA560 /* TPKeyboardAvoiding in Frameworks */,
+				F96167042A8DD11D00392860 /* FacebookCore in Frameworks */,
+				F96167062A8DD11D00392860 /* FacebookLogin in Frameworks */,
 				F94F99EA2A8A1466005FA560 /* Kingfisher in Frameworks */,
 				F969A7C32A88CCBF00C8CA2F /* CHIPageControl in Frameworks */,
 				F94F99ED2A8A14C7005FA560 /* Lottie in Frameworks */,
@@ -643,6 +647,8 @@
 				F94F99E92A8A1466005FA560 /* Kingfisher */,
 				F94F99EC2A8A14C7005FA560 /* Lottie */,
 				F94F99F92A8A1B62005FA560 /* TPKeyboardAvoiding */,
+				F96167032A8DD11D00392860 /* FacebookCore */,
+				F96167052A8DD11D00392860 /* FacebookLogin */,
 			);
 			productName = Qmusic;
 			productReference = F969A76B2A88BFCD00C8CA2F /* Qmusic.app */;
@@ -721,6 +727,7 @@
 				F94F99E82A8A1466005FA560 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				F94F99EB2A8A14C7005FA560 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				F94F99F82A8A1B62005FA560 /* XCRemoteSwiftPackageReference "TPKeyboardAvoiding" */,
+				F96167022A8DD11D00392860 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = F969A76C2A88BFCD00C8CA2F /* Products */;
 			projectDirPath = "";
@@ -1066,7 +1073,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = vn.wee.Qmusic;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.wee.cyme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1097,7 +1104,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = vn.wee.Qmusic;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.wee.cyme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1250,6 +1257,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		F96167022A8DD11D00392860 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.0.0;
+			};
+		};
 		F969A7C12A88CCBF00C8CA2F /* XCRemoteSwiftPackageReference "CHIPageControl" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ChiliLabs/CHIPageControl";
@@ -1275,6 +1290,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F94F99F82A8A1B62005FA560 /* XCRemoteSwiftPackageReference "TPKeyboardAvoiding" */;
 			productName = TPKeyboardAvoiding;
+		};
+		F96167032A8DD11D00392860 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F96167022A8DD11D00392860 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		F96167052A8DD11D00392860 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F96167022A8DD11D00392860 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
 		};
 		F969A7C22A88CCBF00C8CA2F /* CHIPageControl */ = {
 			isa = XCSwiftPackageProductDependency;

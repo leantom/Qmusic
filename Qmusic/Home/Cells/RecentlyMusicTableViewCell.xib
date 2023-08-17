@@ -44,16 +44,16 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cai-Dc-i9D">
-                                <rect key="frame" x="130.33333333333334" y="11" width="83.333333333333343" height="41"/>
+                                <rect key="frame" x="130.33333333333334" y="11" width="136.00000000000003" height="41"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice For Wha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wq9-8d-8tw">
-                                        <rect key="frame" x="0.0" y="0.0" width="83.333333333333329" height="16.666666666666668"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice For Wha Nice For Wha Nice For Wha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wq9-8d-8tw">
+                                        <rect key="frame" x="0.0" y="0.0" width="136" height="16.666666666666668"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avinci John" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5t-1k-wx8">
-                                        <rect key="frame" x="0.0" y="26.666666666666661" width="83.333333333333329" height="14.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="26.666666666666661" width="136" height="14.333333333333332"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -82,6 +82,7 @@
                             <constraint firstItem="akM-Kj-Mim" firstAttribute="centerY" secondItem="KOS-1E-Ma5" secondAttribute="centerY" id="MdH-WK-ERb"/>
                             <constraint firstItem="akM-Kj-Mim" firstAttribute="leading" secondItem="KOS-1E-Ma5" secondAttribute="leading" constant="24" id="SX9-sO-h3E"/>
                             <constraint firstAttribute="bottom" secondItem="tsJ-2x-RzE" secondAttribute="bottom" id="dRw-0s-bEe"/>
+                            <constraint firstItem="kJZ-Fm-C15" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cai-Dc-i9D" secondAttribute="trailing" constant="6" id="t8I-sU-qlz"/>
                             <constraint firstItem="cai-Dc-i9D" firstAttribute="centerY" secondItem="KOS-1E-Ma5" secondAttribute="centerY" id="vfQ-Ri-mRz"/>
                         </constraints>
                     </view>
