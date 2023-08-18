@@ -7,6 +7,7 @@
 
 import UIKit
 import FacebookLogin
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
 
@@ -90,6 +91,16 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func actionLoginWithGoogle(_ sender: Any) {
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) {result, error in
+            guard let result = result else {
+                // Inspect error
+                return
+            }
+            
+            // go main content view
+            let vc = HomeMasterViewController(nibName: "HomeMasterViewController", bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @IBAction func actionLoginWithApple(_ sender: Any) {

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>156921698255-3ho0q6pmtm83ct19oisarn6i2op53ko5.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.156921698255-3ho0q6pmtm83ct19oisarn6i2op53ko5</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDra_1FAOt-Rps8JWdyF6FSUWAZXhkThvM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>156921698255</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>vn.wee.cyme</string>
+	<key>PROJECT_ID</key>
+	<string>cyme-fda4e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cyme-fda4e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:156921698255:ios:805f1548bfed162ea2e4ba</string>
+</dict>
+</plist>

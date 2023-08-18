@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "photo-1587714656374-fb3c9c3a4977.png",
+      "filename" : "ic_album_white.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "ic_album_white@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "ic_album_white@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

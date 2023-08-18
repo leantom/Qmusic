@@ -18,6 +18,7 @@ class HomeMasterViewController: UIViewController {
     var homeVC : HomeViewController?
     var exploreVC: ExploreViewController?
     var radioVC: RadioViewController?
+    var accountVC: AccountViewController?
     
     var currentType: TypeMenuBottomHome = .Home
     
@@ -31,6 +32,7 @@ class HomeMasterViewController: UIViewController {
     @IBOutlet weak var btnAccount: UIButton!
     var listBtnHome : [UIButton] = []
     
+    @IBOutlet weak var bottomContraintContainView: NSLayoutConstraint!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var heightContraintMusicBar: NSLayoutConstraint!
     @IBOutlet weak var musicBarContainView: UIView!
@@ -45,12 +47,21 @@ class HomeMasterViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
-        
+        self.addChild(homeVC!)
         exploreVC = ExploreViewController(nibName: "ExploreViewController", bundle: nil)
-        
+        self.addChild(exploreVC!)
         radioVC = RadioViewController(nibName: "RadioViewController", bundle: nil)
+        self.addChild(radioVC!)
+        accountVC = AccountViewController(nibName: "AccountViewController", bundle: nil)
+        self.addChild(accountVC!)
         
         homeVC?.delegate = self
+        
+        if let viewHome = accountVC?.view {
+            viewHome.frame = contentView.bounds
+            contentView.addSubview(viewHome)
+            viewHome.layoutAttachAll()
+        }
         
         if let viewHome = radioVC?.view {
             viewHome.frame = contentView.bounds
@@ -85,7 +96,7 @@ class HomeMasterViewController: UIViewController {
         if currentType == .Home {return}
         
         setupMenuBottom(type: .Home, btn: sender as! UIButton)
-        
+        lblTitle.text = "Cyme"
         if let viewHome = self.homeVC?.view {
             contentView.bringSubviewToFront(viewHome)
             viewHome.alpha = 0
@@ -100,7 +111,7 @@ class HomeMasterViewController: UIViewController {
     @IBAction func actionExplore(_ sender: Any) {
         if currentType == .Explore {return}
         setupMenuBottom(type: .Explore, btn: sender as! UIButton)
-      
+        lblTitle.text = "Explore"
         if let viewHome = exploreVC?.view {
             contentView.bringSubviewToFront(viewHome)
             viewHome.alpha = 0
@@ -117,7 +128,7 @@ class HomeMasterViewController: UIViewController {
     @IBAction func actionRadio(_ sender: Any) {
         if currentType == .Radio {return}
         setupMenuBottom(type: .Radio, btn: sender as! UIButton)
-        
+        lblTitle.text = "PodCast"
         if let viewHome = radioVC?.view {
             contentView.bringSubviewToFront(viewHome)
             viewHome.alpha = 0
@@ -134,6 +145,19 @@ class HomeMasterViewController: UIViewController {
     @IBAction func actionAccount(_ sender: Any) {
         if currentType == .Account {return}
         setupMenuBottom(type: .Account, btn: sender as! UIButton)
+        lblTitle.text = "Account"
+        if let viewHome = accountVC?.view {
+            contentView.bringSubviewToFront(viewHome)
+            viewHome.alpha = 0
+        }
+        
+        UIView.animate(withDuration: 0.3) {
+            if let viewHome = self.accountVC?.view {
+                viewHome.alpha = 1
+            }
+        }
+        
+        
     }
     
     func setupMenuBottom(type: TypeMenuBottomHome,
@@ -163,6 +187,7 @@ extension HomeMasterViewController: HomeViewControllerDelegate {
     func didSelectRecentlySong(indexPath: IndexPath, item: Item) {
         musicBar.populate(item: item)
         self.heightContraintMusicBar.constant = 65
+        bottomContraintContainView.constant = 65
         UIView.animate(withDuration: 0.3) {
             self.mainView.layoutIfNeeded()
         }

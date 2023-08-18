@@ -48,5 +48,16 @@
 	</dict>
 	<key>FacebookAutoLogAppEventsEnabled</key>
 	<true/>
+    <key>GIDClientID</key>
+    <string>156921698255-3ho0q6pmtm83ct19oisarn6i2op53ko5.apps.googleusercontent.com</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>com.googleusercontent.apps.156921698255-3ho0q6pmtm83ct19oisarn6i2op53ko5</string>
+        </array>
+      </dict>
+    </array>
 </dict>
 </plist>

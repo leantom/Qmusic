@@ -42,12 +42,24 @@ extension UIImageView {
     
 }
 
+func createViewLotties(frame: CGRect, name: String) -> LottieAnimationView {
+    
+    let animationView = LottieAnimationView(name: name)
+    animationView.frame = frame
+    animationView.loopMode = .loop
+    animationView.contentMode = .scaleAspectFill
+    animationView.isHidden = true
+    return animationView
+}
+
 extension UIView {
+    
+    
+    
     func addLoadingLotties(frame: CGRect, name: String) {
         
         let animationView = LottieAnimationView(name: name)
         animationView.frame = frame
-        animationView.center.x = self.center.x
         animationView.loopMode = .loop
         animationView.contentMode = .scaleAspectFill
         animationView.play()

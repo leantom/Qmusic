@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
     // mainView
     
     @IBOutlet weak var tbContent: UITableView!
-    let headerTitles = ["New Albums", "Cyme Weekly", "Recently Music "]
+    let headerTitles = ["New Albums", "Cyme Weekly", "Recently Music", "Selected by Artist"]
     weak var delegate: HomeViewControllerDelegate?
      
     @IBOutlet var header1: UIView!
@@ -36,6 +36,7 @@ class HomeViewController: UIViewController {
             tbContent.reloadData()
         }
     }
+    var isSelectedSong = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,7 +100,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 2 {
+        if section >= 2 {
             return 5
         }
         return 1
@@ -112,7 +113,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         
-        if indexPath.section == 2 {
+        if indexPath.section >= 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "RecentlyMusicTableViewCell", for: indexPath) as! RecentlyMusicTableViewCell
             cell.popuplate(item: items[indexPath.row])
             cell.delegate = self
@@ -130,12 +131,22 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if let delegate = self.delegate {
             delegate.didSelectRecentlySong(indexPath: indexPath, item: items[indexPath.row])
         }
+        isSelectedSong = true
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section > 2 {return 44}
+        return 1
+    }
     
     
 }

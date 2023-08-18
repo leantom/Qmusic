@@ -18,6 +18,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeMasterViewController" customModule="Qmusic" customModuleProvider="target">
             <connections>
+                <outlet property="bottomContraintContainView" destination="J9s-zI-nLy" id="ML5-B3-4uG"/>
                 <outlet property="btnAccount" destination="zpb-yV-BUI" id="S41-QO-nZ6"/>
                 <outlet property="btnExplore" destination="883-YR-moh" id="Ev8-wg-Up7"/>
                 <outlet property="btnHome" destination="TXA-vG-FkS" id="IDa-RS-IAU"/>
@@ -56,8 +57,7 @@
                             </subviews>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iqK-ys-wCH" userLabel="ContainView">
-                            <rect key="frame" x="0.0" y="64" width="393" height="575"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <rect key="frame" x="0.0" y="61.333333333333314" width="393" height="697.66666666666674"/>
                         </view>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xij-6j-zuT" userLabel="Musicbar">
                             <rect key="frame" x="0.0" y="639" width="393" height="71"/>
@@ -155,6 +155,7 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
+                            <color key="backgroundColor" red="0.054901960780000002" green="0.043137254899999998" blue="0.1215686275" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="ci8-In-bsE" secondAttribute="bottom" id="B0i-wE-OZi"/>
                                 <constraint firstItem="ci8-In-bsE" firstAttribute="leading" secondItem="vLf-Dz-NjE" secondAttribute="leading" id="MeY-zQ-LXz"/>
@@ -169,15 +170,15 @@
                         <constraint firstAttribute="trailing" secondItem="xij-6j-zuT" secondAttribute="trailing" id="Aiv-bN-hbj"/>
                         <constraint firstAttribute="bottom" secondItem="vLf-Dz-NjE" secondAttribute="bottom" id="BZC-Hc-rEi"/>
                         <constraint firstItem="dGB-DZ-Hgq" firstAttribute="top" secondItem="0Cz-QZ-Wpg" secondAttribute="top" id="DZA-ae-vxG"/>
+                        <constraint firstItem="iqK-ys-wCH" firstAttribute="top" secondItem="dGB-DZ-Hgq" secondAttribute="bottom" constant="5" id="DfE-r6-2Z3"/>
                         <constraint firstAttribute="trailing" secondItem="vLf-Dz-NjE" secondAttribute="trailing" id="Etl-cN-oaX"/>
+                        <constraint firstAttribute="bottom" secondItem="iqK-ys-wCH" secondAttribute="bottom" id="J9s-zI-nLy"/>
                         <constraint firstItem="vLf-Dz-NjE" firstAttribute="top" secondItem="xij-6j-zuT" secondAttribute="bottom" id="Lka-7I-vh1"/>
                         <constraint firstAttribute="trailing" secondItem="dGB-DZ-Hgq" secondAttribute="trailing" id="WjC-ul-mLt"/>
                         <constraint firstItem="iqK-ys-wCH" firstAttribute="leading" secondItem="0Cz-QZ-Wpg" secondAttribute="leading" id="fc1-9e-j1P"/>
-                        <constraint firstItem="iqK-ys-wCH" firstAttribute="top" secondItem="0Cz-QZ-Wpg" secondAttribute="top" constant="64" id="h13-xo-iuD"/>
                         <constraint firstItem="dGB-DZ-Hgq" firstAttribute="leading" secondItem="0Cz-QZ-Wpg" secondAttribute="leading" constant="24" id="s0C-PC-kza"/>
                         <constraint firstAttribute="trailing" secondItem="iqK-ys-wCH" secondAttribute="trailing" id="txt-sa-jI1"/>
                         <constraint firstItem="vLf-Dz-NjE" firstAttribute="leading" secondItem="0Cz-QZ-Wpg" secondAttribute="leading" id="vPh-at-w5t"/>
-                        <constraint firstItem="xij-6j-zuT" firstAttribute="top" secondItem="iqK-ys-wCH" secondAttribute="bottom" id="x8c-4Y-icO"/>
                     </constraints>
                 </view>
             </subviews>

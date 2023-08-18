@@ -73,6 +73,14 @@ class SplashScreenViewController: UIViewController {
         
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.mainView.removeLotties()
+        btnStartContraintWidth.constant = ConstantsUI.widthScreen - 80
+        self.btnStart.alpha = 1
+        self.btnStart.titleLabel?.alpha = 1
+    }
+    
     func setupCollectionView() {
         btnStartContraintWidth.constant = ConstantsUI.widthScreen - 80
         
@@ -123,12 +131,6 @@ extension SplashScreenViewController: UICollectionViewDataSource,
             pageControl.currentPage = indexPath.row
             lblTitle.text = titles[indexPath.row]
             lblDesc.text = contents[indexPath.row]
-            
-            if ((indexPath.row % 2) != 0) {
-                animationMoveCenterTitleAndDesc()
-            } else {
-                animationMoveLeadingTitleAndDesc()
-            }
             
             
         }
