@@ -92,3 +92,40 @@ extension UIViewController {
         CATransaction.commit()
     }
 }
+
+
+extension UINavigationController {
+    func push(destinVC: UIViewController) {
+        let transition:CATransition = CATransition()
+        transition.duration = 0.3
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.fade
+        transition.subtype = CATransitionSubtype.fromTop
+        self.view.layer.add(transition, forKey: nil)
+        self.pushViewController(destinVC, animated: false)
+    }
+    
+    func pushViewControllerWithCompletion(viewController: UIViewController,
+                                                  animated: Bool,
+                                                  completion: (() -> Void)?) {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(completion)
+        if self.responds(to: #selector(getter: interactivePopGestureRecognizer)) {
+            self.interactivePopGestureRecognizer?.isEnabled = false
+        }
+        self.pushViewController(viewController, animated: animated)
+        CATransaction.commit()
+    }
+    
+    func pop() {
+        let transition:CATransition = CATransition()
+        transition.duration = 0.3
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.fade
+        transition.subtype = CATransitionSubtype.fromRight
+        self.view.layer.add(transition, forKey: nil)
+        self.popViewController(animated: false)
+    }
+    
+    
+}

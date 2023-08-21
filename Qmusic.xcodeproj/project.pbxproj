@@ -105,6 +105,9 @@
 		F969A7CB2A88D91900C8CA2F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F969A7C92A88D91900C8CA2F /* LoginViewController.xib */; };
 		F969A7CF2A88D95400C8CA2F /* QTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969A7CE2A88D95400C8CA2F /* QTextView.swift */; };
 		F969A7D12A88D95C00C8CA2F /* QTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F969A7D02A88D95C00C8CA2F /* QTextView.xib */; };
+		F97106E42A8FB551009F9013 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97106E32A8FB551009F9013 /* Network.swift */; };
+		F97106E62A8FCDA5009F9013 /* SearchPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97106E52A8FCDA5009F9013 /* SearchPlayerView.swift */; };
+		F97106E82A8FCDAA009F9013 /* SearchPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F97106E72A8FCDAA009F9013 /* SearchPlayerView.xib */; };
 		F975A5CD2A8B391800DA41B7 /* HomeMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5C42A8B391800DA41B7 /* HomeMasterViewController.swift */; };
 		F975A5CE2A8B391800DA41B7 /* HomeMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F975A5C52A8B391800DA41B7 /* HomeMasterViewController.xib */; };
 		F975A5CF2A8B391800DA41B7 /* HomeAlbumsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F975A5C72A8B391800DA41B7 /* HomeAlbumsTableViewCell.xib */; };
@@ -135,6 +138,10 @@
 		F97EA3642A8EF18B0096EC1E /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F97EA3632A8EF18B0096EC1E /* FirebaseCrashlytics */; };
 		F97EA3662A8EF1AB0096EC1E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F97EA3652A8EF1AB0096EC1E /* GoogleService-Info.plist */; };
 		F97EA3692A8EF44B0096EC1E /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F97EA3682A8EF44B0096EC1E /* GoogleSignInSwift */; };
+		F97EA36B2A8F16E20096EC1E /* WEBaseSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EA36A2A8F16E20096EC1E /* WEBaseSceneDelegate.swift */; };
+		F97EA36D2A8F1D3E0096EC1E /* MusicHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EA36C2A8F1D3E0096EC1E /* MusicHelper.swift */; };
+		F97EA3702A8F5ADF0096EC1E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EA36E2A8F5ADF0096EC1E /* SearchViewController.swift */; };
+		F97EA3712A8F5ADF0096EC1E /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F97EA36F2A8F5ADF0096EC1E /* SearchViewController.xib */; };
 		FAD34CC12A8CB886007FE90D /* ExploreGeezChartHeaderTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD34CC02A8CB886007FE90D /* ExploreGeezChartHeaderTableView.xib */; };
 		FAD34CC32A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD34CC22A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift */; };
 		FAD34CC62A8CC319007FE90D /* ExploreTopTrendingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD34CC42A8CC319007FE90D /* ExploreTopTrendingTableViewCell.swift */; };
@@ -255,6 +262,9 @@
 		F969A7C92A88D91900C8CA2F /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		F969A7CE2A88D95400C8CA2F /* QTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QTextView.swift; sourceTree = "<group>"; };
 		F969A7D02A88D95C00C8CA2F /* QTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QTextView.xib; sourceTree = "<group>"; };
+		F97106E32A8FB551009F9013 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		F97106E52A8FCDA5009F9013 /* SearchPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlayerView.swift; sourceTree = "<group>"; };
+		F97106E72A8FCDAA009F9013 /* SearchPlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPlayerView.xib; sourceTree = "<group>"; };
 		F975A5C42A8B391800DA41B7 /* HomeMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMasterViewController.swift; sourceTree = "<group>"; };
 		F975A5C52A8B391800DA41B7 /* HomeMasterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeMasterViewController.xib; sourceTree = "<group>"; };
 		F975A5C72A8B391800DA41B7 /* HomeAlbumsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeAlbumsTableViewCell.xib; sourceTree = "<group>"; };
@@ -281,6 +291,10 @@
 		F975A5FB2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentlyMusicTableViewCell.xib; sourceTree = "<group>"; };
 		F97EA35C2A8E667C0096EC1E /* spectrum.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spectrum.json; sourceTree = "<group>"; };
 		F97EA3652A8EF1AB0096EC1E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F97EA36A2A8F16E20096EC1E /* WEBaseSceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WEBaseSceneDelegate.swift; sourceTree = "<group>"; };
+		F97EA36C2A8F1D3E0096EC1E /* MusicHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHelper.swift; sourceTree = "<group>"; };
+		F97EA36E2A8F5ADF0096EC1E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		F97EA36F2A8F5ADF0096EC1E /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		FAD34CC02A8CB886007FE90D /* ExploreGeezChartHeaderTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreGeezChartHeaderTableView.xib; sourceTree = "<group>"; };
 		FAD34CC22A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreGeezChartHeaderTableView.swift; sourceTree = "<group>"; };
 		FAD34CC42A8CC319007FE90D /* ExploreTopTrendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTopTrendingTableViewCell.swift; sourceTree = "<group>"; };
@@ -483,6 +497,8 @@
 				F969A76E2A88BFCD00C8CA2F /* AppDelegate.swift */,
 				F975A5C62A8B391800DA41B7 /* Home */,
 				F975A5C42A8B391800DA41B7 /* HomeMasterViewController.swift */,
+				F97106E32A8FB551009F9013 /* Network.swift */,
+				F97EA3722A8F5AE50096EC1E /* Search */,
 				F975A5C52A8B391800DA41B7 /* HomeMasterViewController.xib */,
 				F969A7CD2A88D92300C8CA2F /* Login */,
 				F94F99FB2A8A1D4C005FA560 /* Singup */,
@@ -528,6 +544,8 @@
 		F969A79F2A88C13400C8CA2F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F97EA36A2A8F16E20096EC1E /* WEBaseSceneDelegate.swift */,
+				F97EA36C2A8F1D3E0096EC1E /* MusicHelper.swift */,
 				F97EA3652A8EF1AB0096EC1E /* GoogleService-Info.plist */,
 				F96914A12A8C81F10092B4AD /* Lotties */,
 				F975A5D52A8B394B00DA41B7 /* CarouselCollectionView */,
@@ -652,6 +670,17 @@
 				F975A5F32A8B81F100DA41B7 /* Explore_GeezChartSubView.swift */,
 			);
 			path = ExploreSubViews;
+			sourceTree = "<group>";
+		};
+		F97EA3722A8F5AE50096EC1E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F97EA36E2A8F5ADF0096EC1E /* SearchViewController.swift */,
+				F97EA36F2A8F5ADF0096EC1E /* SearchViewController.xib */,
+				F97106E52A8FCDA5009F9013 /* SearchPlayerView.swift */,
+				F97106E72A8FCDAA009F9013 /* SearchPlayerView.xib */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -802,6 +831,7 @@
 				F969A7AF2A88C18900C8CA2F /* Roboto-Medium.ttf in Resources */,
 				F969A77B2A88BFCE00C8CA2F /* LaunchScreen.storyboard in Resources */,
 				F969A7B82A88C18A00C8CA2F /* Roboto-BlackItalic.ttf in Resources */,
+				F97EA3712A8F5ADF0096EC1E /* SearchViewController.xib in Resources */,
 				F961670A2A8E146E00392860 /* AccountViewController.xib in Resources */,
 				F965C0FB2A8BDB53000DF320 /* CarouselCollectionViewCell.xib in Resources */,
 				F97EA35D2A8E667C0096EC1E /* spectrum.json in Resources */,
@@ -823,6 +853,7 @@
 				F975A5D12A8B391800DA41B7 /* HomeViewController.xib in Resources */,
 				F969A7762A88BFCD00C8CA2F /* Main.storyboard in Resources */,
 				F969A7D12A88D95C00C8CA2F /* QTextView.xib in Resources */,
+				F97106E82A8FCDAA009F9013 /* SearchPlayerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -864,9 +895,11 @@
 				F94F99DE2A8A13D5005FA560 /* FEExtension+Encodable.swift in Sources */,
 				F94F99C72A8A13D5005FA560 /* WEExtensions+CGImage.swift in Sources */,
 				FAD34CC62A8CC319007FE90D /* ExploreTopTrendingTableViewCell.swift in Sources */,
+				F97106E42A8FB551009F9013 /* Network.swift in Sources */,
 				F969A7CA2A88D91900C8CA2F /* LoginViewController.swift in Sources */,
 				F94F99CD2A8A13D5005FA560 /* WEExtensions+UIViewController.swift in Sources */,
 				F94F99E52A8A13D5005FA560 /* WEExtensions+CIImage.swift in Sources */,
+				F97EA36D2A8F1D3E0096EC1E /* MusicHelper.swift in Sources */,
 				F96914B92A8D17060092B4AD /* HeaderRadioView.swift in Sources */,
 				F94F99DD2A8A13D5005FA560 /* WEExtensions+Object.swift in Sources */,
 				F969A7732A88BFCD00C8CA2F /* ViewController.swift in Sources */,
@@ -876,6 +909,7 @@
 				F96167092A8E146E00392860 /* AccountViewController.swift in Sources */,
 				F969A7BE2A88C49A00C8CA2F /* SplashScreenViewController.swift in Sources */,
 				F975A5F92A8B81F100DA41B7 /* Explore_GeezChartSubView.swift in Sources */,
+				F97106E62A8FCDA5009F9013 /* SearchPlayerView.swift in Sources */,
 				F94F99C92A8A13D5005FA560 /* WEExtensions+GradientView.swift in Sources */,
 				F94F99DB2A8A13D5005FA560 /* WEExtensions+Double.swift in Sources */,
 				F94F99D62A8A13D5005FA560 /* WEExtensions+Notification.Name.swift in Sources */,
@@ -906,11 +940,13 @@
 				F94F99FF2A8A1D4C005FA560 /* SignUpViewController.swift in Sources */,
 				F975A5D32A8B391800DA41B7 /* HomeViewController.swift in Sources */,
 				F96914B62A8D15C00092B4AD /* RadioPopularTableViewCell.swift in Sources */,
+				F97EA3702A8F5ADF0096EC1E /* SearchViewController.swift in Sources */,
 				F975A5E52A8B394B00DA41B7 /* CarouselFlowLayout.swift in Sources */,
 				F94F99CA2A8A13D5005FA560 /* WEExtensions+UITextView.swift in Sources */,
 				F94F99D92A8A13D5005FA560 /* WEExtensions+MDCFilledTextField.swift in Sources */,
 				F975A5CD2A8B391800DA41B7 /* HomeMasterViewController.swift in Sources */,
 				F94F99E02A8A13D5005FA560 /* WEExtensions+String.swift in Sources */,
+				F97EA36B2A8F16E20096EC1E /* WEBaseSceneDelegate.swift in Sources */,
 				F969A7C62A88CF4B00C8CA2F /* SplashScreenCellCollectionViewCell.swift in Sources */,
 				F94F99D12A8A13D5005FA560 /* WEExtensions+UISlider.swift in Sources */,
 				F94F99F12A8A15BF005FA560 /* AppFonts.swift in Sources */,

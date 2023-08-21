@@ -42,7 +42,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
+        WEBaseSceneDelegate.sharedInstance.addListener(listener: self)
+        WEBaseSceneDelegate.sharedInstance.StartListening()
         tbContent.register(UINib(nibName: "HomeWeeklyTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeWeeklyTableViewCell")
         
         tbContent.register(UINib(nibName: "HomeAlbumsTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeAlbumsTableViewCell")
@@ -169,4 +170,14 @@ extension HomeViewController: RecentlyMusicTableViewCellDelegate {
         }
     
     
+}
+
+extension HomeViewController: IWEBaseSceneDelegate {
+    func notifyAppEnterBackground() {
+        MusicHelper.sharedHelper.playBackgroundMusic()
+    }
+    
+    func notifyAppEnterForground() {
+        MusicHelper.sharedHelper.stopPlayBackground()
+    }
 }

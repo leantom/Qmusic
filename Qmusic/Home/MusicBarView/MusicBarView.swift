@@ -27,10 +27,17 @@ class MusicBarView: UIView {
     }
     
     @IBAction func actionPlay(_ sender: Any) {
+        btnPlay.setImage(UIImage(named: "ic_playing_black"), for: .normal)
+        MusicHelper.sharedHelper.stopPlayBackground()
     }
     @IBAction func actionNext(_ sender: Any) {
     }
     
+    
+    
+    func playMusic() {
+        
+    }
     
     func populate(item: Item) {
         lblNameSong.text = item.nameSong

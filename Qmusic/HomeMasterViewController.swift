@@ -91,7 +91,11 @@ class HomeMasterViewController: UIViewController {
         musicBar.layoutAttachAll()
         self.heightContraintMusicBar.constant = 0
     }
-
+    @IBAction func actionSearch(_ sender: Any) {
+        let vc = SearchViewController(nibName: "SearchViewController", bundle: nil)
+        self.navigationController?.push(destinVC: vc)
+    }
+    
     @IBAction func actionHome(_ sender: Any) {
         if currentType == .Home {return}
         

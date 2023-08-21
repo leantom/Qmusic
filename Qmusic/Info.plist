@@ -7,16 +7,20 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb983633879456184</string>
+				<string>com.googleusercontent.apps.156921698255-3ho0q6pmtm83ct19oisarn6i2op53ko5</string>
 			</array>
 		</dict>
 	</array>
 	<key>FacebookAppID</key>
 	<string>983633879456184</string>
+	<key>FacebookAutoLogAppEventsEnabled</key>
+	<true/>
 	<key>FacebookClientToken</key>
 	<string>9879cf151d7d885a5d0e98d31b80f756</string>
 	<key>FacebookDisplayName</key>
 	<string>Cyme</string>
+	<key>GIDClientID</key>
+	<string>156921698255-3ho0q6pmtm83ct19oisarn6i2op53ko5.apps.googleusercontent.com</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -46,18 +50,9 @@
 			</array>
 		</dict>
 	</dict>
-	<key>FacebookAutoLogAppEventsEnabled</key>
-	<true/>
-    <key>GIDClientID</key>
-    <string>156921698255-3ho0q6pmtm83ct19oisarn6i2op53ko5.apps.googleusercontent.com</string>
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>com.googleusercontent.apps.156921698255-3ho0q6pmtm83ct19oisarn6i2op53ko5</string>
-        </array>
-      </dict>
-    </array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+	</array>
 </dict>
 </plist>

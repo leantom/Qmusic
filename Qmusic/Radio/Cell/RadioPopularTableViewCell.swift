@@ -8,7 +8,9 @@
 import UIKit
 
 class RadioPopularTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblDesc: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 
 class HomeAlbumsTableViewCell: UITableViewCell {
-    var player: AVPlayer!
+    var player: AVPlayer?
     @IBOutlet weak var lblTimeStart: UILabel!
     
     @IBOutlet weak var lblTImeEnd: UILabel!
@@ -26,7 +26,9 @@ class HomeAlbumsTableViewCell: UITableViewCell {
         // Initialization code
         if let url = URL(string: Constants.urlAudio) {
             let playerItem: AVPlayerItem = AVPlayerItem(url: url)
+            
             player = AVPlayer(playerItem: playerItem)
+            MusicHelper.sharedHelper.audioPlayer = player
             let playerLayer = AVPlayerLayer(player: player!)
             widthContraintProgressBar.constant = 0
             playerLayer.frame = CGRect(x: 0, y: 0, width: 10, height: 50)
@@ -36,7 +38,7 @@ class HomeAlbumsTableViewCell: UITableViewCell {
                 .addObserver(self,
                 selector: #selector(playerDidFinishPlaying),
                 name: .AVPlayerItemDidPlayToEndTime,
-                object: player.currentItem
+                object: player?.currentItem
             )
             
         }
@@ -45,7 +47,7 @@ class HomeAlbumsTableViewCell: UITableViewCell {
 
     @objc func playerDidFinishPlaying(note: NSNotification) {
         print("Video Finished")
-        player.seek(to: CMTime.zero)
+        player?.seek(to: CMTime.zero)
         btnPlay.setImage(UIImage(named: "ic_playing"), for: .normal)
     }
     
@@ -69,15 +71,15 @@ class HomeAlbumsTableViewCell: UITableViewCell {
     
     @IBAction func actionPlay(_ sender: Any) {
         let btn = sender as! UIButton
-        if player.timeControlStatus == .paused {
-            player.play()
+        if player?.timeControlStatus == .paused {
+            player?.play()
             btn.setImage(UIImage(named: "ic_pause"), for: .normal)
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.startCountdown), userInfo: nil, repeats: true)
             }
             
         } else {
-            player.pause()
+            player?.pause()
             timer?.invalidate()
             btn.setImage(UIImage(named: "ic_playing"), for: .normal)
         }
