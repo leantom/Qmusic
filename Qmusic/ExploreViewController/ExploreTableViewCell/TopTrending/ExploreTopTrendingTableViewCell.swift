@@ -24,6 +24,10 @@ class ExploreTopTrendingTableViewCell: UITableViewCell {
         clView.register(UINib(nibName: "ExploreTopTrendingCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ExploreTopTrendingCollectionViewCell")
     }
     
+    func setupPageControler() {
+        
+    }
+    
 }
 
 extension ExploreTopTrendingTableViewCell: UICollectionViewDataSource,
@@ -40,7 +44,10 @@ extension ExploreTopTrendingTableViewCell: UICollectionViewDataSource,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExploreTopTrendingCollectionViewCell", for: indexPath) as? ExploreTopTrendingCollectionViewCell else {return UICollectionViewCell()}
         let data = self.dataCollection[indexPath.row]
-        cell.setupData(data)
+        cell.setupData(data, index: indexPath.row)
+        cell.ontapLikeTrending = { index in
+            self.dataCollection[index].isLike = !self.dataCollection[index].isLike
+        }
         return cell
     }
     

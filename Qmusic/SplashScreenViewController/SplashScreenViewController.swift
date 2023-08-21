@@ -58,7 +58,7 @@ class SplashScreenViewController: UIViewController {
                 self.mainView.addLoadingLotties(frame: self.btnStart.frame, name: "loading")
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     
-                            let vc = LoginViewController(nibName: "LoginViewController", bundle: nil)
+                            let vc = HomeMasterViewController(nibName: "HomeMasterViewController", bundle: nil)
                             self.navigationController?.pushViewController(vc, animated: true)
 
                 }

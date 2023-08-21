@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,17 +37,20 @@
                                             <constraint firstAttribute="width" secondItem="ki3-YO-Iql" secondAttribute="height" multiplier="327:200" id="dHg-ca-os2"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_explore_heart_white" translatesAutoresizingMaskIntoConstraints="NO" id="U4x-ZB-7Jy" userLabel="heart">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otB-Nx-u6Y">
                                         <rect key="frame" x="267" y="147.66666666666666" width="25" height="25"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="25" id="E0w-bA-tt2"/>
-                                            <constraint firstAttribute="width" secondItem="U4x-ZB-7Jy" secondAttribute="height" id="KhK-9S-JbY"/>
+                                            <constraint firstAttribute="width" constant="25" id="QEF-g4-n58"/>
+                                            <constraint firstAttribute="width" secondItem="otB-Nx-u6Y" secondAttribute="height" id="bcM-zC-8BI"/>
                                         </constraints>
-                                    </imageView>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="ic_explore_heart_white"/>
+                                        <connections>
+                                            <action selector="actionLike:" destination="gTV-IL-0wX" eventType="touchUpInside" id="www-B8-o64"/>
+                                        </connections>
+                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1L1-mp-ejK" userLabel="ContentDesc">
-                                        <rect key="frame" x="15" y="134.33333333333334" width="34" height="38.333333333333343"/>
+                                        <rect key="frame" x="15" y="134.66666666666666" width="34" height="38"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do it" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0VZ-KC-Qb8">
                                                 <rect key="frame" x="0.0" y="0.0" width="34" height="19"/>
@@ -55,7 +59,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do it" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qv-eW-QKt">
-                                                <rect key="frame" x="0.0" y="24" width="34" height="14.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="24" width="34" height="14"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -77,13 +81,18 @@
                                 <constraints>
                                     <constraint firstItem="ki3-YO-Iql" firstAttribute="leading" secondItem="XhV-OU-0dq" secondAttribute="leading" id="37O-Ka-2f0"/>
                                     <constraint firstAttribute="bottom" secondItem="1L1-mp-ejK" secondAttribute="bottom" constant="15" id="ACh-t0-cMW"/>
-                                    <constraint firstAttribute="trailing" secondItem="U4x-ZB-7Jy" secondAttribute="trailing" constant="15" id="OWa-OC-qKU"/>
-                                    <constraint firstAttribute="bottom" secondItem="U4x-ZB-7Jy" secondAttribute="bottom" constant="15" id="OvZ-EW-SG8"/>
+                                    <constraint firstAttribute="trailing" secondItem="otB-Nx-u6Y" secondAttribute="trailing" constant="15" id="JDL-GI-kg4"/>
                                     <constraint firstItem="ki3-YO-Iql" firstAttribute="top" secondItem="XhV-OU-0dq" secondAttribute="top" id="mZw-2G-KBE"/>
                                     <constraint firstAttribute="trailing" secondItem="ki3-YO-Iql" secondAttribute="trailing" id="oCI-LI-EQm"/>
+                                    <constraint firstAttribute="bottom" secondItem="otB-Nx-u6Y" secondAttribute="bottom" constant="15" id="pYd-Kp-OBW"/>
                                     <constraint firstAttribute="bottom" secondItem="ki3-YO-Iql" secondAttribute="bottom" id="rrh-uy-CNq"/>
                                     <constraint firstItem="1L1-mp-ejK" firstAttribute="leading" secondItem="XhV-OU-0dq" secondAttribute="leading" constant="15" id="tnm-Mq-hR9"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius_">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -104,8 +113,8 @@
             </constraints>
             <size key="customSize" width="307" height="219"/>
             <connections>
+                <outlet property="btnLike" destination="otB-Nx-u6Y" id="Mbp-8N-nWD"/>
                 <outlet property="imgMain" destination="ki3-YO-Iql" id="A1q-gX-AZy"/>
-                <outlet property="imgStatus" destination="U4x-ZB-7Jy" id="4OP-xr-joa"/>
                 <outlet property="lblDesc" destination="3qv-eW-QKt" id="AeW-Of-Ljx"/>
                 <outlet property="lblTitle" destination="0VZ-KC-Qb8" id="YvJ-FC-MKi"/>
             </connections>

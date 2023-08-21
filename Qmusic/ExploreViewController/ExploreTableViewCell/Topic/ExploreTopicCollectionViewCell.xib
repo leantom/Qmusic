@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gTV-IL-0wX" customClass="ExploreTopicCollectionViewCell" customModule="Qmusic" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="294" height="171"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="294" height="171"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zdf-il-WSx">
+                        <rect key="frame" x="0.0" y="0.0" width="294" height="171"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NM8-H9-TB9">
+                                <rect key="frame" x="0.0" y="0.0" width="294" height="171"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWv-VK-Fpx">
+                                <rect key="frame" x="127.33333333333333" y="76" width="39.333333333333329" height="19"/>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pWv-VK-Fpx" firstAttribute="centerY" secondItem="zdf-il-WSx" secondAttribute="centerY" id="DRY-vS-Cnu"/>
+                            <constraint firstItem="pWv-VK-Fpx" firstAttribute="centerX" secondItem="zdf-il-WSx" secondAttribute="centerX" id="SDZ-Y8-cUm"/>
+                            <constraint firstAttribute="bottom" secondItem="NM8-H9-TB9" secondAttribute="bottom" id="cQx-RA-xNb"/>
+                            <constraint firstAttribute="trailing" secondItem="NM8-H9-TB9" secondAttribute="trailing" id="iTh-XM-YWt"/>
+                            <constraint firstItem="NM8-H9-TB9" firstAttribute="top" secondItem="zdf-il-WSx" secondAttribute="top" id="lhq-8S-gRv"/>
+                            <constraint firstItem="NM8-H9-TB9" firstAttribute="leading" secondItem="zdf-il-WSx" secondAttribute="leading" id="ps0-kA-prk"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius_">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="zdf-il-WSx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="KIo-gf-CrP"/>
+                <constraint firstItem="zdf-il-WSx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ZUa-Ku-R7e"/>
+                <constraint firstAttribute="trailing" secondItem="zdf-il-WSx" secondAttribute="trailing" id="iuv-Iz-Ltb"/>
+                <constraint firstAttribute="bottom" secondItem="zdf-il-WSx" secondAttribute="bottom" id="xEP-On-fyM"/>
+            </constraints>
+            <size key="customSize" width="294" height="171"/>
+            <connections>
+                <outlet property="imgTopic" destination="NM8-H9-TB9" id="JOi-I1-ECF"/>
+                <outlet property="lblTitle" destination="pWv-VK-Fpx" id="fZi-6j-GZX"/>
+            </connections>
+            <point key="canvasLocation" x="219.84732824427479" y="31.338028169014088"/>
+        </collectionViewCell>
+    </objects>
+</document>

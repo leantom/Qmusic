@@ -22,11 +22,20 @@ class ExploreViewController: UIViewController {
 
     @IBOutlet weak var tbView: UITableView!
     
-    let fakeData = [FakeDataGeekchart(id: "01", name: "Nice For Wha", des: "Avinci Nhọ", image: "albums1"),
+    let fakeDataGeekCharts = [FakeDataGeekchart(id: "01", name: "Nice For Wha", des: "Avinci Nhọ", image: "albums1"),
                     FakeDataGeekchart(id: "02", name: "Nice For Wha", des: "Avinci Nhọ", image: "albums2"),
                     FakeDataGeekchart(id: "03", name: "Nice For Wha", des: "Avinci Nhọ", image: "albums3"),
                     FakeDataGeekchart(id: "04", name: "Nice For Wha", des: "Avinci Nhọ", image: "albums4"),
                     FakeDataGeekchart(id: "05", name: "Nice For Wha", des: "Avinci Nhọ", image: "albums5")]
+    
+    let dataTopic = [FakeDataTopic(name: "Help", image: "albums1"),
+                FakeDataTopic(name: "Me", image: "albums2"),
+                FakeDataTopic(name: "Bro", image: "albums3"),
+                FakeDataTopic(name: "LC-D", image: "albums4"),
+                FakeDataTopic(name: "WTF-R", image: "albums5"),
+                FakeDataTopic(name: "SWIFT-QMUSIC", image: "albums6"),
+                FakeDataTopic(name: "BestApp", image: "albums7"),
+                FakeDataTopic(name: "Hihu", image: "albums8")]
     
     let fakeSection = [FakeSectonExplore(title: "Geez Chart", button: "ViewAll"),
                        FakeSectonExplore(title: "Top Trending", button: ""),
@@ -40,6 +49,7 @@ class ExploreViewController: UIViewController {
     func initUI(){
         self.tbView.delegate = self
         self.tbView.dataSource = self
+        self.tbView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
         self.registerCell()
     }
     
@@ -48,7 +58,7 @@ class ExploreViewController: UIViewController {
         
         self.tbView.register(UINib(nibName: "ExploreTopTrendingTableViewCell", bundle: nil), forCellReuseIdentifier: "ExploreTopTrendingTableViewCell")
         
-        self.tbView.register(UINib(nibName: "ExploreGeezChartTableViewCell", bundle: nil), forCellReuseIdentifier: "ExploreGeezChartTableViewCell")
+        self.tbView.register(UINib(nibName: "ExploreTopicTableViewCell", bundle: nil), forCellReuseIdentifier: "ExploreTopicTableViewCell")
     }
 
 }
@@ -88,17 +98,19 @@ extension ExploreViewController: UITableViewDelegate, UITableViewDataSource{
         case .GeekChart:
             cell = (tableView.dequeueReusableCell(withIdentifier: "ExploreGeezChartTableViewCell", for: indexPath) as! ExploreGeezChartTableViewCell)
             if let geek = cell as? ExploreGeezChartTableViewCell{
-                geek.setupDataGeekChart(data: self.fakeData)
+                geek.setupDataGeekChart(data: self.fakeDataGeekCharts)
             }
         case .TopTrending:
             cell = tableView.dequeueReusableCell(withIdentifier: "ExploreTopTrendingTableViewCell", for: indexPath) as! ExploreTopTrendingTableViewCell
         case .Topic:
-            cell = tableView.dequeueReusableCell(withIdentifier: "ExploreGeezChartTableViewCell", for: indexPath) as! ExploreGeezChartTableViewCell
+            cell = tableView.dequeueReusableCell(withIdentifier: "ExploreTopicTableViewCell", for: indexPath) as! ExploreTopicTableViewCell
+            if let topic = cell as? ExploreTopicTableViewCell{
+                topic.setDataTopic(self.dataTopic)
+            }
         }
         
         cell.selectionStyle = .none
         return cell
     }
-    
     
 }
