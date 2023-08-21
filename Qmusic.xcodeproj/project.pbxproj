@@ -142,6 +142,8 @@
 		F97EA36D2A8F1D3E0096EC1E /* MusicHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EA36C2A8F1D3E0096EC1E /* MusicHelper.swift */; };
 		F97EA3702A8F5ADF0096EC1E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EA36E2A8F5ADF0096EC1E /* SearchViewController.swift */; };
 		F97EA3712A8F5ADF0096EC1E /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F97EA36F2A8F5ADF0096EC1E /* SearchViewController.xib */; };
+		FA429DC92A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA429DC72A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.swift */; };
+		FA429DCA2A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA429DC82A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.xib */; };
 		FAD34CC12A8CB886007FE90D /* ExploreGeezChartHeaderTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD34CC02A8CB886007FE90D /* ExploreGeezChartHeaderTableView.xib */; };
 		FAD34CC32A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD34CC22A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift */; };
 		FAD34CC62A8CC319007FE90D /* ExploreTopTrendingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD34CC42A8CC319007FE90D /* ExploreTopTrendingTableViewCell.swift */; };
@@ -295,6 +297,8 @@
 		F97EA36C2A8F1D3E0096EC1E /* MusicHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHelper.swift; sourceTree = "<group>"; };
 		F97EA36E2A8F5ADF0096EC1E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F97EA36F2A8F5ADF0096EC1E /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		FA429DC72A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTopTrendingCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA429DC82A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreTopTrendingCollectionViewCell.xib; sourceTree = "<group>"; };
 		FAD34CC02A8CB886007FE90D /* ExploreGeezChartHeaderTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreGeezChartHeaderTableView.xib; sourceTree = "<group>"; };
 		FAD34CC22A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreGeezChartHeaderTableView.swift; sourceTree = "<group>"; };
 		FAD34CC42A8CC319007FE90D /* ExploreTopTrendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTopTrendingTableViewCell.swift; sourceTree = "<group>"; };
@@ -653,12 +657,11 @@
 		F975A5ED2A8B81F100DA41B7 /* ExploreTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				FA429DC62A931D91007EAE15 /* TopTrending */,
 				F975A5EE2A8B81F100DA41B7 /* ExploreGeezChartTableViewCell.xib */,
 				F975A5EF2A8B81F100DA41B7 /* ExploreGeezChartTableViewCell.swift */,
 				FAD34CC02A8CB886007FE90D /* ExploreGeezChartHeaderTableView.xib */,
 				FAD34CC22A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift */,
-				FAD34CC42A8CC319007FE90D /* ExploreTopTrendingTableViewCell.swift */,
-				FAD34CC52A8CC319007FE90D /* ExploreTopTrendingTableViewCell.xib */,
 			);
 			path = ExploreTableViewCell;
 			sourceTree = "<group>";
@@ -681,6 +684,17 @@
 				F97106E72A8FCDAA009F9013 /* SearchPlayerView.xib */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		FA429DC62A931D91007EAE15 /* TopTrending */ = {
+			isa = PBXGroup;
+			children = (
+				FAD34CC42A8CC319007FE90D /* ExploreTopTrendingTableViewCell.swift */,
+				FAD34CC52A8CC319007FE90D /* ExploreTopTrendingTableViewCell.xib */,
+				FA429DC72A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.swift */,
+				FA429DC82A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.xib */,
+			);
+			path = TopTrending;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -844,6 +858,7 @@
 				F969A7B32A88C18A00C8CA2F /* Roboto-ThinItalic.ttf in Resources */,
 				F969A7BB2A88C18A00C8CA2F /* Roboto-Black.ttf in Resources */,
 				F96914AD2A8D155B0092B4AD /* RadioViewController.xib in Resources */,
+				FA429DCA2A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.xib in Resources */,
 				F969A7B22A88C18900C8CA2F /* Roboto-MediumItalic.ttf in Resources */,
 				F975A5FD2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib in Resources */,
 				F975A5F72A8B81F100DA41B7 /* ExploreViewController.xib in Resources */,
@@ -942,6 +957,7 @@
 				F96914B62A8D15C00092B4AD /* RadioPopularTableViewCell.swift in Sources */,
 				F97EA3702A8F5ADF0096EC1E /* SearchViewController.swift in Sources */,
 				F975A5E52A8B394B00DA41B7 /* CarouselFlowLayout.swift in Sources */,
+				FA429DC92A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.swift in Sources */,
 				F94F99CA2A8A13D5005FA560 /* WEExtensions+UITextView.swift in Sources */,
 				F94F99D92A8A13D5005FA560 /* WEExtensions+MDCFilledTextField.swift in Sources */,
 				F975A5CD2A8B391800DA41B7 /* HomeMasterViewController.swift in Sources */,

@@ -12,6 +12,12 @@ struct FakeSectonExplore{
     var button: String
 }
 
+enum TypeOfExploreSection: Int{
+    case GeekChart = 0
+    case TopTrending
+    case Topic
+}
+
 class ExploreViewController: UIViewController {
 
     @IBOutlet weak var tbView: UITableView!
@@ -34,6 +40,13 @@ class ExploreViewController: UIViewController {
     func initUI(){
         self.tbView.delegate = self
         self.tbView.dataSource = self
+        self.registerCell()
+    }
+    
+    func registerCell(){
+        self.tbView.register(UINib(nibName: "ExploreGeezChartTableViewCell", bundle: nil), forCellReuseIdentifier: "ExploreGeezChartTableViewCell")
+        
+        self.tbView.register(UINib(nibName: "ExploreTopTrendingTableViewCell", bundle: nil), forCellReuseIdentifier: "ExploreTopTrendingTableViewCell")
         
         self.tbView.register(UINib(nibName: "ExploreGeezChartTableViewCell", bundle: nil), forCellReuseIdentifier: "ExploreGeezChartTableViewCell")
     }
@@ -68,9 +81,21 @@ extension ExploreViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ExploreGeezChartTableViewCell", for: indexPath) as! ExploreGeezChartTableViewCell
+        var cell = UITableViewCell()
         
-        cell.setupDataGeekChart(data: self.fakeData)
+        let type = TypeOfExploreSection(rawValue: indexPath.section) ?? .GeekChart
+        switch type {
+        case .GeekChart:
+            cell = (tableView.dequeueReusableCell(withIdentifier: "ExploreGeezChartTableViewCell", for: indexPath) as! ExploreGeezChartTableViewCell)
+            if let geek = cell as? ExploreGeezChartTableViewCell{
+                geek.setupDataGeekChart(data: self.fakeData)
+            }
+        case .TopTrending:
+            cell = tableView.dequeueReusableCell(withIdentifier: "ExploreTopTrendingTableViewCell", for: indexPath) as! ExploreTopTrendingTableViewCell
+        case .Topic:
+            cell = tableView.dequeueReusableCell(withIdentifier: "ExploreGeezChartTableViewCell", for: indexPath) as! ExploreGeezChartTableViewCell
+        }
+        
         cell.selectionStyle = .none
         return cell
     }
