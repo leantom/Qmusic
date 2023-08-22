@@ -6,12 +6,37 @@
 //
 
 import UIKit
+import RxSwift
 protocol HomeViewControllerDelegate: AnyObject {
-    func didSelectRecentlySong(indexPath: IndexPath, item: Item)
+    func didSelectRecentlySong(indexPath: IndexPath, item: HomePage.Items)
 }
 
 class HomeViewController: UIViewController {
 
+    enum SectionHeader: Int {
+        case SpotifyChoice = 1
+        case Charts = 2
+        case PianoPeaceful = 3
+        case Mood = 4
+        case Popular_new_releases = 5
+        var describle: String {
+            switch self {
+                
+            case .SpotifyChoice:
+                return "Lựa chọn của Spotify"
+            case .Charts:
+                return "Charts"
+            case .PianoPeaceful:
+                return "Peaceful Piano"
+            case .Mood:
+                return "Mood"
+            case .Popular_new_releases:
+                return "Popular new releases"
+            }
+        }
+    }
+    
+    
     // tableview
     // title section
     // section 1: - collectionview
@@ -20,7 +45,8 @@ class HomeViewController: UIViewController {
     // mainView
     
     @IBOutlet weak var tbContent: UITableView!
-    let headerTitles = ["New Albums", "Cyme Weekly", "Recently Music", "Selected by Artist"]
+    
+    var headerSections:[SectionHeader] = []
     weak var delegate: HomeViewControllerDelegate?
      
     @IBOutlet var header1: UIView!
@@ -31,12 +57,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var lblHeaderTitle2: UILabel!
     
-    public var items = [Item]() {
-        didSet {
-            tbContent.reloadData()
-        }
-    }
     var isSelectedSong = false
+    var homePageModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,16 +75,38 @@ class HomeViewController: UIViewController {
         tbContent.delegate = self
         tbContent.dataSource = self
         
-        self.items = [Item(value: "1", imgAlbums: "albums1", imgAlbumsBG: "albums1", artist: "Thuỳ Chi", nameSong: "Xe đạp"),
-                      Item(value: "2", imgAlbums: "albums2", imgAlbumsBG: "albums2_bg", artist: "Quốc Thiên", nameSong: "Nắng ấm xa dần"),
-                      Item(value: "3", imgAlbums: "albums3", imgAlbumsBG: "albums3_bg", artist: "Sơn Tùng MTP", nameSong: "Người ấy không phải là lựa chọn của em"),
-                      Item(value: "4", imgAlbums: "albums4", imgAlbumsBG: "albums4_bg", artist: "Thanh hà", nameSong: "Sức mạnh của gió"),
-                      Item(value: "5", imgAlbums: "albums5", imgAlbumsBG: "albums5_bg", artist: "Thuỷ Tiên", nameSong: "Ngôi nhà hoa hồng")]
-        
-        
+        setupRx()
     }
 
 
+    func setupRx() {
+        homePageModel.getHomePage()
+        homePageModel.output.SpotifysChoice.observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                guard let self = self else { return }
+                headerSections.append(.SpotifyChoice)
+            })
+            .disposed(by: homePageModel.disposeBag)
+        
+        homePageModel.output.charts.observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                guard let self = self else { return }
+                headerSections.append(.Charts)
+            })
+            .disposed(by: homePageModel.disposeBag)
+        
+        homePageModel.output.pianoAlbums.observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                guard let self = self else { return }
+                headerSections.append(.PianoPeaceful)
+                headerSections.append(.Mood)
+                headerSections.append(.Popular_new_releases)
+                tbContent.reloadData()
+            })
+            .disposed(by: homePageModel.disposeBag)
+        
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -82,7 +126,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         let homeHeaderView = HomeHeaderView.instantiate()
         
-        homeHeaderView.lblTitle.text = headerTitles[section]
+        homeHeaderView.lblTitle.text = headerSections[section].describle
         if section != 0 {
             homeHeaderView.btnViewAll.isHidden = true
         }
@@ -97,26 +141,65 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return headerTitles.count
+        return headerSections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section >= 2 {
-            return 5
+        let headerSection = headerSections[section]
+        switch headerSection {
+            
+        case .SpotifyChoice:
+            return 1
+        case .Charts:
+            return 1
+        case .PianoPeaceful:
+            return homePageModel.getpianoAlbums().count
+        case .Mood:
+            return homePageModel.getmoodPlaylist().count
+        case .Popular_new_releases:
+            return homePageModel.getpopularNewRelease().count
         }
-        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "HomeWeeklyTableViewCell", for: indexPath)
+        let headerSection = headerSections[indexPath.section]
+        switch headerSection {
+            
+        case .SpotifyChoice:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HomeWeeklyTableViewCell", for: indexPath) as! HomeWeeklyTableViewCell
+            cell.items = homePageModel.getSpotifyItems()
+            cell.selectionStyle = .none
+            return cell
+        case .Charts:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HomeAlbumsTableViewCell", for: indexPath)
+            cell.selectionStyle = .none
+            return cell
+        case .PianoPeaceful:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RecentlyMusicTableViewCell", for: indexPath) as! RecentlyMusicTableViewCell
+            cell.popuplate(item: homePageModel.getpianoAlbums()[indexPath.row])
+            cell.delegate = self
+            cell.selectionStyle = .none
+            return cell
+            
+        case .Mood:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RecentlyMusicTableViewCell", for: indexPath) as! RecentlyMusicTableViewCell
+            cell.popuplate(item: homePageModel.getmoodPlaylist()[indexPath.row])
+            cell.delegate = self
+            cell.selectionStyle = .none
+            return cell
+        case .Popular_new_releases:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RecentlyMusicTableViewCell", for: indexPath) as! RecentlyMusicTableViewCell
+            cell.popuplate(item: homePageModel.getpopularNewRelease()[indexPath.row])
+            cell.delegate = self
             cell.selectionStyle = .none
             return cell
         }
         
+        
+        
         if indexPath.section >= 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "RecentlyMusicTableViewCell", for: indexPath) as! RecentlyMusicTableViewCell
-            cell.popuplate(item: items[indexPath.row])
+            cell.popuplate(item: homePageModel.getSpotifyItems()[indexPath.row])
             cell.delegate = self
             cell.selectionStyle = .none
             return cell
@@ -130,7 +213,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let delegate = self.delegate {
-            delegate.didSelectRecentlySong(indexPath: indexPath, item: items[indexPath.row])
+            delegate.didSelectRecentlySong(indexPath: indexPath, item: homePageModel.getSpotifyItems()[indexPath.row])
         }
         isSelectedSong = true
         

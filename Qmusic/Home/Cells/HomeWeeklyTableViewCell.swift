@@ -19,26 +19,21 @@ class HomeWeeklyTableViewCell: UITableViewCell {
     @IBOutlet weak private var carouselView: CarouselCollectionView!
     
     /// Carousel view Data source containing promotionItem
-    private var carouselDataSource: CarouselDataSource<Item>?
+    private var carouselDataSource: CarouselDataSource<HomePage.Items>?
     
     // MARK: - Properties
     /// The list of promotionItems
-    public var items = [Item]() {
+    var items:[HomePage.Items] = [] {
         didSet {
-            updateDataSource()
+            self.updateDataSource()
         }
     }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         carouselView.register(UINib(nibName: "CarouselCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CarouselCollectionViewCell")
-        self.items = [Item(value: "1", imgAlbums: "albums1", imgAlbumsBG: "albums1", artist: "Thuỳ Chi", nameSong: "Xe đạp"),
-                      Item(value: "2", imgAlbums: "albums2", imgAlbumsBG: "albums2_bg", artist: "Quốc Thiên", nameSong: "Nắng ấm xa dần"),
-                      Item(value: "3", imgAlbums: "albums3", imgAlbumsBG: "albums3_bg", artist: "Sơn Tùng MTP", nameSong: "Người ấy không phải là lựa chọn của em"),
-                      Item(value: "4", imgAlbums: "albums4", imgAlbumsBG: "albums4_bg", artist: "Thanh hà", nameSong: "Sức mạnh của gió"),
-                      Item(value: "5", imgAlbums: "albums5", imgAlbumsBG: "albums5_bg", artist: "Thuỷ Tiên", nameSong: "Ngôi nhà hoa hồng")]
+        
     }
     
     // MARK: - Userdefined methods

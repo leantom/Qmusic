@@ -29,16 +29,16 @@
                                 <constraint firstAttribute="width" constant="43" id="u6i-bK-RVv"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CÔ BỎ ĐI HẾT BAO NHIÊU MỘNG MƠ ... PHẬN TÀN ( MEE REMIX ) | TVk x PHÁT LEE | NHẠC HOT TIKTOK 2021" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkS-2f-TOa">
-                            <rect key="frame" x="80" y="5" width="153" height="61"/>
-                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CÔ BỎ ĐI HẾ" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkS-2f-TOa">
+                            <rect key="frame" x="80" y="5" width="78.666666666666686" height="61"/>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Jma-dQ-RZ9">
                             <rect key="frame" x="241" y="15.666666666666664" width="128" height="40"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2e-d3-aag">
+                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2e-d3-aag">
                                     <rect key="frame" x="0.0" y="0.0" width="24" height="40"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" image="skip_previous_black"/>
@@ -74,7 +74,7 @@
                     </subviews>
                     <color key="backgroundColor" red="0.79607843140000001" green="0.98431372549999996" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
-                        <constraint firstItem="Jma-dQ-RZ9" firstAttribute="leading" secondItem="vkS-2f-TOa" secondAttribute="trailing" constant="8" id="14Q-cw-CZs"/>
+                        <constraint firstItem="Jma-dQ-RZ9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vkS-2f-TOa" secondAttribute="trailing" constant="8" id="14Q-cw-CZs"/>
                         <constraint firstItem="vkS-2f-TOa" firstAttribute="centerY" secondItem="IkN-Rf-ntZ" secondAttribute="centerY" id="65z-uF-QFN"/>
                         <constraint firstItem="vkS-2f-TOa" firstAttribute="top" secondItem="IkN-Rf-ntZ" secondAttribute="top" constant="5" id="FIu-1p-fwK"/>
                         <constraint firstAttribute="trailing" secondItem="Jma-dQ-RZ9" secondAttribute="trailing" constant="24" id="Td0-TH-Sdb"/>

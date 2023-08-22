@@ -9,6 +9,13 @@ import UIKit
 import FacebookLogin
 import GoogleSignIn
 
+enum LoginInWithMethod {
+    case Facebook
+    case Google
+    case Apple
+    case Normal
+}
+
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var tfEmail: UITextField!
@@ -61,8 +68,9 @@ class LoginViewController: UIViewController {
         if let _ = AccessToken.current {
             //MARK: -- vô thẳng app
             
-                                let vc = HomeMasterViewController(nibName: "HomeMasterViewController", bundle: nil)
-                                self.navigationController?.pushViewController(vc, animated: true)
+            let vc = HomeMasterViewController(nibName: "HomeMasterViewController", bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
+            AppSetting.shared.setStatusLogin(status: true)
         } else {
             
             loginManager.logIn(permissions: [], from: self) { result, err in
@@ -82,7 +90,7 @@ class LoginViewController: UIViewController {
                 
                 let vc = HomeMasterViewController(nibName: "HomeMasterViewController", bundle: nil)
                 self.navigationController?.pushViewController(vc, animated: true)
-                
+                AppSetting.shared.setStatusLogin(status: true)
                 
             }
         }
@@ -96,7 +104,7 @@ class LoginViewController: UIViewController {
                 // Inspect error
                 return
             }
-            
+            AppSetting.shared.setStatusLogin(status: true)
             // go main content view
             let vc = HomeMasterViewController(nibName: "HomeMasterViewController", bundle: nil)
             self.navigationController?.pushViewController(vc, animated: true)

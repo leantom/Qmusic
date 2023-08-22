@@ -121,7 +121,7 @@ extension SearchViewController: UITextFieldDelegate {
         
         if let inputSearch =  textField.text,
            let _ = URL(string: inputSearch) {
-            NetworkYoutube.sharedInstance.searchLinkMp3(linkURL: inputSearch) { result in
+            NetworkManager.sharedInstance.searchLinkMp3(linkURL: inputSearch) { result in
                 switch result {
                 case .success(let object):
                     self.objectMp3 = object
@@ -161,29 +161,15 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let objectMp3 = self.objectMp3 {
+            setupMusicBar(object: objectMp3)
             playMusic(link: objectMp3.link)
         }
     }
     
     func playMusic(link: String) {
-        if let url = URL(string: link) {
-            let playerItem: AVPlayerItem = AVPlayerItem(url: url)
-            
-            player = AVPlayer(playerItem: playerItem)
-            MusicHelper.sharedHelper.audioPlayer = player
-            let playerLayer = AVPlayerLayer(player: player!)
-            playerLayer.frame = CGRect(x: 0, y: 0, width: 10, height: 50)
-            self.view.layer.addSublayer(playerLayer)
-            player?.play()
-            if let objectMp3 = self.objectMp3 {
-                setupMusicBar(object: objectMp3)
-            }
-            
-            UIView.animate(withDuration: 0.3) {
-                self.view.layoutIfNeeded()
-            }
-            
-        }
+        
+        MusicHelper.sharedHelper.playMusicWithURL(link: link, on: self.view)
+        
     }
     
     func setupMusicBar(object: YoutubeDataMP3) {
@@ -197,7 +183,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     @objc func playerDidFinishPlaying(note: NSNotification) {
         print("Video Finished")
         musicBar.btnPlay.setImage(UIImage(named: "ic_playing_black"), for: .normal)
-        
+        MusicHelper.sharedHelper.setFinishedPlaying()
     }
     
 }

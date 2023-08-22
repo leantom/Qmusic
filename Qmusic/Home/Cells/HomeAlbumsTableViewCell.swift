@@ -47,8 +47,8 @@ class HomeAlbumsTableViewCell: UITableViewCell {
 
     @objc func playerDidFinishPlaying(note: NSNotification) {
         print("Video Finished")
-        player?.seek(to: CMTime.zero)
         btnPlay.setImage(UIImage(named: "ic_playing"), for: .normal)
+        MusicHelper.sharedHelper.setFinishedPlaying()
     }
     
     // MARK: -- animation for progress bar
@@ -61,7 +61,6 @@ class HomeAlbumsTableViewCell: UITableViewCell {
             timer?.invalidate()
         }
         lblTimeStart.text = TimeInterval(countdown).showFormatTimerCoundown()
-         
     }
     
     // MARK: - Remove Observer

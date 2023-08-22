@@ -19,10 +19,14 @@ class CarouselCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    func populate(item: Item) {
-        self.imgAlbum.image = UIImage(named: item.imgAlbumsBG)
-        self.imgAlbumBG.image = UIImage(named: item.imgAlbums)
-        lblTitle.text = item.value
+    
+    func populate(item: HomePage.Items) {
+        
+        if let urlImage = item.images?.first?.first,
+           let url = URL(string: urlImage.url ?? "") {
+            self.imgAlbum.setImage(from: url)
+        }
+        lblTitle.text = item.name
     }
 
 }

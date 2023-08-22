@@ -188,8 +188,8 @@ class HomeMasterViewController: UIViewController {
 
 
 extension HomeMasterViewController: HomeViewControllerDelegate {
-    func didSelectRecentlySong(indexPath: IndexPath, item: Item) {
-        musicBar.populate(item: item)
+    func didSelectRecentlySong(indexPath: IndexPath, item: HomePage.Items) {
+       // musicBar.populate(item: item)
         self.heightContraintMusicBar.constant = 65
         bottomContraintContainView.constant = 65
         UIView.animate(withDuration: 0.3) {
