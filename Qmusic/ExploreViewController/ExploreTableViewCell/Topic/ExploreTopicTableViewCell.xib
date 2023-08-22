@@ -20,10 +20,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="226"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Tu4-wl-4ZE">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="226"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" priority="250" constant="226" id="jdg-2t-YnM"/>
+                                    <constraint firstAttribute="height" constant="100" id="jdg-2t-YnM"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="nSx-bc-Hb9">
                                     <size key="itemSize" width="128" height="128"/>
@@ -53,6 +53,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="clView" destination="Tu4-wl-4ZE" id="Wbp-gJ-jbS"/>
+                <outlet property="constraintHeight" destination="jdg-2t-YnM" id="8LW-jH-6dp"/>
             </connections>
             <point key="canvasLocation" x="183.20610687022901" y="52.816901408450704"/>
         </tableViewCell>

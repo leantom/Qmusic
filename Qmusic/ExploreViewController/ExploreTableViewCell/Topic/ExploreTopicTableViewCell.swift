@@ -14,6 +14,7 @@ struct FakeDataTopic{
 
 class ExploreTopicTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var constraintHeight: NSLayoutConstraint!
     @IBOutlet weak var clView: UICollectionView!
     
     var data: [FakeDataTopic] = []
@@ -31,7 +32,23 @@ class ExploreTopicTableViewCell: UITableViewCell {
     
     func setDataTopic(_ data: [FakeDataTopic]){
         self.data = data
-        self.clView.reloadData()
+       
+        UIView.animate(withDuration: 0.2) {
+            let height = self.setHeightConstraint()
+            self.constraintHeight.constant = height
+        } completion: { _ in
+            self.clView.reloadData()
+        }
+    }
+    
+    func setHeightConstraint() -> CGFloat{
+        let margin = 16
+        let widthItem = (self.clView.frame.width - 32) / 3
+        let heightItem = widthItem * 61/99
+        let _ceil = Int(ceil(Double(self.data.count) / 3.0))
+        
+        let height = (margin * (_ceil - 1)) + (Int(heightItem) * _ceil)
+        return CGFloat(height)
     }
     
 }
