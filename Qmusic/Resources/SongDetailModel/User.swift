@@ -12,21 +12,29 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
+extension SongDetail {
+    struct User : Codable {
+        let id : Int?
+        let permalink : String?
+        let name : String?
+        let verified : Bool?
 
-struct PlaylistDetail : Codable {
-	let status : Bool?
-    var contents : PlaylistModel.Contents?
+        enum CodingKeys: String, CodingKey {
 
-	enum CodingKeys: String, CodingKey {
+            case id = "id"
+            case permalink = "permalink"
+            case name = "name"
+            case verified = "verified"
+        }
 
-		case status = "status"
-		case contents = "contents"
-	}
+        init(from decoder: Decoder) throws {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            id = try values.decodeIfPresent(Int.self, forKey: .id)
+            permalink = try values.decodeIfPresent(String.self, forKey: .permalink)
+            name = try values.decodeIfPresent(String.self, forKey: .name)
+            verified = try values.decodeIfPresent(Bool.self, forKey: .verified)
+        }
 
-	init(from decoder: Decoder) throws {
-		let values = try decoder.container(keyedBy: CodingKeys.self)
-		status = try values.decodeIfPresent(Bool.self, forKey: .status)
-        contents = try values.decodeIfPresent(PlaylistModel.Contents.self, forKey: .contents)
-	}
-
+    }
 }
+

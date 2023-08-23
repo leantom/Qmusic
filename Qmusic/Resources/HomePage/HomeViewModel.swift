@@ -26,6 +26,7 @@ class HomeViewModel: BaseViewModel {
         let charts:PublishSubject<HomePage.Genres>
         let pianoAlbums:PublishSubject<[HomePage.Items]>
         let playlistDetail:PublishSubject<PlaylistDetail>
+        let songdetail: PublishSubject<SongDetailModel>
     }
     
     let input: Input
@@ -35,8 +36,10 @@ class HomeViewModel: BaseViewModel {
     let SpotifysChoiceObserver = PublishSubject<[HomePage.Items]>()
     let chartsObserver = PublishSubject<HomePage.Genres>()
     let pianoAlbumsObserver = PublishSubject<[HomePage.Items]>()
-    let playlistDetailObserver  = PublishSubject<PlaylistDetail>()
+    let playlistDetailObserver = PublishSubject<PlaylistDetail>()
+    let songdetailObserver = PublishSubject<SongDetailModel>()
     
+    var songdetail: SongDetailModel?
     let disposeBag = DisposeBag()
     private var spotifysChoice:[HomePage.Items] = []
     private var charts:HomePage.Genres?
@@ -44,13 +47,16 @@ class HomeViewModel: BaseViewModel {
     private var moodPlaylist:[HomePage.Items] = []
     private var popularnewRelease:[HomePage.Items] = []
     private var playlistDetail: PlaylistDetail?
+    private var playlistSelected: HomePage.Items?
     
     init() {
         self.input = Input()
         self.output = Output(error: errorObserver,
                              SpotifysChoice: SpotifysChoiceObserver,
                              charts: chartsObserver,
-                             pianoAlbums: pianoAlbumsObserver)
+                             pianoAlbums: pianoAlbumsObserver,
+                             playlistDetail: playlistDetailObserver,
+                             songdetail: songdetailObserver)
     }
     
     func getHomePage() {
@@ -104,6 +110,14 @@ class HomeViewModel: BaseViewModel {
         
     }
     
+    func getPlaylistSeleted() -> HomePage.Items? {
+        return playlistSelected
+    }
+    
+    func setPlaylistSeleted(item: HomePage.Items) {
+        self.playlistSelected = item
+    }
+    
     func getPlaylistDetail(id: String) {
         let apiClient = NetworkManager.sharedInstance
         
@@ -111,7 +125,24 @@ class HomeViewModel: BaseViewModel {
            onNext: { result in
                //MARK: display in UITableView
                self.playlistDetail = result
-               
+               self.output.playlistDetail.onNext(result)
+           },
+           onError: { error in
+               print(error.localizedDescription)
+           },
+           onCompleted: {
+               print("Completed event.")
+           }).disposed(by: disposeBag)
+    }
+    
+    func getSongDetail(id: String) {
+        let apiClient = NetworkManager.sharedInstance
+        
+        apiClient.getDetailSong(id: id).subscribe(
+           onNext: { result in
+               //MARK: display in UITableView
+               self.songdetail = result
+               self.output.songdetail.onNext(result)
            },
            onError: { error in
                print(error.localizedDescription)

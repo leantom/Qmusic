@@ -71,7 +71,7 @@ class NetworkManager: NSObject {
     // MARK: -- getHomePageFromSpotify
     
     
-    //MARK: function for URLSession takes
+    //MARK: getHomePage
     public func getHomePage()
     -> Observable<HomePageModel> {
         let headers = [
@@ -88,6 +88,14 @@ class NetworkManager: NSObject {
         
         //MARK: creating our observable
         return Observable.create { observer in
+            
+            if let homeData = AppSetting.shared.getHomeDataFromLocal() {
+                observer.onNext(homeData)
+                observer.onCompleted()
+                return Disposables.create {}
+            }
+            
+            
             //MARK: create URLSession dataTask
             let session = URLSession.shared
             let task = session.dataTask(with: request as URLRequest) { (data,
@@ -100,11 +108,13 @@ class NetworkManager: NSObject {
                         if (200...399).contains(statusCode) {
                             let objs = try jsonDecoder.decode(HomePageModel.self, from:
                                                                 _data)
+                            AppSetting.shared.archiveDataHome(data: objs)
                             //MARK: observer onNext event
                             observer.onNext(objs)
                         }
                         else {
-                            observer.onError(error!)
+                            let err = NSError(domain:"", code:httpResponse.statusCode, userInfo:nil)
+                            observer.onError(err)
                         }
                     } catch {
                         //MARK: observer onNext event
@@ -139,6 +149,13 @@ class NetworkManager: NSObject {
         
         //MARK: creating our observable
         return Observable.create { observer in
+            
+            if let homeData = AppSetting.shared.getPlaylistDataFromLocal(id: id) {
+                observer.onNext(homeData)
+                observer.onCompleted()
+                return Disposables.create {}
+            }
+            
             //MARK: create URLSession dataTask
             let session = URLSession.shared
             let task = session.dataTask(with: request as URLRequest) { (data,
@@ -151,11 +168,13 @@ class NetworkManager: NSObject {
                         if (200...399).contains(statusCode) {
                             let objs = try jsonDecoder.decode(PlaylistDetail.self, from:
                                                                 _data)
+                            AppSetting.shared.archiveDataPlaylist(data: objs, id: id)
                             //MARK: observer onNext event
                             observer.onNext(objs)
                         }
                         else {
-                            observer.onError(error!)
+                            let err = NSError(domain:"", code:httpResponse.statusCode, userInfo:nil)
+                            observer.onError(err)
                         }
                     } catch {
                         //MARK: observer onNext event
@@ -173,6 +192,57 @@ class NetworkManager: NSObject {
         }
     }
     
+    
+    public func getDetailSong(id: String)
+    -> Observable<SongDetailModel> {
+        let headers = [
+            "X-RapidAPI-Key": "LAW614Sbs9mshQpXupy9yRG24Aipp11WiV5jsn5q7O9MK5B2R0",
+            "X-RapidAPI-Host": "spotify-scraper.p.rapidapi.com"
+        ]
+
+        let request = NSMutableURLRequest(url: NSURL(string: "https://spotify-scraper.p.rapidapi.com/v1/track/download/soundcloud?track=\(id)")! as URL,
+                                                cachePolicy: .useProtocolCachePolicy,
+                                            timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+        //MARK: creating our observable
+        return Observable.create { observer in
+            //MARK: create URLSession dataTask
+            let session = URLSession.shared
+            let task = session.dataTask(with: request as URLRequest) { (data,
+                                                          response, error) in
+                if let httpResponse = response as? HTTPURLResponse{
+                    let statusCode = httpResponse.statusCode
+                    let jsonDecoder = JSONDecoder()
+                    do {
+                        let _data = data ?? Data()
+                        if (200...399).contains(statusCode) {
+                            let objs = try jsonDecoder.decode(SongDetailModel.self, from:
+                                                                _data)
+                            //MARK: observer onNext event
+                            observer.onNext(objs)
+                        }
+                        else {
+                            let err = NSError(domain:"", code:httpResponse.statusCode, userInfo:nil)
+                            observer.onError(err)
+                        }
+                    } catch {
+                        //MARK: observer onNext event
+                        observer.onError(error)
+                    }
+                }
+                //MARK: observer onCompleted event
+                observer.onCompleted()
+            }
+            task.resume()
+            //MARK: return our disposable
+            return Disposables.create {
+                task.cancel()
+            }
+        }
+        
+    }
 }
 
 struct YoutubeDataMP3: Codable {

@@ -76,11 +76,20 @@ class HomeViewController: UIViewController {
         tbContent.dataSource = self
         
         setupRx()
+        
     }
 
 
     func setupRx() {
         homePageModel.getHomePage()
+        if let data = AppSetting.shared.getHomeDataFromLocal() {
+            headerSections.append(.SpotifyChoice)
+            headerSections.append(.Charts)
+            headerSections.append(.PianoPeaceful)
+            headerSections.append(.Mood)
+            headerSections.append(.Popular_new_releases)
+            tbContent.reloadData()
+        }
         homePageModel.output.SpotifysChoice.observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] value in
                 guard let self = self else { return }
@@ -102,6 +111,17 @@ class HomeViewController: UIViewController {
                 headerSections.append(.Mood)
                 headerSections.append(.Popular_new_releases)
                 tbContent.reloadData()
+            })
+            .disposed(by: homePageModel.disposeBag)
+        
+        homePageModel.output.playlistDetail.observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                guard let self = self else { return }
+                if let playlist = homePageModel.getPlaylistSeleted() {
+                    let vc = PlaylistDetailViewController(playlistDetail: value, playlist: playlist)
+                    self.navigationController?.push(destinVC: vc)
+                }
+                
             })
             .disposed(by: homePageModel.disposeBag)
         
@@ -168,6 +188,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case .SpotifyChoice:
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeWeeklyTableViewCell", for: indexPath) as! HomeWeeklyTableViewCell
             cell.items = homePageModel.getSpotifyItems()
+            cell.homePageModel = self.homePageModel
             cell.selectionStyle = .none
             return cell
         case .Charts:
@@ -176,38 +197,25 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case .PianoPeaceful:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RecentlyMusicTableViewCell", for: indexPath) as! RecentlyMusicTableViewCell
-            cell.popuplate(item: homePageModel.getpianoAlbums()[indexPath.row])
+            cell.popuplate(item: homePageModel.getpianoAlbums()[indexPath.row], index: indexPath.row)
             cell.delegate = self
             cell.selectionStyle = .none
             return cell
             
         case .Mood:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RecentlyMusicTableViewCell", for: indexPath) as! RecentlyMusicTableViewCell
-            cell.popuplate(item: homePageModel.getmoodPlaylist()[indexPath.row])
+            cell.popuplate(item: homePageModel.getmoodPlaylist()[indexPath.row], index: indexPath.row)
             cell.delegate = self
             cell.selectionStyle = .none
             return cell
         case .Popular_new_releases:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RecentlyMusicTableViewCell", for: indexPath) as! RecentlyMusicTableViewCell
-            cell.popuplate(item: homePageModel.getpopularNewRelease()[indexPath.row])
+            cell.popuplate(item: homePageModel.getpopularNewRelease()[indexPath.row], index: indexPath.row)
             cell.delegate = self
             cell.selectionStyle = .none
             return cell
         }
         
-        
-        
-        if indexPath.section >= 2 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "RecentlyMusicTableViewCell", for: indexPath) as! RecentlyMusicTableViewCell
-            cell.popuplate(item: homePageModel.getSpotifyItems()[indexPath.row])
-            cell.delegate = self
-            cell.selectionStyle = .none
-            return cell
-        }
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeAlbumsTableViewCell", for: indexPath)
-        cell.selectionStyle = .none
-        return cell
         
     }
     
@@ -216,7 +224,21 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             delegate.didSelectRecentlySong(indexPath: indexPath, item: homePageModel.getSpotifyItems()[indexPath.row])
         }
         isSelectedSong = true
-        
+        let headerSection = headerSections[indexPath.section]
+        switch headerSection {
+        case .SpotifyChoice:
+           
+            
+            break
+        case .Charts:
+            break
+        case .PianoPeaceful:
+            break
+        case .Mood:
+            break
+        case .Popular_new_releases:
+            break
+        }
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

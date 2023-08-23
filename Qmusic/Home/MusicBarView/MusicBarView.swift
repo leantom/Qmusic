@@ -7,6 +7,12 @@
 
 import UIKit
 
+protocol MusicBarViewDelegate: AnyObject {
+    func didSelectedPrevious()
+    func didSelectedPlay()
+    func didSelectedNext()
+}
+
 class MusicBarView: UIView {
     @IBOutlet weak var imgAlbums: UIImageView!
     
@@ -14,6 +20,9 @@ class MusicBarView: UIView {
     @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var btnPlay: UIButton!
     @IBOutlet weak var lblNameSong: UILabel!
+    
+    weak var delegate:MusicBarViewDelegate?
+    
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -45,7 +54,14 @@ class MusicBarView: UIView {
            let imageCircle = image.maskRoundedImage(radius: imgAlbums.frame.width/2) {
             imgAlbums.setImageWithAnimation(image: imageCircle)
         }
-        
+    }
+    
+    func populate(nameSong: String, urlImage: String) {
+        lblNameSong.text = nameSong
+        if let url = URL(string: urlImage) {
+            imgAlbums.setImage(from: url)
+        }
         
     }
+    
 }

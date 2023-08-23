@@ -168,7 +168,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func playMusic(link: String) {
         
-        MusicHelper.sharedHelper.playMusicWithURL(link: link, on: self.view)
+        MusicHelper.sharedHelper.playMusicWithURL(link: link, on: self.view, with: .Single)
         
     }
     

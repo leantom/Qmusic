@@ -12,21 +12,26 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
+struct SongDetail {
+    struct Cover : Codable {
+        let url : String?
+        let width : Int?
+        let height : Int?
 
-struct PlaylistDetail : Codable {
-	let status : Bool?
-    var contents : PlaylistModel.Contents?
+        enum CodingKeys: String, CodingKey {
 
-	enum CodingKeys: String, CodingKey {
+            case url = "url"
+            case width = "width"
+            case height = "height"
+        }
 
-		case status = "status"
-		case contents = "contents"
-	}
+        init(from decoder: Decoder) throws {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            url = try values.decodeIfPresent(String.self, forKey: .url)
+            width = try values.decodeIfPresent(Int.self, forKey: .width)
+            height = try values.decodeIfPresent(Int.self, forKey: .height)
+        }
 
-	init(from decoder: Decoder) throws {
-		let values = try decoder.container(keyedBy: CodingKeys.self)
-		status = try values.decodeIfPresent(Bool.self, forKey: .status)
-        contents = try values.decodeIfPresent(PlaylistModel.Contents.self, forKey: .contents)
-	}
-
+    }
 }
+

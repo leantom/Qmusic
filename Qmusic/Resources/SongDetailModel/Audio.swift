@@ -12,21 +12,35 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
+extension SongDetail {
+    struct Audio : Codable {
+        let quality : String?
+        let url : String?
+        let durationMs : Int?
+        let durationText : String?
+        let mimeType : String?
+        let format : String?
 
-struct PlaylistDetail : Codable {
-	let status : Bool?
-    var contents : PlaylistModel.Contents?
+        enum CodingKeys: String, CodingKey {
 
-	enum CodingKeys: String, CodingKey {
+            case quality = "quality"
+            case url = "url"
+            case durationMs = "durationMs"
+            case durationText = "durationText"
+            case mimeType = "mimeType"
+            case format = "format"
+        }
 
-		case status = "status"
-		case contents = "contents"
-	}
+        init(from decoder: Decoder) throws {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            quality = try values.decodeIfPresent(String.self, forKey: .quality)
+            url = try values.decodeIfPresent(String.self, forKey: .url)
+            durationMs = try values.decodeIfPresent(Int.self, forKey: .durationMs)
+            durationText = try values.decodeIfPresent(String.self, forKey: .durationText)
+            mimeType = try values.decodeIfPresent(String.self, forKey: .mimeType)
+            format = try values.decodeIfPresent(String.self, forKey: .format)
+        }
 
-	init(from decoder: Decoder) throws {
-		let values = try decoder.container(keyedBy: CodingKeys.self)
-		status = try values.decodeIfPresent(Bool.self, forKey: .status)
-        contents = try values.decodeIfPresent(PlaylistModel.Contents.self, forKey: .contents)
-	}
-
+    }
 }
+

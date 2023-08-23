@@ -12,21 +12,23 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-
-struct PlaylistDetail : Codable {
+struct SongDetailModel : Codable {
 	let status : Bool?
-    var contents : PlaylistModel.Contents?
+    let soundcloudTrack : SongDetail.SoundcloudTrack?
+    let spotifyTrack : SongDetail.SpotifyTrack?
 
 	enum CodingKeys: String, CodingKey {
 
 		case status = "status"
-		case contents = "contents"
+		case soundcloudTrack = "soundcloudTrack"
+		case spotifyTrack = "spotifyTrack"
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		status = try values.decodeIfPresent(Bool.self, forKey: .status)
-        contents = try values.decodeIfPresent(PlaylistModel.Contents.self, forKey: .contents)
+        soundcloudTrack = try values.decodeIfPresent(SongDetail.SoundcloudTrack.self, forKey: .soundcloudTrack)
+        spotifyTrack = try values.decodeIfPresent(SongDetail.SpotifyTrack.self, forKey: .spotifyTrack)
 	}
 
 }

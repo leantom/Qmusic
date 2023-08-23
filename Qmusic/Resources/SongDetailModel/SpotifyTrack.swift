@@ -12,21 +12,39 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-extension PlaylistModel {
-    struct Contents : Codable {
-        let totalCount : Int?
-        var items : [ItemsPlaylist]?
+extension SongDetail {
+    struct SpotifyTrack : Codable {
+        let type : String?
+        let id : String?
+        let name : String?
+        let shareUrl : String?
+        let durationMs : Int?
+        let durationText : String?
+        let artists : [Artists]?
+        let album : Album?
 
         enum CodingKeys: String, CodingKey {
 
-            case totalCount = "totalCount"
-            case items = "items"
+            case type = "type"
+            case id = "id"
+            case name = "name"
+            case shareUrl = "shareUrl"
+            case durationMs = "durationMs"
+            case durationText = "durationText"
+            case artists = "artists"
+            case album = "album"
         }
 
         init(from decoder: Decoder) throws {
             let values = try decoder.container(keyedBy: CodingKeys.self)
-            totalCount = try values.decodeIfPresent(Int.self, forKey: .totalCount)
-            items = try values.decodeIfPresent([ItemsPlaylist].self, forKey: .items)
+            type = try values.decodeIfPresent(String.self, forKey: .type)
+            id = try values.decodeIfPresent(String.self, forKey: .id)
+            name = try values.decodeIfPresent(String.self, forKey: .name)
+            shareUrl = try values.decodeIfPresent(String.self, forKey: .shareUrl)
+            durationMs = try values.decodeIfPresent(Int.self, forKey: .durationMs)
+            durationText = try values.decodeIfPresent(String.self, forKey: .durationText)
+            artists = try values.decodeIfPresent([Artists].self, forKey: .artists)
+            album = try values.decodeIfPresent(Album.self, forKey: .album)
         }
 
     }

@@ -11,9 +11,6 @@ class CarouselCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imgAlbumBG: UIImageView!
     @IBOutlet weak var imgAlbum: UIImageView!
     
-    @IBOutlet weak var lblTitle: UILabel!
-    
-    @IBOutlet weak var lblDesc: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,7 +23,6 @@ class CarouselCollectionViewCell: UICollectionViewCell {
            let url = URL(string: urlImage.url ?? "") {
             self.imgAlbum.setImage(from: url)
         }
-        lblTitle.text = item.name
     }
 
 }

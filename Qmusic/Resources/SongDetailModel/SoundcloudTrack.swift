@@ -12,21 +12,35 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
+extension SongDetail {
+    struct SoundcloudTrack : Codable {
+        let searchTerm : String?
+        let id : Int?
+        let permalink : String?
+        let title : String?
+        let user : User?
+        let audio : [Audio]?
 
-struct PlaylistDetail : Codable {
-	let status : Bool?
-    var contents : PlaylistModel.Contents?
+        enum CodingKeys: String, CodingKey {
 
-	enum CodingKeys: String, CodingKey {
+            case searchTerm = "searchTerm"
+            case id = "id"
+            case permalink = "permalink"
+            case title = "title"
+            case user = "user"
+            case audio = "audio"
+        }
 
-		case status = "status"
-		case contents = "contents"
-	}
+        init(from decoder: Decoder) throws {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            searchTerm = try values.decodeIfPresent(String.self, forKey: .searchTerm)
+            id = try values.decodeIfPresent(Int.self, forKey: .id)
+            permalink = try values.decodeIfPresent(String.self, forKey: .permalink)
+            title = try values.decodeIfPresent(String.self, forKey: .title)
+            user = try values.decodeIfPresent(User.self, forKey: .user)
+            audio = try values.decodeIfPresent([Audio].self, forKey: .audio)
+        }
 
-	init(from decoder: Decoder) throws {
-		let values = try decoder.container(keyedBy: CodingKeys.self)
-		status = try values.decodeIfPresent(Bool.self, forKey: .status)
-        contents = try values.decodeIfPresent(PlaylistModel.Contents.self, forKey: .contents)
-	}
-
+    }
 }
+

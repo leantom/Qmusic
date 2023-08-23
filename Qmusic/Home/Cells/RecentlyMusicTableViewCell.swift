@@ -59,14 +59,26 @@ class RecentlyMusicTableViewCell: UITableViewCell {
         }
     }
     
-    func popuplate(item: HomePage.Items) {
+    func popuplate(item: HomePage.Items, index: Int) {
         lblArtist.text = item.name
         lblNameSong.text = item.description
         if let urlImage = item.images?.first?.first,
            let url = URL(string: urlImage.url ?? "") {
             self.imgAlbums.setImage(from: url)
         }
-        
+        lblTitle.text = "\(index + 1)"
     }
+    
+    func popuplate(item: PlaylistModel.ItemsPlaylist, index: Int) {
+        self.backgroundColor = .clear
+        lblArtist.text = item.artists?.first?.name
+        lblNameSong.text = item.name
+        if let urlImage = item.album?.cover?.first?.url,
+           let url = URL(string: urlImage) {
+            self.imgAlbums.setImage(from: url)
+        }
+        lblTitle.text = "\(index + 1)"
+    }
+    
     
 }

@@ -29,6 +29,7 @@ class HomeWeeklyTableViewCell: UITableViewCell {
         }
     }
     
+    var homePageModel : HomeViewModel?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -63,5 +64,14 @@ extension HomeWeeklyTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = items[indexPath.row]
         print("Selected Item at index: \(indexPath.row)")
+        
+        if let homePageModel = self.homePageModel,
+           let song = item.id {
+            
+            homePageModel.setPlaylistSeleted(item: item)
+            
+            homePageModel.getPlaylistDetail(id: song)
+        }
+        
     }
 }

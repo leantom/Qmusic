@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,33 +43,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="a6Z-Tq-eeH">
-                                <rect key="frame" x="94.666666666666657" y="143" width="91.666666666666657" height="32.666666666666657"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pray For You" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydo-6j-eLI">
-                                        <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="18.666666666666668"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Weekend" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fv8-Rv-N5b">
-                                        <rect key="frame" x="0.0" y="18.666666666666657" width="91.666666666666671" height="14"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="uYd-le-mo0" firstAttribute="top" secondItem="Hrl-JC-vhD" secondAttribute="bottom" constant="-176" id="C2T-c7-rrg"/>
                             <constraint firstItem="uYd-le-mo0" firstAttribute="leading" secondItem="Hrl-JC-vhD" secondAttribute="trailing" constant="-173.5" id="OAA-qc-o2U"/>
                             <constraint firstItem="Hrl-JC-vhD" firstAttribute="centerX" secondItem="iJG-HP-pq9" secondAttribute="centerX" constant="-7.25" id="OQF-OW-VdT"/>
-                            <constraint firstItem="a6Z-Tq-eeH" firstAttribute="top" secondItem="Hrl-JC-vhD" secondAttribute="bottom" constant="-45" id="PFr-6j-kmy"/>
                             <constraint firstItem="uYd-le-mo0" firstAttribute="width" secondItem="uYd-le-mo0" secondAttribute="height" id="UxY-nH-dQm"/>
                             <constraint firstItem="uYd-le-mo0" firstAttribute="centerY" secondItem="iJG-HP-pq9" secondAttribute="centerY" constant="6" id="kc8-gG-CAd"/>
                             <constraint firstItem="Hrl-JC-vhD" firstAttribute="centerX" secondItem="iJG-HP-pq9" secondAttribute="centerX" constant="-7.25" id="pgq-u1-ZTK"/>
-                            <constraint firstItem="Hrl-JC-vhD" firstAttribute="leading" secondItem="a6Z-Tq-eeH" secondAttribute="trailing" constant="-100" id="zOF-r7-VpA"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -84,8 +66,6 @@
             <connections>
                 <outlet property="imgAlbum" destination="Hrl-JC-vhD" id="qVk-u0-Mkv"/>
                 <outlet property="imgAlbumBG" destination="uYd-le-mo0" id="hiT-le-kUJ"/>
-                <outlet property="lblDesc" destination="fv8-Rv-N5b" id="b9p-GT-1g6"/>
-                <outlet property="lblTitle" destination="ydo-6j-eLI" id="B98-IA-chL"/>
             </connections>
             <point key="canvasLocation" x="292.36641221374043" y="58.802816901408455"/>
         </collectionViewCell>

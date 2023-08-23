@@ -24,6 +24,45 @@ class AppSetting: NSObject {
         return self.userDefault.isLogin
     }
     
+    public func archiveDataHome(data: HomePageModel) {
+        let encoder = JSONEncoder()
+        
+        if let data = try? encoder.encode(data) {
+            UserDefaults.standard.set(data, forKey: "homedata")
+        }
+    }
+    
+    // MARK: -- cho đỡ tiền request (thông cảm)
+    func getHomeDataFromLocal() -> HomePageModel? {
+        
+        if let data =  UserDefaults.standard.object(forKey: "homedata"),
+           let obj = try? JSONDecoder().decode(HomePageModel.self, from: data as! Data) {
+            
+            return obj
+        }
+        return nil
+    }
+    
+    public func archiveDataPlaylist(data: PlaylistDetail, id: String) {
+        let encoder = JSONEncoder()
+        
+        if let data = try? encoder.encode(data) {
+            UserDefaults.standard.set(data, forKey: id)
+        }
+    }
+    
+    // MARK: -- cho đỡ tiền request (thông cảm)
+    func getPlaylistDataFromLocal(id: String) -> PlaylistDetail? {
+        
+        if let data =  UserDefaults.standard.object(forKey: id),
+           let obj = try? JSONDecoder().decode(PlaylistDetail.self, from: data as! Data) {
+            
+            return obj
+        }
+        return nil
+    }
+    
+    
 }
 
 protocol IUserDefault {
