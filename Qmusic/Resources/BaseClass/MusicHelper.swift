@@ -9,6 +9,7 @@ import Foundation
 import AVFAudio
 import AVFoundation
 import UIKit
+import RxSwift
 
 enum MusicStatusPlay {
     case None
@@ -32,6 +33,7 @@ class MusicHelper {
     private var type:  MusicTypePlaying = .None
     private var playlist: PlaylistDetail?
     private var index: Int = 0
+    var homePageViewModel = HomeViewModel()
     
     var musicBar: MusicBarView = {
         let v = MusicBarView.instantiate()
@@ -76,6 +78,18 @@ class MusicHelper {
             name: .AVPlayerItemNewErrorLogEntry,
             object: audioPlayer?.currentItem
         )
+        setupRx()
+    }
+    
+    func setupRx() {
+        homePageViewModel.output.songdetail.observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                guard let self = self else { return }
+                if let url = value.soundcloudTrack?.audio?.first?.url {
+                   self.playMusicWithURL(link: url)
+                }
+            })
+            .disposed(by: homePageViewModel.disposeBag)
     }
     
     @objc func playerDidFinishPlaying(note: NSNotification) {
@@ -110,11 +124,25 @@ class MusicHelper {
     }
     
     func nextSongInPlaylist() {
-        if var playlistDetail = self.playlist,
+        if let playlistDetail = self.playlist,
            let items = playlistDetail.contents?.items {
-            playlistDetail.contents?.items = items.shuffled()
+            let item = items[index + 1]
+            index += 1
+            // MARK: -- call api to get song detail
+            homePageViewModel.getSongDetail(id: item.id ?? "")
         }
     }
+    
+    func previousSongInPlaylist() {
+        if let playlistDetail = self.playlist,
+           let items = playlistDetail.contents?.items {
+            let item = items[index - 1]
+            index -= 1
+            // MARK: -- call api to get song detail
+            homePageViewModel.getSongDetail(id: item.id ?? "")
+        }
+    }
+    
     
     
     func playBackgroundMusic() {
@@ -170,6 +198,7 @@ class MusicHelper {
                 let playerItem: AVPlayerItem = AVPlayerItem(url: url)
                 audioPlayer?.replaceCurrentItem(with: playerItem)
                 audioPlayer?.play()
+                self.status = .Playing
             }
         }
         
@@ -203,9 +232,21 @@ class MusicHelper {
                 let playerItem: AVPlayerItem = AVPlayerItem(url: url)
                 audioPlayer = AVPlayer(playerItem: playerItem)
                 audioPlayer?.play()
+                self.status = .Playing
             }
         }
     }
+    // MARK: -- dùng cho auto chuyển bài hát
+    func playMusicWithURL(link: String) {
+       
+        if let url = URL(string: link) {
+            let playerItem: AVPlayerItem = AVPlayerItem(url: url)
+            audioPlayer?.replaceCurrentItem(with: playerItem)
+            audioPlayer?.play()
+            self.status = .Playing
+        }
+    }
+    
     
     func showProgressBar() {
         DispatchQueue.main.async {
@@ -213,7 +254,7 @@ class MusicHelper {
                 return
             }
             
-            if let view = window.viewWithTag(1000) {
+            if let _ = window.viewWithTag(1000) {
                 
             } else {
                 self.musicBar.tag = 1000
@@ -224,6 +265,7 @@ class MusicHelper {
                     self.musicBar.heightAnchor.constraint(equalToConstant: 71),
                     self.musicBar.bottomAnchor.constraint(equalTo: window.bottomAnchor, constant: -window.safeAreaBottom)
                 ])
+                self.musicBar.delegate = self
             }
             // MARK: -- add music bar
             
@@ -231,5 +273,26 @@ class MusicHelper {
             
         }
     }
+    
+}
+extension MusicHelper: MusicBarViewDelegate {
+    func didSelectedPrevious() {
+        self.previousSongInPlaylist()
+    }
+    
+    func didSelectedPlay() {
+        switch status {
+        case .None, .Playing:
+            self.stopPlayBackground()
+        case .Pause, .Finished:
+            self.playBackgroundMusic()
+            
+        }
+    }
+    
+    func didSelectedNext() {
+        self.nextSongInPlaylist()
+    }
+    
     
 }

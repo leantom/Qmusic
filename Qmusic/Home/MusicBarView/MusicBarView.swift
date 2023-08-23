@@ -33,13 +33,22 @@ class MusicBarView: UIView {
     }
     
     @IBAction func actionPrevious(_ sender: Any) {
+        if let delegate = self.delegate {
+            delegate.didSelectedPrevious()
+        }
     }
     
     @IBAction func actionPlay(_ sender: Any) {
         btnPlay.setImage(UIImage(named: "ic_playing_black"), for: .normal)
-        MusicHelper.sharedHelper.stopPlayBackground()
+        if let delegate = self.delegate {
+            delegate.didSelectedPlay()
+        }
     }
+    
     @IBAction func actionNext(_ sender: Any) {
+        if let delegate = self.delegate {
+            delegate.didSelectedPrevious()
+        }
     }
     
     

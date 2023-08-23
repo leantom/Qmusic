@@ -220,23 +220,38 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let delegate = self.delegate {
-            delegate.didSelectRecentlySong(indexPath: indexPath, item: homePageModel.getSpotifyItems()[indexPath.row])
-        }
+      
         isSelectedSong = true
         let headerSection = headerSections[indexPath.section]
         switch headerSection {
         case .SpotifyChoice:
-           
-            
             break
         case .Charts:
             break
         case .PianoPeaceful:
+            let item = homePageModel.getpianoAlbums()[indexPath.row]
+            if let itemID = item.id {
+                homePageModel.getPlaylistDetail(id: itemID)
+            }
+            homePageModel.setPlaylistSeleted(item: item)
+            
+            
             break
         case .Mood:
+            let item = homePageModel.getmoodPlaylist()[indexPath.row]
+            if let itemID = item.id {
+                homePageModel.getPlaylistDetail(id: itemID)
+            }
+            homePageModel.setPlaylistSeleted(item: item)
+            
             break
         case .Popular_new_releases:
+            let item = homePageModel.getpopularNewRelease()[indexPath.row]
+            if let itemID = item.id {
+                homePageModel.getPlaylistDetail(id: itemID)
+            }
+            homePageModel.setPlaylistSeleted(item: item)
+            
             break
         }
     }

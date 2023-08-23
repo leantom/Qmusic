@@ -53,7 +53,7 @@ class PlaylistDetailViewController: UIViewController {
         tbContent.register(UINib(nibName: "HeaderPlaylistDetailView", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderPlaylistDetailView")
         tbContent.delegate = self
         tbContent.dataSource = self
-        lblTitle.text = self.titleName
+        
         setupRx()
         NotificationCenter.default
             .addObserver(self,
@@ -65,6 +65,7 @@ class PlaylistDetailViewController: UIViewController {
            let cover = playlist.images?.first?.first?.url ,
            let url = URL(string: cover) {
             imgBg.setImage(from: url)
+            lblTitle.text = self.playlist?.name
         }
     }
     
@@ -184,7 +185,7 @@ extension PlaylistDetailViewController: HeaderPlaylistDetailViewDelegate {
     }
     
     func didSelectPauseOrPlaying() {
-        
+        MusicHelper.sharedHelper.didSelectedPlay()
     }
     
     func didSelectSkipNext() {
@@ -202,6 +203,17 @@ extension PlaylistDetailViewController: HeaderPlaylistDetailViewDelegate {
     
     func didSelectLoop() {
         
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        var minValue: CGFloat = 0
+        var maxValue: CGFloat = 1
+        
+        let offset = 1 - scrollView.contentOffset.y/400
+        lblTitle.alpha = scrollView.contentOffset.y/400
+        
+        let alphaOffset = min(max(offset, minValue), maxValue)
+        headerView?.alpha = alphaOffset
     }
     
     
