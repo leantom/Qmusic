@@ -37,10 +37,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Jma-dQ-RZ9">
-                            <rect key="frame" x="241" y="15.666666666666664" width="128" height="40"/>
+                            <rect key="frame" x="329" y="15.666666666666664" width="40" height="40"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2e-d3-aag">
-                                    <rect key="frame" x="0.0" y="0.0" width="24" height="40"/>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2e-d3-aag">
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="40"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" image="skip_previous_black"/>
                                     <connections>
@@ -48,7 +48,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5r-UP-fcb">
-                                    <rect key="frame" x="44" y="0.0" width="40" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="40" id="785-Cc-iaH"/>
                                         <constraint firstAttribute="height" constant="40" id="vEe-PJ-nY7"/>
@@ -62,8 +62,8 @@
                                         <action selector="actionPlay:" destination="iN0-l3-epB" eventType="touchUpInside" id="ruj-4B-H1i"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bw6-xn-YaZ">
-                                    <rect key="frame" x="104" y="0.0" width="24" height="40"/>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bw6-xn-YaZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="40"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" image="skip_next_black"/>
                                     <connections>

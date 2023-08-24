@@ -127,6 +127,9 @@ extension PlaylistDetailViewController: UITableViewDelegate, UITableViewDataSour
         
         return header
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 83
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let playlistDetail = self.playlistDetail,

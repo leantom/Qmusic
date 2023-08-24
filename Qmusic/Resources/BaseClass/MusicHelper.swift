@@ -10,6 +10,7 @@ import AVFAudio
 import AVFoundation
 import UIKit
 import RxSwift
+import MediaPlayer
 
 enum MusicStatusPlay {
     case None
@@ -25,7 +26,7 @@ enum MusicTypePlaying {
     case None
 }
 
-class MusicHelper {
+class MusicHelper: NSObject {
     static let sharedHelper = MusicHelper()
     var audioPlayer: AVPlayer?
     var isFinished = false
@@ -41,7 +42,8 @@ class MusicHelper {
         return v
     }()
     
-    init() {
+    override init() {
+        super.init()
         print("MusicHelper init")
         NotificationCenter.default
             .addObserver(self,
@@ -78,16 +80,33 @@ class MusicHelper {
             name: .AVPlayerItemNewErrorLogEntry,
             object: audioPlayer?.currentItem
         )
+        
+        
+        WEBaseSceneDelegate.sharedInstance.addListener(listener: self)
+        WEBaseSceneDelegate.sharedInstance.StartListening()
         setupRx()
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        setupRemoteTransportControls()
+    }
+    
+   @objc func methodSignatureForSelector() {
+        
     }
     
     func setupRx() {
         homePageViewModel.output.songdetail.observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] value in
                 guard let self = self else { return }
-                if let url = value.soundcloudTrack?.audio?.first?.url {
-                   self.playMusicWithURL(link: url)
+                if let url = value.soundcloudTrack?.audio?.first?.url,
+                   let items = self.playlist?.contents?.items {
+                    let item = items[index]
+                    self.playMusicWithURL(link: url,
+                                          with: item.name ?? "cyme",
+                                          with: item.artists?.first?.name ?? "cyme")
                 }
+                
+                
+                
             })
             .disposed(by: homePageViewModel.disposeBag)
     }
@@ -123,7 +142,7 @@ class MusicHelper {
         }
     }
     
-    func nextSongInPlaylist() {
+   @objc func nextSongInPlaylist() {
         if let playlistDetail = self.playlist,
            let items = playlistDetail.contents?.items {
             let item = items[index + 1]
@@ -133,7 +152,7 @@ class MusicHelper {
         }
     }
     
-    func previousSongInPlaylist() {
+    @objc func previousSongInPlaylist() {
         if let playlistDetail = self.playlist,
            let items = playlistDetail.contents?.items {
             let item = items[index - 1]
@@ -160,9 +179,6 @@ class MusicHelper {
         audioPlayer?.seek(to: CMTime.zero)
     }
     
-    func checkPlayingMusic() {
-        
-    }
     
     func playMusicWithPlaylist(link: String,
                                on view: UIView,
@@ -172,35 +188,22 @@ class MusicHelper {
         showProgressBar()
         self.playlist = playlist
         self.index = index
-        if let item = playlist.contents?.items,
-           item.count > index {
-             musicBar.populate(nameSong: item[index].name ?? "", urlImage: item[index].album?.cover?.first?.url ?? "")
-        }
-        switch status {
-        case .None:
-            if let url = URL(string: link) {
-                let playerItem: AVPlayerItem = AVPlayerItem(url: url)
-                audioPlayer = AVPlayer(playerItem: playerItem)
-                
-                let playerLayer = AVPlayerLayer(player: audioPlayer!)
-                
-                playerLayer.frame = CGRect(x: 0, y: 0, width: 10, height: 50)
-                view.layer.addSublayer(playerLayer)
-                audioPlayer?.play()
-                status = .Playing
-                UIView.animate(withDuration: 0.3) {
-                    view.layoutIfNeeded()
-                }
-            }
-        case .Playing, .Pause, .Finished:
-            if let url = URL(string: link) {
-                
-                let playerItem: AVPlayerItem = AVPlayerItem(url: url)
-                audioPlayer?.replaceCurrentItem(with: playerItem)
-                audioPlayer?.play()
-                self.status = .Playing
+        if let items = playlist.contents?.items,
+           items.count > index {
+            let item = items[index]
+             musicBar.populate(nameSong: item.name ?? "",
+                               urlImage: item.album?.cover?.first?.url ?? "")
+            
+            switch status {
+            case .None:
+                playMusicWithURL(link: link,
+                                 with: item.name ?? "cyme",
+                                 with: item.artists?.first?.name ?? "cyme")
+            case .Playing, .Pause, .Finished:
+                playMusicWithURL(link: link, with: item.name ?? "cyme", with: item.artists?.first?.name ?? "cyme")
             }
         }
+        
         
     }
     
@@ -213,65 +216,129 @@ class MusicHelper {
         
         switch status {
         case .None:
-            if let url = URL(string: link) {
-                let playerItem: AVPlayerItem = AVPlayerItem(url: url)
-                audioPlayer = AVPlayer(playerItem: playerItem)
-                
-                let playerLayer = AVPlayerLayer(player: audioPlayer!)
-                playerLayer.frame = CGRect(x: 0, y: 0, width: 10, height: 50)
-                view.layer.addSublayer(playerLayer)
-                audioPlayer?.play()
-                status = .Playing
-                UIView.animate(withDuration: 0.3) {
-                    view.layoutIfNeeded()
-                }
-                
-            }
+            playMusicWithURL(link: link)
         case .Playing, .Pause, .Finished:
-            if let url = URL(string: link) {
-                let playerItem: AVPlayerItem = AVPlayerItem(url: url)
-                audioPlayer = AVPlayer(playerItem: playerItem)
-                audioPlayer?.play()
-                self.status = .Playing
+            playMusicWithURL(link: link)
+        }
+    }
+    
+    func isPlayable(url: URL, completion: @escaping (Bool) -> ()) {
+        let asset = AVAsset(url: url)
+        let playableKey = "playable"
+        asset.loadValuesAsynchronously(forKeys: [playableKey]) {
+            var error: NSError? = nil
+            let status = asset.statusOfValue(forKey: playableKey, error: &error)
+            let isPlayable = status == .loaded
+            DispatchQueue.main.async {
+                completion(isPlayable)
             }
         }
     }
+    
     // MARK: -- dùng cho auto chuyển bài hát
-    func playMusicWithURL(link: String) {
-       
+    func playMusicWithURL(link: String,
+                          with tilte: String = "cyme",
+                          with artist: String = "cyme") {
+        Logger.log(message: "starting song url", event: .e)
         if let url = URL(string: link) {
-            let playerItem: AVPlayerItem = AVPlayerItem(url: url)
-            audioPlayer?.replaceCurrentItem(with: playerItem)
-            audioPlayer?.play()
-            self.status = .Playing
+            
+            do {
+                Logger.log(message: "loading song url", event: .e)
+                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+                try AVAudioSession.sharedInstance().setActive(true)
+                self.isPlayable(url: url) {  [weak self] isPlayable in
+                    guard let self = self else { return }
+                    Logger.log(message: "isPlayable \(isPlayable)", event: .e)
+                    if isPlayable == false {
+                        self.playMusicWithURL(link: link, with: tilte, with: artist)
+                        return
+                    }
+                    
+                    self.audioPlayer = AVPlayer(url: url)
+                    
+                    
+                    let mpic = MPNowPlayingInfoCenter.default()
+                    mpic.nowPlayingInfo = [MPMediaItemPropertyTitle:tilte, MPMediaItemPropertyArtist:artist]
+                    Logger.log(message: "loaded song url", event: .e)
+                    
+                    audioPlayer?.play()
+                    
+                    Logger.log(message: "audioPlayer: \(String(describing: audioPlayer?.rate))", event: .d)
+                    status = .Playing
+                    
+                }
+                
+            } catch let err{
+                print(err.localizedDescription)
+            }
+            
+            
         }
+    }
+    // MARK: -- setup for command home center
+    func setupRemoteTransportControls() {
+        // Get the shared MPRemoteCommandCenter
+        let commandCenter = MPRemoteCommandCenter.shared()
+
+        // Add handler for Play Command
+        commandCenter.playCommand.addTarget { [unowned self] event in
+            if self.audioPlayer?.rate == 0.0 {
+                self.audioPlayer?.play()
+                return .success
+            }
+            return .commandFailed
+        }
+
+        // Add handler for Pause Command
+        commandCenter.pauseCommand.addTarget { [unowned self] event in
+            if self.audioPlayer?.rate == 1.0 {
+                self.audioPlayer?.pause()
+                return .success
+            }
+            return .commandFailed
+        }
+        
+        commandCenter.previousTrackCommand.addTarget { [unowned self] event in
+            if self.audioPlayer?.rate == 1.0 {
+                self.previousSongInPlaylist()
+                return .success
+            }
+            return .commandFailed
+        }
+        
+        commandCenter.nextTrackCommand.addTarget { [unowned self] event in
+            if self.audioPlayer?.rate == 1.0 {
+                self.nextSongInPlaylist()
+                return .success
+            }
+            return .commandFailed
+        }
+        
+        
     }
     
     
     func showProgressBar() {
-        DispatchQueue.main.async {
-            guard let window = UIApplication.shared.keyWindow else {
-                return
-            }
-            
-            if let _ = window.viewWithTag(1000) {
-                
-            } else {
-                self.musicBar.tag = 1000
-                window.addSubview(self.musicBar)
-                NSLayoutConstraint.activate([
-                    self.musicBar.leadingAnchor.constraint(equalTo: window.leadingAnchor,constant: 0),
-                    self.musicBar.trailingAnchor.constraint(equalTo: window.trailingAnchor, constant: 0),
-                    self.musicBar.heightAnchor.constraint(equalToConstant: 71),
-                    self.musicBar.bottomAnchor.constraint(equalTo: window.bottomAnchor, constant: -window.safeAreaBottom)
-                ])
-                self.musicBar.delegate = self
-            }
-            // MARK: -- add music bar
-            
-            self.musicBar.btnPlay.setImage(UIImage(named: "ic_pausing_black"), for: .normal)
-            
+        guard let window = UIApplication.shared.keyWindow else {
+            return
         }
+        
+        if let _ = window.viewWithTag(1000) {
+            
+        } else {
+            self.musicBar.tag = 1000
+            window.addSubview(self.musicBar)
+            NSLayoutConstraint.activate([
+                self.musicBar.leadingAnchor.constraint(equalTo: window.leadingAnchor,constant: 0),
+                self.musicBar.trailingAnchor.constraint(equalTo: window.trailingAnchor, constant: 0),
+                self.musicBar.heightAnchor.constraint(equalToConstant: 71),
+                self.musicBar.bottomAnchor.constraint(equalTo: window.bottomAnchor, constant: -window.safeAreaBottom)
+            ])
+            self.musicBar.delegate = self
+        }
+        // MARK: -- add music bar
+        
+        self.musicBar.btnPlay.setImage(UIImage(named: "ic_pausing_black"), for: .normal)
     }
     
 }
@@ -286,13 +353,26 @@ extension MusicHelper: MusicBarViewDelegate {
             self.stopPlayBackground()
         case .Pause, .Finished:
             self.playBackgroundMusic()
-            
         }
     }
     
     func didSelectedNext() {
         self.nextSongInPlaylist()
     }
+    
+    
+}
+
+extension MusicHelper: IWEBaseSceneDelegate {
+    func notifyAppEnterBackground() {
+        playBackgroundMusic()
+    }
+    
+    func notifyAppEnterForground() {
+        //stopPlayBackground()
+    }
+    
+    
     
     
 }

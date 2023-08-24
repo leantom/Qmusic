@@ -62,6 +62,26 @@ class AppSetting: NSObject {
         return nil
     }
     
+    public func archiveDataSong(data: SongDetailModel, id: String) {
+        let encoder = JSONEncoder()
+        
+        if let data = try? encoder.encode(data) {
+            UserDefaults.standard.set(data, forKey: id)
+        }
+    }
+    
+    // MARK: -- cho đỡ tiền request (thông cảm)
+    func getSongDataFromLocal(id: String) -> SongDetailModel? {
+        
+        if let data =  UserDefaults.standard.object(forKey: id),
+           let obj = try? JSONDecoder().decode(SongDetailModel.self, from: data as! Data) {
+            
+            return obj
+        }
+        return nil
+    }
+    
+    
     
 }
 

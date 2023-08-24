@@ -111,7 +111,7 @@ class HomeViewModel: BaseViewModel {
     }
     
     func getPlaylistSeleted() -> HomePage.Items? {
-        return playlistSelected
+        return self.playlistSelected
     }
     
     func setPlaylistSeleted(item: HomePage.Items) {

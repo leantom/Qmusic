@@ -64,8 +64,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        WEBaseSceneDelegate.sharedInstance.addListener(listener: self)
-        WEBaseSceneDelegate.sharedInstance.StartListening()
         tbContent.register(UINib(nibName: "HomeWeeklyTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeWeeklyTableViewCell")
         
         tbContent.register(UINib(nibName: "HomeAlbumsTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeAlbumsTableViewCell")
@@ -160,6 +158,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return 45
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let headerSection = headerSections[indexPath.section]
+        switch headerSection {
+        case .SpotifyChoice, .Charts:
+            return tableView.estimatedRowHeight
+        default:
+            return 83
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return headerSections.count
     }
@@ -230,27 +238,26 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             break
         case .PianoPeaceful:
             let item = homePageModel.getpianoAlbums()[indexPath.row]
+            homePageModel.setPlaylistSeleted(item: item)
             if let itemID = item.id {
                 homePageModel.getPlaylistDetail(id: itemID)
             }
-            homePageModel.setPlaylistSeleted(item: item)
-            
             
             break
         case .Mood:
             let item = homePageModel.getmoodPlaylist()[indexPath.row]
+            homePageModel.setPlaylistSeleted(item: item)
             if let itemID = item.id {
                 homePageModel.getPlaylistDetail(id: itemID)
             }
-            homePageModel.setPlaylistSeleted(item: item)
             
             break
         case .Popular_new_releases:
             let item = homePageModel.getpopularNewRelease()[indexPath.row]
+            homePageModel.setPlaylistSeleted(item: item)
             if let itemID = item.id {
                 homePageModel.getPlaylistDetail(id: itemID)
             }
-            homePageModel.setPlaylistSeleted(item: item)
             
             break
         }
@@ -290,14 +297,4 @@ extension HomeViewController: RecentlyMusicTableViewCellDelegate {
         }
     
     
-}
-
-extension HomeViewController: IWEBaseSceneDelegate {
-    func notifyAppEnterBackground() {
-        MusicHelper.sharedHelper.playBackgroundMusic()
-    }
-    
-    func notifyAppEnterForground() {
-        MusicHelper.sharedHelper.stopPlayBackground()
-    }
 }

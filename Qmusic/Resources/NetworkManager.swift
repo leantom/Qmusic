@@ -192,7 +192,7 @@ class NetworkManager: NSObject {
         }
     }
     
-    
+    // MARK: -- getDetailSong
     public func getDetailSong(id: String)
     -> Observable<SongDetailModel> {
         let headers = [
@@ -208,6 +208,13 @@ class NetworkManager: NSObject {
         
         //MARK: creating our observable
         return Observable.create { observer in
+            
+            if let homeData = AppSetting.shared.getSongDataFromLocal(id: id) {
+                observer.onNext(homeData)
+                observer.onCompleted()
+                return Disposables.create {}
+            }
+            
             //MARK: create URLSession dataTask
             let session = URLSession.shared
             let task = session.dataTask(with: request as URLRequest) { (data,
@@ -220,6 +227,7 @@ class NetworkManager: NSObject {
                         if (200...399).contains(statusCode) {
                             let objs = try jsonDecoder.decode(SongDetailModel.self, from:
                                                                 _data)
+                            AppSetting.shared.archiveDataSong(data: objs, id: id)
                             //MARK: observer onNext event
                             observer.onNext(objs)
                         }

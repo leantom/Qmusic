@@ -36,6 +36,7 @@ class HeaderPlaylistDetailView: UITableViewHeaderFooterView {
     func setupData(item: HomePage.Items) {
         lblTitle.text = item.name
         lblSubDesc.text = item.description
+        lblDesc.text = "\(item.trackCount ?? 0) tracks"
     }
     
     func setPlaying() {

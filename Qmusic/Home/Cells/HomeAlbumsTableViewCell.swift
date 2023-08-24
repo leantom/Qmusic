@@ -24,24 +24,7 @@ class HomeAlbumsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        if let url = URL(string: Constants.urlAudio) {
-            let playerItem: AVPlayerItem = AVPlayerItem(url: url)
-            
-            player = AVPlayer(playerItem: playerItem)
-            MusicHelper.sharedHelper.audioPlayer = player
-            let playerLayer = AVPlayerLayer(player: player!)
-            widthContraintProgressBar.constant = 0
-            playerLayer.frame = CGRect(x: 0, y: 0, width: 10, height: 50)
-            self.layer.addSublayer(playerLayer)
-            
-            NotificationCenter.default
-                .addObserver(self,
-                selector: #selector(playerDidFinishPlaying),
-                name: .AVPlayerItemDidPlayToEndTime,
-                object: player?.currentItem
-            )
-            
-        }
+        
         
     }
 
