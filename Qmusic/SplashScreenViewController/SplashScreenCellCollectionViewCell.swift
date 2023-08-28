@@ -10,6 +10,7 @@ import UIKit
 class SplashScreenCellCollectionViewCell: UICollectionViewCell {
     var primaryColor: UIColor?
     
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var imgCell: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()

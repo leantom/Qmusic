@@ -30,20 +30,13 @@ class SplashScreenViewController: UIViewController {
     @IBOutlet weak var btnStart: UIButton!
     @IBOutlet weak var clContent: UICollectionView!
     
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var pageControl: UIPageControl!
-    
     @IBOutlet weak var mainView: UIView!
-    @IBOutlet weak var lblDesc: UILabel!
     
-    @IBOutlet weak var pageControlLedingContraint: NSLayoutConstraint!
+    
     @IBOutlet weak var btnStartContraintWidth: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        pageControl.numberOfPages = titles.count
-        let chiControl = CHIPageControlAji(frame: pageControl.frame)
-        self.mainView.insertSubview(chiControl, at: 0)
     }
 
     @IBAction func actionStart(_ sender: Any) {
@@ -99,6 +92,14 @@ class SplashScreenViewController: UIViewController {
         clContent.contentOffset = CGPoint(x: 0, y: 0)
         
         clContent.register(UINib(nibName: "SplashScreenCellCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+        
+        clContent.register(UINib(nibName: "SplashScreenCellCollectionViewFirstCell", bundle: nil), forCellWithReuseIdentifier: "cell1")
+        
+        clContent.register(UINib(nibName: "SplashScreenCellCollectionViewSecondCell", bundle: nil), forCellWithReuseIdentifier: "cell2")
+        
+        clContent.register(UINib(nibName: "SplashScreenCellCollectionViewThirdCell", bundle: nil), forCellWithReuseIdentifier: "cell3")
+        
+        
         clContent.delegate = self
         clContent.dataSource = self
     }
@@ -118,13 +119,51 @@ extension SplashScreenViewController: UICollectionViewDataSource,
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSizeMake(UIScreen.main.bounds.width, self.clContent.frame.height)
+        return CGSizeMake(UIScreen.main.bounds.width, 912)
+    }
+    
+    func isPrime(_ n: Int) -> Bool {
+        guard n >= 2     else { return false }
+        guard n != 2     else { return true  }
+        guard n % 2 != 0 else { return false }
+        return !stride(from: 3, through: Int(sqrt(Double(n))), by: 2).contains { n % $0 == 0 }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? SplashScreenCellCollectionViewCell else {return UICollectionViewCell()}
-        cell.imgCell.image = UIImage(named: listImage[indexPath.row])
-
+        if indexPath.row == 0 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? SplashScreenCellCollectionViewCell else {return UICollectionViewCell()}
+            cell.imgCell.setImageWithAnimation(image: UIImage(named: listImage[indexPath.row]))
+            return cell
+        }
+        
+        
+        if indexPath.row == 2 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as? SplashScreenCellCollectionViewSecondCell else {return UICollectionViewCell()}
+            cell.imgSplash.setImageWithAnimation(image: UIImage(named: listImage[indexPath.row]))
+            cell.lblTitle.text = titles[indexPath.row]
+            cell.lblDesc.text = contents[indexPath.row]
+            return cell
+        }
+        
+        if isPrime(indexPath.row) {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as? SplashScreenCellCollectionViewFirstCell else {return UICollectionViewCell()}
+            cell.imgSplash.setImageWithAnimation(image: UIImage(named: listImage[indexPath.row]))
+            cell.lblTitle.text = titles[indexPath.row]
+            cell.lblDesc.text = contents[indexPath.row]
+            return cell
+        }
+        
+        if indexPath.row % 2 == 0 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? SplashScreenCellCollectionViewCell else {return UICollectionViewCell()}
+            cell.imgCell.setImageWithAnimation(image: UIImage(named: listImage[indexPath.row]))
+            return cell
+        }
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell3", for: indexPath) as? SplashScreenCellCollectionViewThirdCell
+        else {return UICollectionViewCell()}
+        cell.imgSplash.setImageWithAnimation(image: UIImage(named: listImage[indexPath.row]))
+        cell.lblTitle.text = titles[indexPath.row]
+        cell.lblDesc.text = contents[indexPath.row]
         return cell
     }
     
@@ -134,46 +173,12 @@ extension SplashScreenViewController: UICollectionViewDataSource,
         if let indexPath = clContent.indexPathForItem(at: scrollView.contentOffset),
            let cell = clContent.cellForItem(at: indexPath) {
             
-            pageControl.currentPage = indexPath.row
-            lblTitle.text = titles[indexPath.row]
-            lblDesc.text = contents[indexPath.row]
+            
             
             
         }
     }
     
-    func animationMoveCenterTitleAndDesc() {
-        self.pageControlLedingContraint.constant = 40
-        
-        UIView.transition(with: self.lblTitle, duration: 0.3) {
-            self.lblTitle.textAlignment = .center
-        }
-        UIView.transition(with: self.lblDesc, duration: 0.3) {
-            self.lblDesc.textAlignment = .center
-        }
-        
-        
-        UIView.animate(withDuration: 0.3) {
-            self.pageControl.layoutIfNeeded()
-        }
-        
-    }
-    
-    func animationMoveLeadingTitleAndDesc() {
-        self.pageControlLedingContraint.constant = 0
-        UIView.transition(with: self.lblTitle, duration: 0.3) {
-            self.lblTitle.textAlignment = .left
-        }
-        UIView.transition(with: self.lblDesc, duration: 0.3) {
-            self.lblDesc.textAlignment = .left
-        }
-        
-        UIView.animate(withDuration: 0.3) {
-            
-            self.pageControl.layoutIfNeeded()
-        }
-        
-    }
     
     
 }

@@ -64,7 +64,10 @@ class RecentlyMusicTableViewCell: UITableViewCell {
         lblNameSong.text = item.description
         if let urlImage = item.images?.first?.first,
            let url = URL(string: urlImage.url ?? "") {
-            self.imgAlbums.setImage(from: url)
+            self.imgAlbums.setImage(from: url) { result in
+                self.imgAlbums.image = result
+            }
+            
         }
         lblTitle.text = "\(index + 1)"
     }
@@ -75,7 +78,9 @@ class RecentlyMusicTableViewCell: UITableViewCell {
         lblNameSong.text = item.name
         if let urlImage = item.album?.cover?.first?.url,
            let url = URL(string: urlImage) {
-            self.imgAlbums.setImage(from: url)
+            self.imgAlbums.setImage(from: url) { result in
+                self.imgAlbums.image = result
+            }
         }
         lblTitle.text = "\(index + 1)"
     }

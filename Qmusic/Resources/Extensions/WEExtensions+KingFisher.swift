@@ -24,6 +24,33 @@ extension UIImageView {
                 // Done
             })
     }
+    func setImage(from url: URL, complete:@escaping(_ result: UIImage) -> Void) {
+        self.kf.setImage(
+            with: url,
+            placeholder: nil,
+            options: [
+                .transition(.fade(0.25)),
+            ],
+            progressBlock: { receivedSize, totalSize in
+                // Progress updated
+            },
+            completionHandler: { result in
+                // Done
+                switch result {
+                case .success(let image):
+                    if let image = image.image.withRoundedCorners(radius: 30) {
+                        complete(image)
+                    }
+                    
+                case .failure(let err):
+                    print(err.localizedDescription)
+                }
+                
+            })
+    }
+    
+    
+    
 }
 
 extension String {

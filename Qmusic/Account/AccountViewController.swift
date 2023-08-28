@@ -21,7 +21,7 @@ class AccountViewController: UIViewController {
     }
     
     @IBAction func actionLogout(_ sender: Any) {
-        AppSetting.shared.setStatusLogin(status: true)
+        AppSetting.shared.setStatusLogin(status: false)
         if let vc = self.parent?.navigationController?.viewControllers.filter({ vc in
             return vc is SplashScreenViewController
         }).first {

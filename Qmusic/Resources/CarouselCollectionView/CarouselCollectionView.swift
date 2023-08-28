@@ -18,7 +18,7 @@ class CarouselCollectionView: UICollectionView {
         self.showsVerticalScrollIndicator = false
         self.showsHorizontalScrollIndicator = false
         self.backgroundColor = .clear
-        self.decelerationRate = .fast
+        self.decelerationRate = .normal
         
         /// Setting up the carousel flow layout
         let carouselFlowLayout = CarouselAnimatedFlowLayout()

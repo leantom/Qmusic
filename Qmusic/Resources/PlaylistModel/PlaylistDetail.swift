@@ -30,3 +30,58 @@ struct PlaylistDetail : Codable {
 	}
 
 }
+
+struct Request {
+    struct Playlist: Codable {
+        let id: String
+        let type: String
+        let name: String
+        let description: String
+        
+        let trackCount: Int
+        let followerCount: Int
+        let cover: String
+        let shareurlSpotify: String
+        
+        let shareurlApp: String
+        let likeCount: Int
+        let status: Int
+    }
+    
+    struct Song: Codable {
+        let id: String
+        let type: String
+        let name: String
+        let artistId: String
+        
+        let durationms: Int
+        let durationText: String
+        let albumId: String
+        let url: String
+        
+        let mimeType: String
+        let likeCount: Int
+        let lyricId: String
+        
+        let shareurlApp: String
+        
+    }
+    
+    struct Artist: Codable {
+        let id: String
+        let verified: Int
+        let name: String
+    }
+    
+}
+
+
+extension Encodable {
+  func asDictionary() throws -> [String: Any] {
+    let data = try JSONEncoder().encode(self)
+    guard let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
+      throw NSError()
+    }
+    return dictionary
+  }
+}

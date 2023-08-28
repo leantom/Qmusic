@@ -172,6 +172,12 @@
 		F97EA36D2A8F1D3E0096EC1E /* MusicHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EA36C2A8F1D3E0096EC1E /* MusicHelper.swift */; };
 		F97EA3702A8F5ADF0096EC1E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EA36E2A8F5ADF0096EC1E /* SearchViewController.swift */; };
 		F97EA3712A8F5ADF0096EC1E /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F97EA36F2A8F5ADF0096EC1E /* SearchViewController.xib */; };
+		F9D915222A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D915202A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.swift */; };
+		F9D915232A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9D915212A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.xib */; };
+		F9D915262A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D915242A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.swift */; };
+		F9D915272A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9D915252A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.xib */; };
+		F9D9152A2A97B9CD001F53B4 /* SplashScreenCellCollectionViewThirdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D915282A97B9CD001F53B4 /* SplashScreenCellCollectionViewThirdCell.swift */; };
+		F9D9152B2A97B9CD001F53B4 /* SplashScreenCellCollectionViewThirdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9D915292A97B9CD001F53B4 /* SplashScreenCellCollectionViewThirdCell.xib */; };
 		FA429DC92A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA429DC72A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.swift */; };
 		FA429DCA2A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA429DC82A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.xib */; };
 		FA429DCF2A935819007EAE15 /* ExploreTopicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA429DCD2A935819007EAE15 /* ExploreTopicCollectionViewCell.swift */; };
@@ -358,6 +364,12 @@
 		F97EA36C2A8F1D3E0096EC1E /* MusicHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHelper.swift; sourceTree = "<group>"; };
 		F97EA36E2A8F5ADF0096EC1E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F97EA36F2A8F5ADF0096EC1E /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		F9D915202A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenCellCollectionViewFirstCell.swift; sourceTree = "<group>"; };
+		F9D915212A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenCellCollectionViewFirstCell.xib; sourceTree = "<group>"; };
+		F9D915242A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenCellCollectionViewSecondCell.swift; sourceTree = "<group>"; };
+		F9D915252A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenCellCollectionViewSecondCell.xib; sourceTree = "<group>"; };
+		F9D915282A97B9CD001F53B4 /* SplashScreenCellCollectionViewThirdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenCellCollectionViewThirdCell.swift; sourceTree = "<group>"; };
+		F9D915292A97B9CD001F53B4 /* SplashScreenCellCollectionViewThirdCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenCellCollectionViewThirdCell.xib; sourceTree = "<group>"; };
 		FA429DC72A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTopTrendingCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA429DC82A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreTopTrendingCollectionViewCell.xib; sourceTree = "<group>"; };
 		FA429DCD2A935819007EAE15 /* ExploreTopicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTopicCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -663,10 +675,16 @@
 		F969A7C02A88C4A000C8CA2F /* SplashScreenViewController */ = {
 			isa = PBXGroup;
 			children = (
-				F969A7BC2A88C49A00C8CA2F /* SplashScreenViewController.swift */,
-				F969A7BD2A88C49A00C8CA2F /* SplashScreenViewController.xib */,
 				F969A7C42A88CF4B00C8CA2F /* SplashScreenCellCollectionViewCell.swift */,
 				F969A7C52A88CF4B00C8CA2F /* SplashScreenCellCollectionViewCell.xib */,
+				F9D915202A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.swift */,
+				F9D915212A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.xib */,
+				F9D915242A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.swift */,
+				F9D915252A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.xib */,
+				F9D915282A97B9CD001F53B4 /* SplashScreenCellCollectionViewThirdCell.swift */,
+				F9D915292A97B9CD001F53B4 /* SplashScreenCellCollectionViewThirdCell.xib */,
+				F969A7BC2A88C49A00C8CA2F /* SplashScreenViewController.swift */,
+				F969A7BD2A88C49A00C8CA2F /* SplashScreenViewController.xib */,
 			);
 			path = SplashScreenViewController;
 			sourceTree = "<group>";
@@ -1003,6 +1021,7 @@
 				F975A5CE2A8B391800DA41B7 /* HomeMasterViewController.xib in Resources */,
 				F97EA3662A8EF1AB0096EC1E /* GoogleService-Info.plist in Resources */,
 				F969A7AF2A88C18900C8CA2F /* Roboto-Medium.ttf in Resources */,
+				F9D915232A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.xib in Resources */,
 				F969A77B2A88BFCE00C8CA2F /* LaunchScreen.storyboard in Resources */,
 				F969A7B82A88C18A00C8CA2F /* Roboto-BlackItalic.ttf in Resources */,
 				F97EA3712A8F5ADF0096EC1E /* SearchViewController.xib in Resources */,
@@ -1023,7 +1042,9 @@
 				FA429DCA2A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.xib in Resources */,
 				FA429DD42A93582D007EAE15 /* ExploreTopicTableViewCell.xib in Resources */,
 				F969A7B22A88C18900C8CA2F /* Roboto-MediumItalic.ttf in Resources */,
+				F9D9152B2A97B9CD001F53B4 /* SplashScreenCellCollectionViewThirdCell.xib in Resources */,
 				F975A5FD2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib in Resources */,
+				F9D915272A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.xib in Resources */,
 				F975A5F72A8B81F100DA41B7 /* ExploreViewController.xib in Resources */,
 				F969A7782A88BFCE00C8CA2F /* Assets.xcassets in Resources */,
 				F969A7B62A88C18A00C8CA2F /* Roboto-Italic.ttf in Resources */,
@@ -1123,6 +1144,7 @@
 				F975A5E42A8B394B00DA41B7 /* CarouselConfiguration.swift in Sources */,
 				F975A5E82A8B76AD00DA41B7 /* HomeHeaderView.swift in Sources */,
 				F94F99D82A8A13D5005FA560 /* WEExtensions+UILabel.swift in Sources */,
+				F9D9152A2A97B9CD001F53B4 /* SplashScreenCellCollectionViewThirdCell.swift in Sources */,
 				F94F99D32A8A13D5005FA560 /* WEExtensions+UIView.swift in Sources */,
 				F94F99C62A8A13D5005FA560 /* WEExtensions+UIImageView.swift in Sources */,
 				FA429DD32A93582D007EAE15 /* ExploreTopicTableViewCell.swift in Sources */,
@@ -1132,12 +1154,14 @@
 				F94F99C42A8A13D5005FA560 /* FEExtension+Sequence.swift in Sources */,
 				F94F99DF2A8A13D5005FA560 /* WEExtensions+Device.swift in Sources */,
 				F94F99D52A8A13D5005FA560 /* WEExtension+Enum.swift in Sources */,
+				F9D915222A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.swift in Sources */,
 				F94F99CB2A8A13D5005FA560 /* WEExtensions+UITapGestureRecognizer.swift in Sources */,
 				F94F99FF2A8A1D4C005FA560 /* SignUpViewController.swift in Sources */,
 				F975A5D32A8B391800DA41B7 /* HomeViewController.swift in Sources */,
 				F96914B62A8D15C00092B4AD /* RadioPopularTableViewCell.swift in Sources */,
 				F97EA3702A8F5ADF0096EC1E /* SearchViewController.swift in Sources */,
 				F977A1962A936DEE00D90B2E /* HomeViewModel.swift in Sources */,
+				F9D915262A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.swift in Sources */,
 				F977A18D2A93663600D90B2E /* Owner.swift in Sources */,
 				F975A5E52A8B394B00DA41B7 /* CarouselFlowLayout.swift in Sources */,
 				F977A1BB2A94CBDB00D90B2E /* SpotifyTrack.swift in Sources */,

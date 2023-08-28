@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Light.ttf">
+            <string>Roboto-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SplashScreenCellCollectionViewThirdCell" customModule="Qmusic" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xyV-sG-ezC" userLabel="MainView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMm-xk-mK5">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_1" translatesAutoresizingMaskIntoConstraints="NO" id="iuN-7K-AAI">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="iuN-7K-AAI" secondAttribute="bottom" id="Cad-uB-onI"/>
+                                    <constraint firstAttribute="trailing" secondItem="iuN-7K-AAI" secondAttribute="trailing" id="Kbp-u9-xJj"/>
+                                    <constraint firstItem="iuN-7K-AAI" firstAttribute="leading" secondItem="NMm-xk-mK5" secondAttribute="leading" id="Y0L-lZ-bgx"/>
+                                    <constraint firstItem="iuN-7K-AAI" firstAttribute="top" secondItem="NMm-xk-mK5" secondAttribute="top" id="eMn-hz-1zK"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Rue-DB-rrL">
+                                <rect key="frame" x="40" y="351.66666666666669" width="295" height="108.66666666666669"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME TO CYME APP" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17z-XL-sl2">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="65.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="28"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tune In to Your World - CYME Puts Your Favorite Music at Your Fingertips." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLp-iF-Luo">
+                                        <rect key="frame" x="0.0" y="75.666666666666629" width="295" height="33"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" numberOfPages="4" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="sZP-og-2ts">
+                                <rect key="frame" x="0.0" y="484.33333333333331" width="133.66666666666666" height="26"/>
+                                <color key="currentPageIndicatorTintColor" red="0.79607843140000001" green="0.98431372549999996" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" red="0.054901960780000002" green="0.043137254899999998" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="NMm-xk-mK5" secondAttribute="trailing" id="AQp-iR-Bsq"/>
+                            <constraint firstItem="NMm-xk-mK5" firstAttribute="top" secondItem="xyV-sG-ezC" secondAttribute="top" id="Fgg-B3-EXK"/>
+                            <constraint firstItem="Rue-DB-rrL" firstAttribute="centerX" secondItem="xyV-sG-ezC" secondAttribute="centerX" id="V1d-k4-HW6"/>
+                            <constraint firstItem="sZP-og-2ts" firstAttribute="leading" secondItem="xyV-sG-ezC" secondAttribute="leading" id="auW-fq-TrN"/>
+                            <constraint firstAttribute="trailing" secondItem="Rue-DB-rrL" secondAttribute="trailing" constant="40" id="n0X-QU-AoN"/>
+                            <constraint firstItem="NMm-xk-mK5" firstAttribute="leading" secondItem="xyV-sG-ezC" secondAttribute="leading" id="tTC-wb-dBf"/>
+                            <constraint firstItem="sZP-og-2ts" firstAttribute="top" secondItem="Rue-DB-rrL" secondAttribute="bottom" constant="24" id="uId-Dd-dzY"/>
+                            <constraint firstItem="Rue-DB-rrL" firstAttribute="leading" secondItem="xyV-sG-ezC" secondAttribute="leading" constant="40" id="uJs-Ll-FR9"/>
+                            <constraint firstItem="Rue-DB-rrL" firstAttribute="centerY" secondItem="xyV-sG-ezC" secondAttribute="centerY" id="vmn-ww-ILU"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="xyV-sG-ezC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="0dO-yx-uWd"/>
+                <constraint firstAttribute="trailing" secondItem="xyV-sG-ezC" secondAttribute="trailing" id="Q42-Ha-zCs"/>
+                <constraint firstAttribute="bottom" secondItem="xyV-sG-ezC" secondAttribute="bottom" id="hOm-l6-0zc"/>
+                <constraint firstItem="xyV-sG-ezC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="xLd-8q-3EF"/>
+            </constraints>
+            <connections>
+                <outlet property="imgSplash" destination="iuN-7K-AAI" id="Yek-k8-Jm0"/>
+                <outlet property="lblDesc" destination="kLp-iF-Luo" id="V3b-kE-IID"/>
+                <outlet property="lblTitle" destination="17z-XL-sl2" id="FuZ-4A-YXn"/>
+                <outlet property="pageControl" destination="sZP-og-2ts" id="z4l-xI-hSC"/>
+            </connections>
+            <point key="canvasLocation" x="-64" y="21"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="splash_1" width="375" height="812"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

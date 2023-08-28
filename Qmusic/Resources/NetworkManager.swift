@@ -169,6 +169,8 @@ class NetworkManager: NSObject {
                             let objs = try jsonDecoder.decode(PlaylistDetail.self, from:
                                                                 _data)
                             AppSetting.shared.archiveDataPlaylist(data: objs, id: id)
+                            
+                            
                             //MARK: observer onNext event
                             observer.onNext(objs)
                         }
@@ -251,6 +253,116 @@ class NetworkManager: NSObject {
         }
         
     }
+    
+    func addPlaylistToDB(req: Request.Playlist) {
+        
+        
+        do {
+            let params = try req.asDictionary()
+            let jsonData = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+            var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/test?api=insertPlayList")!,timeoutInterval: Double.infinity)
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+            request.httpMethod = "POST"
+            request.httpBody = jsonData
+
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+              guard let data = data else {
+                print(String(describing: error))
+                return
+              }
+              print(String(data: data, encoding: .utf8)!)
+            }
+
+            task.resume()
+        } catch let err{
+            print(err.localizedDescription)
+        }
+        
+    }
+    
+    
+    func addSongToDB(req: Request.Song) {
+    
+        do {
+            let params = try req.asDictionary()
+            let jsonData = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+            var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/test?api=insertSong")!,timeoutInterval: Double.infinity)
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+            request.httpMethod = "POST"
+            request.httpBody = jsonData
+
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+              guard let data = data else {
+                print(String(describing: error))
+                return
+              }
+              print(String(data: data, encoding: .utf8)!)
+            }
+
+            task.resume()
+        } catch let err{
+            print(err.localizedDescription)
+        }
+        
+
+    }
+    
+    
+    func addArtistToDB(req: Request.Artist,
+                       completionHandler: @escaping(Result<Int, Error>) -> Void) {
+        
+        do {
+            let params = try req.asDictionary()
+            let jsonData = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+            var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/test?api=insertArtist")!,timeoutInterval: Double.infinity)
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+            request.httpMethod = "POST"
+            request.httpBody = jsonData
+
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data else {
+                    print(String(describing: error))
+                    completionHandler(.failure(error!))
+                    return
+                }
+                completionHandler(.success(0))
+                print(String(data: data, encoding: .utf8)!)
+            }
+            
+            task.resume()
+        } catch let err{
+            print(err.localizedDescription)
+        }
+        
+       
+
+    }
+    
+    func addAvatarToDB() {
+        let parameters = "{\n    \"id\": \"\",\n    \"url\": \"\",\n    \"artistId\": \"\",\n    \"width\": 0,\n    \"height\": 0\n}"
+        let postData = parameters.data(using: .utf8)
+
+        var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/test?api=insertAvatar")!,timeoutInterval: Double.infinity)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        request.httpMethod = "POST"
+        request.httpBody = postData
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+          guard let data = data else {
+            print(String(describing: error))
+            return
+          }
+          print(String(data: data, encoding: .utf8)!)
+        }
+
+        task.resume()
+
+    }
+    
 }
 
 struct YoutubeDataMP3: Codable {
