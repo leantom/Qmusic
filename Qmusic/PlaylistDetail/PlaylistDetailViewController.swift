@@ -95,15 +95,18 @@ class PlaylistDetailViewController: UIViewController {
                 if let url = value.soundcloudTrack?.audio?.first?.url,
                    let detail = self.playlistDetail,
                    let indexPathSelected = self.indexPathSelected {
-                    #if DEBUG
-                    let url = "https://cyme-doc.s3.ap-southeast-1.amazonaws.com/mp3/Tam-Su-Cung-Nguoi-La-Tien-Cookie.mp3"
                     
-                    MusicHelper.sharedHelper.playMusicWithPlaylist(link: url,
-                                                                   on: self.view,
-                                                                   with: indexPathSelected.row,
-                                                                   with: detail)
-                    return
-                    #endif
+                
+                    
+//                    #if DEBUG
+//                    let url = "https://cyme-doc.s3.ap-southeast-1.amazonaws.com/mp3/test1_test1.mp3"
+//
+//                    MusicHelper.sharedHelper.playMusicWithPlaylist(link: url,
+//                                                                   on: self.view,
+//                                                                   with: indexPathSelected.row,
+//                                                                   with: detail)
+//                    return
+//                    #endif
                     
                     
                     MusicHelper.sharedHelper.playMusicWithPlaylist(link: url,

@@ -132,7 +132,7 @@ class NetworkManager: NSObject {
         }
     }
     
-    //MARK: function for URLSession takes
+    //MARK: getPlaylistDetail
     public func getPlaylistDetail(id: String)
     -> Observable<PlaylistDetail> {
         let headers = [
@@ -334,10 +334,9 @@ class NetworkManager: NSObject {
             
             task.resume()
         } catch let err{
+            completionHandler(.failure(err))
             print(err.localizedDescription)
         }
-        
-       
 
     }
     
@@ -362,6 +361,70 @@ class NetworkManager: NSObject {
         task.resume()
 
     }
+    
+    func addAlbumToDB(req: Request.Playlist) {
+        
+        
+        do {
+            let params = try req.asDictionary()
+            let jsonData = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+            var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/test?api=insertAlbumArtist")!,timeoutInterval: Double.infinity)
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+            request.httpMethod = "POST"
+            request.httpBody = jsonData
+
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+              guard let data = data else {
+                print(String(describing: error))
+                return
+              }
+              print(String(data: data, encoding: .utf8)!)
+            }
+
+            task.resume()
+        } catch let err{
+            print(err.localizedDescription)
+        }
+        
+    }
+    
+    func uploadSong(req: Request.UploadMP3,
+                    completionHandler: @escaping(Result<Int, Error>) -> Void) {
+        
+        var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/test?api=uploadMp3")!,timeoutInterval: Double.infinity)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        request.httpMethod = "POST"
+        
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: req.asDictionary(), options: .prettyPrinted)
+        request.httpBody = jsonData
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+          guard let data = data else {
+            print(String(describing: error))
+              completionHandler(.failure(error!))
+            return
+          }
+            if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                // try to read out a dictionary
+                if let msg = json["message"] as? String,
+                   msg.isEmpty {
+                    completionHandler(.success(0))
+                } else {
+                    let err = NSError(domain:"", code:5, userInfo:nil)
+                    completionHandler(.failure(err))
+                }
+            }
+          print(String(data: data, encoding: .utf8)!)
+        }
+
+        task.resume()
+
+    }
+    
+    
+    
     
 }
 

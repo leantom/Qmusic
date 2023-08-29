@@ -73,6 +73,43 @@ struct Request {
         let name: String
     }
     
+    struct UploadMP3: Codable {
+        let url: String
+        let songID: String
+        let songName: String
+    }
+    
+    /**
+     {
+         "id": "",
+         "type": "",
+         "name": "",
+         "description": "",
+         "trackCount": 0,
+         "followerCount": 0,
+         "cover": "",
+         "shareurlSpotify": "",
+         "shareurlApp": "",
+         "likeCount": 0,
+         "status": 0
+     }
+     */
+    struct Album: Codable {
+        let id: String
+        let type: String
+        let name: String
+        let description: String
+        
+        let trackCount: Int
+        let followerCount: Int
+        let cover: String
+        let shareurlSpotify: String
+        
+        let shareurlApp: String
+        let likeCount: Int
+        let status: Int
+    }
+    
 }
 
 

@@ -119,6 +119,12 @@ extension String {
         return _nidBase64
     }
     
+    func hash256() -> String {
+        let _nidHash = self.sha256()
+       
+        return _nidHash
+    }
+    
 }
 
 extension String {

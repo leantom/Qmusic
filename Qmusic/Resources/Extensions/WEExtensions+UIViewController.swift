@@ -49,6 +49,14 @@ extension UIViewController {
         view.endEditing(true)
     }
     
+    func showError(title: String, desc: String) {
+        let ac = UIAlertController(title: title, message: desc, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default) { alert in
+            
+        })
+        self.present(ac, animated: true)
+    }
+    
     static func loadFromNib() -> Self {
         func instantiateFromNib<T: UIViewController>() -> T {
           

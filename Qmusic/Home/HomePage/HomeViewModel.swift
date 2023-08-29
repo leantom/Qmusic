@@ -46,8 +46,8 @@ class HomeViewModel: BaseViewModel {
     private var pianoAlbums:[HomePage.Items] = []
     private var moodPlaylist:[HomePage.Items] = []
     private var popularnewRelease:[HomePage.Items] = []
-    private var playlistDetail: PlaylistDetail?
-    private var playlistSelected: HomePage.Items?
+    internal var playlistDetail: PlaylistDetail?
+    internal var playlistSelected: HomePage.Items?
     
     init() {
         self.input = Input()
@@ -106,22 +106,22 @@ class HomeViewModel: BaseViewModel {
                    
                }
                
-               if let genres = result.genres {
-                   genres.forEach { items in
-                       if let contents = items.contents,
-                          let playlist = contents.items {
-                           playlist.forEach { item in
-                               let playlistSelected = item
-                               let req = Request.Playlist(id: item.id ?? "", type: "popular", name: playlistSelected.name ?? "", description: playlistSelected.description ?? "", trackCount: playlistSelected.trackCount ?? 0, followerCount: 0, cover: playlistSelected.images?.last?.last?.url ?? "", shareurlSpotify: playlistSelected.shareUrl ?? "", shareurlApp: playlistSelected.shareUrl ?? "", likeCount: 0, status: 1)
-
-                               NetworkManager.sharedInstance.addPlaylistToDB(req: req)
-                               do {
-                                   sleep(1)
-                               }
-                           }
-                       }
-                   }
-               }
+//               if let genres = result.genres {
+//                   genres.forEach { items in
+//                       if let contents = items.contents,
+//                          let playlist = contents.items {
+//                           playlist.forEach { item in
+//                               let playlistSelected = item
+//                               let req = Request.Playlist(id: item.id ?? "", type: "popular", name: playlistSelected.name ?? "", description: playlistSelected.description ?? "", trackCount: playlistSelected.trackCount ?? 0, followerCount: 0, cover: playlistSelected.images?.last?.last?.url ?? "", shareurlSpotify: playlistSelected.shareUrl ?? "", shareurlApp: playlistSelected.shareUrl ?? "", likeCount: 0, status: 1)
+//
+//                               NetworkManager.sharedInstance.addPlaylistToDB(req: req)
+//                               do {
+//                                   sleep(1)
+//                               }
+//                           }
+//                       }
+//                   }
+//               }
                
                
            },
@@ -150,10 +150,6 @@ class HomeViewModel: BaseViewModel {
                //MARK: display in UITableView
                self.playlistDetail = result
                self.output.playlistDetail.onNext(result)
-               
-               result.contents?.items?.forEach({ item in
-                   
-               })
                
 //               result.contents?.items?.forEach({ item in
 //
@@ -204,12 +200,14 @@ class HomeViewModel: BaseViewModel {
     
     func getSongDetail(id: String) {
         let apiClient = NetworkManager.sharedInstance
+        let now = Date()
         
         apiClient.getDetailSong(id: id).subscribe(
            onNext: { result in
                //MARK: display in UITableView
                self.songdetail = result
                self.output.songdetail.onNext(result)
+               
            },
            onError: { error in
                print(error.localizedDescription)
