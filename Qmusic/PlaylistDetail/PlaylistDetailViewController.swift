@@ -21,11 +21,7 @@ class PlaylistDetailViewController: UIViewController {
     
     @IBOutlet weak var lblTitle: UILabel!
     var titleName: String = "Playlist"
-    var musicBar: MusicBarView = {
-        let v = MusicBarView.instantiate()
-        v.translatesAutoresizingMaskIntoConstraints = false
-        return v
-    }()
+   
     var indexPathSelected: IndexPath?
     var headerView: HeaderPlaylistDetailView?
     

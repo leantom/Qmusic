@@ -36,12 +36,8 @@ class MusicHelper: NSObject {
     private var index: Int = 0
     var homePageViewModel = HomeViewModel()
     
-    var musicBar: MusicBarView = {
-        let v = MusicBarView.instantiate()
-        v.translatesAutoresizingMaskIntoConstraints = false
-        return v
-    }()
-    
+    let musicBar = MusicBarView.instantiate()
+    var bottomContraint: NSLayoutConstraint?
     override init() {
         super.init()
         print("MusicHelper init")
@@ -317,6 +313,15 @@ class MusicHelper: NSObject {
         
     }
     
+    func moveToWhenBackHomeScreen() {
+        guard let window = UIApplication.shared.keyWindow else {
+            return
+        }
+        if let _ = window.viewWithTag(1000) {
+            bottomContraint?.constant -= 48
+        }
+       
+    }
     
     func showProgressBar() {
         guard let window = UIApplication.shared.keyWindow else {
@@ -326,13 +331,16 @@ class MusicHelper: NSObject {
         if let _ = window.viewWithTag(1000) {
             
         } else {
+            
             self.musicBar.tag = 1000
             window.addSubview(self.musicBar)
+            bottomContraint = self.musicBar.bottomAnchor.constraint(equalTo: window.bottomAnchor, constant: -window.safeAreaBottom)
+            
             NSLayoutConstraint.activate([
                 self.musicBar.leadingAnchor.constraint(equalTo: window.leadingAnchor,constant: 0),
                 self.musicBar.trailingAnchor.constraint(equalTo: window.trailingAnchor, constant: 0),
                 self.musicBar.heightAnchor.constraint(equalToConstant: 71),
-                self.musicBar.bottomAnchor.constraint(equalTo: window.bottomAnchor, constant: -window.safeAreaBottom)
+                self.bottomContraint!
             ])
             self.musicBar.delegate = self
         }

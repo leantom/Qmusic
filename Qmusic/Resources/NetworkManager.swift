@@ -256,7 +256,6 @@ class NetworkManager: NSObject {
     
     func addPlaylistToDB(req: Request.Playlist) {
         
-        
         do {
             let params = try req.asDictionary()
             let jsonData = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
