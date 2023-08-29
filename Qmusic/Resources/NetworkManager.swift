@@ -12,6 +12,55 @@ import RxCocoa
 class NetworkManager: NSObject {
     static let sharedInstance = NetworkManager()
     // MARK: -- get link mp3 from youtube link
+    func getLyric(id: String,
+                       completionHandler: @escaping(Result<String, Error>) -> Void) {
+        
+        //MARK: LINKMOBILE:
+        let headers = [
+            "X-RapidAPI-Key": "LAW614Sbs9mshQpXupy9yRG24Aipp11WiV5jsn5q7O9MK5B2R0",
+            "X-RapidAPI-Host": "spotify-scraper.p.rapidapi.com"
+        ]
+    
+        let request = NSMutableURLRequest(url: NSURL(string: "https://spotify-scraper.p.rapidapi.com/v1/track/lyrics?trackId=\(id)")! as URL,
+                                                cachePolicy: .useProtocolCachePolicy,
+                                            timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest) { data, response, error in
+            if (error != nil) {
+                print(error as Any)
+                completionHandler(.failure(error!))
+            } else {
+                let httpResponse = response as? HTTPURLResponse
+                
+                guard let data = data else {
+                    let err = NSError(domain:"", code:httpResponse?.statusCode ?? 1, userInfo:nil)
+                    completionHandler(.failure(err))
+                    return
+                }
+                let object = String(data: data, encoding: .utf8) ?? ""
+                completionHandler(.success(object))
+//                let jsonDecoder = JSONDecoder()
+//                do {
+//                    let object = String(data: data, encoding: .utf8) ?? ""
+////                    let object = try jsonDecoder.decode(String.self, from: data)
+//                    completionHandler(.success(object))
+//                    print(object)
+//                } catch let err {
+//                    completionHandler(.failure(err))
+//                    print(err.localizedDescription)
+//                }
+                
+            }
+        }
+
+
+        dataTask.resume()
+    }
+    
+    // MARK: -- get link mp3 from youtube link
     func searchLinkMp3(linkURL: String,
                        completionHandler: @escaping(Result<YoutubeDataMP3, Error>) -> Void) {
         var isMobileLink = false

@@ -27,6 +27,7 @@ class HomeViewModel: BaseViewModel {
         let pianoAlbums:PublishSubject<[HomePage.Items]>
         let playlistDetail:PublishSubject<PlaylistDetail>
         let songdetail: PublishSubject<SongDetailModel>
+        let lyricDetail: PublishSubject<[LyricLineModel]>
     }
     
     let input: Input
@@ -38,6 +39,7 @@ class HomeViewModel: BaseViewModel {
     let pianoAlbumsObserver = PublishSubject<[HomePage.Items]>()
     let playlistDetailObserver = PublishSubject<PlaylistDetail>()
     let songdetailObserver = PublishSubject<SongDetailModel>()
+    let lyricDetailObserver = PublishSubject<[LyricLineModel]>()
     
     var songdetail: SongDetailModel?
     let disposeBag = DisposeBag()
@@ -56,7 +58,8 @@ class HomeViewModel: BaseViewModel {
                              charts: chartsObserver,
                              pianoAlbums: pianoAlbumsObserver,
                              playlistDetail: playlistDetailObserver,
-                             songdetail: songdetailObserver)
+                             songdetail: songdetailObserver,
+                             lyricDetail: lyricDetailObserver)
     }
     
     func getHomePage() {
@@ -200,7 +203,6 @@ class HomeViewModel: BaseViewModel {
     
     func getSongDetail(id: String) {
         let apiClient = NetworkManager.sharedInstance
-        let now = Date()
         
         apiClient.getDetailSong(id: id).subscribe(
            onNext: { result in
@@ -215,6 +217,21 @@ class HomeViewModel: BaseViewModel {
            onCompleted: {
                print("Completed event.")
            }).disposed(by: disposeBag)
+    }
+    
+    func getLyricDetail(id: String) {
+        let apiClient = NetworkManager.sharedInstance
+        apiClient.getLyric(id: id) { result in
+            switch result {
+            case .success(let object):
+                DispatchQueue.main.async {
+                    let lyrics = MusicHelper.sharedHelper.parseLyrics(lyricsText: object)
+                    self.output.lyricDetail.onNext(lyrics)
+                }
+            case .failure(_):
+             print("Err")
+            }
+        }
     }
     //MARK: --getSpotifyItems
     func getSpotifyItems() -> [HomePage.Items] {

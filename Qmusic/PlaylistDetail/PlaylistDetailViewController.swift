@@ -117,6 +117,16 @@ class PlaylistDetailViewController: UIViewController {
                 
             })
             .disposed(by: homePageViewModel.disposeBag)
+        
+        homePageViewModel.output.lyricDetail.observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                guard let self = self else { return }
+                if !value.isEmpty{
+                    print(value)
+                }
+            })
+            .disposed(by: homePageViewModel.disposeBag)
+
     }
     /*
     // MARK: - Navigation
@@ -167,8 +177,10 @@ extension PlaylistDetailViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let playlistDetail = self.playlistDetail,
-           let items = playlistDetail.contents?.items {
-            homePageViewModel.getSongDetail(id: items[indexPath.row].id ?? "")
+           let items = playlistDetail.contents?.items,
+           let id = items[indexPath.row].id{
+            homePageViewModel.getSongDetail(id: id)
+            homePageViewModel.getLyricDetail(id: id)
             indexPathSelected = indexPath
             headerView?.setPlaying()
         }

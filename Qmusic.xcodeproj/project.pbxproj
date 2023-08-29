@@ -196,6 +196,7 @@
 		FA429DD02A935819007EAE15 /* ExploreTopicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA429DCE2A935819007EAE15 /* ExploreTopicCollectionViewCell.xib */; };
 		FA429DD32A93582D007EAE15 /* ExploreTopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA429DD12A93582D007EAE15 /* ExploreTopicTableViewCell.swift */; };
 		FA429DD42A93582D007EAE15 /* ExploreTopicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA429DD22A93582D007EAE15 /* ExploreTopicTableViewCell.xib */; };
+		FAB458842A9DF6CB00E0C65F /* LyricDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB458832A9DF6CB00E0C65F /* LyricDetailModel.swift */; };
 		FAD34CC12A8CB886007FE90D /* ExploreGeezChartHeaderTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD34CC02A8CB886007FE90D /* ExploreGeezChartHeaderTableView.xib */; };
 		FAD34CC32A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD34CC22A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift */; };
 		FAD34CC62A8CC319007FE90D /* ExploreTopTrendingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD34CC42A8CC319007FE90D /* ExploreTopTrendingTableViewCell.swift */; };
@@ -400,6 +401,7 @@
 		FA429DCE2A935819007EAE15 /* ExploreTopicCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreTopicCollectionViewCell.xib; sourceTree = "<group>"; };
 		FA429DD12A93582D007EAE15 /* ExploreTopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTopicTableViewCell.swift; sourceTree = "<group>"; };
 		FA429DD22A93582D007EAE15 /* ExploreTopicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreTopicTableViewCell.xib; sourceTree = "<group>"; };
+		FAB458832A9DF6CB00E0C65F /* LyricDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricDetailModel.swift; sourceTree = "<group>"; };
 		FAD34CC02A8CB886007FE90D /* ExploreGeezChartHeaderTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreGeezChartHeaderTableView.xib; sourceTree = "<group>"; };
 		FAD34CC22A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreGeezChartHeaderTableView.swift; sourceTree = "<group>"; };
 		FAD34CC42A8CC319007FE90D /* ExploreTopTrendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTopTrendingTableViewCell.swift; sourceTree = "<group>"; };
@@ -871,6 +873,7 @@
 				F977A1B12A94CBDA00D90B2E /* SongDetailArtists.swift */,
 				F977A1B22A94CBDA00D90B2E /* Audio.swift */,
 				F977A1B32A94CBDA00D90B2E /* SpotifyTrack.swift */,
+				FAB458832A9DF6CB00E0C65F /* LyricDetailModel.swift */,
 			);
 			path = SongDetailModel;
 			sourceTree = "<group>";
@@ -1209,6 +1212,7 @@
 				F94F99D22A8A13D5005FA560 /* WEExtensions+Calendar.swift in Sources */,
 				F94F99E22A8A13D5005FA560 /* WEExtensions+Date.swift in Sources */,
 				F97E84172A9D09F500D6E4B2 /* SignUpViewModel.swift in Sources */,
+				FAB458842A9DF6CB00E0C65F /* LyricDetailModel.swift in Sources */,
 				FAD34CC32A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift in Sources */,
 				F975A5E42A8B394B00DA41B7 /* CarouselConfiguration.swift in Sources */,
 				F975A5E82A8B76AD00DA41B7 /* HomeHeaderView.swift in Sources */,

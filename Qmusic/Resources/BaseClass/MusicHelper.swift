@@ -26,6 +26,7 @@ enum MusicTypePlaying {
     case None
 }
 
+
 class MusicHelper: NSObject {
     static let sharedHelper = MusicHelper()
     var audioPlayer: AVPlayer?
@@ -235,6 +236,22 @@ class MusicHelper: NSObject {
         }
     }
     
+    //MARK: get lyric form metadata
+    func extractLyricsFromAudioFile(url: URL) -> String? {
+        let asset = AVAsset(url: url)
+        let metadata = asset.metadata
+        
+        for item in metadata {
+            if let commonKey = item.commonKey?.rawValue, commonKey == "lyrics" {
+                if let lyricsData = item.value as? Data, let lyricsString = String(data: lyricsData, encoding: .utf8) {
+                    return lyricsString
+                }
+            }
+        }
+        
+        return nil
+    }
+
     // MARK: -- dùng cho auto chuyển bài hát
     func playMusicWithURL(link: String,
                           with tilte: String = "cyme",
@@ -339,6 +356,32 @@ class MusicHelper: NSObject {
         // MARK: -- add music bar
         
         self.musicBar.btnPlay.setImage(UIImage(named: "ic_pausing_black"), for: .normal)
+    }
+    
+    func parseLyrics(lyricsText: String) -> [LyricLineModel] {
+        var lyricLines: [LyricLineModel] = []
+        
+        let pattern = "\\[(\\d{2}:\\d{2}\\.\\d{2})\\]([^\\[]+)"
+        
+        do {
+            let regex = try NSRegularExpression(pattern: pattern, options: [])
+            let matches = regex.matches(in: lyricsText, options: [], range: NSRange(location: 0, length: lyricsText.utf16.count))
+            
+            for match in matches {
+                if let timeRange = Range(match.range(at: 1), in: lyricsText),
+                   let lyricRange = Range(match.range(at: 2), in: lyricsText) {
+                    let time = String(lyricsText[timeRange])
+                    let lyric = String(lyricsText[lyricRange])
+                    
+                    let lyricLine = LyricLineModel(time: time, lyric: lyric)
+                    lyricLines.append(lyricLine)
+                }
+            }
+        } catch {
+            print("Error creating regular expression: \(error)")
+        }
+        
+        return lyricLines
     }
     
 }
