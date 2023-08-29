@@ -42,16 +42,6 @@ class NetworkManager: NSObject {
                 }
                 let object = String(data: data, encoding: .utf8) ?? ""
                 completionHandler(.success(object))
-//                let jsonDecoder = JSONDecoder()
-//                do {
-//                    let object = String(data: data, encoding: .utf8) ?? ""
-////                    let object = try jsonDecoder.decode(String.self, from: data)
-//                    completionHandler(.success(object))
-//                    print(object)
-//                } catch let err {
-//                    completionHandler(.failure(err))
-//                    print(err.localizedDescription)
-//                }
                 
             }
         }
@@ -261,9 +251,20 @@ class NetworkManager: NSObject {
         return Observable.create { observer in
             
             if let homeData = AppSetting.shared.getSongDataFromLocal(id: id) {
-                observer.onNext(homeData)
-                observer.onCompleted()
-                return Disposables.create {}
+                if let audioURL = homeData.soundcloudTrack?.audio?.first?.url,
+                let url = URLComponents(string: audioURL),
+                   let queryItems = url.queryItems,
+                   let expire = queryItems.first?.value,
+                   let expireTimestamp = Int(expire){
+                    if Date().currentTimeMillis() > expireTimestamp {
+                        print("Song is expire")
+                    } else {
+                        observer.onNext(homeData)
+                        observer.onCompleted()
+                        return Disposables.create {}
+                    }
+                    
+                }
             }
             
             //MARK: create URLSession dataTask
@@ -457,7 +458,7 @@ class NetworkManager: NSObject {
             if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                 // try to read out a dictionary
                 if let msg = json["message"] as? String,
-                   msg.isEmpty {
+                   msg == "Success" {
                     completionHandler(.success(0))
                 } else {
                     let err = NSError(domain:"", code:5, userInfo:nil)

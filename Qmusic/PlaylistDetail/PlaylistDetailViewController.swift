@@ -65,6 +65,11 @@ class PlaylistDetailViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        MusicHelper.sharedHelper.moveUpWhenBackHomeScreen()
+    }
+    
     @objc func playerDidFinishPlaying(note: NSNotification) {
         //MARK: -- next song
         if let index = self.indexPathSelected {
@@ -91,24 +96,16 @@ class PlaylistDetailViewController: UIViewController {
                 if let url = value.soundcloudTrack?.audio?.first?.url,
                    let detail = self.playlistDetail,
                    let indexPathSelected = self.indexPathSelected {
-                    
-                
-                    
-//                    #if DEBUG
-//                    let url = "https://cyme-doc.s3.ap-southeast-1.amazonaws.com/mp3/test1_test1.mp3"
-//
-//                    MusicHelper.sharedHelper.playMusicWithPlaylist(link: url,
-//                                                                   on: self.view,
-//                                                                   with: indexPathSelected.row,
-//                                                                   with: detail)
-//                    return
-//                    #endif
-                    
-                    
+  
                     MusicHelper.sharedHelper.playMusicWithPlaylist(link: url,
                                                                    on: self.view,
                                                                    with: indexPathSelected.row,
                                                                    with: detail)
+                    // MARK: -- upload song to S3 (làm cache)
+                    let req = Request.UploadMP3(url: url, songID: value.spotifyTrack?.id ?? "", songName: value.spotifyTrack?.name ?? "")
+                    NetworkManager.sharedInstance.uploadSong(req: req) { result in
+                        print(result)
+                    }
                 }
                 
             })
@@ -172,6 +169,7 @@ extension PlaylistDetailViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        indexPathSelected = indexPath
         if let playlistDetail = self.playlistDetail,
            let items = playlistDetail.contents?.items,
            let id = items[indexPath.row].id{
@@ -180,7 +178,6 @@ extension PlaylistDetailViewController: UITableViewDelegate, UITableViewDataSour
             indexPathSelected = indexPath
             headerView?.setPlaying()
         }
-        
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

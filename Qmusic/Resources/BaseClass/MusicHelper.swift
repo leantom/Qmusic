@@ -266,6 +266,16 @@ class MusicHelper: NSObject {
                         self.playMusicWithURL(link: link, with: tilte, with: artist)
                         return
                     }
+                    // MARK: -- show progress bar
+                    if let items = self.playlist?.contents?.items,
+                       items.count > index {
+                        let item = items[index]
+                        if let song = AppSetting.shared.getSongDataFromLocal(id: item.id ?? ""),
+                        let durationMs =  song.soundcloudTrack?.audio?.first?.durationMs {
+                            musicBar.playMusic(with: durationMs/1000)
+                        }
+                        
+                    }
                     
                     self.audioPlayer = AVPlayer(url: url)
                     
@@ -337,8 +347,23 @@ class MusicHelper: NSObject {
         if let _ = window.viewWithTag(1000) {
             bottomContraint?.constant -= 48
         }
-       
+        UIView.animate(withDuration: 0.3) {
+            window.layoutIfNeeded()
+        }
     }
+    
+    func moveUpWhenBackHomeScreen() {
+        guard let window = UIApplication.shared.keyWindow else {
+            return
+        }
+        if let _ = window.viewWithTag(1000) {
+            bottomContraint?.constant += 48
+        }
+        UIView.animate(withDuration: 0.3) {
+            window.layoutIfNeeded()
+        }
+    }
+    
     
     func showProgressBar() {
         guard let window = UIApplication.shared.keyWindow else {
@@ -363,7 +388,7 @@ class MusicHelper: NSObject {
         }
         // MARK: -- add music bar
         
-        self.musicBar.btnPlay.setImage(UIImage(named: "ic_pausing_black"), for: .normal)
+        self.musicBar.btnPlay.setImage(UIImage(named: "ic_pause"), for: .normal)
     }
     
     func parseLyrics(lyricsText: String) -> [LyricLineModel] {

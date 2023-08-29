@@ -8,6 +8,12 @@
 import Foundation
 let  dateTimeInstance = DateTimeInstance.sharedInstance()
 
+extension Date {
+    func currentTimeMillis() -> Int64 {
+        return Int64(self.timeIntervalSince1970 * 1000)
+    }
+}
+
 class DateTimeInstance: NSObject {
     static var instance: DateTimeInstance!
     var calendar = Locale.current.calendar
