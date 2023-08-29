@@ -65,6 +65,8 @@
 		F9670FED2A9D9251001FAC52 /* CymeButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9670FEC2A9D9251001FAC52 /* CymeButton.xib */; };
 		F9670FEF2A9DA492001FAC52 /* NetworkManager+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9670FEE2A9DA492001FAC52 /* NetworkManager+Login.swift */; };
 		F9670FF12A9DA4C8001FAC52 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9670FF02A9DA4C8001FAC52 /* LoginViewModel.swift */; };
+		F9670FF52A9E6219001FAC52 /* SubHomeAlbumsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9670FF32A9E6219001FAC52 /* SubHomeAlbumsTableViewCell.swift */; };
+		F9670FF62A9E6219001FAC52 /* SubHomeAlbumsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9670FF42A9E6219001FAC52 /* SubHomeAlbumsTableViewCell.xib */; };
 		F96914A32A8C81FD0092B4AD /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = F96914A22A8C81FD0092B4AD /* loading.json */; };
 		F96914A52A8CD2940092B4AD /* MusicBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96914A42A8CD2940092B4AD /* MusicBarView.swift */; };
 		F96914A72A8CD29F0092B4AD /* MusicBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F96914A62A8CD29F0092B4AD /* MusicBarView.xib */; };
@@ -274,6 +276,8 @@
 		F9670FEC2A9D9251001FAC52 /* CymeButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CymeButton.xib; sourceTree = "<group>"; };
 		F9670FEE2A9DA492001FAC52 /* NetworkManager+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+Login.swift"; sourceTree = "<group>"; };
 		F9670FF02A9DA4C8001FAC52 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		F9670FF32A9E6219001FAC52 /* SubHomeAlbumsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubHomeAlbumsTableViewCell.swift; sourceTree = "<group>"; };
+		F9670FF42A9E6219001FAC52 /* SubHomeAlbumsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubHomeAlbumsTableViewCell.xib; sourceTree = "<group>"; };
 		F96914A22A8C81FD0092B4AD /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		F96914A42A8CD2940092B4AD /* MusicBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBarView.swift; sourceTree = "<group>"; };
 		F96914A62A8CD29F0092B4AD /* MusicBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicBarView.xib; sourceTree = "<group>"; };
@@ -593,6 +597,8 @@
 				F975A5CC2A8B391800DA41B7 /* HomeWeeklyTableViewCell.xib */,
 				F975A5FA2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.swift */,
 				F975A5FB2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib */,
+				F9670FF32A9E6219001FAC52 /* SubHomeAlbumsTableViewCell.swift */,
+				F9670FF42A9E6219001FAC52 /* SubHomeAlbumsTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1087,6 +1093,7 @@
 				F9D915232A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.xib in Resources */,
 				F969A77B2A88BFCE00C8CA2F /* LaunchScreen.storyboard in Resources */,
 				F969A7B82A88C18A00C8CA2F /* Roboto-BlackItalic.ttf in Resources */,
+				F9670FF62A9E6219001FAC52 /* SubHomeAlbumsTableViewCell.xib in Resources */,
 				F97EA3712A8F5ADF0096EC1E /* SearchViewController.xib in Resources */,
 				FA429DD02A935819007EAE15 /* ExploreTopicCollectionViewCell.xib in Resources */,
 				F961670A2A8E146E00392860 /* AccountViewController.xib in Resources */,
@@ -1207,6 +1214,7 @@
 				F977A1BA2A94CBDB00D90B2E /* Audio.swift in Sources */,
 				F96914AC2A8D155B0092B4AD /* RadioViewController.swift in Sources */,
 				F96914B22A8D15AE0092B4AD /* RadioWeeklyTableViewCell.swift in Sources */,
+				F9670FF52A9E6219001FAC52 /* SubHomeAlbumsTableViewCell.swift in Sources */,
 				F969A7712A88BFCD00C8CA2F /* SceneDelegate.swift in Sources */,
 				F94F99DC2A8A13D5005FA560 /* WEExtensions+UITextFiled.swift in Sources */,
 				F94F99D22A8A13D5005FA560 /* WEExtensions+Calendar.swift in Sources */,

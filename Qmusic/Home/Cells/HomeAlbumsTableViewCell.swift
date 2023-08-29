@@ -10,61 +10,37 @@ import AVFoundation
 
 class HomeAlbumsTableViewCell: UITableViewCell {
     var player: AVPlayer?
-    @IBOutlet weak var lblTimeStart: UILabel!
+  
+    var parentVC: HomeViewController?
     
-    @IBOutlet weak var lblTImeEnd: UILabel!
-    
-    @IBOutlet weak var viewPlayer: UIView!
-    @IBOutlet weak var imgCover: UIImageView!
-    @IBOutlet weak var btnPlay: UIButton!
-    @IBOutlet weak var widthContraintProgressBar: NSLayoutConstraint!
-    var timer: Timer?
-    var countdown = 0
+    @IBOutlet weak var clContent: UICollectionView!
+   
+    var playlists: [HomePage.Items] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        clContent.delegate = self
+        clContent.dataSource = self
         
         
+        clContent.register(UINib(nibName: "SubHomeAlbumsTableViewCell", bundle: nil), forCellWithReuseIdentifier: "SubHomeAlbumsTableViewCell")
     }
 
-    @objc func playerDidFinishPlaying(note: NSNotification) {
-        print("Video Finished")
-        btnPlay.setImage(UIImage(named: "ic_playing"), for: .normal)
-        MusicHelper.sharedHelper.setFinishedPlaying()
-    }
-    
-    // MARK: -- animation for progress bar
-    @objc func startCountdown() {
-        
-        self.countdown += 1
-        let offset = viewPlayer.frame.width/172
-        widthContraintProgressBar.constant += offset
-        if self.countdown > 172 {
-            timer?.invalidate()
+    func setupData(items: HomePage.Genres) {
+        if let first = items.contents?.items {
+            self.playlists.append(contentsOf: first)
         }
-        lblTimeStart.text = TimeInterval(countdown).showFormatTimerCoundown()
+        clContent.reloadData()
     }
-    
+
     // MARK: - Remove Observer
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
     @IBAction func actionPlay(_ sender: Any) {
-        let btn = sender as! UIButton
-        if player?.timeControlStatus == .paused {
-            player?.play()
-            btn.setImage(UIImage(named: "ic_pause"), for: .normal)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.startCountdown), userInfo: nil, repeats: true)
-            }
-            
-        } else {
-            player?.pause()
-            timer?.invalidate()
-            btn.setImage(UIImage(named: "ic_playing"), for: .normal)
-        }
+       
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -72,5 +48,33 @@ class HomeAlbumsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+}
+extension HomeAlbumsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return playlists.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubHomeAlbumsTableViewCell", for: indexPath) as! SubHomeAlbumsTableViewCell
+        cell.delegate = self
+        cell.setupData(item: playlists[indexPath.row])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSizeMake(collectionView.frame.width , collectionView.frame.height)
+    }
+    
+}
+extension HomeAlbumsTableViewCell: SubHomeAlbumsTableViewCellDelegate {
+    func didSelectedChart(item: HomePage.Items) {
+        if let vc = self.parentVC {
+            vc.homePageModel.setPlaylistSeleted(item: item)
+            vc.homePageModel.getPlaylistDetail(id: item.id ?? "")
+            
+        }
+    }
+    
     
 }

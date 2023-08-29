@@ -161,8 +161,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let headerSection = headerSections[indexPath.section]
         switch headerSection {
-        case .SpotifyChoice, .Charts:
+        case .SpotifyChoice:
             return tableView.estimatedRowHeight
+        case .Charts:
+            return 220
         default:
             return 83
         }
@@ -200,7 +202,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.selectionStyle = .none
             return cell
         case .Charts:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "HomeAlbumsTableViewCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HomeAlbumsTableViewCell", for: indexPath) as! HomeAlbumsTableViewCell
+            cell.parentVC = self
+            if let chart = homePageModel.getChart() {
+                cell.setupData(items: chart)
+            }
+            
             cell.selectionStyle = .none
             return cell
         case .PianoPeaceful:
