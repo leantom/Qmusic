@@ -34,13 +34,7 @@ class HomeMasterViewController: UIViewController {
     
     @IBOutlet weak var bottomContraintContainView: NSLayoutConstraint!
     @IBOutlet weak var mainView: UIView!
-    @IBOutlet weak var heightContraintMusicBar: NSLayoutConstraint!
-    @IBOutlet weak var musicBarContainView: UIView!
-    var musicBar: MusicBarView = {
-        let v = MusicBarView.instantiate()
-        v.translatesAutoresizingMaskIntoConstraints = false
-        return v
-    }()
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,10 +81,14 @@ class HomeMasterViewController: UIViewController {
         listBtnHome.append(btnExplore)
         listBtnHome.append(btnRadio)
         listBtnHome.append(btnAccount)
-        musicBarContainView.addSubview(musicBar)
-        musicBar.layoutAttachAll()
-        self.heightContraintMusicBar.constant = 0
+        
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        MusicHelper.sharedHelper.moveToWhenBackHomeScreen()
+    }
+    
     @IBAction func actionSearch(_ sender: Any) {
         let vc = SearchViewController(nibName: "SearchViewController", bundle: nil)
         self.navigationController?.push(destinVC: vc)
@@ -190,7 +188,7 @@ class HomeMasterViewController: UIViewController {
 extension HomeMasterViewController: HomeViewControllerDelegate {
     func didSelectRecentlySong(indexPath: IndexPath, item: HomePage.Items) {
        // musicBar.populate(item: item)
-        self.heightContraintMusicBar.constant = 65
+        
         bottomContraintContainView.constant = 65
         UIView.animate(withDuration: 0.3) {
             self.mainView.layoutIfNeeded()
