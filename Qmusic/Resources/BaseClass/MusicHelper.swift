@@ -390,6 +390,11 @@ class MusicHelper: NSObject {
         }
         
         return lyricLines
+        
+    }
+    
+    func removeMusicBarWhenLogout() {
+        self.musicBar.removeFromSuperview()
     }
     
 }

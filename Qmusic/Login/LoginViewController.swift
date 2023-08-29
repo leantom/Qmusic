@@ -141,7 +141,7 @@ class LoginViewController: UIViewController {
             AppSetting.shared.setStatusLogin(status: true)
             // go main content view
             let vc = HomeMasterViewController(nibName: "HomeMasterViewController", bundle: nil)
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.push(destinVC: vc)
         }
     }
     
