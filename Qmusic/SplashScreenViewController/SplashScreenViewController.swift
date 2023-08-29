@@ -27,28 +27,34 @@ class SplashScreenViewController: UIViewController {
                     "Where Rhythm Meets Routine.",
                     "Cyme Unlocks a World of Musical Exploration."
 ]
-    @IBOutlet weak var btnStart: UIButton!
+    
+    @IBOutlet weak var viewButton: UIView!
     @IBOutlet weak var clContent: UICollectionView!
     
     @IBOutlet weak var mainView: UIView!
+    var cymeButton: CymeButton {
+        let v = CymeButton.instantiate()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.delegate = self
+        return v
+    }
     
     
-    @IBOutlet weak var btnStartContraintWidth: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+       
     }
 
     @IBAction func actionStart(_ sender: Any) {
         // MARK: -- start transform sender
-        self.btnStartContraintWidth.constant = 50
-        self.btnStart.titleLabel?.alpha = 0
+        
         UIView.animate(withDuration: 0.3, animations: {
-            self.btnStart.alpha = 0
+            
             self.mainView.layoutIfNeeded()
         }, completion: { finished in
             if finished {
-                self.mainView.addLoadingLotties(frame: self.btnStart.frame, name: "loading")
+                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 
                     if AppSetting.shared.getStatusLogin() {
@@ -70,18 +76,18 @@ class SplashScreenViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        viewButton.addSubViewFullConstraint(sub: cymeButton)
+        viewButton.layoutIfNeeded()
+        
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.mainView.removeLotties()
-        btnStartContraintWidth.constant = ConstantsUI.widthScreen - 80
-        self.btnStart.alpha = 1
-        self.btnStart.titleLabel?.alpha = 1
+        
     }
     
     func setupCollectionView() {
-        btnStartContraintWidth.constant = ConstantsUI.widthScreen - 80
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -179,6 +185,19 @@ extension SplashScreenViewController: UICollectionViewDataSource,
         }
     }
     
+    
+    
+}
+extension SplashScreenViewController: CymeButtonDelegate {
+    func actionSelect(btn: UIButton) {
+        if AppSetting.shared.getStatusLogin() {
+            let vc = HomeMasterViewController.loadFromNib()
+            self.navigationController?.push(destinVC: vc)
+        } else {
+            let vc = LoginViewController.loadFromNib()
+            self.navigationController?.push(destinVC: vc)
+        }
+    }
     
     
 }

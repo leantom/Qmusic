@@ -31,7 +31,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login" translatesAutoresizingMaskIntoConstraints="NO" id="HSx-DB-m68">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_3" translatesAutoresizingMaskIntoConstraints="NO" id="HSx-DB-m68">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                 </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="yI9-Mo-a3Z" customClass="TPKeyboardAvoidingScrollView">
@@ -231,7 +231,7 @@
                 <constraint firstItem="yI9-Mo-a3Z" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="8me-nV-kYD"/>
                 <constraint firstAttribute="bottom" secondItem="HSx-DB-m68" secondAttribute="bottom" id="A77-8m-cNB"/>
                 <constraint firstItem="HSx-DB-m68" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="LLK-Ri-DXz"/>
-                <constraint firstItem="HSx-DB-m68" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="-59" id="UhQ-Gt-tcq"/>
+                <constraint firstItem="HSx-DB-m68" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="UhQ-Gt-tcq"/>
                 <constraint firstItem="yI9-Mo-a3Z" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Xmf-cE-egj"/>
                 <constraint firstItem="yI9-Mo-a3Z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XuP-E6-BoG"/>
                 <constraint firstItem="yI9-Mo-a3Z" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="k20-ce-3FN"/>
@@ -243,8 +243,8 @@
     <resources>
         <image name="arrow.left" catalog="system" width="128" height="95"/>
         <image name="lock.fill" catalog="system" width="125" height="128"/>
-        <image name="login" width="375" height="812"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
+        <image name="splash_3" width="687" height="1031"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

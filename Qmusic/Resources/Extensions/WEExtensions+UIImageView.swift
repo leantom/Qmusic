@@ -60,6 +60,7 @@ extension UIView {
         
         let animationView = LottieAnimationView(name: name)
         animationView.frame = frame
+        animationView.center.x = self.center.x
         animationView.loopMode = .loop
         animationView.contentMode = .scaleAspectFill
         animationView.play()

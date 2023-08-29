@@ -8,6 +8,7 @@
 import UIKit
 import FacebookLogin
 import GoogleSignIn
+import RxSwift
 
 enum LoginInWithMethod {
     case Facebook
@@ -23,15 +24,18 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var btnFacebook: UIButton!
     
+    @IBOutlet weak var viewButton: UIView!
+    let cymeButton = CymeButton.instantiate()
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var btnApple: UIButton!
     @IBOutlet weak var btnGoogle: UIButton!
     var loginManager = LoginManager()
-    
+    var signInViewModel = LoginViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        cymeButton.delegate = self
+        self.viewButton.addSubViewFullConstraint(sub: self.cymeButton)
         
         tfEmail.attributedPlaceholder = NSAttributedString(
                 string: "E mail",
@@ -42,17 +46,23 @@ class LoginViewController: UIViewController {
                 string: "Password",
                 attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "9F9F9F")]
             )
-        
+        setupRx()
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
+    }
+    
     @IBAction func actionBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func actionSignUp(_ sender: Any) {
         let vc = SignUpViewController(nibName: "SignUpViewController", bundle: nil)
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.push(destinVC: vc)
     }
     /*
     // MARK: - Navigation
@@ -64,6 +74,30 @@ class LoginViewController: UIViewController {
     }
     */
 
+    func setupRx() {
+        signInViewModel.output.signin.observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                //MARK: -- vô thẳng app
+                
+                let vc = HomeMasterViewController(nibName: "HomeMasterViewController", bundle: nil)
+                self?.navigationController?.pushViewController(vc, animated: true)
+                AppSetting.shared.setStatusLogin(status: true)
+            })
+            .disposed(by: signInViewModel.disposeBag)
+        
+        signInViewModel.output.error.observe(on: MainScheduler.instance)
+            .subscribe(onNext: { value in
+                switch value {
+                    
+                case ._403(let err):
+                    self.showError(title: "Error", desc: err)
+                    self.cymeButton.resetUI()
+                }
+            })
+            .disposed(by: signInViewModel.disposeBag)
+    }
+    
+    
     @IBAction func actionLoginWithFacebook(_ sender: Any) {
         if let _ = AccessToken.current {
             //MARK: -- vô thẳng app
@@ -122,6 +156,17 @@ extension LoginViewController: LoginButtonDelegate {
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginKit.FBLoginButton) {
         
+    }
+    
+    
+}
+extension LoginViewController: CymeButtonDelegate {
+    func actionSelect(btn: UIButton) {
+        let email = tfEmail.text ?? ""
+        let password = tfPassword.text ?? ""
+        
+        let req = Request.SignIn(email: email, password: password.hash256())
+        signInViewModel.signIn(req: req)
     }
     
     
