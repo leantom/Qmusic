@@ -18,6 +18,7 @@ class PlaylistDetailViewController: UIViewController {
     
     var playlistDetail: PlaylistDetail?
     var playlist: HomePage.Items?
+    var lyricDetail: [LyricLineModel]?
     
     @IBOutlet weak var lblTitle: UILabel!
     var titleName: String = "Playlist"
@@ -118,7 +119,7 @@ class PlaylistDetailViewController: UIViewController {
             .subscribe(onNext: { [weak self] value in
                 guard let self = self else { return }
                 if !value.isEmpty{
-                    print(value)
+                    self.lyricDetail = value
                 }
             })
             .disposed(by: homePageViewModel.disposeBag)
