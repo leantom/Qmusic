@@ -164,11 +164,11 @@ class NetworkManager: NSObject {
         //MARK: creating our observable
         return Observable.create { observer in
             
-//            if let homeData = AppSetting.shared.getHomeDataFromLocal() {
-//                observer.onNext(homeData)
-//                observer.onCompleted()
-//                return Disposables.create {}
-//            }
+            if let homeData = AppSetting.shared.getHomeDataFromLocal() {
+                observer.onNext(homeData)
+                observer.onCompleted()
+                return Disposables.create {}
+            }
             
             
             //MARK: create URLSession dataTask

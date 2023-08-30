@@ -104,7 +104,8 @@ class PlaylistDetailViewController: UIViewController {
     func setupRx() {
         if playlistDetail == nil,
            let id = self.playlist?.id {
-            if let playlistDetail = AppSetting.shared.getPlaylistDataFromLocal(id: id) {
+            if let playlistDetail = AppSetting.shared.getPlaylistDataFromLocal(id: id),
+               playlistDetail.contents != nil {
                 self.playlistDetail = playlistDetail
                 self.tbContent.reloadData()
             } else {
@@ -119,7 +120,7 @@ class PlaylistDetailViewController: UIViewController {
                         
                     })
                     .disposed(by: self.homePageViewModel.disposeBag)
-            } 
+            }
         }
         homePageViewModel.output.songdetail.observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] value in

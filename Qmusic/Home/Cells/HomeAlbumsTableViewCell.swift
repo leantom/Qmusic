@@ -72,7 +72,7 @@ extension HomeAlbumsTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSizeMake(collectionView.frame.width , collectionView.frame.height)
+        return CGSizeMake(collectionView.frame.width - 20 , collectionView.frame.height)
     }
     
 }
