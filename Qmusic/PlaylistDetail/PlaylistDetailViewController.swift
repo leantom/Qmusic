@@ -38,6 +38,11 @@ class PlaylistDetailViewController: UIViewController {
         self.playlist = playlist
     }
     
+    convenience init(playlist: HomePage.Items) {
+        self.init(nibName: "PlaylistDetailViewController", bundle: nil)
+        self.playlist = playlist
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +55,7 @@ class PlaylistDetailViewController: UIViewController {
         tbContent.delegate = self
         tbContent.dataSource = self
         
-        setupRx()
+        
         NotificationCenter.default
             .addObserver(self,
             selector: #selector(playerDidFinishPlaying),
@@ -63,11 +68,14 @@ class PlaylistDetailViewController: UIViewController {
             imgBg.setImage(from: url)
             lblTitle.text = self.playlist?.name
         }
+        self.setupRx()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         MusicHelper.sharedHelper.moveUpWhenBackHomeScreen()
+       
+       
     }
     
     @objc func playerDidFinishPlaying(note: NSNotification) {
@@ -90,6 +98,30 @@ class PlaylistDetailViewController: UIViewController {
     
 
     func setupRx() {
+        if playlistDetail == nil,
+           let id = self.playlist?.id {
+            if let playlistDetail = AppSetting.shared.getPlaylistDataFromLocal(id: id) {
+                self.playlistDetail = playlistDetail
+                self.tbContent.reloadData()
+            } else {
+                self.homePageViewModel.getPlaylistDetail(id: id)
+                
+                
+                self.homePageViewModel.output.playlistDetail.observe(on: MainScheduler.instance)
+                    .subscribe(onNext: { [weak self] value in
+                        guard let self = self else { return }
+                        self.playlistDetail = value
+                        self.tbContent.reloadData()
+                        
+                    })
+                    .disposed(by: self.homePageViewModel.disposeBag)
+            }
+            
+            
+           
+            
+            
+        }
         homePageViewModel.output.songdetail.observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] value in
                 guard let self = self else { return }

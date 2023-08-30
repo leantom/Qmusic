@@ -62,6 +62,15 @@ extension HomeAlbumsTableViewCell: UICollectionViewDelegate, UICollectionViewDat
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let vc = self.parentVC{
+            let item = playlists[indexPath.row]
+            vc.homePageModel.setPlaylistSeleted(item: item)
+            vc.homePageModel.getPlaylistDetail(id: item.id ?? "")
+            
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSizeMake(collectionView.frame.width , collectionView.frame.height)
     }

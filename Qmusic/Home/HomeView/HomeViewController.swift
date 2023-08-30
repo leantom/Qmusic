@@ -125,6 +125,13 @@ class HomeViewController: UIViewController {
         
     }
     
+    func showPlaylistDetailVC() {
+        if let playlist = homePageModel.getPlaylistSeleted() {
+            let vc = PlaylistDetailViewController(playlist: playlist)
+            self.navigationController?.push(destinVC: vc)
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -199,6 +206,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeWeeklyTableViewCell", for: indexPath) as! HomeWeeklyTableViewCell
             cell.items = homePageModel.getSpotifyItems()
             cell.homePageModel = self.homePageModel
+            cell.parentVC = self
             cell.selectionStyle = .none
             return cell
         case .Charts:
@@ -254,17 +262,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case .Mood:
             let item = homePageModel.getmoodPlaylist()[indexPath.row]
             homePageModel.setPlaylistSeleted(item: item)
-            if let itemID = item.id {
-                homePageModel.getPlaylistDetail(id: itemID)
-            }
+            self.showPlaylistDetailVC()
+           
             
             break
         case .Popular_new_releases:
             let item = homePageModel.getpopularNewRelease()[indexPath.row]
             homePageModel.setPlaylistSeleted(item: item)
-            if let itemID = item.id {
-                homePageModel.getPlaylistDetail(id: itemID)
-            }
+            self.showPlaylistDetailVC()
             
             break
         }

@@ -188,13 +188,14 @@ class NetworkManager: NSObject {
         
         //MARK: creating our observable
         return Observable.create { observer in
-            
+          
             if let homeData = AppSetting.shared.getPlaylistDataFromLocal(id: id) {
+                
                 observer.onNext(homeData)
                 observer.onCompleted()
                 return Disposables.create {}
             }
-            
+//            
             //MARK: create URLSession dataTask
             let session = URLSession.shared
             let task = session.dataTask(with: request as URLRequest) { (data,

@@ -190,7 +190,7 @@ class MusicHelper: NSObject {
             let item = items[index]
              musicBar.populate(nameSong: item.name ?? "",
                                urlImage: item.album?.cover?.first?.url ?? "")
-            
+            musicBar.stopMusic()
             switch status {
             case .None:
                 playMusicWithURL(link: link,
