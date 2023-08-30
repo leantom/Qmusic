@@ -14,19 +14,45 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 import Foundation
 
 struct PlaylistDetail : Codable {
-	let status : Bool?
+    let status : Bool?
     var contents : PlaylistModel.Contents?
 
-	enum CodingKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
 
-		case status = "status"
-		case contents = "contents"
-	}
+        case status = "status"
+        case contents = "contents"
+    }
+
+    
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
+        
 		status = try values.decodeIfPresent(Bool.self, forKey: .status)
-        contents = try values.decodeIfPresent(PlaylistModel.Contents.self, forKey: .contents)
+        do {
+            contents = try values.decodeIfPresent(PlaylistModel.Contents.self, forKey: .contents)
+        } catch let DecodingError.dataCorrupted(context) {
+            print("corrupted data \(context)")
+            self.contents = nil
+            
+        } catch let DecodingError.keyNotFound(key, context) {
+            print("Key '\(key)' not found: \(context.debugDescription)")
+            print("codingPath: \(context.codingPath)")
+            self.contents = nil
+        } catch let DecodingError.valueNotFound(value, context) {
+            print("Value '\(value)' not found:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+            self.contents = nil
+            
+        } catch let DecodingError.typeMismatch(type, context)  {
+            print("Type '\(type)' mismatch:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+            self.contents = nil
+        }  catch let err{
+            print(err)
+            self.contents = nil
+        }
+        
 	}
 
 }

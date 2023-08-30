@@ -81,6 +81,23 @@ class AppSetting: NSObject {
         return nil
     }
     
+    public func archiveDataYoutube(data: YoutubeMp3Model, id: String) {
+        let encoder = JSONEncoder()
+        
+        if let data = try? encoder.encode(data) {
+            UserDefaults.standard.set(data, forKey: id)
+        }
+    }
+    
+    public func getDataYoutube(id: String) -> YoutubeMp3Model? {
+        if let data =  UserDefaults.standard.object(forKey: id),
+           let obj = try? JSONDecoder().decode(YoutubeMp3Model.self, from: data as! Data) {
+            
+            return obj
+        }
+        return nil
+    }
+    
     
     
 }

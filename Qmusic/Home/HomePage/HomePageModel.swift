@@ -12,7 +12,98 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
+
+extension Response {
+    
+    struct PlaylistWrapper: Codable {
+        let reqID: String?
+        let result: PlaylistWrapperResult?
+        
+        enum CodingKeys: String, CodingKey {
+
+            case reqID = "reqID"
+            case result = "result"
+        }
+
+        init(from decoder: Decoder) throws {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            reqID = try values.decodeIfPresent(String.self, forKey: .reqID)
+            result = try values.decodeIfPresent(PlaylistWrapperResult.self, forKey: .result)
+            
+        }
+    }
+    
+    struct PlaylistWrapperResult: Codable {
+        let code: Int?
+        let message: String?
+        let langCode: String?
+        let data: PlaylistDetail?
+        
+        enum CodingKeys: String, CodingKey {
+
+            case code = "code"
+            case message = "message"
+            case langCode = "langCode"
+            case data = "data"
+        }
+
+        init(from decoder: Decoder) throws {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            code = try values.decodeIfPresent(Int.self, forKey: .code)
+            message = try values.decodeIfPresent(String.self, forKey: .message)
+            langCode = try values.decodeIfPresent(String.self, forKey: .langCode)
+            data = try values.decodeIfPresent(PlaylistDetail.self, forKey: .data)
+        }
+        
+    }
+    
+    
+    
+    struct HomeSong: Codable {
+        let reqID: String?
+        let result: HomeSongResult?
+        
+        enum CodingKeys: String, CodingKey {
+
+            case reqID = "reqID"
+            case result = "result"
+        }
+
+        init(from decoder: Decoder) throws {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            reqID = try values.decodeIfPresent(String.self, forKey: .reqID)
+            result = try values.decodeIfPresent(HomeSongResult.self, forKey: .result)
+            
+        }
+        
+    }
+    struct HomeSongResult: Codable {
+        let code: Int?
+        let message: String?
+        let langCode: String?
+        let data: HomePageModel?
+        
+        enum CodingKeys: String, CodingKey {
+
+            case code = "code"
+            case message = "message"
+            case langCode = "langCode"
+            case data = "data"
+        }
+
+        init(from decoder: Decoder) throws {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            code = try values.decodeIfPresent(Int.self, forKey: .code)
+            message = try values.decodeIfPresent(String.self, forKey: .message)
+            langCode = try values.decodeIfPresent(String.self, forKey: .langCode)
+            data = try values.decodeIfPresent(HomePageModel.self, forKey: .data)
+        }
+        
+    }
+}
+
 struct HomePageModel : Codable {
+    
 	let status : Bool?
     let genres : [HomePage.Genres]?
 

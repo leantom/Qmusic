@@ -34,11 +34,15 @@ class MusicHelper: NSObject {
     private var status:  MusicStatusPlay = .None
     private var type:  MusicTypePlaying = .None
     private var playlist: PlaylistDetail?
+    private var youtubeModel: YoutubeMp3Model?
+    
     private var index: Int = 0
     var homePageViewModel = HomeViewModel()
     
     let musicBar = MusicBarView.instantiate()
     var bottomContraint: NSLayoutConstraint?
+    var isShowing = false
+    
     override init() {
         super.init()
         print("MusicHelper init")
@@ -176,7 +180,7 @@ class MusicHelper: NSObject {
         audioPlayer?.seek(to: CMTime.zero)
     }
     
-    
+    // MARK: -- play with playlist
     func playMusicWithPlaylist(link: String,
                                on view: UIView,
                                with index: Int,
@@ -204,18 +208,23 @@ class MusicHelper: NSObject {
         
     }
     
-    func playMusicWithURL(link: String,
-                          on view: UIView,
-                          with type: MusicTypePlaying) {
+    func playMusicWithYoutube(link: String,
+                              youtubeModel: YoutubeMp3Model,
+                              with type: MusicTypePlaying) {
         self.type = type
-       
+        self.youtubeModel = youtubeModel
+        let title = youtubeModel.title ?? "cyme"
+        let desc = youtubeModel.description ?? "cyme"
+        musicBar.populate(nameSong: title,
+                          urlImage: youtubeModel.thumbnail?.first?.url ?? "")
+        
         showProgressBar()
         
         switch status {
         case .None:
-            playMusicWithURL(link: link)
+            playMusicWithURL(link: link, with: title, with: desc)
         case .Playing, .Pause, .Finished:
-            playMusicWithURL(link: link)
+            playMusicWithURL(link: link, with: title, with: desc)
         }
     }
     
@@ -274,7 +283,12 @@ class MusicHelper: NSObject {
                         let durationMs =  song.soundcloudTrack?.audio?.first?.durationMs {
                             musicBar.playMusic(with: durationMs/1000)
                         }
-                        
+                    }
+
+                    if let youtubeModel = self.youtubeModel,
+                       let approxDurationMs = getBitrateMax(youtubeMp3Model: youtubeModel)?.approxDurationMs,
+                       let durationMs = Int(approxDurationMs) {
+                        musicBar.playMusic(with: durationMs/1000)
                     }
                     
                     self.audioPlayer = AVPlayer(url: url)
@@ -336,8 +350,6 @@ class MusicHelper: NSObject {
             }
             return .commandFailed
         }
-        
-        
     }
     
     func moveToWhenBackHomeScreen() {
@@ -345,7 +357,7 @@ class MusicHelper: NSObject {
             return
         }
         if let _ = window.viewWithTag(1000) {
-            bottomContraint?.constant -= 48
+            bottomContraint?.constant = -window.safeAreaBottom - 48
         }
         UIView.animate(withDuration: 0.3) {
             window.layoutIfNeeded()
@@ -357,7 +369,7 @@ class MusicHelper: NSObject {
             return
         }
         if let _ = window.viewWithTag(1000) {
-            bottomContraint?.constant += 48
+            bottomContraint?.constant = -window.safeAreaBottom
         }
         UIView.animate(withDuration: 0.3) {
             window.layoutIfNeeded()
@@ -389,6 +401,7 @@ class MusicHelper: NSObject {
         // MARK: -- add music bar
         
         self.musicBar.btnPlay.setImage(UIImage(named: "ic_pause"), for: .normal)
+        self.isShowing = true
     }
     
     func parseLyrics(lyricsText: String) -> [LyricLineModel] {
@@ -420,6 +433,8 @@ class MusicHelper: NSObject {
     
     func removeMusicBarWhenLogout() {
         self.musicBar.removeFromSuperview()
+        audioPlayer?.pause()
+        audioPlayer = nil
     }
     
 }

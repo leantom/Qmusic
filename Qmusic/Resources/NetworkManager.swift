@@ -11,6 +11,7 @@ import RxCocoa
 
 class NetworkManager: NSObject {
     static let sharedInstance = NetworkManager()
+    internal var jwt = ""
     // MARK: -- get link mp3 from youtube link
     func getLyric(id: String,
                        completionHandler: @escaping(Result<String, Error>) -> Void) {
@@ -51,61 +52,92 @@ class NetworkManager: NSObject {
     }
     
     // MARK: -- get link mp3 from youtube link
-    func searchLinkMp3(linkURL: String,
-                       completionHandler: @escaping(Result<YoutubeDataMP3, Error>) -> Void) {
-        var isMobileLink = false
-        if linkURL.contains("https://youtu.be") {
-            isMobileLink = true
+    func searchLinkMp3(linkURL: String) -> Observable<YoutubeMp3Model> {
+        // Mobile link: https://youtu.be/SJzFq4IfXQw?si=_kyDRBs7kfkA8xfG
+        var id = ""
+        if let url = URLComponents(string: linkURL),
+            let queryItems = url.queryItems {
+            if let idItem = queryItems.filter({$0.name == "v"}).first {
+                id = idItem.value ?? ""
+            }
+            if id.isEmpty {
+                id = url.path.replacingOccurrences(of: "/", with: "")
+            }
+            
+            print(queryItems)
         }
         
-        let exp = linkURL
-        var splits = exp.components(separatedBy: "v=")
-        if isMobileLink {
-            splits = exp.components(separatedBy: "/")
-        }
         
-        //MARK: LINKMOBILE: https://youtu.be/C_SEHrguhIo
-        guard let videoID = splits.last else{return}
         let headers = [
             "X-RapidAPI-Key": "LAW614Sbs9mshQpXupy9yRG24Aipp11WiV5jsn5q7O9MK5B2R0",
-            "X-RapidAPI-Host": "youtube-mp36.p.rapidapi.com"
+            "X-RapidAPI-Host": "ytstream-download-youtube-videos.p.rapidapi.com"
         ]
-        
-        let request = NSMutableURLRequest(url: NSURL(string: "https://youtube-mp36.p.rapidapi.com/dl?id=\(videoID)")! as URL,
+
+        let request = NSMutableURLRequest(url: NSURL(string: "https://ytstream-download-youtube-videos.p.rapidapi.com/dl?id=\(id)")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
 
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: request as URLRequest) { data, response, error in
-            if (error != nil) {
-                print(error as Any)
-                completionHandler(.failure(error!))
-            } else {
-                let httpResponse = response as? HTTPURLResponse
-                
-                guard let data = data else {
-                    let err = NSError(domain:"", code:httpResponse?.statusCode ?? 1, userInfo:nil)
-                    completionHandler(.failure(err))
-                    return
-                }
+        //MARK: creating our observable
+        return Observable.create { observer in
 
-                let jsonDecoder = JSONDecoder()
-                do {
-                    let object = try jsonDecoder.decode(YoutubeDataMP3.self, from: data)
-                    completionHandler(.success(object))
-                    print(object.status)
-                } catch let err {
-                    completionHandler(.failure(err))
-                    print(err.localizedDescription)
-                }
+            
+            if let homeData = AppSetting.shared.getDataYoutube(id: id),
+               let bitrate = getBitrateMax(youtubeMp3Model: homeData)
+            {
                 
+                if let audioURL = bitrate.url,
+                   let url = URLComponents(string: audioURL),
+                   let queryItems = url.queryItems,
+                   let expires = queryItems.filter({$0.name == "expire"}).first,
+                   let expireTimestamp = Int(expires.value ?? ""){
+                    if Date().currentTimeMillis() > expireTimestamp {
+                        print("Song is expire")
+                    } else {
+                        observer.onNext(homeData)
+                        observer.onCompleted()
+                        return Disposables.create {}
+                    }
+                    
+                }
+            }
+            
+            //MARK: create URLSession dataTask
+            let session = URLSession.shared
+            let task = session.dataTask(with: request as URLRequest) { (data,
+                                                          response, error) in
+                if let httpResponse = response as? HTTPURLResponse{
+                    let statusCode = httpResponse.statusCode
+                    let jsonDecoder = JSONDecoder()
+                    do {
+                        let _data = data ?? Data()
+                        if (200...399).contains(statusCode) {
+                            let objs = try jsonDecoder.decode(YoutubeMp3Model.self, from:
+                                                                _data)
+                            AppSetting.shared.archiveDataYoutube(data: objs, id: id)
+                            //MARK: observer onNext event
+                            observer.onNext(objs)
+                        }
+                        else {
+                            let err = NSError(domain:"", code:httpResponse.statusCode, userInfo:nil)
+                            observer.onError(err)
+                        }
+                    } catch {
+                        //MARK: observer onNext event
+                        observer.onError(error)
+                    }
+                }
+                //MARK: observer onCompleted event
+                observer.onCompleted()
+            }
+            task.resume()
+            //MARK: return our disposable
+            return Disposables.create {
+                task.cancel()
             }
         }
-
-
-        dataTask.resume()
+        
     }
     // MARK: -- getHomePageFromSpotify
     
@@ -113,26 +145,30 @@ class NetworkManager: NSObject {
     //MARK: getHomePage
     public func getHomePage()
     -> Observable<HomePageModel> {
-        let headers = [
-            "X-RapidAPI-Key": "LAW614Sbs9mshQpXupy9yRG24Aipp11WiV5jsn5q7O9MK5B2R0",
-            "X-RapidAPI-Host": "spotify-scraper.p.rapidapi.com"
-        ]
+//        let headers = [
+//            "X-RapidAPI-Key": "LAW614Sbs9mshQpXupy9yRG24Aipp11WiV5jsn5q7O9MK5B2R0",
+//            "X-RapidAPI-Host": "spotify-scraper.p.rapidapi.com"
+//        ]
 
-        let request = NSMutableURLRequest(url: NSURL(string: "https://spotify-scraper.p.rapidapi.com/v1/home?region=vn")! as URL,
-                                                cachePolicy: .useProtocolCachePolicy,
-                                            timeoutInterval: 10.0)
+//        let request = NSMutableURLRequest(url: NSURL(string: "https://spotify-scraper.p.rapidapi.com/v1/home?region=vn")! as URL,
+//                                                cachePolicy: .useProtocolCachePolicy,
+//                                            timeoutInterval: 10.0)
+        
+        var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/user?api=songHome")!,timeoutInterval: Double.infinity)
+        request.addValue(jwt, forHTTPHeaderField: "auth")
+        request.addValue("false", forHTTPHeaderField: "isExpired")
+        
         request.httpMethod = "GET"
-        request.allHTTPHeaderFields = headers
         
         
         //MARK: creating our observable
         return Observable.create { observer in
             
-            if let homeData = AppSetting.shared.getHomeDataFromLocal() {
-                observer.onNext(homeData)
-                observer.onCompleted()
-                return Disposables.create {}
-            }
+//            if let homeData = AppSetting.shared.getHomeDataFromLocal() {
+//                observer.onNext(homeData)
+//                observer.onCompleted()
+//                return Disposables.create {}
+//            }
             
             
             //MARK: create URLSession dataTask
@@ -145,11 +181,18 @@ class NetworkManager: NSObject {
                     do {
                         let _data = data ?? Data()
                         if (200...399).contains(statusCode) {
-                            let objs = try jsonDecoder.decode(HomePageModel.self, from:
+                            let objs = try jsonDecoder.decode(Response.HomeSong.self, from:
                                                                 _data)
-                            AppSetting.shared.archiveDataHome(data: objs)
+                            if let data = objs.result?.data {
+                                AppSetting.shared.archiveDataHome(data: data)
+                                observer.onNext(data)
+                            } else {
+                                let err = NSError(domain:"", code:5, userInfo:nil)
+                                observer.onError(err)
+                            }
+                            
                             //MARK: observer onNext event
-                            observer.onNext(objs)
+                            
                         }
                         else {
                             let err = NSError(domain:"", code:httpResponse.statusCode, userInfo:nil)
@@ -174,23 +217,33 @@ class NetworkManager: NSObject {
     //MARK: getPlaylistDetail
     public func getPlaylistDetail(id: String)
     -> Observable<PlaylistDetail> {
-        let headers = [
-            "X-RapidAPI-Key": "LAW614Sbs9mshQpXupy9yRG24Aipp11WiV5jsn5q7O9MK5B2R0",
-            "X-RapidAPI-Host": "spotify-scraper.p.rapidapi.com"
-        ]
+        
+        
+//        let headers = [
+//            "X-RapidAPI-Key": "LAW614Sbs9mshQpXupy9yRG24Aipp11WiV5jsn5q7O9MK5B2R0",
+//            "X-RapidAPI-Host": "spotify-scraper.p.rapidapi.com"
+//        ]
+//
+//        let request = NSMutableURLRequest(url: NSURL(string: "https://spotify-scraper.p.rapidapi.com/v1/playlist/contents?playlistId=\(id)")! as URL,
+//                                                cachePolicy: .useProtocolCachePolicy,
+//                                            timeoutInterval: 10.0)
 
-        let request = NSMutableURLRequest(url: NSURL(string: "https://spotify-scraper.p.rapidapi.com/v1/playlist/contents?playlistId=\(id)")! as URL,
-                                                cachePolicy: .useProtocolCachePolicy,
-                                            timeoutInterval: 10.0)
+        
+        
+        var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/user?api=playList&playlistId=\(id)")!,timeoutInterval: Double.infinity)
+        request.addValue(jwt, forHTTPHeaderField: "auth")
+        request.addValue("false", forHTTPHeaderField: "isExpired")
+        //request.allHTTPHeaderFields = headers
+
         request.httpMethod = "GET"
-        request.allHTTPHeaderFields = headers
         
         
         //MARK: creating our observable
         return Observable.create { observer in
           
-            if let homeData = AppSetting.shared.getPlaylistDataFromLocal(id: id) {
-                
+            if let homeData = AppSetting.shared.getPlaylistDataFromLocal(id: id),
+               homeData.contents != nil {
+
                 observer.onNext(homeData)
                 observer.onCompleted()
                 return Disposables.create {}
@@ -206,13 +259,26 @@ class NetworkManager: NSObject {
                     do {
                         let _data = data ?? Data()
                         if (200...399).contains(statusCode) {
-                            let objs = try jsonDecoder.decode(PlaylistDetail.self, from:
+                            
+
+                            do {
+                                let myJson = try JSONSerialization.jsonObject(with: _data, options: JSONSerialization.ReadingOptions.allowFragments) as! [String: Any]
+                                print(myJson)
+
+                            } catch let error {
+                                   print(error)
+                            }
+                            let objs = try jsonDecoder.decode(Response.PlaylistWrapper.self, from:
                                                                 _data)
-                            AppSetting.shared.archiveDataPlaylist(data: objs, id: id)
-                            
-                            
+                            if let playlist = objs.result?.data {
+                                AppSetting.shared.archiveDataPlaylist(data: playlist, id: id)
+                                observer.onNext(playlist)
+                            } else {
+                                let err = NSError(domain:"", code:5, userInfo:nil)
+                                observer.onError(err)
+                            }
                             //MARK: observer onNext event
-                            observer.onNext(objs)
+                            
                         }
                         else {
                             let err = NSError(domain:"", code:httpResponse.statusCode, userInfo:nil)

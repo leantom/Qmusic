@@ -35,6 +35,7 @@ extension NetworkManager {
                                                                 _data)
                             //MARK: observer onNext event
                             observer.onNext(objs)
+                            self.jwt = objs.result?.jwt ?? ""
                         }
                         else {
                             let err = NSError(domain:"", code:httpResponse.statusCode, userInfo:nil)

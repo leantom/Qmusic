@@ -9,6 +9,7 @@ import UIKit
 
 class RadioPopularTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var thumbnail: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblDesc: UILabel!
     override func awakeFromNib() {

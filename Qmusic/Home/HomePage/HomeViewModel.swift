@@ -43,6 +43,8 @@ class HomeViewModel: BaseViewModel {
     
     var songdetail: SongDetailModel?
     let disposeBag = DisposeBag()
+    private var homePageData:[HomePage.Genres] = []
+    
     private var spotifysChoice:[HomePage.Items] = []
     private var charts:HomePage.Genres?
     private var pianoAlbums:[HomePage.Items] = []
@@ -73,16 +75,15 @@ class HomeViewModel: BaseViewModel {
                {
                    self.spotifysChoice = items
                    self.output.SpotifysChoice.onNext(items)
-                   
                }
+               
+               self.homePageData = result.genres ?? []
                
                if let genres = result.genres,
                   genres.count > 1
                {
                    self.charts = genres[1]
                    self.output.charts.onNext(genres[1])
-                   
-                   
                }
                
                if let genres = result.genres,
@@ -108,24 +109,6 @@ class HomeViewModel: BaseViewModel {
                    
                    
                }
-               
-//               if let genres = result.genres {
-//                   genres.forEach { items in
-//                       if let contents = items.contents,
-//                          let playlist = contents.items {
-//                           playlist.forEach { item in
-//                               let playlistSelected = item
-//                               let req = Request.Playlist(id: item.id ?? "", type: "popular", name: playlistSelected.name ?? "", description: playlistSelected.description ?? "", trackCount: playlistSelected.trackCount ?? 0, followerCount: 0, cover: playlistSelected.images?.last?.last?.url ?? "", shareurlSpotify: playlistSelected.shareUrl ?? "", shareurlApp: playlistSelected.shareUrl ?? "", likeCount: 0, status: 1)
-//
-//                               NetworkManager.sharedInstance.addPlaylistToDB(req: req)
-//                               do {
-//                                   sleep(1)
-//                               }
-//                           }
-//                       }
-//                   }
-//               }
-               
                
            },
            onError: { error in
@@ -234,24 +217,39 @@ class HomeViewModel: BaseViewModel {
         }
     }
     //MARK: --getSpotifyItems
-    func getSpotifyItems() -> [HomePage.Items] {
-        return spotifysChoice
-    }
-    
+//    func getSpotifyItems() -> [HomePage.Items] {
+//        return spotifysChoice
+//    }
+//
     func getChart() -> HomePage.Genres? {
         return charts
     }
+//
+//    func getpianoAlbums() -> [HomePage.Items] {
+//        return pianoAlbums
+//    }
+//
+//    func getmoodPlaylist() -> [HomePage.Items] {
+//        return moodPlaylist
+//    }
+//
+//    func getpopularNewRelease() -> [HomePage.Items] {
+//        return popularnewRelease
+//    }
     
-    func getpianoAlbums() -> [HomePage.Items] {
-        return pianoAlbums
+    
+    func getItemInGenre(by index: Int) -> [HomePage.Items] {
+        if homePageData.count > index {
+            return homePageData[index].contents?.items ?? []
+        }
+        return []
     }
     
-    func getmoodPlaylist() -> [HomePage.Items] {
-        return moodPlaylist
-    }
-    
-    func getpopularNewRelease() -> [HomePage.Items] {
-        return popularnewRelease
+    func getTitleSectionByID(by index: Int) -> String {
+        if homePageData.count > index {
+            return homePageData[index].name ?? ""
+        }
+        return ""
     }
     
 }

@@ -13,6 +13,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 import Foundation
 extension PlaylistModel {
+    
     struct ItemsPlaylist : Codable {
         let type : String?
         let id : String?
@@ -60,5 +61,6 @@ extension PlaylistModel {
         }
 
     }
+
 }
 

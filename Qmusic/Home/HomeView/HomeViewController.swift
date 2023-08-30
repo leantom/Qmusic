@@ -151,7 +151,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         let homeHeaderView = HomeHeaderView.instantiate()
         
-        homeHeaderView.lblTitle.text = headerSections[section].describle
+        homeHeaderView.lblTitle.text = homePageModel.getTitleSectionByID(by: section)
         if section != 0 {
             homeHeaderView.btnViewAll.isHidden = true
         }
@@ -189,12 +189,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return 1
         case .Charts:
             return 1
-        case .PianoPeaceful:
-            return homePageModel.getpianoAlbums().count
-        case .Mood:
-            return homePageModel.getmoodPlaylist().count
-        case .Popular_new_releases:
-            return homePageModel.getpopularNewRelease().count
+        case .PianoPeaceful, .Mood, .Popular_new_releases:
+            return homePageModel.getItemInGenre(by: section).count
         }
     }
     
@@ -204,7 +200,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             
         case .SpotifyChoice:
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeWeeklyTableViewCell", for: indexPath) as! HomeWeeklyTableViewCell
-            cell.items = homePageModel.getSpotifyItems()
+            cell.items = homePageModel.getItemInGenre(by: indexPath.section)
             cell.homePageModel = self.homePageModel
             cell.parentVC = self
             cell.selectionStyle = .none
@@ -220,20 +216,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case .PianoPeaceful:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RecentlyMusicTableViewCell", for: indexPath) as! RecentlyMusicTableViewCell
-            cell.popuplate(item: homePageModel.getpianoAlbums()[indexPath.row], index: indexPath.row)
+            cell.popuplate(item: homePageModel.getItemInGenre(by: indexPath.section)[indexPath.row], index: indexPath.row)
             cell.delegate = self
             cell.selectionStyle = .none
             return cell
             
         case .Mood:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RecentlyMusicTableViewCell", for: indexPath) as! RecentlyMusicTableViewCell
-            cell.popuplate(item: homePageModel.getmoodPlaylist()[indexPath.row], index: indexPath.row)
+            cell.popuplate(item: homePageModel.getItemInGenre(by: indexPath.section)[indexPath.row], index: indexPath.row)
             cell.delegate = self
             cell.selectionStyle = .none
             return cell
         case .Popular_new_releases:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RecentlyMusicTableViewCell", for: indexPath) as! RecentlyMusicTableViewCell
-            cell.popuplate(item: homePageModel.getpopularNewRelease()[indexPath.row], index: indexPath.row)
+            cell.popuplate(item: homePageModel.getItemInGenre(by: indexPath.section)[indexPath.row], index: indexPath.row)
             cell.delegate = self
             cell.selectionStyle = .none
             return cell
@@ -252,7 +248,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case .Charts:
             break
         case .PianoPeaceful:
-            let item = homePageModel.getpianoAlbums()[indexPath.row]
+            let item = homePageModel.getItemInGenre(by: indexPath.section)[indexPath.row]
             homePageModel.setPlaylistSeleted(item: item)
             if let itemID = item.id {
                 homePageModel.getPlaylistDetail(id: itemID)
@@ -260,14 +256,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             
             break
         case .Mood:
-            let item = homePageModel.getmoodPlaylist()[indexPath.row]
+            let item = homePageModel.getItemInGenre(by: indexPath.section)[indexPath.row]
             homePageModel.setPlaylistSeleted(item: item)
             self.showPlaylistDetailVC()
            
             
             break
         case .Popular_new_releases:
-            let item = homePageModel.getpopularNewRelease()[indexPath.row]
+            let item = homePageModel.getItemInGenre(by: indexPath.section)[indexPath.row]
             homePageModel.setPlaylistSeleted(item: item)
             self.showPlaylistDetailVC()
             

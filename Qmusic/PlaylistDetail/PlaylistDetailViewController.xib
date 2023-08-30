@@ -16,6 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaylistDetailViewController" customModule="Qmusic" customModuleProvider="target">
             <connections>
+                <outlet property="bottomContraintTableView" destination="HZk-gC-NSD" id="nPv-eN-T4l"/>
                 <outlet property="imgBg" destination="MjK-cJ-klG" id="6v1-tX-iEf"/>
                 <outlet property="lblTitle" destination="Xbj-Lv-B48" id="Smg-WA-no8"/>
                 <outlet property="tbContent" destination="A9f-VK-nJv" id="zJR-kl-B1q"/>

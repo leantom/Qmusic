@@ -26,6 +26,7 @@ class PlaylistDetailViewController: UIViewController {
     var indexPathSelected: IndexPath?
     var headerView: HeaderPlaylistDetailView?
     
+    @IBOutlet weak var bottomContraintTableView: NSLayoutConstraint!
     @IBOutlet weak var imgBg: UIImageView!
     convenience init(playlistDetail: PlaylistDetail, titlePlaylist: String) {
         self.init(nibName: "PlaylistDetailViewController", bundle: nil)
@@ -75,7 +76,9 @@ class PlaylistDetailViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         MusicHelper.sharedHelper.moveUpWhenBackHomeScreen()
-       
+        if MusicHelper.sharedHelper.isShowing {
+            bottomContraintTableView.constant = 48
+        }
        
     }
     
@@ -116,12 +119,7 @@ class PlaylistDetailViewController: UIViewController {
                         
                     })
                     .disposed(by: self.homePageViewModel.disposeBag)
-            }
-            
-            
-           
-            
-            
+            } 
         }
         homePageViewModel.output.songdetail.observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] value in
@@ -210,6 +208,7 @@ extension PlaylistDetailViewController: UITableViewDelegate, UITableViewDataSour
             homePageViewModel.getLyricDetail(id: id)
             indexPathSelected = indexPath
             headerView?.setPlaying()
+            bottomContraintTableView.constant = 48
         }
     }
     
@@ -240,7 +239,16 @@ extension PlaylistDetailViewController: HeaderPlaylistDetailViewDelegate {
     }
     
     func didSelectPauseOrPlaying() {
-        MusicHelper.sharedHelper.didSelectedPlay()
+        if let playlistDetail = self.playlistDetail,
+           let items = playlistDetail.contents?.items,
+           items.count > 0,
+           let id = items[0].id {
+            homePageViewModel.getSongDetail(id: id)
+            homePageViewModel.getLyricDetail(id: id)
+            indexPathSelected = IndexPath(item: 0, section: 0)
+            headerView?.setPlaying()
+            bottomContraintTableView.constant = 48
+        }
     }
     
     func didSelectSkipNext() {
@@ -261,8 +269,8 @@ extension PlaylistDetailViewController: HeaderPlaylistDetailViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        var minValue: CGFloat = 0
-        var maxValue: CGFloat = 1
+        let minValue: CGFloat = 0
+        let maxValue: CGFloat = 1
         
         let offset = 1 - scrollView.contentOffset.y/400
         lblTitle.alpha = scrollView.contentOffset.y/400

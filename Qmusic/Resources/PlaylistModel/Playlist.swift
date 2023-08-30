@@ -15,7 +15,7 @@ import Foundation
 extension PlaylistModel {
     struct Playlist : Codable {
         let addedAt : String?
-        let addedBy : String?
+        let addedBy : AddedBy?
 
         enum CodingKeys: String, CodingKey {
 
@@ -26,9 +26,36 @@ extension PlaylistModel {
         init(from decoder: Decoder) throws {
             let values = try decoder.container(keyedBy: CodingKeys.self)
             addedAt = try values.decodeIfPresent(String.self, forKey: .addedAt)
-            addedBy = try values.decodeIfPresent(String.self, forKey: .addedBy)
+            addedBy = try values.decodeIfPresent(AddedBy.self, forKey: .addedBy)
+        }
+    }
+    
+    struct AddedBy : Codable {
+        let type : String?
+        let id : String?
+        let name : String?
+        let shareUrl : String?
+        let avatar : String?
+
+        enum CodingKeys: String, CodingKey {
+
+            case type = "type"
+            case id = "id"
+            case name = "name"
+            case shareUrl = "shareUrl"
+            case avatar = "avatar"
+        }
+
+        init(from decoder: Decoder) throws {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            type = try values.decodeIfPresent(String.self, forKey: .type)
+            id = try values.decodeIfPresent(String.self, forKey: .id)
+            name = try values.decodeIfPresent(String.self, forKey: .name)
+            shareUrl = try values.decodeIfPresent(String.self, forKey: .shareUrl)
+            avatar = try values.decodeIfPresent(String.self, forKey: .avatar)
         }
 
     }
+    
 }
 

@@ -107,13 +107,13 @@ class LoginViewController: UIViewController {
             AppSetting.shared.setStatusLogin(status: true)
         } else {
             
-            loginManager.logIn(permissions: [], from: self) { result, err in
+            loginManager.logIn(permissions: ["public_profile"], from: self) { result, err in
                 
                 if err == nil {
                     
                 }
                 
-                // 5
+                
                 // Check for cancel
                 guard let result = result, !result.isCancelled else {
                     print("User cancelled login")

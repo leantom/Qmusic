@@ -7,20 +7,17 @@
 
 import UIKit
 import AVFoundation
+import RxSwift
 
 class SearchViewController: UIViewController {
     var player: AVPlayer?
     
     @IBOutlet weak var tbContent: UITableView!
-    var objectMp3: YoutubeDataMP3?
+    var objectMp3: YoutubeMp3Model?
     @IBOutlet weak var tfSearch: UITextField!
-    var musicBar: MusicBarView = {
-        let v = MusicBarView.instantiate()
-        v.translatesAutoresizingMaskIntoConstraints = false
-        return v
-    }()
+
     @IBOutlet weak var musicContainView: UIView!
-    
+    let youtubeViewModel = YoutubeMp3ViewModel()
     @IBOutlet weak var heightContraintMusicBarView: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,51 +25,22 @@ class SearchViewController: UIViewController {
         tbContent.delegate = self
         tbContent.dataSource = self
         tfSearch.delegate = self
-        // Do any additional setup after loading the view.
-        
-        musicContainView.addSubview(musicBar)
-        musicBar.layoutAttachAll()
-        heightContraintMusicBarView.constant = 0
-        
-        NotificationCenter.default
-            .addObserver(self,
-            selector: #selector(playerDidFinishPlaying),
-            name: .AVPlayerItemDidPlayToEndTime,
-            object: player?.currentItem
-        )
-        
-        
-        NotificationCenter.default
-            .addObserver(self,
-            selector: #selector(failedToPlayToEndTime),
-            name: .AVPlayerItemFailedToPlayToEndTime,
-            object: player?.currentItem
-        )
-        
-        NotificationCenter.default
-            .addObserver(self,
-            selector: #selector(playbackStalled),
-            name: .AVPlayerItemPlaybackStalled,
-            object: player?.currentItem
-        )
-        
-        NotificationCenter.default
-            .addObserver(self,
-            selector: #selector(newAccessLogEntry),
-            name: .AVPlayerItemNewAccessLogEntry,
-            object: player?.currentItem
-        )
-        
-        NotificationCenter.default
-            .addObserver(self,
-            selector: #selector(newErrorLogEntry),
-            name: .AVPlayerItemNewErrorLogEntry,
-            object: player?.currentItem
-        )
-        
-        
+        tfSearch.attributedPlaceholder = NSAttributedString(
+                string: "ex:youtube.com/watch?v=oqf2seMc1fQ",
+                attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "9F9F9F")]
+            )
+        setupRx()
     }
 
+    
+    func setupRx() {
+        youtubeViewModel.output.searchYoutube.observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                self?.tbContent.reloadData()
+            })
+            .disposed(by: youtubeViewModel.disposeBag)
+    }
+    
     @objc func failedToPlayToEndTime(noti: NSNotification) {
         print(noti)
     }
@@ -124,21 +92,7 @@ extension SearchViewController: UITextFieldDelegate {
         
         if let inputSearch =  textField.text,
            let _ = URL(string: inputSearch) {
-            NetworkManager.sharedInstance.searchLinkMp3(linkURL: inputSearch) { result in
-                switch result {
-                case .success(let object):
-                    self.objectMp3 = object
-                    DispatchQueue.main.async {
-                        self.tbContent.reloadData()
-                    }
-                    
-                case .failure(_):
-                    DispatchQueue.main.async {
-                        self.showError()
-                    }
-                    
-                }
-            }
+            youtubeViewModel.searchYoutube(with: inputSearch)
         }
         
         
@@ -149,7 +103,7 @@ extension SearchViewController: UITextFieldDelegate {
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if objectMp3 == nil {
+        if youtubeViewModel.youtubeMp3Model == nil {
             return 0
         }
         return 1
@@ -157,36 +111,33 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RadioPopularTableViewCell", for: indexPath) as! RadioPopularTableViewCell
-        cell.lblDesc.text = objectMp3?.title ?? ""
+        cell.lblDesc.text = youtubeViewModel.youtubeMp3Model?.description
+        cell.lblTitle.text = youtubeViewModel.youtubeMp3Model?.title
+        if let thumbnail = self.youtubeViewModel.getThumbnailSmall() {
+            cell.thumbnail.setImage(from: thumbnail)
+        }
+        
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let objectMp3 = self.objectMp3 {
-            setupMusicBar(object: objectMp3)
-            playMusic(link: objectMp3.link)
+        if let objectMp3 = youtubeViewModel.getBitrateMax(),
+           let url = objectMp3.url {
+            playMusic(link: url)
         }
     }
     
     func playMusic(link: String) {
+        if let youtubeModel = self.youtubeViewModel.youtubeMp3Model {
+            MusicHelper.sharedHelper.playMusicWithYoutube(link: link,
+                                                          youtubeModel: youtubeModel,
+                                                          with: .YoutubeLink)
+        }
+       
         
-        MusicHelper.sharedHelper.playMusicWithURL(link: link, on: self.view, with: .Single)
         
     }
-    
-    func setupMusicBar(object: YoutubeDataMP3) {
-        heightContraintMusicBarView.constant = 71
-        musicBar.lblNameSong.text = object.title
-        musicBar.btnNext.isHidden = true
-        musicBar.btnPrevious.isHidden = true
-        musicBar.btnPlay.setImage(UIImage(named: "ic_pausing_black"), for: .normal)
-    }
-    
-    @objc func playerDidFinishPlaying(note: NSNotification) {
-        print("Video Finished")
-        musicBar.btnPlay.setImage(UIImage(named: "ic_playing_black"), for: .normal)
-        MusicHelper.sharedHelper.setFinishedPlaying()
-    }
+
     
 }
