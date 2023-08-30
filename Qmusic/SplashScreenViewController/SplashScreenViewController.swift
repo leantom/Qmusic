@@ -139,6 +139,7 @@ extension SplashScreenViewController: UICollectionViewDataSource,
         if indexPath.row == 0 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? SplashScreenCellCollectionViewCell else {return UICollectionViewCell()}
             cell.imgCell.setImageWithAnimation(image: UIImage(named: listImage[indexPath.row]))
+            cell.pageControl.numberOfPages = listImage.count
             return cell
         }
         
@@ -148,6 +149,7 @@ extension SplashScreenViewController: UICollectionViewDataSource,
             cell.imgSplash.setImageWithAnimation(image: UIImage(named: listImage[indexPath.row]))
             cell.lblTitle.text = titles[indexPath.row]
             cell.lblDesc.text = contents[indexPath.row]
+            cell.pageControl.numberOfPages = listImage.count
             return cell
         }
         
@@ -156,12 +158,14 @@ extension SplashScreenViewController: UICollectionViewDataSource,
             cell.imgSplash.setImageWithAnimation(image: UIImage(named: listImage[indexPath.row]))
             cell.lblTitle.text = titles[indexPath.row]
             cell.lblDesc.text = contents[indexPath.row]
+            cell.pageControl.numberOfPages = listImage.count
             return cell
         }
         
         if indexPath.row % 2 == 0 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? SplashScreenCellCollectionViewCell else {return UICollectionViewCell()}
             cell.imgCell.setImageWithAnimation(image: UIImage(named: listImage[indexPath.row]))
+            cell.pageControl.numberOfPages = listImage.count
             return cell
         }
         
@@ -170,6 +174,7 @@ extension SplashScreenViewController: UICollectionViewDataSource,
         cell.imgSplash.setImageWithAnimation(image: UIImage(named: listImage[indexPath.row]))
         cell.lblTitle.text = titles[indexPath.row]
         cell.lblDesc.text = contents[indexPath.row]
+        cell.pageControl.numberOfPages = listImage.count
         return cell
     }
     
@@ -179,7 +184,22 @@ extension SplashScreenViewController: UICollectionViewDataSource,
         if let indexPath = clContent.indexPathForItem(at: scrollView.contentOffset),
            let cell = clContent.cellForItem(at: indexPath) {
             
+            if cell is SplashScreenCellCollectionViewCell {
+                (cell as! SplashScreenCellCollectionViewCell).pageControl.currentPage = indexPath.row
+            }
             
+            if cell is SplashScreenCellCollectionViewThirdCell {
+                (cell as! SplashScreenCellCollectionViewThirdCell).pageControl.currentPage = indexPath.row
+            }
+            
+            if cell is SplashScreenCellCollectionViewFirstCell {
+                (cell as! SplashScreenCellCollectionViewFirstCell).pageControl.currentPage = indexPath.row
+            }
+            
+            if cell is SplashScreenCellCollectionViewSecondCell {
+                (cell as! SplashScreenCellCollectionViewSecondCell).pageControl.currentPage = indexPath.row
+            }
+    
             
             
         }

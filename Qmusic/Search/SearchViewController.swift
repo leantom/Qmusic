@@ -89,6 +89,9 @@ class SearchViewController: UIViewController {
         print(noti)
     }
     
+    @IBAction func actionBack(_ sender: Any) {
+        self.navigationController?.pop()
+    }
     
 
     @IBAction func actionHideKeyboard(_ sender: Any) {

@@ -28,6 +28,7 @@ class HomeWeeklyTableViewCell: UITableViewCell {
             self.updateDataSource()
         }
     }
+    var parentVC: HomeViewController?
     
     var homePageModel : HomeViewModel?
     override func awakeFromNib() {
@@ -70,7 +71,9 @@ extension HomeWeeklyTableViewCell: UICollectionViewDelegate {
             
             homePageModel.setPlaylistSeleted(item: item)
             
-            homePageModel.getPlaylistDetail(id: song)
+            if let vc = self.parentVC {
+                vc.showPlaylistDetailVC()
+            }
         }
         
     }

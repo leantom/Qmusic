@@ -39,6 +39,11 @@ class PlaylistDetailViewController: UIViewController {
         self.playlist = playlist
     }
     
+    convenience init(playlist: HomePage.Items) {
+        self.init(nibName: "PlaylistDetailViewController", bundle: nil)
+        self.playlist = playlist
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +56,7 @@ class PlaylistDetailViewController: UIViewController {
         tbContent.delegate = self
         tbContent.dataSource = self
         
-        setupRx()
+        
         NotificationCenter.default
             .addObserver(self,
             selector: #selector(playerDidFinishPlaying),
@@ -64,6 +69,14 @@ class PlaylistDetailViewController: UIViewController {
             imgBg.setImage(from: url)
             lblTitle.text = self.playlist?.name
         }
+        self.setupRx()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        MusicHelper.sharedHelper.moveUpWhenBackHomeScreen()
+       
+       
     }
     
     @objc func playerDidFinishPlaying(note: NSNotification) {
@@ -86,30 +99,46 @@ class PlaylistDetailViewController: UIViewController {
     
 
     func setupRx() {
+        if playlistDetail == nil,
+           let id = self.playlist?.id {
+            if let playlistDetail = AppSetting.shared.getPlaylistDataFromLocal(id: id) {
+                self.playlistDetail = playlistDetail
+                self.tbContent.reloadData()
+            } else {
+                self.homePageViewModel.getPlaylistDetail(id: id)
+                
+                
+                self.homePageViewModel.output.playlistDetail.observe(on: MainScheduler.instance)
+                    .subscribe(onNext: { [weak self] value in
+                        guard let self = self else { return }
+                        self.playlistDetail = value
+                        self.tbContent.reloadData()
+                        
+                    })
+                    .disposed(by: self.homePageViewModel.disposeBag)
+            }
+            
+            
+           
+            
+            
+        }
         homePageViewModel.output.songdetail.observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] value in
                 guard let self = self else { return }
                 if let url = value.soundcloudTrack?.audio?.first?.url,
                    let detail = self.playlistDetail,
                    let indexPathSelected = self.indexPathSelected {
-                    
-                
-                    
-//                    #if DEBUG
-//                    let url = "https://cyme-doc.s3.ap-southeast-1.amazonaws.com/mp3/test1_test1.mp3"
-//
-//                    MusicHelper.sharedHelper.playMusicWithPlaylist(link: url,
-//                                                                   on: self.view,
-//                                                                   with: indexPathSelected.row,
-//                                                                   with: detail)
-//                    return
-//                    #endif
-                    
-                    
+  
                     MusicHelper.sharedHelper.playMusicWithPlaylist(link: url,
                                                                    on: self.view,
                                                                    with: indexPathSelected.row,
                                                                    with: detail)
+                    // MARK: -- upload song to S3 (làm cache)
+                    let req = Request.UploadMP3(url: url, songID: value.spotifyTrack?.id ?? "", songName: value.spotifyTrack?.name ?? "")
+                    NetworkManager.sharedInstance.uploadSong(req: req) { result in
+                        print(result)
+                    }
                 }
                 
             })
@@ -173,6 +202,7 @@ extension PlaylistDetailViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        indexPathSelected = indexPath
         if let playlistDetail = self.playlistDetail,
            let items = playlistDetail.contents?.items,
            let id = items[indexPath.row].id{
@@ -181,7 +211,6 @@ extension PlaylistDetailViewController: UITableViewDelegate, UITableViewDataSour
             indexPathSelected = indexPath
             headerView?.setPlaying()
         }
-        
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

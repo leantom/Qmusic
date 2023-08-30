@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,13 +17,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MusicBarView" customModule="Qmusic" customModuleProvider="target">
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="MusicBarView" customModule="Qmusic" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="393" height="71"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IkN-Rf-ntZ">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="71"/>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IkN-Rf-ntZ">
+                    <rect key="frame" x="6" y="0.0" width="381" height="71"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Iw-ic-gvn">
+                            <rect key="frame" x="0.0" y="0.0" width="10" height="1"/>
+                            <color key="backgroundColor" name="PureWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="10" id="djI-8p-Bnm"/>
+                                <constraint firstAttribute="height" constant="1" id="yvw-Cy-JDY"/>
+                            </constraints>
+                        </view>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album1_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Dlz-lW-KbT">
                             <rect key="frame" x="21" y="3" width="43" height="65"/>
                             <constraints>
@@ -33,11 +42,11 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CÔ BỎ ĐI HẾ" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkS-2f-TOa">
                             <rect key="frame" x="80" y="5" width="78.666666666666686" height="61"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" name="WhiteBG"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Jma-dQ-RZ9">
-                            <rect key="frame" x="329" y="15.666666666666664" width="40" height="40"/>
+                            <rect key="frame" x="317" y="15.666666666666664" width="40" height="40"/>
                             <subviews>
                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2e-d3-aag">
                                     <rect key="frame" x="0.0" y="0.0" width="0.0" height="40"/>
@@ -56,7 +65,7 @@
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal">
-                                        <imageReference key="image" image="ic_pausing_black" symbolScale="large"/>
+                                        <imageReference key="image" image="ic_playing" symbolScale="large"/>
                                     </state>
                                     <connections>
                                         <action selector="actionPlay:" destination="iN0-l3-epB" eventType="touchUpInside" id="ruj-4B-H1i"/>
@@ -73,42 +82,61 @@
                             </subviews>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" red="0.79607843140000001" green="0.98431372549999996" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="backgroundColor" red="0.11841734499999999" green="0.12862429019999999" blue="0.1339474618" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="Jma-dQ-RZ9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vkS-2f-TOa" secondAttribute="trailing" constant="8" id="14Q-cw-CZs"/>
                         <constraint firstItem="vkS-2f-TOa" firstAttribute="centerY" secondItem="IkN-Rf-ntZ" secondAttribute="centerY" id="65z-uF-QFN"/>
                         <constraint firstItem="vkS-2f-TOa" firstAttribute="top" secondItem="IkN-Rf-ntZ" secondAttribute="top" constant="5" id="FIu-1p-fwK"/>
+                        <constraint firstItem="6Iw-ic-gvn" firstAttribute="top" secondItem="IkN-Rf-ntZ" secondAttribute="top" id="RbL-n7-ovr"/>
                         <constraint firstAttribute="trailing" secondItem="Jma-dQ-RZ9" secondAttribute="trailing" constant="24" id="Td0-TH-Sdb"/>
                         <constraint firstItem="Dlz-lW-KbT" firstAttribute="leading" secondItem="IkN-Rf-ntZ" secondAttribute="leading" constant="21" id="WYr-xG-EWJ"/>
                         <constraint firstItem="vkS-2f-TOa" firstAttribute="leading" secondItem="Dlz-lW-KbT" secondAttribute="trailing" constant="16" id="d76-DG-9z1"/>
                         <constraint firstItem="Dlz-lW-KbT" firstAttribute="centerY" secondItem="IkN-Rf-ntZ" secondAttribute="centerY" id="sfm-NC-zx3"/>
                         <constraint firstAttribute="bottom" secondItem="vkS-2f-TOa" secondAttribute="bottom" constant="5" id="u12-M3-5Bg"/>
+                        <constraint firstItem="6Iw-ic-gvn" firstAttribute="leading" secondItem="IkN-Rf-ntZ" secondAttribute="leading" id="v3s-OA-hEW"/>
                         <constraint firstItem="Jma-dQ-RZ9" firstAttribute="centerY" secondItem="IkN-Rf-ntZ" secondAttribute="centerY" id="yKG-qz-5vV"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius_">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="IkN-Rf-ntZ" secondAttribute="trailing" id="0oG-XP-eJG"/>
-                <constraint firstItem="IkN-Rf-ntZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="EJl-Oj-OPc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="IkN-Rf-ntZ" secondAttribute="trailing" constant="6" id="0oG-XP-eJG"/>
+                <constraint firstItem="IkN-Rf-ntZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="6" id="EJl-Oj-OPc"/>
                 <constraint firstAttribute="bottom" secondItem="IkN-Rf-ntZ" secondAttribute="bottom" id="Jf5-ZE-EzG"/>
                 <constraint firstItem="IkN-Rf-ntZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="NBe-iE-JvG"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius_">
+                    <real key="value" value="0.0"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="btnNext" destination="Bw6-xn-YaZ" id="0Ln-P3-0Dp"/>
                 <outlet property="btnPlay" destination="R5r-UP-fcb" id="FLe-ey-ydu"/>
                 <outlet property="btnPrevious" destination="A2e-d3-aag" id="T3v-LT-O19"/>
                 <outlet property="imgAlbums" destination="Dlz-lW-KbT" id="C2x-fc-LiZ"/>
                 <outlet property="lblNameSong" destination="vkS-2f-TOa" id="vSq-Qd-nsB"/>
+                <outlet property="widthContraintProcessingBar" destination="djI-8p-Bnm" id="F7p-US-MYA"/>
             </connections>
             <point key="canvasLocation" x="31.297709923664122" y="20.774647887323944"/>
         </view>
     </objects>
     <resources>
         <image name="album1_bg" width="188" height="188"/>
-        <image name="ic_pausing_black" width="74.333335876464844" height="74.333335876464844"/>
+        <image name="ic_playing" width="49" height="49"/>
         <image name="skip_next_black" width="24" height="24"/>
         <image name="skip_previous_black" width="24" height="24"/>
+        <namedColor name="PureWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="WhiteBG">
+            <color red="0.96899998188018799" green="0.97600001096725464" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

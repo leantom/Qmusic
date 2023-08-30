@@ -11,7 +11,7 @@ extension NetworkManager {
     func signin(req: Request.SignIn) -> Observable<Response.SignUp> {
         let params = try? req.asDictionary()
         let jsonData = try? JSONSerialization.data(withJSONObject: params as Any, options: .prettyPrinted)
-        var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/user?api=signUp")!,timeoutInterval: Double.infinity)
+        var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/user?api=signIn")!,timeoutInterval: Double.infinity)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         request.httpMethod = "POST"
