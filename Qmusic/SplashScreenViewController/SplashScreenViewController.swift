@@ -91,7 +91,7 @@ class SplashScreenViewController: UIViewController {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: -59, left: 0, bottom: -60, right: 0)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         clContent.collectionViewLayout = layout
@@ -125,7 +125,7 @@ extension SplashScreenViewController: UICollectionViewDataSource,
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSizeMake(UIScreen.main.bounds.width, 912)
+        return CGSizeMake(UIScreen.main.bounds.width, collectionView.frame.height + 59)
     }
     
     func isPrime(_ n: Int) -> Bool {
