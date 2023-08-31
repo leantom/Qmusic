@@ -34,7 +34,7 @@ class MusicHelper: NSObject {
     private var status:  MusicStatusPlay = .None
     private var type:  MusicTypePlaying = .None
     private var playlist: PlaylistDetail?
-    private var youtubeModel: YoutubeMp3Model?
+    private var youtubeModel: YoutubeMp3Info?
     
     private var index: Int = 0
     var homePageViewModel = HomeViewModel()
@@ -212,14 +212,14 @@ class MusicHelper: NSObject {
     }
     
     func playMusicWithYoutube(link: String,
-                              youtubeModel: YoutubeMp3Model,
+                              youtubeModel: YoutubeMp3Info,
                               with type: MusicTypePlaying) {
         self.type = type
         self.youtubeModel = youtubeModel
         let title = youtubeModel.title ?? "cyme"
-        let desc = youtubeModel.description ?? "cyme"
+        let desc = youtubeModel.author ?? "cyme"
         musicBar.populate(nameSong: title,
-                          urlImage: youtubeModel.thumbnail?.first?.url ?? "")
+                          urlImage: youtubeModel.thumb ?? "")
         musicBar.stopMusic()
         showProgressBar()
         
@@ -283,15 +283,13 @@ class MusicHelper: NSObject {
                        items.count > index {
                         let item = items[index]
                         if let song = AppSetting.shared.getSongDataFromLocal(id: item.id ?? ""),
-                        let durationMs =  song.soundcloudTrack?.audio?.first?.durationMs {
+                        let durationMs = song.soundcloudTrack?.audio?.first?.durationMs {
                             musicBar.playMusic(with: durationMs/1000)
                         }
                     }
 
-                    if let youtubeModel = self.youtubeModel,
-                       let approxDurationMs = getBitrateMax(youtubeMp3Model: youtubeModel)?.approxDurationMs,
-                       let durationMs = Int(approxDurationMs) {
-                        musicBar.playMusic(with: durationMs/1000)
+                    if let youtubeModel = self.youtubeModel {
+                        musicBar.playMusic(with: Int(youtubeModel.duration))
                     }
                     
                     self.audioPlayer = AVPlayer(url: url)

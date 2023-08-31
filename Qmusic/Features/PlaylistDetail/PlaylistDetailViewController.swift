@@ -132,11 +132,7 @@ class PlaylistDetailViewController: UIViewController {
                                                                    on: self.view,
                                                                    with: indexPathSelected.row,
                                                                    with: detail)
-                    // MARK: -- upload song to S3 (làm cache)
-                    let req = Request.UploadMP3(url: url, songID: value.spotifyTrack?.id ?? "", songName: value.spotifyTrack?.name ?? "")
-                    NetworkManager.sharedInstance.uploadSong(req: req) { result in
-                        print(result)
-                    }
+                    
                 }
                 
             })
@@ -194,13 +190,30 @@ extension PlaylistDetailViewController: UITableViewDelegate, UITableViewDataSour
            let items = playlistDetail.contents?.items {
             cell.popuplate(item: items[indexPath.row], index: indexPath.row)
         }
+        if let index = self.indexPathSelected ,
+           index.row == indexPath.row {
+            if index.row == indexPath.row {
+                cell.animateSpectrum(selected: true)
+            } else {
+                cell.animateSpectrum(selected: false)
+            }
+        } else {
+            cell.animateSpectrum(selected: false)
+        }
         
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        indexPathSelected = indexPath
+        
+        
+        self.indexPathSelected = indexPath
+        if let indexs = tableView.indexPathsForVisibleRows {
+            tbContent.reloadRows(at: indexs, with: .automatic)
+        }
+        
+        
         if let playlistDetail = self.playlistDetail,
            let items = playlistDetail.contents?.items,
            let id = items[indexPath.row].id{
@@ -209,10 +222,12 @@ extension PlaylistDetailViewController: UITableViewDelegate, UITableViewDataSour
             indexPathSelected = indexPath
             headerView?.setPlaying()
             bottomContraintTableView.constant = 48
+            tbContent.reloadRows(at: [indexPath], with: .automatic)
         }
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+       
         
     }
     
@@ -248,13 +263,18 @@ extension PlaylistDetailViewController: HeaderPlaylistDetailViewDelegate {
             indexPathSelected = IndexPath(item: 0, section: 0)
             headerView?.setPlaying()
             bottomContraintTableView.constant = 48
+            tbContent.reloadRows(at: [indexPathSelected!], with: .automatic)
         }
     }
     
     func didSelectSkipNext() {
         
         if let index = self.indexPathSelected {
+            
             self.indexPathSelected = IndexPath(row: index.row + 1, section: index.section)
+            
+            tbContent.reloadRows(at: [index, indexPathSelected!], with: .automatic)
+            
         }
         
         if let playlistDetail = self.playlistDetail,

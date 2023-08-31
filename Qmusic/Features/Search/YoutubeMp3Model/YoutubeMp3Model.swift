@@ -89,6 +89,26 @@ struct YoutubeMp3Model : Codable {
         return URL(string: thumbnails.first?.url ?? "")
     }
     
-   
+    func getBitrateMax() -> AdaptiveFormats? {
+        
+        guard let adaptiveFormats = self.adaptiveFormats else {return nil}
+        
+        let formats = adaptiveFormats.filter({
+            guard let mimeType = $0.mimeType else {return false}
+            return mimeType.contains("audio/mp4")
+            
+        })
+        
+        if let bitrate = formats.sorted(by: { item1, item2 in
+            guard let bitrate1 = item1.bitrate else {return false}
+            guard let bitrate2 = item2.bitrate else {return false}
+            return bitrate1 > bitrate2
+        }).first {
+            return bitrate
+        }
+        return adaptiveFormats.first
+    }
+    
+    
 
 }

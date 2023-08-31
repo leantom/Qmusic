@@ -52,7 +52,8 @@ class NetworkManager: NSObject {
     }
     
     // MARK: -- get link mp3 from youtube link
-    func searchLinkMp3(linkURL: String) -> Observable<YoutubeMp3Model> {
+    
+    func searchInfoYoutube(linkURL: String) -> Observable<YoutubeMp3Info> {
         // Mobile link: https://youtu.be/SJzFq4IfXQw?si=_kyDRBs7kfkA8xfG
         var id = ""
         if let url = URLComponents(string: linkURL),
@@ -70,12 +71,15 @@ class NetworkManager: NSObject {
         
         let headers = [
             "X-RapidAPI-Key": "LAW614Sbs9mshQpXupy9yRG24Aipp11WiV5jsn5q7O9MK5B2R0",
-            "X-RapidAPI-Host": "ytstream-download-youtube-videos.p.rapidapi.com"
+            "X-RapidAPI-Host": "youtube-video-download-info.p.rapidapi.com"
         ]
 
-        let request = NSMutableURLRequest(url: NSURL(string: "https://ytstream-download-youtube-videos.p.rapidapi.com/dl?id=\(id)")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: "https://youtube-video-download-info.p.rapidapi.com/dl?id=\(id)")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
+        
+        
+       
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
 
@@ -83,25 +87,7 @@ class NetworkManager: NSObject {
         return Observable.create { observer in
 
             
-            if let homeData = AppSetting.shared.getDataYoutube(id: id),
-               let bitrate = getBitrateMax(youtubeMp3Model: homeData)
-            {
-                
-                if let audioURL = bitrate.url,
-                   let url = URLComponents(string: audioURL),
-                   let queryItems = url.queryItems,
-                   let expires = queryItems.filter({$0.name == "expire"}).first,
-                   let expireTimestamp = Int(expires.value ?? ""){
-                    if Date().currentTimeMillis() > expireTimestamp {
-                        print("Song is expire")
-                    } else {
-                        observer.onNext(homeData)
-                        observer.onCompleted()
-                        return Disposables.create {}
-                    }
-                    
-                }
-            }
+           
             
             //MARK: create URLSession dataTask
             let session = URLSession.shared
@@ -113,7 +99,7 @@ class NetworkManager: NSObject {
                     do {
                         let _data = data ?? Data()
                         if (200...399).contains(statusCode) {
-                            let objs = try jsonDecoder.decode(YoutubeMp3Model.self, from:
+                            let objs = try jsonDecoder.decode(YoutubeMp3Info.self, from:
                                                                 _data)
                             AppSetting.shared.archiveDataYoutube(data: objs, id: id)
                             //MARK: observer onNext event
@@ -139,6 +125,81 @@ class NetworkManager: NSObject {
         }
         
     }
+    
+    func searchLinkMp3(linkURL: String) -> Observable<YoutubeDataMP3> {
+        // Mobile link: https://youtu.be/SJzFq4IfXQw?si=_kyDRBs7kfkA8xfG
+        var id = ""
+        if let url = URLComponents(string: linkURL),
+            let queryItems = url.queryItems {
+            if let idItem = queryItems.filter({$0.name == "v"}).first {
+                id = idItem.value ?? ""
+            }
+            if id.isEmpty {
+                id = url.path.replacingOccurrences(of: "/", with: "")
+            }
+            
+            print(queryItems)
+        }
+        
+        
+        let headers = [
+            "X-RapidAPI-Key": "LAW614Sbs9mshQpXupy9yRG24Aipp11WiV5jsn5q7O9MK5B2R0",
+            "X-RapidAPI-Host": "youtube-mp36.p.rapidapi.com"
+        ]
+
+        let request = NSMutableURLRequest(url: NSURL(string: "https://youtube-mp36.p.rapidapi.com/dl?id=\(id)")! as URL,
+                                                cachePolicy: .useProtocolCachePolicy,
+                                            timeoutInterval: 10.0)
+        
+       
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+
+        //MARK: creating our observable
+        return Observable.create { observer in
+
+            
+           
+            
+            //MARK: create URLSession dataTask
+            let session = URLSession.shared
+            let task = session.dataTask(with: request as URLRequest) { (data,
+                                                          response, error) in
+                if let httpResponse = response as? HTTPURLResponse{
+                    let statusCode = httpResponse.statusCode
+                    let jsonDecoder = JSONDecoder()
+                    do {
+                        let _data = data ?? Data()
+                        if (200...399).contains(statusCode) {
+                            let objs = try jsonDecoder.decode(YoutubeDataMP3.self, from:
+                                                                _data)
+                            
+                            //MARK: observer onNext event
+                            observer.onNext(objs)
+                        }
+                        else {
+                            let err = NSError(domain:"", code:httpResponse.statusCode, userInfo:nil)
+                            observer.onError(err)
+                        }
+                    } catch {
+                        //MARK: observer onNext event
+                        observer.onError(error)
+                    }
+                }
+                //MARK: observer onCompleted event
+                observer.onCompleted()
+            }
+            task.resume()
+            //MARK: return our disposable
+            return Disposables.create {
+                task.cancel()
+            }
+        }
+        
+    }
+    
+    
+    
     // MARK: -- getHomePageFromSpotify
     
     
@@ -551,6 +612,43 @@ struct YoutubeDataMP3: Codable {
     var duration: Float
     var status: String
     var msg: String
+    /**
+     {
+       "link": "https://malpha.123tokyo.xyz/get.php/2/24/14kSm0SVk8k.mp3?cid=MmEwMTo0Zjg6YzAxMDo5ZmE2OjoxfE5BfERF&h=ekn6vlweB5fF39zQi7AIjA&s=1693512540&n=THE%20POWER%20OF%20EPIC%20MUSIC%20-%20Emotional%20Orchestral%20Music%20Mix",
+       "title": "THE POWER OF EPIC MUSIC - Emotional Orchestral Music Mix",
+       "filesize": 47070335,
+       "progress": 0,
+       "duration": 2923.4678152833,
+       "status": "ok",
+       "msg": "success"
+     }
+     */
+    enum CodingKeys: String, CodingKey {
+
+        case link = "link"
+        case title = "title"
+        case filesize = "filesize"
+        case progress = "progress"
+        case duration = "duration"
+        
+        case status = "status"
+        case msg = "msg"
+        
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        link = try values.decodeIfPresent(String.self, forKey: .link) ?? ""
+        filesize = try values.decodeIfPresent(Float.self, forKey: .filesize) ?? 0
+        progress = try values.decodeIfPresent(Float.self, forKey: .progress) ?? 0
+        title = try values.decodeIfPresent(String.self, forKey: .title) ?? ""
+        duration = try values.decodeIfPresent(Float.self, forKey: .duration) ?? 0
+        
+        status = try values.decodeIfPresent(String.self, forKey: .status) ?? ""
+        msg = try values.decodeIfPresent(String.self, forKey: .msg) ?? ""
+    }
+    
+    
 }
 
 

@@ -41,6 +41,10 @@ class RecentlyMusicTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+        // Configure the view for the selected state
+    }
+    
+    func animateSpectrum(selected: Bool) {
         if selected {
             animationView?.isHidden = false
             animationView?.play()
@@ -50,9 +54,8 @@ class RecentlyMusicTableViewCell: UITableViewCell {
             animationView?.stop()
             heightContraintSpectrum.constant = 0
         }
-        
-        // Configure the view for the selected state
     }
+    
     @IBAction func actionShowDetail(_ sender: Any) {
         if let delegate = self.delegate {
             delegate.didSelectShowDetail(cell: self)

@@ -13,7 +13,7 @@ class SearchViewController: UIViewController {
     var player: AVPlayer?
     
     @IBOutlet weak var tbContent: UITableView!
-    var objectMp3: YoutubeMp3Model?
+    var objectMp3: YoutubeMp3Info?
     @IBOutlet weak var tfSearch: UITextField!
 
     @IBOutlet weak var musicContainView: UIView!
@@ -94,10 +94,11 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         
         let data = youtubeViewModel.getDataYoutubeLocal()
         
-        cell.lblDesc.text = data[indexPath.row].description
+        cell.lblDesc.text = data[indexPath.row].author
         cell.lblTitle.text = data[indexPath.row].title
-        if let thumbnail = data[indexPath.row].getThumbnailSmall() {
-            cell.thumbnail.setImage(from: thumbnail)
+        if let thumbnail = data[indexPath.row].thumb,
+           let thumbnailURL = URL(string: thumbnail){
+            cell.thumbnail.setImage(from: thumbnailURL)
         }
         
         cell.selectionStyle = .none
@@ -105,18 +106,17 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let objectMp3 = youtubeViewModel.getBitrateMax(),
-           let url = objectMp3.url {
-            playMusic(link: url)
-        }
+        
+        let data = youtubeViewModel.getDataYoutubeLocal()
+        let objectMp3 = data[indexPath.row]
+        
+        playMusic(link: objectMp3.url, youtubeModel: data[indexPath.row])
     }
     
-    func playMusic(link: String) {
-        if let youtubeModel = self.youtubeViewModel.youtubeMp3Model {
-            MusicHelper.sharedHelper.playMusicWithYoutube(link: link,
-                                                          youtubeModel: youtubeModel,
-                                                          with: .YoutubeLink)
-        }
+    func playMusic(link: String, youtubeModel: YoutubeMp3Info) {
+        MusicHelper.sharedHelper.playMusicWithYoutube(link: link,
+                                                      youtubeModel: youtubeModel,
+                                                      with: .YoutubeLink)
        
         
         

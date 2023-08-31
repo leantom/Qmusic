@@ -84,7 +84,7 @@ class AppSetting: NSObject {
         return nil
     }
     
-    public func archiveDataYoutube(data: YoutubeMp3Model, id: String) {
+    public func archiveDataYoutube(data: YoutubeMp3Info, id: String) {
         let encoder = JSONEncoder()
         saveYoutubeDataToCoreData(youtubeMP3Model: data)
         if let data = try? encoder.encode(data) {
@@ -92,16 +92,16 @@ class AppSetting: NSObject {
         }
     }
     
-    public func getDataYoutube(id: String) -> YoutubeMp3Model? {
+    public func getDataYoutube(id: String) -> YoutubeMp3Info? {
         if let data =  UserDefaults.standard.object(forKey: id),
-           let obj = try? JSONDecoder().decode(YoutubeMp3Model.self, from: data as! Data) {
+           let obj = try? JSONDecoder().decode(YoutubeMp3Info.self, from: data as! Data) {
             
             return obj
         }
         return nil
     }
     
-    public func saveYoutubeDataToCoreData(youtubeMP3Model: YoutubeMp3Model) {
+    public func saveYoutubeDataToCoreData(youtubeMP3Model: YoutubeMp3Info) {
 
         let uuid = UIDevice.current.identifierForVendor!.uuidString
 

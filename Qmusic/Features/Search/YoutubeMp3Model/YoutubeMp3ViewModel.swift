@@ -8,24 +8,25 @@
 import Foundation
 import RxSwift
 import CoreData
+import Algorithms
 
 class YoutubeMp3ViewModel: BaseViewModel {
     struct Input {}
     
     struct Output {
         let error: PublishSubject<FEHomeError>
-        let searchYoutube:PublishSubject<YoutubeMp3Model>
+        let searchYoutube:PublishSubject<YoutubeMp3Info>
         
     }
     let input: Input
     let output: Output
     
     let errorObserver =  PublishSubject<FEHomeError>()
-    let searchYoutubeObserver = PublishSubject<YoutubeMp3Model>()
+    let searchYoutubeObserver = PublishSubject<YoutubeMp3Info>()
     let disposeBag = DisposeBag()
-    var youtubeMp3Model: YoutubeMp3Model?
+    var youtubeMp3Model: YoutubeMp3Info?
     
-    var youtubeLocalData:[YoutubeMp3Model] = []
+    var youtubeLocalData:[YoutubeMp3Info] = []
     
     init() {
         self.input = Input()
@@ -37,17 +38,26 @@ class YoutubeMp3ViewModel: BaseViewModel {
     
     func searchYoutube(with url: String) {
         let apiClient = NetworkManager.sharedInstance
+        let api1 = apiClient.searchLinkMp3(linkURL: url)
+        let api2 = apiClient.searchInfoYoutube(linkURL: url)
         
-        apiClient.searchLinkMp3(linkURL: url).subscribe(
-            onNext: { result in
-                self.youtubeMp3Model = result
-                self.youtubeLocalData.append(result)
-                self.youtubeLocalData.insert(result, at: 0)
+        Observable.combineLatest(api1, api2) { (result1, result2) in
+            return (result1,result2)
+        }.subscribe(onNext: { link, info in
+            self.youtubeMp3Model = info
+            var _info = info
+            _info.url = link.link
+            _info.duration = link.duration
+            self.youtubeLocalData.insert(_info, at: 0)
+            self.youtubeLocalData = self.youtubeLocalData.uniqued(on: \.id!)
+            self.output.searchYoutube.onNext(_info)
             }).disposed(by: disposeBag)
+        
+        
            
     }
     
-    func getDataYoutubeLocal() -> [YoutubeMp3Model] {
+    func getDataYoutubeLocal() -> [YoutubeMp3Info] {
         return youtubeLocalData
     }
     
@@ -68,7 +78,8 @@ class YoutubeMp3ViewModel: BaseViewModel {
                  print(data.value(forKeyPath: "id") as Any)
                  print(data.value(forKeyPath: "user") as Any)
             }
-           
+            youtubeLocalData = youtubeLocalData.uniqued(on: \.id!)
+
         }catch {
             print("err")
         }
@@ -77,50 +88,7 @@ class YoutubeMp3ViewModel: BaseViewModel {
 
     
     
-    func getBitrateMax() -> AdaptiveFormats? {
-        guard let youtubeMp3Model = self.youtubeMp3Model else {return nil}
-        guard let adaptiveFormats = youtubeMp3Model.adaptiveFormats else {return nil}
-        
-        let formats = adaptiveFormats.filter({
-            guard let mimeType = $0.mimeType else {return false}
-            return mimeType.contains("audio/mp4")
-            
-        })
-        
-        if let bitrate = formats.sorted(by: { item1, item2 in
-            guard let bitrate1 = item1.bitrate else {return false}
-            guard let bitrate2 = item2.bitrate else {return false}
-            return bitrate1 < bitrate2
-        }).first {
-            return bitrate
-        }
-        return adaptiveFormats.first
-    }
-    
-    func getThumbnailSmall() -> URL? {
-        guard let youtubeMp3Model = self.youtubeMp3Model else {return nil}
-        guard let thumbnails = youtubeMp3Model.thumbnail else {return nil}
-        return URL(string: thumbnails.first?.url ?? "")
-    }
+   
     
 }
 
-func getBitrateMax(youtubeMp3Model: YoutubeMp3Model) -> AdaptiveFormats? {
-    
-    guard let adaptiveFormats = youtubeMp3Model.adaptiveFormats else {return nil}
-    
-    let formats = adaptiveFormats.filter({
-        guard let mimeType = $0.mimeType else {return false}
-        return mimeType.contains("audio/mp4")
-        
-    })
-    
-    if let bitrate = formats.sorted(by: { item1, item2 in
-        guard let bitrate1 = item1.bitrate else {return false}
-        guard let bitrate2 = item2.bitrate else {return false}
-        return bitrate1 < bitrate2
-    }).first {
-        return bitrate
-    }
-    return adaptiveFormats.first
-}

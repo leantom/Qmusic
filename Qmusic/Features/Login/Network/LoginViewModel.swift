@@ -51,7 +51,7 @@ class LoginViewModel: BaseViewModel {
     let signinObserver = PublishSubject<Response.SignUp>()
     let checkEMailObserver = PublishSubject<Response.CheckEmail>()
     let disposeBag = DisposeBag()
-    
+    var jwt = ""
     init() {
         self.input = Input()
         self.output = Output(error: errorObserver,
@@ -90,6 +90,7 @@ class LoginViewModel: BaseViewModel {
                 }
                 if code == 0 {
                     self.output.checkEMail.onNext(result)
+                   
                 } else {
                     self.output.error.onNext(.checkEMail(result.result?.message ?? ""))
                 }

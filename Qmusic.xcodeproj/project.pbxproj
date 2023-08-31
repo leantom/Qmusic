@@ -186,15 +186,6 @@
 		F97EA36D2A8F1D3E0096EC1E /* MusicHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EA36C2A8F1D3E0096EC1E /* MusicHelper.swift */; };
 		F97EA3702A8F5ADF0096EC1E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97EA36E2A8F5ADF0096EC1E /* SearchViewController.swift */; };
 		F97EA3712A8F5ADF0096EC1E /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F97EA36F2A8F5ADF0096EC1E /* SearchViewController.xib */; };
-		F9838A6E2A9F2D4200F0A5D0 /* InitRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A652A9F2D4100F0A5D0 /* InitRange.swift */; };
-		F9838A6F2A9F2D4200F0A5D0 /* YoutubeMp3Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A662A9F2D4100F0A5D0 /* YoutubeMp3Model.swift */; };
-		F9838A702A9F2D4200F0A5D0 /* Captions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A672A9F2D4100F0A5D0 /* Captions.swift */; };
-		F9838A712A9F2D4200F0A5D0 /* CaptionTracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A682A9F2D4100F0A5D0 /* CaptionTracks.swift */; };
-		F9838A722A9F2D4200F0A5D0 /* Formats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A692A9F2D4100F0A5D0 /* Formats.swift */; };
-		F9838A732A9F2D4200F0A5D0 /* IndexRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A6A2A9F2D4100F0A5D0 /* IndexRange.swift */; };
-		F9838A742A9F2D4200F0A5D0 /* AdaptiveFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A6B2A9F2D4100F0A5D0 /* AdaptiveFormats.swift */; };
-		F9838A752A9F2D4200F0A5D0 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A6C2A9F2D4200F0A5D0 /* Thumbnail.swift */; };
-		F9838A762A9F2D4200F0A5D0 /* TranslationLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A6D2A9F2D4200F0A5D0 /* TranslationLanguages.swift */; };
 		F9838A782A9F2F1800F0A5D0 /* YoutubeMp3ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A772A9F2F1800F0A5D0 /* YoutubeMp3ViewModel.swift */; };
 		F9838A7C2AA04B2C00F0A5D0 /* ForgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A7A2AA04B2C00F0A5D0 /* ForgotViewController.swift */; };
 		F9838A7D2AA04B2C00F0A5D0 /* ForgotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9838A7B2AA04B2C00F0A5D0 /* ForgotViewController.xib */; };
@@ -202,6 +193,8 @@
 		F9838A822AA07FC100F0A5D0 /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9838A802AA07FC100F0A5D0 /* ResetPasswordViewController.xib */; };
 		F9838A842AA084F200F0A5D0 /* CoreDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A832AA084F200F0A5D0 /* CoreDataExtension.swift */; };
 		F9838A892AA091EB00F0A5D0 /* YoutubeModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = F9838A882AA091EB00F0A5D0 /* YoutubeModel.xcdatamodel */; };
+		F9838A8D2AA1131E00F0A5D0 /* YoutubeMp3Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A8B2AA1131E00F0A5D0 /* YoutubeMp3Model.swift */; };
+		F9838A902AA11DF600F0A5D0 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = F9838A8F2AA11DF600F0A5D0 /* Algorithms */; };
 		F9D915222A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D915202A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.swift */; };
 		F9D915232A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9D915212A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.xib */; };
 		F9D915262A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D915242A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.swift */; };
@@ -409,15 +402,6 @@
 		F97EA36C2A8F1D3E0096EC1E /* MusicHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHelper.swift; sourceTree = "<group>"; };
 		F97EA36E2A8F5ADF0096EC1E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F97EA36F2A8F5ADF0096EC1E /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
-		F9838A652A9F2D4100F0A5D0 /* InitRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitRange.swift; sourceTree = "<group>"; };
-		F9838A662A9F2D4100F0A5D0 /* YoutubeMp3Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeMp3Model.swift; sourceTree = "<group>"; };
-		F9838A672A9F2D4100F0A5D0 /* Captions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Captions.swift; sourceTree = "<group>"; };
-		F9838A682A9F2D4100F0A5D0 /* CaptionTracks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionTracks.swift; sourceTree = "<group>"; };
-		F9838A692A9F2D4100F0A5D0 /* Formats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formats.swift; sourceTree = "<group>"; };
-		F9838A6A2A9F2D4100F0A5D0 /* IndexRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexRange.swift; sourceTree = "<group>"; };
-		F9838A6B2A9F2D4100F0A5D0 /* AdaptiveFormats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveFormats.swift; sourceTree = "<group>"; };
-		F9838A6C2A9F2D4200F0A5D0 /* Thumbnail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
-		F9838A6D2A9F2D4200F0A5D0 /* TranslationLanguages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationLanguages.swift; sourceTree = "<group>"; };
 		F9838A772A9F2F1800F0A5D0 /* YoutubeMp3ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeMp3ViewModel.swift; sourceTree = "<group>"; };
 		F9838A7A2AA04B2C00F0A5D0 /* ForgotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewController.swift; sourceTree = "<group>"; };
 		F9838A7B2AA04B2C00F0A5D0 /* ForgotViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotViewController.xib; sourceTree = "<group>"; };
@@ -425,6 +409,7 @@
 		F9838A802AA07FC100F0A5D0 /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
 		F9838A832AA084F200F0A5D0 /* CoreDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtension.swift; sourceTree = "<group>"; };
 		F9838A882AA091EB00F0A5D0 /* YoutubeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YoutubeModel.xcdatamodel; sourceTree = "<group>"; };
+		F9838A8B2AA1131E00F0A5D0 /* YoutubeMp3Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YoutubeMp3Model.swift; path = ../../../../../../Downloads/youtube/YoutubeMp3Model.swift; sourceTree = "<group>"; };
 		F9D915202A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenCellCollectionViewFirstCell.swift; sourceTree = "<group>"; };
 		F9D915212A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenCellCollectionViewFirstCell.xib; sourceTree = "<group>"; };
 		F9D915242A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenCellCollectionViewSecondCell.swift; sourceTree = "<group>"; };
@@ -457,6 +442,7 @@
 				F94F99EA2A8A1466005FA560 /* Kingfisher in Frameworks */,
 				F977A1942A936D3900D90B2E /* RxSwift in Frameworks */,
 				F977A1922A936D3900D90B2E /* RxRelay in Frameworks */,
+				F9838A902AA11DF600F0A5D0 /* Algorithms in Frameworks */,
 				F97EA3692A8EF44B0096EC1E /* GoogleSignInSwift in Frameworks */,
 				F969A7C32A88CCBF00C8CA2F /* CHIPageControl in Frameworks */,
 				F97EA3642A8EF18B0096EC1E /* FirebaseCrashlytics in Frameworks */,
@@ -936,15 +922,7 @@
 		F9838A642A9F2D2300F0A5D0 /* YoutubeMp3Model */ = {
 			isa = PBXGroup;
 			children = (
-				F9838A6B2A9F2D4100F0A5D0 /* AdaptiveFormats.swift */,
-				F9838A672A9F2D4100F0A5D0 /* Captions.swift */,
-				F9838A682A9F2D4100F0A5D0 /* CaptionTracks.swift */,
-				F9838A692A9F2D4100F0A5D0 /* Formats.swift */,
-				F9838A6A2A9F2D4100F0A5D0 /* IndexRange.swift */,
-				F9838A652A9F2D4100F0A5D0 /* InitRange.swift */,
-				F9838A662A9F2D4100F0A5D0 /* YoutubeMp3Model.swift */,
-				F9838A6C2A9F2D4200F0A5D0 /* Thumbnail.swift */,
-				F9838A6D2A9F2D4200F0A5D0 /* TranslationLanguages.swift */,
+				F9838A8B2AA1131E00F0A5D0 /* YoutubeMp3Model.swift */,
 				F9838A772A9F2F1800F0A5D0 /* YoutubeMp3ViewModel.swift */,
 			);
 			path = YoutubeMp3Model;
@@ -1041,6 +1019,7 @@
 				F977A18F2A936D3900D90B2E /* RxCocoa */,
 				F977A1912A936D3900D90B2E /* RxRelay */,
 				F977A1932A936D3900D90B2E /* RxSwift */,
+				F9838A8F2AA11DF600F0A5D0 /* Algorithms */,
 			);
 			productName = Qmusic;
 			productReference = F969A76B2A88BFCD00C8CA2F /* Qmusic.app */;
@@ -1123,6 +1102,7 @@
 				F97EA35E2A8EF18B0096EC1E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F97EA3672A8EF44B0096EC1E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				F977A18E2A936D3900D90B2E /* XCRemoteSwiftPackageReference "RxSwift" */,
+				F9838A8E2AA11DF500F0A5D0 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 			);
 			productRefGroup = F969A76C2A88BFCD00C8CA2F /* Products */;
 			projectDirPath = "";
@@ -1225,7 +1205,6 @@
 				F94F99D42A8A13D5005FA560 /* FEExtension+WKWebview.swift in Sources */,
 				F975A5DF2A8B394B00DA41B7 /* CarouselCollectionView.swift in Sources */,
 				F97E84152A9D069C00D6E4B2 /* NetworkManager+Signup.swift in Sources */,
-				F9838A762A9F2D4200F0A5D0 /* TranslationLanguages.swift in Sources */,
 				F977A1B92A94CBDB00D90B2E /* SongDetailArtists.swift in Sources */,
 				F975A5D22A8B391800DA41B7 /* HomeWeeklyTableViewCell.swift in Sources */,
 				F94F99DA2A8A13D5005FA560 /* WEExtensions+UINib.swift in Sources */,
@@ -1234,10 +1213,10 @@
 				F97E840E2A9CD2DF00D6E4B2 /* AlbumItems.swift in Sources */,
 				F977A1B52A94CBDB00D90B2E /* SoundcloudTrack.swift in Sources */,
 				F97E84132A9CFCED00D6E4B2 /* HomeViewModel+AddDB.swift in Sources */,
-				F9838A6E2A9F2D4200F0A5D0 /* InitRange.swift in Sources */,
 				F977A18A2A93663600D90B2E /* HomePageModel.swift in Sources */,
 				F975A5F42A8B81F100DA41B7 /* ExploreViewController.swift in Sources */,
 				F94F99E32A8A13D5005FA560 /* WEExtensions+Data.swift in Sources */,
+				F9838A8D2AA1131E00F0A5D0 /* YoutubeMp3Model.swift in Sources */,
 				F94F99E42A8A13D5005FA560 /* WEExtensions+KingFisher.swift in Sources */,
 				F975A5D02A8B391800DA41B7 /* HomeAlbumsTableViewCell.swift in Sources */,
 				F94F99CE2A8A13D5005FA560 /* WEExtensions+TimerInterval.swift in Sources */,
@@ -1260,7 +1239,6 @@
 				F977A1892A93663600D90B2E /* Items.swift in Sources */,
 				F97EA36D2A8F1D3E0096EC1E /* MusicHelper.swift in Sources */,
 				F96914B92A8D17060092B4AD /* HeaderRadioView.swift in Sources */,
-				F9838A712A9F2D4200F0A5D0 /* CaptionTracks.swift in Sources */,
 				F94F99DD2A8A13D5005FA560 /* WEExtensions+Object.swift in Sources */,
 				F977A1B62A94CBDB00D90B2E /* SongDetailModel.swift in Sources */,
 				F977A18B2A93663600D90B2E /* Contents.swift in Sources */,
@@ -1272,13 +1250,11 @@
 				F96914BF2A8D1A7F0092B4AD /* RadioWeeklyCollectionViewCell.swift in Sources */,
 				F96167092A8E146E00392860 /* AccountViewController.swift in Sources */,
 				F969A7BE2A88C49A00C8CA2F /* SplashScreenViewController.swift in Sources */,
-				F9838A6F2A9F2D4200F0A5D0 /* YoutubeMp3Model.swift in Sources */,
 				F977A1A12A94AE5100D90B2E /* PlaylistDetail.swift in Sources */,
 				F975A5F92A8B81F100DA41B7 /* Explore_GeezChartSubView.swift in Sources */,
 				F97106E62A8FCDA5009F9013 /* SearchPlayerView.swift in Sources */,
 				F977A1802A9359B000D90B2E /* AppSetting.swift in Sources */,
 				F94F99C92A8A13D5005FA560 /* WEExtensions+GradientView.swift in Sources */,
-				F9838A742A9F2D4200F0A5D0 /* AdaptiveFormats.swift in Sources */,
 				F94F99DB2A8A13D5005FA560 /* WEExtensions+Double.swift in Sources */,
 				F94F99D62A8A13D5005FA560 /* WEExtensions+Notification.Name.swift in Sources */,
 				F975A5E32A8B394B00DA41B7 /* CarouselNonAnimatedFlowLayout.swift in Sources */,
@@ -1295,8 +1271,6 @@
 				F96914AC2A8D155B0092B4AD /* RadioViewController.swift in Sources */,
 				F96914B22A8D15AE0092B4AD /* RadioWeeklyTableViewCell.swift in Sources */,
 				F9670FF52A9E6219001FAC52 /* SubHomeAlbumsTableViewCell.swift in Sources */,
-				F9838A732A9F2D4200F0A5D0 /* IndexRange.swift in Sources */,
-				F9838A722A9F2D4200F0A5D0 /* Formats.swift in Sources */,
 				F969A7712A88BFCD00C8CA2F /* SceneDelegate.swift in Sources */,
 				F94F99DC2A8A13D5005FA560 /* WEExtensions+UITextFiled.swift in Sources */,
 				F94F99D22A8A13D5005FA560 /* WEExtensions+Calendar.swift in Sources */,
@@ -1326,7 +1300,6 @@
 				F9D915222A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.swift in Sources */,
 				F94F99CB2A8A13D5005FA560 /* WEExtensions+UITapGestureRecognizer.swift in Sources */,
 				F94F99FF2A8A1D4C005FA560 /* SignUpViewController.swift in Sources */,
-				F9838A752A9F2D4200F0A5D0 /* Thumbnail.swift in Sources */,
 				F975A5D32A8B391800DA41B7 /* HomeViewController.swift in Sources */,
 				F96914B62A8D15C00092B4AD /* RadioPopularTableViewCell.swift in Sources */,
 				F97EA3702A8F5ADF0096EC1E /* SearchViewController.swift in Sources */,
@@ -1352,7 +1325,6 @@
 				F94F99CF2A8A13D5005FA560 /* WEExtensions+UITableView.swift in Sources */,
 				F94F99C32A8A13D5005FA560 /* WEExtensions+Number.swift in Sources */,
 				F94F99D72A8A13D5005FA560 /* WEGradientView.swift in Sources */,
-				F9838A702A9F2D4200F0A5D0 /* Captions.swift in Sources */,
 				F977A1B42A94CBDB00D90B2E /* SongDetailCover.swift in Sources */,
 				F977A1A82A94C4B800D90B2E /* PlaylistDetailViewController.swift in Sources */,
 				F975A5E62A8B394B00DA41B7 /* CarouselDataSource.swift in Sources */,
@@ -1775,6 +1747,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		F9838A8E2AA11DF500F0A5D0 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1842,6 +1822,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F97EA3672A8EF44B0096EC1E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		F9838A8F2AA11DF600F0A5D0 /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F9838A8E2AA11DF500F0A5D0 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
