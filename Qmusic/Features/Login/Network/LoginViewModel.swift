@@ -14,6 +14,11 @@ enum LoginType: String {
     case Google = "Google"
     case Twitter = "Twitter"
 }
+enum LoginEror {
+    case login(String)
+    case checkEMail(String)
+}
+
 extension Request {
     struct SignIn: Codable {
         /*
@@ -34,21 +39,24 @@ class LoginViewModel: BaseViewModel {
     struct Input {}
     
     struct Output {
-        let error: PublishSubject<FEHomeError>
+        let error: PublishSubject<LoginEror>
         let signin:PublishSubject<Response.SignUp>
+        let checkEMail:PublishSubject<Response.CheckEmail>
         
     }
     let input: Input
     let output: Output
     
-    let errorObserver =  PublishSubject<FEHomeError>()
+    let errorObserver =  PublishSubject<LoginEror>()
     let signinObserver = PublishSubject<Response.SignUp>()
+    let checkEMailObserver = PublishSubject<Response.CheckEmail>()
     let disposeBag = DisposeBag()
     
     init() {
         self.input = Input()
         self.output = Output(error: errorObserver,
-                             signin: signinObserver)
+                             signin: signinObserver,
+                             checkEMail: checkEMailObserver)
         
     }
     
@@ -58,18 +66,39 @@ class LoginViewModel: BaseViewModel {
         apiClient.signin(req: req).subscribe(
             onNext: { result in
                 guard let code = result.result?.code else {
-                    self.output.error.onNext(._403("Đã có lỗi dưới BE"))
+                    self.output.error.onNext(.login("Đã có lỗi dưới BE"))
                     return
                 }
                 if code == 0 {
                     self.output.signin.onNext(result)
                 } else {
-                    self.output.error.onNext(._403(result.result?.message ?? ""))
+                    self.output.error.onNext(.login(result.result?.message ?? ""))
                 }
                 
             }).disposed(by: disposeBag)
            
     }
+    
+    func checkEMail(email:String) {
+        let apiClient = NetworkManager.sharedInstance
+        
+        apiClient.checkEmailToResetPassword(email: email).subscribe(
+            onNext: { result in
+                guard let code = result.result?.code else {
+                    self.output.error.onNext(.checkEMail("Đã có lỗi dưới BE"))
+                    return
+                }
+                if code == 0 {
+                    self.output.checkEMail.onNext(result)
+                } else {
+                    self.output.error.onNext(.checkEMail(result.result?.message ?? ""))
+                }
+                
+            }).disposed(by: disposeBag)
+           
+    }
+    
+    
     
     
 }

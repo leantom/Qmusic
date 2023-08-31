@@ -163,7 +163,9 @@ class MusicHelper: NSObject {
         }
     }
     
-    
+    func getStatusPlayer() ->  MusicStatusPlay{
+        return status
+    }
     
     func playBackgroundMusic() {
         status = .Playing
@@ -178,6 +180,7 @@ class MusicHelper: NSObject {
     func setFinishedPlaying() {
         status = .Finished
         audioPlayer?.seek(to: CMTime.zero)
+        self.musicBar.stopMusic()
     }
     
     // MARK: -- play with playlist
@@ -217,7 +220,7 @@ class MusicHelper: NSObject {
         let desc = youtubeModel.description ?? "cyme"
         musicBar.populate(nameSong: title,
                           urlImage: youtubeModel.thumbnail?.first?.url ?? "")
-        
+        musicBar.stopMusic()
         showProgressBar()
         
         switch status {

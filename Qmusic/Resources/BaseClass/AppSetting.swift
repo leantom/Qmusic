@@ -6,10 +6,13 @@
 //
 
 import Foundation
+import CoreData
+import UIKit
+
 class AppSetting: NSObject {
     static let shared = AppSetting()
     
-   private var methodLogin: LoginInWithMethod = .Normal
+    private var methodLogin: LoginInWithMethod = .Normal
     private var userDefault: IUserDefault
     
     init(userDefault: UserDefaults = .standard) {
@@ -83,7 +86,7 @@ class AppSetting: NSObject {
     
     public func archiveDataYoutube(data: YoutubeMp3Model, id: String) {
         let encoder = JSONEncoder()
-        
+        saveYoutubeDataToCoreData(youtubeMP3Model: data)
         if let data = try? encoder.encode(data) {
             UserDefaults.standard.set(data, forKey: id)
         }
@@ -98,12 +101,36 @@ class AppSetting: NSObject {
         return nil
     }
     
+    public func saveYoutubeDataToCoreData(youtubeMP3Model: YoutubeMp3Model) {
+
+        let uuid = UIDevice.current.identifierForVendor!.uuidString
+
+        let manageContent = appDelegate.persistentContainer.viewContext
+
+        let userEntity = NSEntityDescription.entity(forEntityName: "YoutubeModel", in: manageContent)!
+
+        let users = NSManagedObject(entity: userEntity, insertInto: manageContent)
+
+        users.setValue(youtubeMP3Model.id, forKeyPath: "id")
+        users.setValue(uuid, forKeyPath: "user")
+
+        do{
+            try manageContent.save()
+        }catch let error as NSError {
+
+            print("could not save . \(error), \(error.userInfo)")
+        }
+
+    }
+
+    
     
     
 }
 
 protocol IUserDefault {
     var isLogin: Bool { get set }
+    var userName: String { get set }
 }
 
 
@@ -117,8 +144,18 @@ extension UserDefaults: IUserDefault {
         }
     }
     
+    var userName: String {
+        get {
+            return self.string(forKey: Keys.userName) ?? ""
+        }
+        set {
+            self.setValue(newValue, forKey: Keys.userName)
+        }
+    }
+    
     public enum Keys {
         static let isLogin = "isLogin"
+        static let userName = "userName"
         
     }
     

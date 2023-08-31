@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>156921698255-3ho0q6pmtm83ct19oisarn6i2op53ko5.apps.googleusercontent.com</string>
+	<string>156921698255-vdf7b0ekleqnvrjjmf1e39euib22ea3r.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.156921698255-3ho0q6pmtm83ct19oisarn6i2op53ko5</string>
+	<string>com.googleusercontent.apps.156921698255-vdf7b0ekleqnvrjjmf1e39euib22ea3r</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDra_1FAOt-Rps8JWdyF6FSUWAZXhkThvM</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>vn.wee.cyme</string>
+	<string>com.cymestudio.cyme</string>
 	<key>PROJECT_ID</key>
 	<string>cyme-fda4e</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:156921698255:ios:805f1548bfed162ea2e4ba</string>
+	<string>1:156921698255:ios:d58f21c924fa48cda2e4ba</string>
 </dict>
 </plist>

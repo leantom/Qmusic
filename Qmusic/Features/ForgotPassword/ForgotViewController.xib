@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ForgotViewController" customModule="Qmusic" customModuleProvider="target">
+            <connections>
+                <outlet property="lblTitle" destination="lrP-Zp-NnL" id="117-gt-nvI"/>
+                <outlet property="tfEmail" destination="1KZ-y6-xeq" id="OYP-1C-uhO"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewButton" destination="chU-VZ-adE" id="RQl-uC-Cma"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cx9-YY-ceQ" userLabel="MainView">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cy-pB-vzC">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <connections>
+                                <action selector="actionHideKeyboard:" destination="-1" eventType="touchUpInside" id="dQI-t9-QhX"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrP-Zp-NnL">
+                            <rect key="frame" x="40" y="77" width="227" height="33"/>
+                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="28"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="pb0-5x-Qdu">
+                            <rect key="frame" x="40" y="256.33333333333331" width="313" height="54"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3a9-e9-s8H" customClass="QTextView" customModule="Qmusic" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="313" height="54"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1KZ-y6-xeq">
+                                            <rect key="frame" x="42" y="16.666666666666686" width="231" height="20.666666666666671"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qDF-E1-P57">
+                                            <rect key="frame" x="0.0" y="18" width="18" height="18"/>
+                                            <color key="tintColor" red="0.62352941179999999" green="0.62352941179999999" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="18" id="hgz-Y6-rhV"/>
+                                                <constraint firstAttribute="width" constant="18" id="knx-2H-fsu"/>
+                                            </constraints>
+                                            <imageReference key="image" image="ic_email" symbolScale="default" variableValue="0.40000000000000008"/>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7R-ah-ZbG">
+                                            <rect key="frame" x="0.0" y="53" width="313" height="1"/>
+                                            <color key="backgroundColor" red="0.3294117647" green="0.47450980390000003" blue="0.4823529412" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="3TB-Sv-JAU"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="qDF-E1-P57" firstAttribute="leading" secondItem="3a9-e9-s8H" secondAttribute="leading" id="7pz-tl-JEK"/>
+                                        <constraint firstItem="qDF-E1-P57" firstAttribute="centerY" secondItem="3a9-e9-s8H" secondAttribute="centerY" id="ANw-Nu-RCW"/>
+                                        <constraint firstItem="1KZ-y6-xeq" firstAttribute="leading" secondItem="qDF-E1-P57" secondAttribute="trailing" constant="24" id="He1-Fd-OiK"/>
+                                        <constraint firstAttribute="bottom" secondItem="w7R-ah-ZbG" secondAttribute="bottom" id="Vid-N9-u2L"/>
+                                        <constraint firstAttribute="trailing" secondItem="1KZ-y6-xeq" secondAttribute="trailing" constant="40" id="X4u-bb-k5m"/>
+                                        <constraint firstItem="w7R-ah-ZbG" firstAttribute="leading" secondItem="3a9-e9-s8H" secondAttribute="leading" id="eu0-ja-TfF"/>
+                                        <constraint firstAttribute="trailing" secondItem="w7R-ah-ZbG" secondAttribute="trailing" id="fA0-QW-h6l"/>
+                                        <constraint firstItem="1KZ-y6-xeq" firstAttribute="centerY" secondItem="qDF-E1-P57" secondAttribute="centerY" id="wS4-Hj-sRL"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="54" id="fog-s2-UzE"/>
+                            </constraints>
+                        </stackView>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chU-VZ-adE" userLabel="View - button">
+                            <rect key="frame" x="40" y="374.33333333333331" width="313" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="ozh-9e-57v"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYi-FR-n4X">
+                            <rect key="frame" x="40" y="5" width="25.333333333333329" height="22"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="arrow.left" catalog="system">
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                            </state>
+                            <connections>
+                                <action selector="actionBack:" destination="-1" eventType="touchUpInside" id="NhJ-hr-zc2"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you need help resetting your password, we can help by sending you a link to reset it." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iub-uq-DBO">
+                            <rect key="frame" x="40" y="138" width="313" height="28.333333333333343"/>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                            <color key="textColor" red="0.55294117647058827" green="0.5725490196078431" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="4cy-pB-vzC" firstAttribute="top" secondItem="cx9-YY-ceQ" secondAttribute="top" id="5LX-ie-D7s"/>
+                        <constraint firstItem="yYi-FR-n4X" firstAttribute="leading" secondItem="cx9-YY-ceQ" secondAttribute="leading" constant="40" id="75F-No-Qag"/>
+                        <constraint firstAttribute="bottom" secondItem="4cy-pB-vzC" secondAttribute="bottom" id="Bpz-gV-zys"/>
+                        <constraint firstItem="4cy-pB-vzC" firstAttribute="leading" secondItem="cx9-YY-ceQ" secondAttribute="leading" id="DQs-6x-zCF"/>
+                        <constraint firstItem="pb0-5x-Qdu" firstAttribute="top" secondItem="iub-uq-DBO" secondAttribute="bottom" constant="90" id="Ej3-wb-4Gj"/>
+                        <constraint firstAttribute="trailing" secondItem="iub-uq-DBO" secondAttribute="trailing" constant="40" id="ZGq-n6-QHb"/>
+                        <constraint firstAttribute="trailing" secondItem="chU-VZ-adE" secondAttribute="trailing" constant="40" id="cFJ-Xt-Q8i"/>
+                        <constraint firstItem="lrP-Zp-NnL" firstAttribute="top" secondItem="yYi-FR-n4X" secondAttribute="bottom" constant="50" id="ibL-cQ-WFg"/>
+                        <constraint firstItem="iub-uq-DBO" firstAttribute="leading" secondItem="cx9-YY-ceQ" secondAttribute="leading" constant="40" id="lo1-yn-Sv6"/>
+                        <constraint firstItem="pb0-5x-Qdu" firstAttribute="leading" secondItem="cx9-YY-ceQ" secondAttribute="leading" constant="40" id="mN7-S3-tJM"/>
+                        <constraint firstItem="lrP-Zp-NnL" firstAttribute="leading" secondItem="cx9-YY-ceQ" secondAttribute="leading" constant="40" id="mWJ-Hf-DKI"/>
+                        <constraint firstAttribute="trailing" secondItem="pb0-5x-Qdu" secondAttribute="trailing" constant="40" id="nU0-0i-q18"/>
+                        <constraint firstAttribute="trailing" secondItem="4cy-pB-vzC" secondAttribute="trailing" id="q61-oo-m2B"/>
+                        <constraint firstItem="chU-VZ-adE" firstAttribute="top" secondItem="pb0-5x-Qdu" secondAttribute="bottom" constant="64" id="rtq-vA-lnZ"/>
+                        <constraint firstItem="iub-uq-DBO" firstAttribute="top" secondItem="lrP-Zp-NnL" secondAttribute="bottom" constant="28" id="skv-1o-1L6"/>
+                        <constraint firstItem="chU-VZ-adE" firstAttribute="leading" secondItem="cx9-YY-ceQ" secondAttribute="leading" constant="40" id="swv-n9-LaS"/>
+                        <constraint firstItem="yYi-FR-n4X" firstAttribute="top" secondItem="cx9-YY-ceQ" secondAttribute="top" constant="5" id="yZQ-sM-jFn"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.054901960780000002" green="0.043137254899999998" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cx9-YY-ceQ" secondAttribute="bottom" id="8Re-ci-A1E"/>
+                <constraint firstItem="cx9-YY-ceQ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="HZW-67-tfn"/>
+                <constraint firstItem="cx9-YY-ceQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NKd-xf-0JO"/>
+                <constraint firstItem="cx9-YY-ceQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="bYQ-HX-GL6"/>
+            </constraints>
+            <point key="canvasLocation" x="110.68702290076335" y="20.422535211267608"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow.left" catalog="system" width="128" height="95"/>
+        <image name="ic_email" width="18" height="18"/>
+    </resources>
+</document>

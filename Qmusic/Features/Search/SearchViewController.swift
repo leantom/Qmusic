@@ -41,21 +41,6 @@ class SearchViewController: UIViewController {
             .disposed(by: youtubeViewModel.disposeBag)
     }
     
-    @objc func failedToPlayToEndTime(noti: NSNotification) {
-        print(noti)
-    }
-    
-    @objc func playbackStalled(noti: NSNotification) {
-        print(noti)
-    }
-    
-    @objc func newAccessLogEntry(noti: NSNotification) {
-        print(noti)
-    }
-    
-    @objc func newErrorLogEntry(noti: NSNotification) {
-        print(noti)
-    }
     
     @IBAction func actionBack(_ sender: Any) {
         self.navigationController?.pop()
@@ -94,8 +79,6 @@ extension SearchViewController: UITextFieldDelegate {
            let _ = URL(string: inputSearch) {
             youtubeViewModel.searchYoutube(with: inputSearch)
         }
-        
-        
     }
     
     
@@ -103,17 +86,17 @@ extension SearchViewController: UITextFieldDelegate {
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if youtubeViewModel.youtubeMp3Model == nil {
-            return 0
-        }
-        return 1
+        return youtubeViewModel.getDataYoutubeLocal().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RadioPopularTableViewCell", for: indexPath) as! RadioPopularTableViewCell
-        cell.lblDesc.text = youtubeViewModel.youtubeMp3Model?.description
-        cell.lblTitle.text = youtubeViewModel.youtubeMp3Model?.title
-        if let thumbnail = self.youtubeViewModel.getThumbnailSmall() {
+        
+        let data = youtubeViewModel.getDataYoutubeLocal()
+        
+        cell.lblDesc.text = data[indexPath.row].description
+        cell.lblTitle.text = data[indexPath.row].title
+        if let thumbnail = data[indexPath.row].getThumbnailSmall() {
             cell.thumbnail.setImage(from: thumbnail)
         }
         

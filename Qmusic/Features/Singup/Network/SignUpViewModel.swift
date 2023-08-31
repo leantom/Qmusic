@@ -26,6 +26,9 @@ extension Request {
         var deviceModel: String = UIDevice.current.model
         var os: String = UIDevice.current.getOSInfo()
     }
+    
+    
+    
 }
 
 struct Response {
@@ -83,6 +86,46 @@ struct Response {
             
         }
         
+    }
+    
+    struct CheckEmail: Codable {
+        let reqID: String?
+        let result: Result?
+        
+        
+        enum CodingKeys: String, CodingKey {
+
+            case reqID = "reqID"
+            case result = "result"
+        }
+        
+        init(from decoder: Decoder) throws {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            reqID = try values.decodeIfPresent(String.self, forKey: .reqID)
+            result = try values.decodeIfPresent(Response.CheckEmail.Result.self, forKey: .result)
+        }
+        
+        
+        struct Result: Codable {
+            let code: Int?
+            let message: String?
+            let langCode: String?
+            
+            enum CodingKeys: String, CodingKey {
+
+                case code = "code"
+                case message = "message"
+                case langCode = "langCode"
+            }
+
+            init(from decoder: Decoder) throws {
+                let values = try decoder.container(keyedBy: CodingKeys.self)
+                code = try values.decodeIfPresent(Int.self, forKey: .code)
+                message = try values.decodeIfPresent(String.self, forKey: .message)
+                langCode = try values.decodeIfPresent(String.self, forKey: .langCode)
+            }
+            
+        }
     }
     
 }

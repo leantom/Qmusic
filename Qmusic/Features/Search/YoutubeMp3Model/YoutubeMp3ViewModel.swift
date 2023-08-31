@@ -7,6 +7,7 @@
 
 import Foundation
 import RxSwift
+import CoreData
 
 class YoutubeMp3ViewModel: BaseViewModel {
     struct Input {}
@@ -23,10 +24,14 @@ class YoutubeMp3ViewModel: BaseViewModel {
     let searchYoutubeObserver = PublishSubject<YoutubeMp3Model>()
     let disposeBag = DisposeBag()
     var youtubeMp3Model: YoutubeMp3Model?
+    
+    var youtubeLocalData:[YoutubeMp3Model] = []
+    
     init() {
         self.input = Input()
         self.output = Output(error: errorObserver,
                              searchYoutube: searchYoutubeObserver)
+        getDataYoutubeFromCoreData()
         
     }
     
@@ -36,10 +41,41 @@ class YoutubeMp3ViewModel: BaseViewModel {
         apiClient.searchLinkMp3(linkURL: url).subscribe(
             onNext: { result in
                 self.youtubeMp3Model = result
-                self.output.searchYoutube.onNext(result)
+                self.youtubeLocalData.append(result)
+                self.youtubeLocalData.insert(result, at: 0)
             }).disposed(by: disposeBag)
            
     }
+    
+    func getDataYoutubeLocal() -> [YoutubeMp3Model] {
+        return youtubeLocalData
+    }
+    
+    func getDataYoutubeFromCoreData() {
+
+         let manageContent = appDelegate.persistentContainer.viewContext
+         let fetchData = NSFetchRequest<NSFetchRequestResult>(entityName: "YoutubeModel")
+
+        do {
+
+            let result = try manageContent.fetch(fetchData)
+
+            for data in result as! [NSManagedObject]{
+                if let id = data.value(forKeyPath: "id") as? String,
+                   let data = AppSetting.shared.getDataYoutube(id: id) {
+                    youtubeLocalData.append(data)
+                }
+                 print(data.value(forKeyPath: "id") as Any)
+                 print(data.value(forKeyPath: "user") as Any)
+            }
+           
+        }catch {
+            print("err")
+        }
+        
+    }
+
+    
     
     func getBitrateMax() -> AdaptiveFormats? {
         guard let youtubeMp3Model = self.youtubeMp3Model else {return nil}

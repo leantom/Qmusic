@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SubHomeAlbumsTableViewCell" customModule="Qmusic" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="220"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="220"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Qp-FY-p4b">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="220"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album1_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Lgh-c2-h4V">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="220"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius_">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2K5-12-nYd">
+                                <rect key="frame" x="24" y="16.000000000000004" width="390" height="33.333333333333343"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Pray For You" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQL-tM-kq3">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="19"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Weekend" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k76-WS-rG0">
+                                        <rect key="frame" x="0.0" y="19" width="390" height="14.333333333333336"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <gestureRecognizers/>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqV-LV-k2n">
+                                <rect key="frame" x="21" y="15" width="130" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="b2d-BS-5GU"/>
+                                    <constraint firstAttribute="height" constant="62" id="sbG-Jr-BUh"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="actionGoPlaylist:" destination="gTV-IL-0wX" eventType="touchUpInside" id="GJZ-lF-Jki"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="cqV-LV-k2n" firstAttribute="leading" secondItem="6Qp-FY-p4b" secondAttribute="leading" constant="21" id="Ecg-8U-5Ge"/>
+                            <constraint firstAttribute="trailing" secondItem="2K5-12-nYd" secondAttribute="trailing" id="IJc-q0-lGC"/>
+                            <constraint firstAttribute="bottom" secondItem="Lgh-c2-h4V" secondAttribute="bottom" id="Ijb-bA-1AX"/>
+                            <constraint firstAttribute="trailing" secondItem="Lgh-c2-h4V" secondAttribute="trailing" id="PYj-SF-x5K"/>
+                            <constraint firstItem="Lgh-c2-h4V" firstAttribute="leading" secondItem="6Qp-FY-p4b" secondAttribute="leading" id="VBC-jX-nzP"/>
+                            <constraint firstItem="Lgh-c2-h4V" firstAttribute="top" secondItem="6Qp-FY-p4b" secondAttribute="top" id="oV2-jc-pO0"/>
+                            <constraint firstItem="cqV-LV-k2n" firstAttribute="top" secondItem="6Qp-FY-p4b" secondAttribute="top" constant="15" id="ocr-dh-2LV"/>
+                            <constraint firstItem="2K5-12-nYd" firstAttribute="leading" secondItem="6Qp-FY-p4b" secondAttribute="leading" constant="24" id="uFB-Du-8Bp"/>
+                            <constraint firstItem="2K5-12-nYd" firstAttribute="top" secondItem="6Qp-FY-p4b" secondAttribute="top" constant="16" id="yMg-WA-yNa"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="6Qp-FY-p4b" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Gh6-wI-xuo"/>
+                <constraint firstAttribute="bottom" secondItem="6Qp-FY-p4b" secondAttribute="bottom" id="VKr-L0-pGR"/>
+                <constraint firstItem="6Qp-FY-p4b" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="h1h-ju-UnC"/>
+                <constraint firstAttribute="trailing" secondItem="6Qp-FY-p4b" secondAttribute="trailing" id="l5x-42-Fu8"/>
+            </constraints>
+            <size key="customSize" width="278" height="142"/>
+            <connections>
+                <outlet property="imgCover" destination="Lgh-c2-h4V" id="yAp-cm-pgh"/>
+                <outlet property="lblDesc" destination="k76-WS-rG0" id="st6-bC-TOv"/>
+                <outlet property="lblTitle" destination="NQL-tM-kq3" id="9hm-kC-gbp"/>
+            </connections>
+            <point key="canvasLocation" x="109.9236641221374" y="52.816901408450704"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="album1_bg" width="188" height="188"/>
+    </resources>
+</document>

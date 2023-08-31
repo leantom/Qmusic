@@ -12,6 +12,8 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
+import CoreData
+
 struct YoutubeMp3Model : Codable {
 	let status : String?
 	let id : String?
@@ -55,6 +57,7 @@ struct YoutubeMp3Model : Codable {
 	}
 
 	init(from decoder: Decoder) throws {
+        
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		status = try values.decodeIfPresent(String.self, forKey: .status)
 		id = try values.decodeIfPresent(String.self, forKey: .id)
@@ -74,6 +77,18 @@ struct YoutubeMp3Model : Codable {
 		expiresInSeconds = try values.decodeIfPresent(String.self, forKey: .expiresInSeconds)
 		formats = try values.decodeIfPresent([Formats].self, forKey: .formats)
 		adaptiveFormats = try values.decodeIfPresent([AdaptiveFormats].self, forKey: .adaptiveFormats)
+        
+        
+        
+        
+        
 	}
+    func getThumbnailSmall() -> URL? {
+        
+        guard let thumbnails = self.thumbnail else {return nil}
+        return URL(string: thumbnails.first?.url ?? "")
+    }
+    
+   
 
 }

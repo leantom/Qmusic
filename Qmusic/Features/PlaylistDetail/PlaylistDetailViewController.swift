@@ -57,7 +57,6 @@ class PlaylistDetailViewController: UIViewController {
         tbContent.delegate = self
         tbContent.dataSource = self
         
-        
         NotificationCenter.default
             .addObserver(self,
             selector: #selector(playerDidFinishPlaying),
@@ -65,7 +64,7 @@ class PlaylistDetailViewController: UIViewController {
             object: nil
         )
         if let playlist = self.playlist,
-           let cover = playlist.images?.first?.first?.url ,
+           let cover = playlist.images?.last?.last?.url ,
            let url = URL(string: cover) {
             imgBg.setImage(from: url)
             lblTitle.text = self.playlist?.name

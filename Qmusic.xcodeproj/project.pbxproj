@@ -196,6 +196,12 @@
 		F9838A752A9F2D4200F0A5D0 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A6C2A9F2D4200F0A5D0 /* Thumbnail.swift */; };
 		F9838A762A9F2D4200F0A5D0 /* TranslationLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A6D2A9F2D4200F0A5D0 /* TranslationLanguages.swift */; };
 		F9838A782A9F2F1800F0A5D0 /* YoutubeMp3ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A772A9F2F1800F0A5D0 /* YoutubeMp3ViewModel.swift */; };
+		F9838A7C2AA04B2C00F0A5D0 /* ForgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A7A2AA04B2C00F0A5D0 /* ForgotViewController.swift */; };
+		F9838A7D2AA04B2C00F0A5D0 /* ForgotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9838A7B2AA04B2C00F0A5D0 /* ForgotViewController.xib */; };
+		F9838A812AA07FC100F0A5D0 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A7F2AA07FC100F0A5D0 /* ResetPasswordViewController.swift */; };
+		F9838A822AA07FC100F0A5D0 /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9838A802AA07FC100F0A5D0 /* ResetPasswordViewController.xib */; };
+		F9838A842AA084F200F0A5D0 /* CoreDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A832AA084F200F0A5D0 /* CoreDataExtension.swift */; };
+		F9838A892AA091EB00F0A5D0 /* YoutubeModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = F9838A882AA091EB00F0A5D0 /* YoutubeModel.xcdatamodel */; };
 		F9D915222A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D915202A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.swift */; };
 		F9D915232A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9D915212A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.xib */; };
 		F9D915262A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D915242A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.swift */; };
@@ -413,6 +419,12 @@
 		F9838A6C2A9F2D4200F0A5D0 /* Thumbnail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		F9838A6D2A9F2D4200F0A5D0 /* TranslationLanguages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationLanguages.swift; sourceTree = "<group>"; };
 		F9838A772A9F2F1800F0A5D0 /* YoutubeMp3ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeMp3ViewModel.swift; sourceTree = "<group>"; };
+		F9838A7A2AA04B2C00F0A5D0 /* ForgotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewController.swift; sourceTree = "<group>"; };
+		F9838A7B2AA04B2C00F0A5D0 /* ForgotViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotViewController.xib; sourceTree = "<group>"; };
+		F9838A7F2AA07FC100F0A5D0 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		F9838A802AA07FC100F0A5D0 /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
+		F9838A832AA084F200F0A5D0 /* CoreDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtension.swift; sourceTree = "<group>"; };
+		F9838A882AA091EB00F0A5D0 /* YoutubeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YoutubeModel.xcdatamodel; sourceTree = "<group>"; };
 		F9D915202A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenCellCollectionViewFirstCell.swift; sourceTree = "<group>"; };
 		F9D915212A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenCellCollectionViewFirstCell.xib; sourceTree = "<group>"; };
 		F9D915242A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenCellCollectionViewSecondCell.swift; sourceTree = "<group>"; };
@@ -646,22 +658,12 @@
 		F969A76D2A88BFCD00C8CA2F /* Qmusic */ = {
 			isa = PBXGroup;
 			children = (
-				F975A5EB2A8B81F100DA41B7 /* ExploreViewController */,
 				F969A79F2A88C13400C8CA2F /* Resources */,
 				F969A79E2A88C12300C8CA2F /* Components */,
 				F969A76E2A88BFCD00C8CA2F /* AppDelegate.swift */,
-				F975A5C62A8B391800DA41B7 /* Home */,
-				F975A5C42A8B391800DA41B7 /* HomeMasterViewController.swift */,
-				F977A1AA2A94C4BD00D90B2E /* PlaylistDetail */,
-				F97EA3722A8F5AE50096EC1E /* Search */,
-				F975A5C52A8B391800DA41B7 /* HomeMasterViewController.xib */,
-				F969A7CD2A88D92300C8CA2F /* Login */,
-				F94F99FB2A8A1D4C005FA560 /* Singup */,
+				F9838A792AA04B0100F0A5D0 /* Features */,
 				F969A7702A88BFCD00C8CA2F /* SceneDelegate.swift */,
-				F96914AE2A8D155E0092B4AD /* Radio */,
 				F969A7722A88BFCD00C8CA2F /* ViewController.swift */,
-				F961670B2A8E147200392860 /* Account */,
-				F969A7C02A88C4A000C8CA2F /* SplashScreenViewController */,
 				F969A7742A88BFCD00C8CA2F /* Main.storyboard */,
 				F969A7772A88BFCE00C8CA2F /* Assets.xcassets */,
 				F969A7792A88BFCE00C8CA2F /* LaunchScreen.storyboard */,
@@ -773,6 +775,8 @@
 		F975A5C62A8B391800DA41B7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F975A5C42A8B391800DA41B7 /* HomeMasterViewController.swift */,
+				F975A5C52A8B391800DA41B7 /* HomeMasterViewController.xib */,
 				F977A1812A93663600D90B2E /* HomePage */,
 				F96914BC2A8D17E90092B4AD /* Cells */,
 				F96914A92A8CD3010092B4AD /* HomeView */,
@@ -837,12 +841,14 @@
 		F977A17E2A93599900D90B2E /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
+				F9838A882AA091EB00F0A5D0 /* YoutubeModel.xcdatamodel */,
 				F97EA36A2A8F16E20096EC1E /* WEBaseSceneDelegate.swift */,
 				F97EA36C2A8F1D3E0096EC1E /* MusicHelper.swift */,
 				F94F99F62A8A16C3005FA560 /* Logger.swift */,
 				F977A17F2A9359B000D90B2E /* AppSetting.swift */,
 				F9670FEA2A9D9226001FAC52 /* CymeButton.swift */,
 				F9670FEC2A9D9251001FAC52 /* CymeButton.xib */,
+				F9838A832AA084F200F0A5D0 /* CoreDataExtension.swift */,
 			);
 			path = BaseClass;
 			sourceTree = "<group>";
@@ -942,6 +948,34 @@
 				F9838A772A9F2F1800F0A5D0 /* YoutubeMp3ViewModel.swift */,
 			);
 			path = YoutubeMp3Model;
+			sourceTree = "<group>";
+		};
+		F9838A792AA04B0100F0A5D0 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				F975A5EB2A8B81F100DA41B7 /* ExploreViewController */,
+				F975A5C62A8B391800DA41B7 /* Home */,
+				F977A1AA2A94C4BD00D90B2E /* PlaylistDetail */,
+				F97EA3722A8F5AE50096EC1E /* Search */,
+				F969A7CD2A88D92300C8CA2F /* Login */,
+				F94F99FB2A8A1D4C005FA560 /* Singup */,
+				F96914AE2A8D155E0092B4AD /* Radio */,
+				F961670B2A8E147200392860 /* Account */,
+				F969A7C02A88C4A000C8CA2F /* SplashScreenViewController */,
+				F9838A7E2AA04B3000F0A5D0 /* ForgotPassword */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		F9838A7E2AA04B3000F0A5D0 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				F9838A7A2AA04B2C00F0A5D0 /* ForgotViewController.swift */,
+				F9838A7B2AA04B2C00F0A5D0 /* ForgotViewController.xib */,
+				F9838A7F2AA07FC100F0A5D0 /* ResetPasswordViewController.swift */,
+				F9838A802AA07FC100F0A5D0 /* ResetPasswordViewController.xib */,
+			);
+			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
 		FA429DC62A931D91007EAE15 /* TopTrending */ = {
@@ -1106,6 +1140,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9838A7D2AA04B2C00F0A5D0 /* ForgotViewController.xib in Resources */,
 				F969A7B92A88C18A00C8CA2F /* Roboto-Bold.ttf in Resources */,
 				F969A7B72A88C18A00C8CA2F /* LICENSE.txt in Resources */,
 				F94F99FE2A8A1D4C005FA560 /* SignUpViewController.xib in Resources */,
@@ -1132,6 +1167,7 @@
 				F969A77B2A88BFCE00C8CA2F /* LaunchScreen.storyboard in Resources */,
 				F969A7B82A88C18A00C8CA2F /* Roboto-BlackItalic.ttf in Resources */,
 				F9670FF62A9E6219001FAC52 /* SubHomeAlbumsTableViewCell.xib in Resources */,
+				F9838A822AA07FC100F0A5D0 /* ResetPasswordViewController.xib in Resources */,
 				F97EA3712A8F5ADF0096EC1E /* SearchViewController.xib in Resources */,
 				FA429DD02A935819007EAE15 /* ExploreTopicCollectionViewCell.xib in Resources */,
 				F961670A2A8E146E00392860 /* AccountViewController.xib in Resources */,
@@ -1205,6 +1241,7 @@
 				F94F99E42A8A13D5005FA560 /* WEExtensions+KingFisher.swift in Sources */,
 				F975A5D02A8B391800DA41B7 /* HomeAlbumsTableViewCell.swift in Sources */,
 				F94F99CE2A8A13D5005FA560 /* WEExtensions+TimerInterval.swift in Sources */,
+				F9838A812AA07FC100F0A5D0 /* ResetPasswordViewController.swift in Sources */,
 				F94F99EF2A8A15A3005FA560 /* AppColors.swift in Sources */,
 				F94F99C22A8A13D5005FA560 /* WEExtensions+Reactive.swift in Sources */,
 				F97E840F2A9CD2DF00D6E4B2 /* AlbumDetail.swift in Sources */,
@@ -1269,9 +1306,11 @@
 				FAB458842A9DF6CB00E0C65F /* LyricDetailModel.swift in Sources */,
 				FAD34CC32A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift in Sources */,
 				F975A5E42A8B394B00DA41B7 /* CarouselConfiguration.swift in Sources */,
+				F9838A7C2AA04B2C00F0A5D0 /* ForgotViewController.swift in Sources */,
 				F975A5E82A8B76AD00DA41B7 /* HomeHeaderView.swift in Sources */,
 				F94F99D82A8A13D5005FA560 /* WEExtensions+UILabel.swift in Sources */,
 				F9D9152A2A97B9CD001F53B4 /* SplashScreenCellCollectionViewThirdCell.swift in Sources */,
+				F9838A842AA084F200F0A5D0 /* CoreDataExtension.swift in Sources */,
 				F94F99D32A8A13D5005FA560 /* WEExtensions+UIView.swift in Sources */,
 				F97E84102A9CD2DF00D6E4B2 /* AlbumArtists.swift in Sources */,
 				F94F99C62A8A13D5005FA560 /* WEExtensions+UIImageView.swift in Sources */,
@@ -1283,6 +1322,7 @@
 				F94F99DF2A8A13D5005FA560 /* WEExtensions+Device.swift in Sources */,
 				F94F99D52A8A13D5005FA560 /* WEExtension+Enum.swift in Sources */,
 				F9670FEB2A9D9226001FAC52 /* CymeButton.swift in Sources */,
+				F9838A892AA091EB00F0A5D0 /* YoutubeModel.xcdatamodel in Sources */,
 				F9D915222A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.swift in Sources */,
 				F94F99CB2A8A13D5005FA560 /* WEExtensions+UITapGestureRecognizer.swift in Sources */,
 				F94F99FF2A8A1D4C005FA560 /* SignUpViewController.swift in Sources */,
@@ -1496,7 +1536,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S3Y6BJQ8MM;
+				DEVELOPMENT_TEAM = 58JMRW9E5N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Qmusic/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cyme;
@@ -1509,8 +1549,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = vn.wee.cyme;
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cymestudio.cyme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1528,7 +1568,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S3Y6BJQ8MM;
+				DEVELOPMENT_TEAM = 58JMRW9E5N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Qmusic/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cyme;
@@ -1541,8 +1581,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = vn.wee.cyme;
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cymestudio.cyme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

@@ -80,7 +80,7 @@ class LoginViewController: UIViewController {
                 //MARK: -- vô thẳng app
                 
                 let vc = HomeMasterViewController(nibName: "HomeMasterViewController", bundle: nil)
-                self?.navigationController?.pushViewController(vc, animated: true)
+                self?.navigationController?.push(destinVC: vc)
                 AppSetting.shared.setStatusLogin(status: true)
             })
             .disposed(by: signInViewModel.disposeBag)
@@ -88,10 +88,10 @@ class LoginViewController: UIViewController {
         signInViewModel.output.error.observe(on: MainScheduler.instance)
             .subscribe(onNext: { value in
                 switch value {
-                    
-                case ._403(let err):
+                case .login(let err):
                     self.showError(title: "Error", desc: err)
                     self.cymeButton.resetUI()
+                default:break
                 }
             })
             .disposed(by: signInViewModel.disposeBag)
@@ -103,7 +103,7 @@ class LoginViewController: UIViewController {
             //MARK: -- vô thẳng app
             
             let vc = HomeMasterViewController(nibName: "HomeMasterViewController", bundle: nil)
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.push(destinVC: vc)
             AppSetting.shared.setStatusLogin(status: true)
         } else {
             
@@ -147,11 +147,18 @@ class LoginViewController: UIViewController {
     
     @IBAction func actionLoginWithApple(_ sender: Any) {
     }
+    
+    
+    @IBAction func actionForgotPassword(_ sender: Any) {
+        let vc = ForgotViewController(loginViewModel: signInViewModel)
+        self.navigationController?.push(destinVC: vc)
+    }
+    
 }
 
 extension LoginViewController: LoginButtonDelegate {
     func loginButton(_ loginButton: FBSDKLoginKit.FBLoginButton, didCompleteWith result: FBSDKLoginKit.LoginManagerLoginResult?, error: Error?) {
-        print(error?.localizedDescription)
+        print(error?.localizedDescription as Any)
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginKit.FBLoginButton) {

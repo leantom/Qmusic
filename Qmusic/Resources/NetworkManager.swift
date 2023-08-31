@@ -170,7 +170,6 @@ class NetworkManager: NSObject {
                 return Disposables.create {}
             }
             
-            
             //MARK: create URLSession dataTask
             let session = URLSession.shared
             let task = session.dataTask(with: request as URLRequest) { (data,

@@ -76,7 +76,6 @@ class HomeMasterViewController: UIViewController {
         }
         
         
-        
         listBtnHome.append(btnHome)
         listBtnHome.append(btnExplore)
         listBtnHome.append(btnRadio)
@@ -100,14 +99,9 @@ class HomeMasterViewController: UIViewController {
         setupMenuBottom(type: .Home, btn: sender as! UIButton)
         lblTitle.text = "Cyme"
         if let viewHome = self.homeVC?.view {
-            contentView.bringSubviewToFront(viewHome)
-            viewHome.alpha = 0
+            animationShowMainView(mainView: viewHome)
         }
-        UIView.animate(withDuration: 0.3) {
-            if let viewHome = self.homeVC?.view {
-                viewHome.alpha = 1
-            }
-        }
+        
     }
     
     @IBAction func actionExplore(_ sender: Any) {
@@ -115,14 +109,7 @@ class HomeMasterViewController: UIViewController {
         setupMenuBottom(type: .Explore, btn: sender as! UIButton)
         lblTitle.text = "Explore"
         if let viewHome = exploreVC?.view {
-            contentView.bringSubviewToFront(viewHome)
-            viewHome.alpha = 0
-        }
-        
-        UIView.animate(withDuration: 0.3) {
-            if let viewHome = self.exploreVC?.view {
-                viewHome.alpha = 1
-            }
+            animationShowMainView(mainView: viewHome)
         }
         
     }
@@ -132,14 +119,7 @@ class HomeMasterViewController: UIViewController {
         setupMenuBottom(type: .Radio, btn: sender as! UIButton)
         lblTitle.text = "PodCast"
         if let viewHome = radioVC?.view {
-            contentView.bringSubviewToFront(viewHome)
-            viewHome.alpha = 0
-        }
-        
-        UIView.animate(withDuration: 0.3) {
-            if let viewHome = self.radioVC?.view {
-                viewHome.alpha = 1
-            }
+            animationShowMainView(mainView: viewHome)
         }
         
     }
@@ -149,18 +129,19 @@ class HomeMasterViewController: UIViewController {
         setupMenuBottom(type: .Account, btn: sender as! UIButton)
         lblTitle.text = "Account"
         if let viewHome = accountVC?.view {
-            contentView.bringSubviewToFront(viewHome)
-            viewHome.alpha = 0
+            animationShowMainView(mainView: viewHome)
         }
+    }
+    
+    func animationShowMainView(mainView: UIView) {
+        contentView.bringSubviewToFront(mainView)
+        mainView.alpha = 0
         
         UIView.animate(withDuration: 0.3) {
-            if let viewHome = self.accountVC?.view {
-                viewHome.alpha = 1
-            }
+            mainView.alpha = 1
         }
-        
-        
     }
+    
     
     func setupMenuBottom(type: TypeMenuBottomHome,
                          btn: UIButton) {
@@ -172,16 +153,6 @@ class HomeMasterViewController: UIViewController {
         btn.tintColor = UIColor(hexString: "CBFB5E")
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 

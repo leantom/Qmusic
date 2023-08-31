@@ -22,10 +22,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="393" height="489"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="qfQ-ME-l7d">
-                            <rect key="frame" x="24" y="100" width="345" height="73"/>
+                            <rect key="frame" x="24" y="100" width="345" height="49"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwz-mn-0Dx">
-                                    <rect key="frame" x="0.0" y="0.0" width="24" height="73"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="24" height="49"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" image="shuffle"/>
                                     <connections>
@@ -33,7 +33,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3mz-zx-br1">
-                                    <rect key="frame" x="68" y="0.0" width="24" height="73"/>
+                                    <rect key="frame" x="74" y="0.0" width="24" height="49"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" image="skip_previous"/>
                                     <connections>
@@ -41,15 +41,15 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6P-y6-Zjy">
-                                    <rect key="frame" x="136" y="0.0" width="73" height="73"/>
+                                    <rect key="frame" x="148" y="0.0" width="49" height="49"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <state key="normal" image="ic_Playing_white"/>
+                                    <state key="normal" image="ic_playing"/>
                                     <connections>
                                         <action selector="actionPauseOrPlaying:" destination="-2" eventType="touchUpInside" id="kLr-E9-ciR"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHx-la-Yyh">
-                                    <rect key="frame" x="253" y="0.0" width="24" height="73"/>
+                                    <rect key="frame" x="247" y="0.0" width="24" height="49"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" image="skip_next"/>
                                     <connections>
@@ -57,7 +57,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tTr-H6-Eqh">
-                                    <rect key="frame" x="321" y="0.0" width="24" height="73"/>
+                                    <rect key="frame" x="321" y="0.0" width="24" height="49"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" image="loop"/>
                                     <connections>
@@ -67,7 +67,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vPU-4Z-Dgh">
-                            <rect key="frame" x="24" y="238.00000000000003" width="345" height="68.333333333333343"/>
+                            <rect key="frame" x="24" y="214" width="345" height="68.333333333333314"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rap Soul" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQ0-ip-RY7">
                                     <rect key="frame" x="0.0" y="0.0" width="345" height="43"/>
@@ -84,7 +84,7 @@
                             </subviews>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="It is a long established fact that a reader will be distracted by the readable content of a page when looking a" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZwO-Pw-Wdd">
-                            <rect key="frame" x="24" y="330.33333333333331" width="345" height="49"/>
+                            <rect key="frame" x="24" y="306.33333333333331" width="345" height="73"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -166,8 +166,8 @@
         </view>
     </objects>
     <resources>
-        <image name="ic_Playing_white" width="73" height="73"/>
         <image name="ic_favorite" width="24" height="24"/>
+        <image name="ic_playing" width="49" height="49"/>
         <image name="loop" width="24" height="24"/>
         <image name="shuffle" width="24" height="24"/>
         <image name="skip_next" width="24" height="24"/>
