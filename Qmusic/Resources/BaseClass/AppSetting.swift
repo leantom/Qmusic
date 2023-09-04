@@ -113,7 +113,12 @@ class AppSetting: NSObject {
 
         users.setValue(youtubeMP3Model.id, forKeyPath: "id")
         users.setValue(uuid, forKeyPath: "user")
-
+        users.setValue(youtubeMP3Model.duration, forKeyPath: "duration")
+        users.setValue(youtubeMP3Model.url, forKeyPath: "url")
+        users.setValue(youtubeMP3Model.thumb, forKeyPath: "thumb")
+        users.setValue(youtubeMP3Model.title, forKeyPath: "title")
+        users.setValue(youtubeMP3Model.author, forKeyPath: "author")
+        
         do{
             try manageContent.save()
         }catch let error as NSError {

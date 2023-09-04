@@ -102,8 +102,8 @@ class MusicHelper: NSObject {
                    let items = self.playlist?.contents?.items {
                     let item = items[index]
                     self.playMusicWithURL(link: url,
-                                          with: item.name ?? "cyme",
-                                          with: item.artists?.first?.name ?? "cyme")
+                                          with: value.spotifyTrack?.name ?? "cyme",
+                                          with: value.spotifyTrack?.artists?.first?.name ?? "cyme")
                 }
                 
                 
@@ -210,7 +210,7 @@ class MusicHelper: NSObject {
         
         
     }
-    
+    // MARK: --playMusicWithYoutube
     func playMusicWithYoutube(link: String,
                               youtubeModel: YoutubeMp3Info,
                               with type: MusicTypePlaying) {
@@ -268,6 +268,7 @@ class MusicHelper: NSObject {
         if let url = URL(string: link) {
             
             do {
+                Logger.log(message: link, event: .e)
                 Logger.log(message: "loading song url", event: .e)
                 try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
                 try AVAudioSession.sharedInstance().setActive(true)
@@ -275,7 +276,8 @@ class MusicHelper: NSObject {
                     guard let self = self else { return }
                     Logger.log(message: "isPlayable \(isPlayable)", event: .e)
                     if isPlayable == false {
-                        self.playMusicWithURL(link: link, with: tilte, with: artist)
+                        self.playMusicWithURL(link: link)
+                        
                         return
                     }
                     // MARK: -- show progress bar

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShareScreenViewController" customModule="Qmusic" customModuleProvider="target">
+            <connections>
+                <outlet property="bottomContraintMainView" destination="7e2-pe-Nd6" id="jHT-8C-y0Q"/>
+                <outlet property="imgCover" destination="QVr-Hb-Oci" id="epb-o6-x73"/>
+                <outlet property="lblArtist" destination="90K-4h-FGz" id="iif-8E-HqQ"/>
+                <outlet property="lblNameSong" destination="r9A-Hw-jl4" id="Rar-NZ-Fvf"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="VNG-Ai-oiB"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ITx-DV-zFd" userLabel="MainView">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mhp-uH-Z9R" userLabel="HeaderView">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="400"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_4" translatesAutoresizingMaskIntoConstraints="NO" id="QVr-Hb-Oci">
+                                    <rect key="frame" x="123" y="120" width="147" height="181"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="181" id="Kjr-Mx-lQg"/>
+                                        <constraint firstAttribute="width" constant="147" id="Nod-lZ-sM1"/>
+                                    </constraints>
+                                </imageView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8qI-7D-1pV">
+                                    <rect key="frame" x="24" y="325" width="345" height="49"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Anh sẽ đến vì cơn mưa" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9A-Hw-jl4">
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="26"/>
+                                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="22"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lục tuyết kỳ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90K-4h-FGz">
+                                            <rect key="frame" x="0.0" y="30" width="345" height="19"/>
+                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTK-O4-bSH">
+                                    <rect key="frame" x="24" y="398" width="345" height="1"/>
+                                    <color key="backgroundColor" red="0.74117647060000003" green="0.72549019609999998" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="Tqu-ol-KsC"/>
+                                    </constraints>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3v-rj-0RP">
+                                    <rect key="frame" x="329" y="8" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="JQD-yT-XJo"/>
+                                        <constraint firstAttribute="width" constant="40" id="h5i-wY-aKY"/>
+                                    </constraints>
+                                    <color key="tintColor" name="PureWhite"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal">
+                                        <imageReference key="image" image="xmark.circle" catalog="system" symbolScale="large" renderingMode="template" variableValue="1"/>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="actionClose:" destination="-1" eventType="touchUpInside" id="ij6-XO-DcH"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="QVr-Hb-Oci" firstAttribute="top" secondItem="mhp-uH-Z9R" secondAttribute="top" constant="120" id="0rH-On-FkI"/>
+                                <constraint firstAttribute="trailing" secondItem="M3v-rj-0RP" secondAttribute="trailing" constant="24" id="94c-Z8-0Nk"/>
+                                <constraint firstItem="M3v-rj-0RP" firstAttribute="top" secondItem="mhp-uH-Z9R" secondAttribute="top" constant="8" id="A0s-Ah-83a"/>
+                                <constraint firstItem="8qI-7D-1pV" firstAttribute="top" secondItem="QVr-Hb-Oci" secondAttribute="bottom" constant="24" id="Boq-ug-LXS"/>
+                                <constraint firstAttribute="trailing" secondItem="8qI-7D-1pV" secondAttribute="trailing" constant="24" id="Q5W-zJ-HdZ"/>
+                                <constraint firstAttribute="bottom" secondItem="ZTK-O4-bSH" secondAttribute="bottom" constant="1" id="W9H-Gf-oaj"/>
+                                <constraint firstItem="QVr-Hb-Oci" firstAttribute="centerX" secondItem="mhp-uH-Z9R" secondAttribute="centerX" id="bGd-KN-ZNm"/>
+                                <constraint firstItem="8qI-7D-1pV" firstAttribute="leading" secondItem="mhp-uH-Z9R" secondAttribute="leading" constant="24" id="elE-iW-AWe"/>
+                                <constraint firstAttribute="trailing" secondItem="ZTK-O4-bSH" secondAttribute="trailing" constant="24" id="i6D-o7-xxL"/>
+                                <constraint firstAttribute="height" constant="400" id="lt2-dr-2c2"/>
+                                <constraint firstItem="ZTK-O4-bSH" firstAttribute="leading" secondItem="mhp-uH-Z9R" secondAttribute="leading" constant="24" id="vCe-YC-JDW"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWw-1n-8La">
+                            <rect key="frame" x="0.0" y="400" width="393" height="359"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Qc4-lE-E0T">
+                                    <rect key="frame" x="24" y="0.0" width="345" height="359"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="ZvG-oV-bG9">
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="71.666666666666671"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.app" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="t5v-0v-3E0">
+                                                    <rect key="frame" x="0.0" y="1.9999999999999929" width="27.666666666666668" height="68"/>
+                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="Thêm vào danh sách yêu thích" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9C-rI-akD">
+                                                    <rect key="frame" x="51.666666666666657" y="0.0" width="293.33333333333337" height="71.666666666666671"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <gestureRecognizers/>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="CKz-Wg-DHG" appends="YES" id="DxI-mo-Nr2"/>
+                                            </connections>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="hl2-M2-pvf">
+                                            <rect key="frame" x="0.0" y="71.666666666666629" width="345" height="72"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rbx-Jg-lk0">
+                                                    <rect key="frame" x="0.0" y="-1.3333333333333357" width="27" height="73.333333333333343"/>
+                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="Chia sẽ" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1P-5P-PRS">
+                                                    <rect key="frame" x="51" y="0.0" width="294" height="72"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <gestureRecognizers/>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="Y6G-MH-2yr" appends="YES" id="fdp-PW-BX3"/>
+                                            </connections>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="JZX-ex-24i">
+                                            <rect key="frame" x="0.0" y="143.66666666666663" width="345" height="71.666666666666686"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.wave.2" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OND-hV-Mpp">
+                                                    <rect key="frame" x="0.0" y="-1" width="30" height="71.333333333333343"/>
+                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="Xem nghệ sĩ" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9q-bB-aDg">
+                                                    <rect key="frame" x="50.666666666666657" y="0.0" width="294.33333333333337" height="71.666666666666671"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <gestureRecognizers/>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="r8J-X7-mxC" appends="YES" id="9ZA-K6-rTq"/>
+                                            </connections>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ChY-ZF-HaQ" userLabel="Report view">
+                                            <rect key="frame" x="0.0" y="215.33333333333337" width="345" height="72"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="antenna.radiowaves.left.and.right.slash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aCl-Ht-SOU">
+                                                    <rect key="frame" x="0.0" y="-1.3333333333333357" width="29" height="71.666666666666686"/>
+                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="Report bài hát" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0s-7N-Yxb">
+                                                    <rect key="frame" x="49" y="0.0" width="296" height="72"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <gestureRecognizers/>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="Js5-ch-DKR" appends="YES" id="teq-NW-4mL"/>
+                                            </connections>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="P2c-yM-ytk" userLabel="Watch Album">
+                                            <rect key="frame" x="0.0" y="287.33333333333337" width="345" height="71.666666666666686"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="antenna.radiowaves.left.and.right.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0JD-DZ-8d4">
+                                                    <rect key="frame" x="0.0" y="1" width="28" height="70.333333333333343"/>
+                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="Xem Album" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3v-g9-F51">
+                                                    <rect key="frame" x="52" y="0.0" width="293" height="71.666666666666671"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <gestureRecognizers/>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="W9q-n8-X5f" appends="YES" id="CBS-Bs-yHh"/>
+                                            </connections>
+                                        </stackView>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Qc4-lE-E0T" firstAttribute="top" secondItem="ZWw-1n-8La" secondAttribute="top" id="64R-R0-xI9"/>
+                                <constraint firstAttribute="bottom" secondItem="Qc4-lE-E0T" secondAttribute="bottom" id="81X-69-OVm"/>
+                                <constraint firstAttribute="trailing" secondItem="Qc4-lE-E0T" secondAttribute="trailing" constant="24" id="EKP-0d-Abt"/>
+                                <constraint firstItem="Qc4-lE-E0T" firstAttribute="leading" secondItem="ZWw-1n-8La" secondAttribute="leading" constant="24" id="hlu-ZE-re8"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="mhp-uH-Z9R" secondAttribute="trailing" id="1D7-HI-abT"/>
+                        <constraint firstItem="mhp-uH-Z9R" firstAttribute="top" secondItem="ITx-DV-zFd" secondAttribute="top" id="2Qd-Xj-raK"/>
+                        <constraint firstItem="ZWw-1n-8La" firstAttribute="leading" secondItem="ITx-DV-zFd" secondAttribute="leading" id="2db-Oj-PBE"/>
+                        <constraint firstItem="ZWw-1n-8La" firstAttribute="top" secondItem="mhp-uH-Z9R" secondAttribute="bottom" id="F5J-YN-9eF"/>
+                        <constraint firstAttribute="bottom" secondItem="ZWw-1n-8La" secondAttribute="bottom" id="hFW-T1-toG"/>
+                        <constraint firstItem="mhp-uH-Z9R" firstAttribute="leading" secondItem="ITx-DV-zFd" secondAttribute="leading" id="kWf-2j-42M"/>
+                        <constraint firstAttribute="trailing" secondItem="ZWw-1n-8La" secondAttribute="trailing" id="zGB-4U-jS9"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.054901960780000002" green="0.043137254899999998" blue="0.1215686275" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ITx-DV-zFd" secondAttribute="trailing" id="0rh-Z6-V47"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ITx-DV-zFd" secondAttribute="bottom" id="7e2-pe-Nd6"/>
+                <constraint firstItem="ITx-DV-zFd" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="K5P-A2-YTL"/>
+                <constraint firstItem="ITx-DV-zFd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ygU-ep-g1G"/>
+            </constraints>
+            <point key="canvasLocation" x="-66.412213740458014" y="20.422535211267608"/>
+        </view>
+        <tapGestureRecognizer id="CKz-Wg-DHG" userLabel="tap add playlist">
+            <connections>
+                <action selector="actionAddplaylist:" destination="-1" id="3D9-KO-Cvx"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="Y6G-MH-2yr" userLabel="tap share">
+            <connections>
+                <action selector="actionShareSong:" destination="-1" id="nGL-U7-E88"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="r8J-X7-mxC" userLabel="Tap watch Artist"/>
+        <tapGestureRecognizer id="Js5-ch-DKR" userLabel="tap report">
+            <connections>
+                <action selector="actionReport:" destination="-1" id="MIa-Eu-UWu"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="W9q-n8-X5f" userLabel="tap album">
+            <connections>
+                <action selector="actionAlbum:" destination="-1" id="Rtq-Nw-OOe"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="antenna.radiowaves.left.and.right.circle" catalog="system" width="128" height="123"/>
+        <image name="antenna.radiowaves.left.and.right.slash" catalog="system" width="128" height="123"/>
+        <image name="person.wave.2" catalog="system" width="128" height="118"/>
+        <image name="plus.app" catalog="system" width="128" height="114"/>
+        <image name="splash_4" width="687" height="1031"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="xmark.circle" catalog="system" width="128" height="123"/>
+        <namedColor name="PureWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

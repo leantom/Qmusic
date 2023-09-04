@@ -59,6 +59,12 @@ extension PlaylistModel {
             album = try values.decodeIfPresent(Album.self, forKey: .album)
             playlist = try values.decodeIfPresent(Playlist.self, forKey: .playlist)
         }
+        
+        func getImageCover() -> String {
+            guard let cover = self.album?.cover?.last else {return ""}
+            return cover.url ?? ""
+        }
+
 
     }
 

@@ -26,8 +26,10 @@ class PlaylistDetailViewController: UIViewController {
     var indexPathSelected: IndexPath?
     var headerView: HeaderPlaylistDetailView?
     
+    @IBOutlet weak var btnLike: UIButton!
     @IBOutlet weak var bottomContraintTableView: NSLayoutConstraint!
     @IBOutlet weak var imgBg: UIImageView!
+    
     convenience init(playlistDetail: PlaylistDetail, titlePlaylist: String) {
         self.init(nibName: "PlaylistDetailViewController", bundle: nil)
         self.titleName = titlePlaylist
@@ -185,7 +187,7 @@ extension PlaylistDetailViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecentlyMusicTableViewCell", for: indexPath) as! RecentlyMusicTableViewCell
-        
+        cell.delegate = self
         if let playlistDetail = self.playlistDetail,
            let items = playlistDetail.contents?.items {
             cell.popuplate(item: items[indexPath.row], index: indexPath.row)
@@ -294,10 +296,20 @@ extension PlaylistDetailViewController: HeaderPlaylistDetailViewDelegate {
         
         let offset = 1 - scrollView.contentOffset.y/400
         lblTitle.alpha = scrollView.contentOffset.y/400
-        
+        btnLike.alpha = scrollView.contentOffset.y/400
         let alphaOffset = min(max(offset, minValue), maxValue)
         headerView?.alpha = alphaOffset
+        
     }
     
     
+}
+extension PlaylistDetailViewController: RecentlyMusicTableViewCellDelegate {
+    func didSelectShowDetail(cell: RecentlyMusicTableViewCell) {
+        if let song = cell.songInPlaylist {
+            let vc = ShareScreenViewController(song: song)
+            self.navigationController?.push(destinVC: vc)
+        }
+        
+    }
 }

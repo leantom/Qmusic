@@ -30,5 +30,10 @@ struct SongDetailModel : Codable {
         soundcloudTrack = try values.decodeIfPresent(SongDetail.SoundcloudTrack.self, forKey: .soundcloudTrack)
         spotifyTrack = try values.decodeIfPresent(SongDetail.SpotifyTrack.self, forKey: .spotifyTrack)
 	}
+    
+    func getImageCover() -> String {
+        guard let cover = self.spotifyTrack?.album?.cover?.last else {return ""}
+        return cover.url ?? ""
+    }
 
 }

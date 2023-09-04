@@ -101,7 +101,6 @@ class NetworkManager: NSObject {
                         if (200...399).contains(statusCode) {
                             let objs = try jsonDecoder.decode(YoutubeMp3Info.self, from:
                                                                 _data)
-                            AppSetting.shared.archiveDataYoutube(data: objs, id: id)
                             //MARK: observer onNext event
                             observer.onNext(objs)
                         }
@@ -199,6 +198,62 @@ class NetworkManager: NSObject {
     }
     
     
+    func searchLinkMp3(by id: String) -> Observable<YoutubeDataMP3> {
+        // Mobile link: https://youtu.be/SJzFq4IfXQw?si=_kyDRBs7kfkA8xfG
+        
+        let headers = [
+            "X-RapidAPI-Key": "LAW614Sbs9mshQpXupy9yRG24Aipp11WiV5jsn5q7O9MK5B2R0",
+            "X-RapidAPI-Host": "youtube-mp36.p.rapidapi.com"
+        ]
+
+        let request = NSMutableURLRequest(url: NSURL(string: "https://youtube-mp36.p.rapidapi.com/dl?id=\(id)")! as URL,
+                                                cachePolicy: .useProtocolCachePolicy,
+                                            timeoutInterval: 10.0)
+        
+       
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+
+        //MARK: creating our observable
+        return Observable.create { observer in
+            
+            //MARK: create URLSession dataTask
+            let session = URLSession.shared
+            let task = session.dataTask(with: request as URLRequest) { (data,
+                                                          response, error) in
+                if let httpResponse = response as? HTTPURLResponse{
+                    let statusCode = httpResponse.statusCode
+                    let jsonDecoder = JSONDecoder()
+                    do {
+                        let _data = data ?? Data()
+                        if (200...399).contains(statusCode) {
+                            let objs = try jsonDecoder.decode(YoutubeDataMP3.self, from:
+                                                                _data)
+                            
+                            //MARK: observer onNext event
+                            observer.onNext(objs)
+                        }
+                        else {
+                            let err = NSError(domain:"", code:httpResponse.statusCode, userInfo:nil)
+                            observer.onError(err)
+                        }
+                    } catch {
+                        //MARK: observer onNext event
+                        observer.onError(error)
+                    }
+                }
+                //MARK: observer onCompleted event
+                observer.onCompleted()
+            }
+            task.resume()
+            //MARK: return our disposable
+            return Disposables.create {
+                task.cancel()
+            }
+        }
+        
+    }
+    
     
     // MARK: -- getHomePageFromSpotify
     
@@ -247,7 +302,7 @@ class NetworkManager: NSObject {
                                 AppSetting.shared.archiveDataHome(data: data)
                                 observer.onNext(data)
                             } else {
-                                let err = NSError(domain:"", code:5, userInfo:nil)
+                                let err = NSError(domain:objs.result?.message ?? "", code:5, userInfo:nil)
                                 observer.onError(err)
                             }
                             

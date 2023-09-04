@@ -12,6 +12,50 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
+
+extension Response {
+    struct AlbumWrapper:Codable {
+        let reqID: String?
+        let result: AlbumWrapperResult?
+        
+        enum CodingKeys: String, CodingKey {
+
+            case reqID = "reqID"
+            case result = "result"
+        }
+
+        init(from decoder: Decoder) throws {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            reqID = try values.decodeIfPresent(String.self, forKey: .reqID)
+            result = try values.decodeIfPresent(AlbumWrapperResult.self, forKey: .result)
+            
+        }
+    }
+    
+    struct AlbumWrapperResult: Codable {
+        let code: Int?
+        let message: String?
+        let langCode: String?
+        let data: AlbumDetail?
+        
+        enum CodingKeys: String, CodingKey {
+
+            case code = "code"
+            case message = "message"
+            case langCode = "langCode"
+            case data = "data"
+        }
+
+        init(from decoder: Decoder) throws {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            code = try values.decodeIfPresent(Int.self, forKey: .code)
+            message = try values.decodeIfPresent(String.self, forKey: .message)
+            langCode = try values.decodeIfPresent(String.self, forKey: .langCode)
+            data = try values.decodeIfPresent(AlbumDetail.self, forKey: .data)
+        }
+    }
+}
+
 struct AlbumDetail : Codable {
 	let status : Bool?
     let tracks : AlbumDetailResp.Tracks?
@@ -27,5 +71,6 @@ struct AlbumDetail : Codable {
 		status = try values.decodeIfPresent(Bool.self, forKey: .status)
         tracks = try values.decodeIfPresent(AlbumDetailResp.Tracks.self, forKey: .tracks)
 	}
+   
 
 }

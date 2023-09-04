@@ -40,6 +40,13 @@ class HeaderPlaylistDetailView: UITableViewHeaderFooterView {
         lblDesc.text = "\(item.trackCount ?? 0) tracks"
     }
     
+    func setupData(album: AlbumMetadata) {
+        lblTitle.text = album.name
+        lblSubDesc.text = album.artists?.first?.name
+        lblDesc.text = "\(album.trackCount ?? 0) tracks"
+    }
+    
+    
     func setPlaying() {
         btnPlaying.setImage(UIImage(named: "ic_pause"), for: .normal)
     }

@@ -39,6 +39,24 @@ class SearchViewController: UIViewController {
                 self?.tbContent.reloadData()
             })
             .disposed(by: youtubeViewModel.disposeBag)
+        youtubeViewModel.output.error.observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                switch value {
+                    
+                case .getLinkYoutube(let err):
+                    self?.showError(title: "Lỗi", desc: err)
+                }
+            })
+            .disposed(by: youtubeViewModel.disposeBag)
+        
+        youtubeViewModel.output.reloadLinkExpireYoutube.observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                if let data = self?.youtubeViewModel.youtubeMp3Model {
+                    MusicHelper.sharedHelper.playMusicWithYoutube(link: value.link, youtubeModel: data, with: .YoutubeLink)
+                }
+                
+            })
+            .disposed(by: youtubeViewModel.disposeBag)
     }
     
     
@@ -109,8 +127,14 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         
         let data = youtubeViewModel.getDataYoutubeLocal()
         let objectMp3 = data[indexPath.row]
+        youtubeViewModel.youtubeMp3Model = objectMp3
+        if objectMp3.expireTimestamp > Date()?.timeIntervalSince1970 ?? 0 {
+            playMusic(link: objectMp3.url, youtubeModel: data[indexPath.row])
+        } else {
+            // nếu expire < now , down lại link youtube
+            youtubeViewModel.searchLinkYoutube(with: objectMp3.id ?? "")
+        }
         
-        playMusic(link: objectMp3.url, youtubeModel: data[indexPath.row])
     }
     
     func playMusic(link: String, youtubeModel: YoutubeMp3Info) {
