@@ -988,6 +988,7 @@
 		F9838A792AA04B0100F0A5D0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				FAFDD1A72AA831C700D9710E /* SongDetail */,
 				F9CE868F2AA62EFC0036E9AA /* Artist */,
 				F975A5EB2A8B81F100DA41B7 /* ExploreViewController */,
 				F975A5C62A8B391800DA41B7 /* Home */,
@@ -1073,6 +1074,13 @@
 				FAD34CC22A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift */,
 			);
 			path = GeezChart;
+			sourceTree = "<group>";
+		};
+		FAFDD1A72AA831C700D9710E /* SongDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SongDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1612,7 +1620,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = 58JMRW9E5N;
+				DEVELOPMENT_TEAM = S3Y6BJQ8MM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Qmusic/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cyme;
@@ -1644,7 +1652,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = 58JMRW9E5N;
+				DEVELOPMENT_TEAM = S3Y6BJQ8MM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Qmusic/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cyme;
