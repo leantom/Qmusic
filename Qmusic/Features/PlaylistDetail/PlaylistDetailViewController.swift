@@ -18,7 +18,6 @@ class PlaylistDetailViewController: UIViewController {
     
     var playlistDetail: PlaylistDetail?
     var playlist: HomePage.Items?
-    var lyricDetail: [LyricLineModel]?
     
     @IBOutlet weak var lblTitle: UILabel!
     var titleName: String = "Playlist"
@@ -139,15 +138,6 @@ class PlaylistDetailViewController: UIViewController {
                 
             })
             .disposed(by: homePageViewModel.disposeBag)
-        
-        homePageViewModel.output.lyricDetail.observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] value in
-                guard let self = self else { return }
-                if !value.isEmpty{
-                    self.lyricDetail = value
-                }
-            })
-            .disposed(by: homePageViewModel.disposeBag)
 
     }
     /*
@@ -220,7 +210,6 @@ extension PlaylistDetailViewController: UITableViewDelegate, UITableViewDataSour
            let items = playlistDetail.contents?.items,
            let id = items[indexPath.row].id{
             homePageViewModel.getSongDetail(id: id)
-            homePageViewModel.getLyricDetail(id: id)
             indexPathSelected = indexPath
             headerView?.setPlaying()
             bottomContraintTableView.constant = 48

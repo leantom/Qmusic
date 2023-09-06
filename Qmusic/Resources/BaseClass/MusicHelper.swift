@@ -34,6 +34,7 @@ class MusicHelper: NSObject {
     private var status:  MusicStatusPlay = .None
     private var type:  MusicTypePlaying = .None
     private var playlist: PlaylistDetail?
+    private var song: PlaylistModel.ItemsPlaylist?
     private var youtubeModel: YoutubeMp3Info?
     
     private var index: Int = 0
@@ -183,6 +184,12 @@ class MusicHelper: NSObject {
         self.musicBar.stopMusic()
     }
     
+    func rewindPlaying(time: Double) {
+        let targetTime = CMTime(seconds: time, preferredTimescale: 1)
+        audioPlayer?.seek(to: targetTime)
+        audioPlayer?.status
+    }
+    
     // MARK: -- play with playlist
     func playMusicWithPlaylist(link: String,
                                on view: UIView,
@@ -195,6 +202,7 @@ class MusicHelper: NSObject {
         if let items = playlist.contents?.items,
            items.count > index {
             let item = items[index]
+            self.song = item
              musicBar.populate(nameSong: item.name ?? "",
                                urlImage: item.album?.cover?.first?.url ?? "")
             musicBar.stopMusic()
@@ -462,7 +470,11 @@ class MusicHelper: NSObject {
     
     private func moveToSongDetail(){
         if let topController = appDelegate.getTopMostViewController(){
-            let vc = SongDetailViewController(hmm: "")
+            guard let song = self.song else {
+                print("Data Playlist isEmpty")
+                return
+            }
+            let vc = SongDetailViewController(data: song)
             (topController as? UINavigationController)?.push(destinVC: vc)
         }
     }
