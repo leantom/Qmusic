@@ -297,8 +297,14 @@ class MusicHelper: NSObject {
                     self.audioPlayer = AVPlayer(url: url)
                     
                     
+                    let albumArt = MPMediaItemArtwork(image:  musicBar.imgAlbums.image!)
+                    
                     let mpic = MPNowPlayingInfoCenter.default()
-                    mpic.nowPlayingInfo = [MPMediaItemPropertyTitle:tilte, MPMediaItemPropertyArtist:artist]
+                    mpic.nowPlayingInfo = [MPMediaItemPropertyTitle:tilte,
+                                          MPMediaItemPropertyArtist:artist,
+                                         MPMediaItemPropertyArtwork: albumArt
+                                           ]
+                    
                     Logger.log(message: "loaded song url", event: .e)
                     
                     audioPlayer?.play()

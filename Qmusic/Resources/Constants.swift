@@ -26,6 +26,7 @@ class Constants {
     static let maximumPhotoSize = 5 * 1024 * 1024
     static let urlAudio = "https://ytmp3.savevids.net/dl?hash=dgkUriAVjqeQGaCLo%2BQqe9FeNML%2F5L6kOH%2BjCgDPMwi4W5VZcT22Tvy5S%2FUpPSrHSob1URO4MR%2FTgcnoT27y19xF80BBMlryj9aGFxKnMJv1k6zO7bvqpNAEEjdL3pF44%2FmDEp%2Foz8BwTTcKi3wiXdP1WPyXIpYegx%2FcditCV%2BueHLJPxeOV0YcgzHXvVFJOzLsJEQ%2Bk873vs9%2F5E8VPmJ6lkumetyqKhc8JjnP3k1Kci51lMBF00dWt9QiqMrFbiMaNy5ZBgkpMFdN84MuMfTjk29sduZ97zAaQoIjibiG%2BORNNMPJ3KM8TNjW9F%2FxIohRqNBCnpOLJSLBWh2cGt2O8wJ7XiGh1to2iIYsBwMmBhEOH9ezN7F01Tjei%2FBjaSYZEeEal6A4L9aQpaB10tA%3D%3D"
     static let urlSample = "https://s3.amazonaws.com/kargopolov/kukushka.mp3"
+    static let urlHost = "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/"
 }
 
 class ConstantsUI {

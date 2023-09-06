@@ -9,14 +9,12 @@ import Foundation
 import RxSwift
 
 extension NetworkManager {
-    
-    
-    
+
     //MARK: getAlbumByID
     public func getAlbumByID(id: String)
     -> Observable<AlbumDetail> {
         
-        var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/user?api=album&albumId=\(id)")!,timeoutInterval: Double.infinity)
+        var request = URLRequest(url: URL(string: "\(Constants.urlHost)user?api=album&albumId=\(id)")!,timeoutInterval: Double.infinity)
         request.addValue(self.jwt, forHTTPHeaderField: "auth")
         request.addValue("false", forHTTPHeaderField: "isExpired")
 

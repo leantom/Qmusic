@@ -270,7 +270,7 @@ class NetworkManager: NSObject {
 //                                                cachePolicy: .useProtocolCachePolicy,
 //                                            timeoutInterval: 10.0)
         
-        var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/user?api=songHome")!,timeoutInterval: Double.infinity)
+        var request = URLRequest(url: URL(string: "\(Constants.urlHost)user?api=songHome")!,timeoutInterval: Double.infinity)
         request.addValue(jwt, forHTTPHeaderField: "auth")
         request.addValue("false", forHTTPHeaderField: "isExpired")
         
@@ -280,11 +280,7 @@ class NetworkManager: NSObject {
         //MARK: creating our observable
         return Observable.create { observer in
             
-            if let homeData = AppSetting.shared.getHomeDataFromLocal() {
-                observer.onNext(homeData)
-                observer.onCompleted()
-                return Disposables.create {}
-            }
+           
             
             //MARK: create URLSession dataTask
             let session = URLSession.shared
@@ -345,7 +341,7 @@ class NetworkManager: NSObject {
 
         
         
-        var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/user?api=playList&playlistId=\(id)")!,timeoutInterval: Double.infinity)
+        var request = URLRequest(url: URL(string: "\(Constants.urlHost)user?api=playList&playlistId=\(id)")!,timeoutInterval: Double.infinity)
         request.addValue(jwt, forHTTPHeaderField: "auth")
         request.addValue("false", forHTTPHeaderField: "isExpired")
         //request.allHTTPHeaderFields = headers
@@ -423,31 +419,20 @@ class NetworkManager: NSObject {
             "X-RapidAPI-Host": "spotify-scraper.p.rapidapi.com"
         ]
 
-        let request = NSMutableURLRequest(url: NSURL(string: "https://spotify-scraper.p.rapidapi.com/v1/track/download/soundcloud?track=\(id)")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/user?api=song&track=\(id)")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
+        
+        
+        request.addValue(self.jwt, forHTTPHeaderField: "auth")
+        request.addValue("false", forHTTPHeaderField: "isExpired")
+
         request.httpMethod = "GET"
-        request.allHTTPHeaderFields = headers
         
         //MARK: creating our observable
         return Observable.create { observer in
             
-            if let homeData = AppSetting.shared.getSongDataFromLocal(id: id) {
-                if let audioURL = homeData.soundcloudTrack?.audio?.first?.url,
-                let url = URLComponents(string: audioURL),
-                   let queryItems = url.queryItems,
-                   let expire = queryItems.first?.value,
-                   let expireTimestamp = Int(expire){
-                    if Date().currentTimeMillis() > expireTimestamp {
-                        print("Song is expire")
-                    } else {
-                        observer.onNext(homeData)
-                        observer.onCompleted()
-                        return Disposables.create {}
-                    }
-                    
-                }
-            }
+           
             
             //MARK: create URLSession dataTask
             let session = URLSession.shared
@@ -459,11 +444,16 @@ class NetworkManager: NSObject {
                     do {
                         let _data = data ?? Data()
                         if (200...399).contains(statusCode) {
-                            let objs = try jsonDecoder.decode(SongDetailModel.self, from:
+                            
+                            let objs = try jsonDecoder.decode(Response.SongDetailWrapper.self, from:
                                                                 _data)
-                            AppSetting.shared.archiveDataSong(data: objs, id: id)
-                            //MARK: observer onNext event
-                            observer.onNext(objs)
+                            if let song = objs.result?.data {
+                                AppSetting.shared.archiveDataSong(data: song, id: id)
+                                observer.onNext(song)
+                            } else {
+                                let err = NSError(domain:"", code:5, userInfo:nil)
+                                observer.onError(err)
+                            }
                         }
                         else {
                             let err = NSError(domain:"", code:httpResponse.statusCode, userInfo:nil)
@@ -491,7 +481,7 @@ class NetworkManager: NSObject {
         do {
             let params = try req.asDictionary()
             let jsonData = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
-            var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/test?api=insertPlayList")!,timeoutInterval: Double.infinity)
+            var request = URLRequest(url: URL(string: "\(Constants.urlHost)test?api=insertPlayList")!,timeoutInterval: Double.infinity)
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
             request.httpMethod = "POST"
@@ -518,7 +508,7 @@ class NetworkManager: NSObject {
         do {
             let params = try req.asDictionary()
             let jsonData = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
-            var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/test?api=insertSong")!,timeoutInterval: Double.infinity)
+            var request = URLRequest(url: URL(string: "\(Constants.urlHost)test?api=insertSong")!,timeoutInterval: Double.infinity)
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
             request.httpMethod = "POST"
@@ -547,7 +537,7 @@ class NetworkManager: NSObject {
         do {
             let params = try req.asDictionary()
             let jsonData = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
-            var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/test?api=insertArtist")!,timeoutInterval: Double.infinity)
+            var request = URLRequest(url: URL(string: "\(Constants.urlHost)test?api=insertArtist")!,timeoutInterval: Double.infinity)
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
             request.httpMethod = "POST"
@@ -575,7 +565,7 @@ class NetworkManager: NSObject {
         let parameters = "{\n    \"id\": \"\",\n    \"url\": \"\",\n    \"artistId\": \"\",\n    \"width\": 0,\n    \"height\": 0\n}"
         let postData = parameters.data(using: .utf8)
 
-        var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/test?api=insertAvatar")!,timeoutInterval: Double.infinity)
+        var request = URLRequest(url: URL(string: "\(Constants.urlHost)test?api=insertAvatar")!,timeoutInterval: Double.infinity)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         request.httpMethod = "POST"
@@ -599,7 +589,7 @@ class NetworkManager: NSObject {
         do {
             let params = try req.asDictionary()
             let jsonData = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
-            var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/test?api=insertAlbumArtist")!,timeoutInterval: Double.infinity)
+            var request = URLRequest(url: URL(string: "\(Constants.urlHost)test?api=insertAlbumArtist")!,timeoutInterval: Double.infinity)
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
             request.httpMethod = "POST"
@@ -623,7 +613,7 @@ class NetworkManager: NSObject {
     func uploadSong(req: Request.UploadMP3,
                     completionHandler: @escaping(Result<Int, Error>) -> Void) {
         
-        var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/test?api=uploadMp3")!,timeoutInterval: Double.infinity)
+        var request = URLRequest(url: URL(string: "\(Constants.urlHost)test?api=uploadMp3")!,timeoutInterval: Double.infinity)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         request.httpMethod = "POST"

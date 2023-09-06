@@ -99,12 +99,17 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func actionLoginWithFacebook(_ sender: Any) {
-        if let _ = AccessToken.current {
+        if let token = AccessToken.current {
             //MARK: -- vô thẳng app
             
-            let vc = HomeMasterViewController(nibName: "HomeMasterViewController", bundle: nil)
-            self.navigationController?.push(destinVC: vc)
-            AppSetting.shared.setStatusLogin(status: true)
+            //MARK: -- vô thẳng app
+            let email = token.userID
+            let password = token.tokenString
+
+            let req = Request.SignIn(email: email, password: password, channel: LoginType.FaceBook.rawValue)
+            self.signInViewModel.signIn(req: req)
+            
+           
         } else {
             
             loginManager.logIn(permissions: ["public_profile"], from: self) { result, err in
@@ -120,11 +125,19 @@ class LoginViewController: UIViewController {
                     return
                 }
                 
-                //MARK: -- vô thẳng app
+                guard let token = result.token else {return}
                 
-                let vc = HomeMasterViewController(nibName: "HomeMasterViewController", bundle: nil)
-                self.navigationController?.pushViewController(vc, animated: true)
-                AppSetting.shared.setStatusLogin(status: true)
+                
+                
+                //MARK: -- vô thẳng app
+                let email = token.userID
+                let password = token.tokenString
+
+                let req = Request.SignIn(email: email, password: password.hash256(), channel: LoginType.FaceBook.rawValue)
+                self.signInViewModel.signIn(req: req)
+                
+                
+               
                 
             }
         }
