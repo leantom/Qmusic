@@ -251,7 +251,11 @@
                 <action selector="actionShareSong:" destination="-1" id="nGL-U7-E88"/>
             </connections>
         </tapGestureRecognizer>
-        <tapGestureRecognizer id="r8J-X7-mxC" userLabel="Tap watch Artist"/>
+        <tapGestureRecognizer id="r8J-X7-mxC" userLabel="Tap watch Artist">
+            <connections>
+                <action selector="actionartist:" destination="-1" id="oOg-Q4-dz4"/>
+            </connections>
+        </tapGestureRecognizer>
         <tapGestureRecognizer id="Js5-ch-DKR" userLabel="tap report">
             <connections>
                 <action selector="actionReport:" destination="-1" id="MIa-Eu-UWu"/>

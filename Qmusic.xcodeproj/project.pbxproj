@@ -200,11 +200,19 @@
 		F9838A892AA091EB00F0A5D0 /* YoutubeModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = F9838A882AA091EB00F0A5D0 /* YoutubeModel.xcdatamodel */; };
 		F9838A8D2AA1131E00F0A5D0 /* YoutubeMp3Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A8B2AA1131E00F0A5D0 /* YoutubeMp3Model.swift */; };
 		F9838A902AA11DF600F0A5D0 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = F9838A8F2AA11DF600F0A5D0 /* Algorithms */; };
+		F9B6AE6D2AA71713000704E8 /* AlbumArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B6AE6B2AA71713000704E8 /* AlbumArtistCell.swift */; };
+		F9B6AE6E2AA71713000704E8 /* AlbumArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9B6AE6C2AA71713000704E8 /* AlbumArtistCell.xib */; };
+		F9B6AE712AA75E0D000704E8 /* SubAlbumArtistViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B6AE6F2AA75E0D000704E8 /* SubAlbumArtistViewCell.swift */; };
+		F9B6AE722AA75E0D000704E8 /* SubAlbumArtistViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9B6AE702AA75E0D000704E8 /* SubAlbumArtistViewCell.xib */; };
 		F9CE86892AA37B9E0036E9AA /* AlbumMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE86852AA37B9E0036E9AA /* AlbumMetadata.swift */; };
 		F9CE868A2AA37B9E0036E9AA /* Copyright.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE86862AA37B9E0036E9AA /* Copyright.swift */; };
 		F9CE868B2AA37B9E0036E9AA /* Visuals.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE86872AA37B9E0036E9AA /* Visuals.swift */; };
 		F9CE868C2AA37B9E0036E9AA /* Discs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE86882AA37B9E0036E9AA /* Discs.swift */; };
 		F9CE868E2AA386120036E9AA /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE868D2AA386120036E9AA /* Avatar.swift */; };
+		F9CE86922AA62F140036E9AA /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE86902AA62F140036E9AA /* ArtistViewController.swift */; };
+		F9CE86932AA62F140036E9AA /* ArtistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9CE86912AA62F140036E9AA /* ArtistViewController.xib */; };
+		F9CE86962AA6313F0036E9AA /* HeaderArtistDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE86942AA6313F0036E9AA /* HeaderArtistDetailView.swift */; };
+		F9CE86972AA6313F0036E9AA /* HeaderArtistDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9CE86952AA6313F0036E9AA /* HeaderArtistDetailView.xib */; };
 		F9D915222A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D915202A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.swift */; };
 		F9D915232A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9D915212A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.xib */; };
 		F9D915262A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D915242A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.swift */; };
@@ -425,11 +433,19 @@
 		F9838A832AA084F200F0A5D0 /* CoreDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtension.swift; sourceTree = "<group>"; };
 		F9838A882AA091EB00F0A5D0 /* YoutubeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YoutubeModel.xcdatamodel; sourceTree = "<group>"; };
 		F9838A8B2AA1131E00F0A5D0 /* YoutubeMp3Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YoutubeMp3Model.swift; path = ../../../../../../Downloads/youtube/YoutubeMp3Model.swift; sourceTree = "<group>"; };
+		F9B6AE6B2AA71713000704E8 /* AlbumArtistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtistCell.swift; sourceTree = "<group>"; };
+		F9B6AE6C2AA71713000704E8 /* AlbumArtistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumArtistCell.xib; sourceTree = "<group>"; };
+		F9B6AE6F2AA75E0D000704E8 /* SubAlbumArtistViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubAlbumArtistViewCell.swift; sourceTree = "<group>"; };
+		F9B6AE702AA75E0D000704E8 /* SubAlbumArtistViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubAlbumArtistViewCell.xib; sourceTree = "<group>"; };
 		F9CE86852AA37B9E0036E9AA /* AlbumMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumMetadata.swift; sourceTree = "<group>"; };
 		F9CE86862AA37B9E0036E9AA /* Copyright.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Copyright.swift; sourceTree = "<group>"; };
 		F9CE86872AA37B9E0036E9AA /* Visuals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visuals.swift; sourceTree = "<group>"; };
 		F9CE86882AA37B9E0036E9AA /* Discs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discs.swift; sourceTree = "<group>"; };
 		F9CE868D2AA386120036E9AA /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
+		F9CE86902AA62F140036E9AA /* ArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
+		F9CE86912AA62F140036E9AA /* ArtistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistViewController.xib; sourceTree = "<group>"; };
+		F9CE86942AA6313F0036E9AA /* HeaderArtistDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderArtistDetailView.swift; sourceTree = "<group>"; };
+		F9CE86952AA6313F0036E9AA /* HeaderArtistDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderArtistDetailView.xib; sourceTree = "<group>"; };
 		F9D915202A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenCellCollectionViewFirstCell.swift; sourceTree = "<group>"; };
 		F9D915212A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenCellCollectionViewFirstCell.xib; sourceTree = "<group>"; };
 		F9D915242A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenCellCollectionViewSecondCell.swift; sourceTree = "<group>"; };
@@ -910,12 +926,12 @@
 		F977A1AA2A94C4BD00D90B2E /* PlaylistDetail */ = {
 			isa = PBXGroup;
 			children = (
-				F977A1AB2A94CBDA00D90B2E /* SongDetailModel */,
-				F977A1A62A94C4B800D90B2E /* PlaylistDetailViewController.swift */,
-				F95B77B72AA2F8D600B8077B /* ShareScreen */,
-				F977A1A72A94C4B800D90B2E /* PlaylistDetailViewController.xib */,
 				F977A1BC2A94FC5100D90B2E /* HeaderPlaylistDetailView.swift */,
 				F977A1BE2A94FC5800D90B2E /* HeaderPlaylistDetailView.xib */,
+				F977A1A62A94C4B800D90B2E /* PlaylistDetailViewController.swift */,
+				F977A1A72A94C4B800D90B2E /* PlaylistDetailViewController.xib */,
+				F95B77B72AA2F8D600B8077B /* ShareScreen */,
+				F977A1AB2A94CBDA00D90B2E /* SongDetailModel */,
 			);
 			path = PlaylistDetail;
 			sourceTree = "<group>";
@@ -972,6 +988,7 @@
 		F9838A792AA04B0100F0A5D0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				F9CE868F2AA62EFC0036E9AA /* Artist */,
 				F975A5EB2A8B81F100DA41B7 /* ExploreViewController */,
 				F975A5C62A8B391800DA41B7 /* Home */,
 				F977A1AA2A94C4BD00D90B2E /* PlaylistDetail */,
@@ -1008,6 +1025,21 @@
 				F9CE86882AA37B9E0036E9AA /* Discs.swift */,
 			);
 			path = AlbumMetadata;
+			sourceTree = "<group>";
+		};
+		F9CE868F2AA62EFC0036E9AA /* Artist */ = {
+			isa = PBXGroup;
+			children = (
+				F9B6AE6B2AA71713000704E8 /* AlbumArtistCell.swift */,
+				F9B6AE6C2AA71713000704E8 /* AlbumArtistCell.xib */,
+				F9CE86902AA62F140036E9AA /* ArtistViewController.swift */,
+				F9CE86912AA62F140036E9AA /* ArtistViewController.xib */,
+				F9CE86942AA6313F0036E9AA /* HeaderArtistDetailView.swift */,
+				F9CE86952AA6313F0036E9AA /* HeaderArtistDetailView.xib */,
+				F9B6AE6F2AA75E0D000704E8 /* SubAlbumArtistViewCell.swift */,
+				F9B6AE702AA75E0D000704E8 /* SubAlbumArtistViewCell.xib */,
+			);
+			path = Artist;
 			sourceTree = "<group>";
 		};
 		FA429DC62A931D91007EAE15 /* TopTrending */ = {
@@ -1208,6 +1240,7 @@
 				FA429DD02A935819007EAE15 /* ExploreTopicCollectionViewCell.xib in Resources */,
 				F961670A2A8E146E00392860 /* AccountViewController.xib in Resources */,
 				F965C0FB2A8BDB53000DF320 /* CarouselCollectionViewCell.xib in Resources */,
+				F9B6AE6E2AA71713000704E8 /* AlbumArtistCell.xib in Resources */,
 				F97EA35D2A8E667C0096EC1E /* spectrum.json in Resources */,
 				F96914A32A8C81FD0092B4AD /* loading.json in Resources */,
 				F969A7BA2A88C18A00C8CA2F /* Roboto-Thin.ttf in Resources */,
@@ -1217,6 +1250,7 @@
 				FAD34CC72A8CC319007FE90D /* ExploreTopTrendingTableViewCell.xib in Resources */,
 				F977A1A92A94C4B800D90B2E /* PlaylistDetailViewController.xib in Resources */,
 				F969A7B32A88C18A00C8CA2F /* Roboto-ThinItalic.ttf in Resources */,
+				F9CE86972AA6313F0036E9AA /* HeaderArtistDetailView.xib in Resources */,
 				F969A7BB2A88C18A00C8CA2F /* Roboto-Black.ttf in Resources */,
 				F96914AD2A8D155B0092B4AD /* RadioViewController.xib in Resources */,
 				FA429DCA2A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.xib in Resources */,
@@ -1224,9 +1258,11 @@
 				F969A7B22A88C18900C8CA2F /* Roboto-MediumItalic.ttf in Resources */,
 				F9D9152B2A97B9CD001F53B4 /* SplashScreenCellCollectionViewThirdCell.xib in Resources */,
 				F975A5FD2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib in Resources */,
+				F9CE86932AA62F140036E9AA /* ArtistViewController.xib in Resources */,
 				F9670FED2A9D9251001FAC52 /* CymeButton.xib in Resources */,
 				F9D915272A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.xib in Resources */,
 				F975A5F72A8B81F100DA41B7 /* ExploreViewController.xib in Resources */,
+				F9B6AE722AA75E0D000704E8 /* SubAlbumArtistViewCell.xib in Resources */,
 				F969A7782A88BFCE00C8CA2F /* Assets.xcassets in Resources */,
 				F969A7B62A88C18A00C8CA2F /* Roboto-Italic.ttf in Resources */,
 				F96914A72A8CD29F0092B4AD /* MusicBarView.xib in Resources */,
@@ -1278,6 +1314,7 @@
 				F94F99E42A8A13D5005FA560 /* WEExtensions+KingFisher.swift in Sources */,
 				F975A5D02A8B391800DA41B7 /* HomeAlbumsTableViewCell.swift in Sources */,
 				F94F99CE2A8A13D5005FA560 /* WEExtensions+TimerInterval.swift in Sources */,
+				F9B6AE712AA75E0D000704E8 /* SubAlbumArtistViewCell.swift in Sources */,
 				F9838A812AA07FC100F0A5D0 /* ResetPasswordViewController.swift in Sources */,
 				F94F99EF2A8A15A3005FA560 /* AppColors.swift in Sources */,
 				F94F99C22A8A13D5005FA560 /* WEExtensions+Reactive.swift in Sources */,
@@ -1319,6 +1356,7 @@
 				F975A5E32A8B394B00DA41B7 /* CarouselNonAnimatedFlowLayout.swift in Sources */,
 				FA429DCF2A935819007EAE15 /* ExploreTopicCollectionViewCell.swift in Sources */,
 				F975A5E22A8B394B00DA41B7 /* CarouselAnimatedFlowLayout.swift in Sources */,
+				F9CE86962AA6313F0036E9AA /* HeaderArtistDetailView.swift in Sources */,
 				F95B77C22AA3747800B8077B /* AlbumViewModel.swift in Sources */,
 				F94F99C52A8A13D5005FA560 /* WEExtensions+LAContext.swift in Sources */,
 				F94F99F52A8A1673005FA560 /* Constants.swift in Sources */,
@@ -1339,6 +1377,7 @@
 				F9838A782A9F2F1800F0A5D0 /* YoutubeMp3ViewModel.swift in Sources */,
 				FAB458842A9DF6CB00E0C65F /* LyricDetailModel.swift in Sources */,
 				FAD34CC32A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift in Sources */,
+				F9CE86922AA62F140036E9AA /* ArtistViewController.swift in Sources */,
 				F975A5E42A8B394B00DA41B7 /* CarouselConfiguration.swift in Sources */,
 				F9838A7C2AA04B2C00F0A5D0 /* ForgotViewController.swift in Sources */,
 				F975A5E82A8B76AD00DA41B7 /* HomeHeaderView.swift in Sources */,
@@ -1393,6 +1432,7 @@
 				F975A5E62A8B394B00DA41B7 /* CarouselDataSource.swift in Sources */,
 				F975A5FC2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.swift in Sources */,
 				F9CE868C2AA37B9E0036E9AA /* Discs.swift in Sources */,
+				F9B6AE6D2AA71713000704E8 /* AlbumArtistCell.swift in Sources */,
 				F977A1882A93663600D90B2E /* Genres.swift in Sources */,
 				F94F99E12A8A13D5005FA560 /* DateExtensions.swift in Sources */,
 				F96914A52A8CD2940092B4AD /* MusicBarView.swift in Sources */,
@@ -1571,8 +1611,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = S3Y6BJQ8MM;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = 58JMRW9E5N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Qmusic/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cyme;
@@ -1603,8 +1643,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = S3Y6BJQ8MM;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = 58JMRW9E5N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Qmusic/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cyme;

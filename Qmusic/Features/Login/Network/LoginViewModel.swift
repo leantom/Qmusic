@@ -12,7 +12,7 @@ enum LoginType: String {
     case Cyme = "Cyme"
     case FaceBook = "FaceBook"
     case Google = "Google"
-    case Twitter = "Twitter"
+    case Apple = "Apple"
 }
 enum LoginEror {
     case login(String)

@@ -12,6 +12,49 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
+extension Response {
+    struct SongDetailWrapper: Codable {
+        let reqID: String?
+        let result: SongDetailWrapperResult?
+        
+        enum CodingKeys: String, CodingKey {
+
+            case reqID = "reqID"
+            case result = "result"
+        }
+
+        init(from decoder: Decoder) throws {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            reqID = try values.decodeIfPresent(String.self, forKey: .reqID)
+            result = try values.decodeIfPresent(SongDetailWrapperResult.self, forKey: .result)
+            
+        }
+    }
+    
+    struct SongDetailWrapperResult: Codable {
+        let code: Int?
+        let message: String?
+        let langCode: String?
+        let data: SongDetailModel?
+        
+        enum CodingKeys: String, CodingKey {
+
+            case code = "code"
+            case message = "message"
+            case langCode = "langCode"
+            case data = "data"
+        }
+
+        init(from decoder: Decoder) throws {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            code = try values.decodeIfPresent(Int.self, forKey: .code)
+            message = try values.decodeIfPresent(String.self, forKey: .message)
+            langCode = try values.decodeIfPresent(String.self, forKey: .langCode)
+            data = try values.decodeIfPresent(SongDetailModel.self, forKey: .data)
+        }
+        
+    }
+}
 struct SongDetailModel : Codable {
 	let status : Bool?
     let soundcloudTrack : SongDetail.SoundcloudTrack?

@@ -23,6 +23,10 @@ class ShareScreenViewController: UIViewController {
         // Do any additional setup after loading the view.
         
     }
+    @IBAction func actionartist(_ sender: Any) {
+        let vc = ArtistViewController.loadFromNib()
+        self.navigationController?.push(destinVC: vc)
+    }
     
     @IBAction func actionAddplaylist(_ sender: Any) {
         guard let song = self.song else { return
