@@ -11,6 +11,7 @@ protocol MusicBarViewDelegate: AnyObject {
     func didSelectedPrevious()
     func didSelectedPlay()
     func didSelectedNext()
+    func didSelectedView()
 }
 
 class MusicBarView: UIView {
@@ -34,6 +35,12 @@ class MusicBarView: UIView {
     override func draw(_ rect: CGRect) {
         // Drawing code
         
+    }
+    
+    @IBAction func tapView(_ sender: Any) {
+        if let delegate = self.delegate {
+            delegate.didSelectedView()
+        }
     }
     
     @IBAction func actionPrevious(_ sender: Any) {

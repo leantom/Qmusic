@@ -135,5 +135,20 @@ extension UINavigationController {
         self.popViewController(animated: false)
     }
     
-    
+    func popWithCompletion(completion: (() -> Void)?) {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(completion)
+        if self.responds(to: #selector(getter: interactivePopGestureRecognizer)) {
+            self.interactivePopGestureRecognizer?.isEnabled = false
+        }
+        let transition:CATransition = CATransition()
+        transition.duration = 0.3
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.fade
+        transition.subtype = CATransitionSubtype.fromRight
+        self.view.layer.add(transition, forKey: nil)
+        self.popViewController(animated: false)
+        CATransaction.commit()
+      
+    }
 }

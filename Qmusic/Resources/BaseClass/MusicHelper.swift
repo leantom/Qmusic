@@ -446,8 +446,34 @@ class MusicHelper: NSObject {
         audioPlayer = nil
     }
     
+    func hiddenMusicBar(){
+        UIView.animate(withDuration: 0.25) {
+            self.musicBar.alpha = 0
+        } completion: { _ in
+            self.moveToSongDetail()
+        }
+    }
+    
+    func showMusicBar(){
+        UIView.animate(withDuration: 0.25) {
+            self.musicBar.alpha = 1
+        }
+    }
+    
+    private func moveToSongDetail(){
+        if let topController = appDelegate.getTopMostViewController(){
+            let vc = SongDetailViewController(hmm: "")
+            (topController as? UINavigationController)?.push(destinVC: vc)
+        }
+    }
 }
 extension MusicHelper: MusicBarViewDelegate {
+    func didSelectedView() {
+        self.hiddenMusicBar()
+        //MARK: Hidden Musicbar and show song detail
+        
+    }
+    
     func didSelectedPrevious() {
         self.previousSongInPlaylist()
     }

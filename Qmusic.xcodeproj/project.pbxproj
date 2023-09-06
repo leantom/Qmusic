@@ -230,6 +230,8 @@
 		FAD34CC32A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD34CC22A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift */; };
 		FAD34CC62A8CC319007FE90D /* ExploreTopTrendingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD34CC42A8CC319007FE90D /* ExploreTopTrendingTableViewCell.swift */; };
 		FAD34CC72A8CC319007FE90D /* ExploreTopTrendingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD34CC52A8CC319007FE90D /* ExploreTopTrendingTableViewCell.xib */; };
+		FAFDD1AA2AA831F200D9710E /* SongDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFDD1A82AA831F200D9710E /* SongDetailViewController.swift */; };
+		FAFDD1AB2AA831F200D9710E /* SongDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAFDD1A92AA831F200D9710E /* SongDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -463,6 +465,8 @@
 		FAD34CC22A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreGeezChartHeaderTableView.swift; sourceTree = "<group>"; };
 		FAD34CC42A8CC319007FE90D /* ExploreTopTrendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTopTrendingTableViewCell.swift; sourceTree = "<group>"; };
 		FAD34CC52A8CC319007FE90D /* ExploreTopTrendingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreTopTrendingTableViewCell.xib; sourceTree = "<group>"; };
+		FAFDD1A82AA831F200D9710E /* SongDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailViewController.swift; sourceTree = "<group>"; };
+		FAFDD1A92AA831F200D9710E /* SongDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1079,6 +1083,8 @@
 		FAFDD1A72AA831C700D9710E /* SongDetail */ = {
 			isa = PBXGroup;
 			children = (
+				FAFDD1A82AA831F200D9710E /* SongDetailViewController.swift */,
+				FAFDD1A92AA831F200D9710E /* SongDetailViewController.xib */,
 			);
 			path = SongDetail;
 			sourceTree = "<group>";
@@ -1269,6 +1275,7 @@
 				F9CE86932AA62F140036E9AA /* ArtistViewController.xib in Resources */,
 				F9670FED2A9D9251001FAC52 /* CymeButton.xib in Resources */,
 				F9D915272A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.xib in Resources */,
+				FAFDD1AB2AA831F200D9710E /* SongDetailViewController.xib in Resources */,
 				F975A5F72A8B81F100DA41B7 /* ExploreViewController.xib in Resources */,
 				F9B6AE722AA75E0D000704E8 /* SubAlbumArtistViewCell.xib in Resources */,
 				F969A7782A88BFCE00C8CA2F /* Assets.xcassets in Resources */,
@@ -1348,6 +1355,7 @@
 				F977A18B2A93663600D90B2E /* Contents.swift in Sources */,
 				F97E84112A9CD2DF00D6E4B2 /* Tracks.swift in Sources */,
 				F969A7732A88BFCD00C8CA2F /* ViewController.swift in Sources */,
+				FAFDD1AA2AA831F200D9710E /* SongDetailViewController.swift in Sources */,
 				F969A76F2A88BFCD00C8CA2F /* AppDelegate.swift in Sources */,
 				F977A1B72A94CBDB00D90B2E /* SongDetailAlbum.swift in Sources */,
 				F94F99E62A8A13D5005FA560 /* WEExtensions+UIApplication.swift in Sources */,

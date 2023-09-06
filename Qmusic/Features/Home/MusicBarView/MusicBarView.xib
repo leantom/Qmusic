@@ -83,6 +83,7 @@
                         </stackView>
                     </subviews>
                     <color key="backgroundColor" red="0.11841734499999999" green="0.12862429019999999" blue="0.1339474618" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstItem="Jma-dQ-RZ9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vkS-2f-TOa" secondAttribute="trailing" constant="8" id="14Q-cw-CZs"/>
                         <constraint firstItem="vkS-2f-TOa" firstAttribute="centerY" secondItem="IkN-Rf-ntZ" secondAttribute="centerY" id="65z-uF-QFN"/>
@@ -101,6 +102,9 @@
                             <real key="value" value="8"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="L7o-mI-IGR" appends="YES" id="JV0-Oj-Xfr"/>
+                    </connections>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -126,6 +130,11 @@
             </connections>
             <point key="canvasLocation" x="31.297709923664122" y="20.774647887323944"/>
         </view>
+        <tapGestureRecognizer id="L7o-mI-IGR">
+            <connections>
+                <action selector="tapView:" destination="iN0-l3-epB" id="JJS-XH-yLQ"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="album1_bg" width="188" height="188"/>
