@@ -30,7 +30,11 @@ class SongDetailViewController: UIViewController {
     @IBOutlet weak var lblTitleSong: UILabel!
     @IBOutlet weak var lblArtistSong: UILabel!
     @IBOutlet weak var lblDescSong: UILabel!
+    @IBOutlet weak var vPageControl: UIPageControl!
     
+    @IBOutlet weak var vScroll: UIScrollView!
+    
+    @IBOutlet weak var vTextView: UITextView!
     var step: Float = 0
     var isPlayMusic: Bool = true
     var isLoveSong: Bool = false
@@ -48,6 +52,10 @@ class SongDetailViewController: UIViewController {
         super.viewDidLoad()
         self.setupUI()
         self.setupRx()
+        self.vPageControl.numberOfPages = 2
+        self.vScroll.delegate = self
+        self.vTextView.textContainerInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+//        vPageControl.currentPage = indexPath.row
     }
     
     func setupRx() {
@@ -61,6 +69,9 @@ class SongDetailViewController: UIViewController {
                     self.lblDescSong.text = "..."
                 } else {
                     self.lyricDetail = value
+                    self.lblDescSong.text = value.first?.lyric
+                    let joinedText = value.map { $0.lyric }.joined(separator: "")
+                    self.setTextView(joinedText)
                 }
             })
             .disposed(by: homePageViewModel.disposeBag)
@@ -212,4 +223,41 @@ extension SongDetailViewController{
             self.vSlider.layoutIfNeeded()
         }
     }
+    
+    func setTextView(_ text: String) {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 8
+        // Lấy các thuộc tính font và màu từ UITextView
+        let existingAttributes: [NSAttributedString.Key : Any] = [
+            .font: self.vTextView.font as Any,
+            .foregroundColor: self.vTextView.textColor as Any,
+            .paragraphStyle: paragraphStyle
+        ]
+        let attributedString = NSAttributedString(string: text, attributes: existingAttributes)
+
+        self.vTextView.attributedText = attributedString
+    }
 }
+
+extension SongDetailViewController: UIScrollViewDelegate{
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.stoppedScrolling()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            self.stoppedScrolling()
+        }
+    }
+
+    func stoppedScrolling() {
+        let width = Double(self.view.frame.width)
+        let offSetX = self.vScroll.contentOffset.x
+        let currentScreen = (Double(offSetX) / width).rounded()
+        UIView.animate(withDuration: 0.2) {
+            self.vScroll.contentOffset = CGPoint(x: (width * currentScreen), y: 0)
+            self.vPageControl.currentPage = Int(currentScreen)
+        }
+    }
+}
+
