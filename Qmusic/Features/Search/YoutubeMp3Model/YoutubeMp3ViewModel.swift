@@ -50,7 +50,6 @@ class YoutubeMp3ViewModel: BaseViewModel {
         return 0
     }
     
-    
     func searchYoutube(with url: String) {
         let apiClient = NetworkManager.sharedInstance
         let api1 = apiClient.searchLinkMp3(linkURL: url)

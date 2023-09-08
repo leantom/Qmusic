@@ -121,4 +121,60 @@ extension NetworkManager {
         }
     }
     
+    //MARK: get artists
+    public func getArtist(by id: String)
+    -> Observable<ArtistDetailModel> {
+        
+        
+        var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/user?api=artist&artistId=1CWwyDPjCowRTO4p6A7r6g")!,timeoutInterval: Double.infinity)
+        request.addValue(self.jwt, forHTTPHeaderField: "auth")
+        request.addValue("false", forHTTPHeaderField: "isExpired")
+        
+       
+        request.httpMethod = "GET"
+       
+        
+        //MARK: creating our observable
+        return Observable.create { observer in
+            
+            //MARK: create URLSession dataTask
+            let session = URLSession.shared
+            let task = session.dataTask(with: request as URLRequest) { (data,
+                                                          response, error) in
+                if let httpResponse = response as? HTTPURLResponse{
+                    let statusCode = httpResponse.statusCode
+                    let jsonDecoder = JSONDecoder()
+                    do {
+                        let _data = data ?? Data()
+                        if (200...399).contains(statusCode) {
+                            let objs = try jsonDecoder.decode(ArtistDetailWrapper.self, from:
+                                                                _data)
+                            if let obj = objs.result?.data {
+                                observer.onNext(obj)
+                            } else {
+                                let err = NSError(domain:"", code:httpResponse.statusCode, userInfo:nil)
+                                observer.onError(err)
+                            }
+                        }
+                        else {
+                            let err = NSError(domain:"", code:httpResponse.statusCode, userInfo:nil)
+                            observer.onError(err)
+                        }
+                    } catch {
+                        //MARK: observer onNext event
+                        observer.onError(error)
+                    }
+                }
+                //MARK: observer onCompleted event
+                observer.onCompleted()
+            }
+            task.resume()
+            //MARK: return our disposable
+            return Disposables.create {
+                task.cancel()
+            }
+        }
+    }
+    
+    
 }

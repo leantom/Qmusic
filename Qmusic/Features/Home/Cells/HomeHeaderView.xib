@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,31 +12,46 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UITableViewHeaderFooterView"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB" customClass="HomeHeaderView" customModule="Qmusic" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HomeHeaderView" customModule="Qmusic" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Albums" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhy-eO-zKA">
-                    <rect key="frame" x="24" y="12" width="276" height="20"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dL2-gs-bDE">
-                    <rect key="frame" x="346" y="9" width="44" height="27"/>
-                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" title="View All"/>
-                    <connections>
-                        <action selector="actionViewAll:" destination="iN0-l3-epB" eventType="touchUpInside" id="QjL-Od-xXd"/>
-                    </connections>
-                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QMV-9D-hb2" userLabel="MainView">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Albums" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhy-eO-zKA">
+                            <rect key="frame" x="24" y="3" width="59" height="37"/>
+                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dL2-gs-bDE">
+                            <rect key="frame" x="346" y="8.6666666666666643" width="44" height="27"/>
+                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="View All"/>
+                            <connections>
+                                <action selector="actionViewAll:" destination="iN0-l3-epB" eventType="touchUpInside" id="QjL-Od-xXd"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="dL2-gs-bDE" secondAttribute="trailing" constant="24" id="EvJ-4T-XyP"/>
+                        <constraint firstItem="dL2-gs-bDE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fhy-eO-zKA" secondAttribute="trailing" constant="193" id="YDh-9d-QI3"/>
+                        <constraint firstItem="dL2-gs-bDE" firstAttribute="centerY" secondItem="QMV-9D-hb2" secondAttribute="centerY" id="YJc-Us-x3R"/>
+                        <constraint firstItem="fhy-eO-zKA" firstAttribute="top" secondItem="QMV-9D-hb2" secondAttribute="top" constant="3.3333333333333357" id="ern-6k-8VV"/>
+                        <constraint firstAttribute="bottom" secondItem="fhy-eO-zKA" secondAttribute="bottom" constant="3.6666666666666643" id="nLZ-M1-SW9"/>
+                        <constraint firstItem="fhy-eO-zKA" firstAttribute="leading" secondItem="QMV-9D-hb2" secondAttribute="leading" constant="24" id="yY1-bV-3Pj"/>
+                    </constraints>
+                </view>
             </subviews>
             <constraints>
-                <constraint firstItem="dL2-gs-bDE" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="lU0-Xv-j6D"/>
-                <constraint firstAttribute="trailing" secondItem="dL2-gs-bDE" secondAttribute="trailing" constant="24" id="nRe-P3-K0u"/>
+                <constraint firstAttribute="bottom" secondItem="QMV-9D-hb2" secondAttribute="bottom" id="CQn-Ko-hPp"/>
+                <constraint firstItem="QMV-9D-hb2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="J79-kR-Rmv"/>
+                <constraint firstAttribute="trailing" secondItem="QMV-9D-hb2" secondAttribute="trailing" id="fR7-qd-cJA"/>
+                <constraint firstItem="QMV-9D-hb2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qNR-2o-KRN"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

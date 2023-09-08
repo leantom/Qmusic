@@ -70,6 +70,8 @@ class HomeViewController: UIViewController {
         
         tbContent.register(UINib(nibName: "RecentlyMusicTableViewCell", bundle: nil), forCellReuseIdentifier: "RecentlyMusicTableViewCell")
         
+        tbContent.register(UINib(nibName: "HomeHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "HomeHeaderView")
+        
         tbContent.delegate = self
         tbContent.dataSource = self
         
@@ -80,14 +82,7 @@ class HomeViewController: UIViewController {
 
     func setupRx() {
         homePageModel.getHomePage()
-        if let data = AppSetting.shared.getHomeDataFromLocal() {
-            headerSections.append(.SpotifyChoice)
-            headerSections.append(.Charts)
-            headerSections.append(.PianoPeaceful)
-            headerSections.append(.Mood)
-            headerSections.append(.Popular_new_releases)
-            tbContent.reloadData()
-        }
+        
         homePageModel.output.SpotifysChoice.observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] value in
                 guard let self = self else { return }
@@ -147,17 +142,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         
-        let sectionHeader = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
-        
-        let homeHeaderView = HomeHeaderView.instantiate()
-        
-        homeHeaderView.lblTitle.text = homePageModel.getTitleSectionByID(by: section)
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HomeHeaderView") as! HomeHeaderView
+        header.lblTitle.text = homePageModel.getTitleSectionByID(by: section)
         if section != 0 {
-            homeHeaderView.btnViewAll.isHidden = true
+            header.btnViewAll.isHidden = true
         }
-        sectionHeader.addSubview(homeHeaderView)
-        homeHeaderView.layoutAttachAll()
-        return sectionHeader
+        return header
+       
        
     }
     

@@ -90,6 +90,12 @@ class RecentlyMusicTableViewCell: UITableViewCell {
         lblTitle.text = "\(index + 1)"
     }
     
+    func popuplate(with item: TopTracks, index: Int) {
+        lblArtist.text = item.name
+        lblNameSong.text = item.artists?.first?.name
+        widthContraintImg.constant = 0
+        lblTitle.text = "\(index + 1)"
+    }
     
     func popuplate(item: PlaylistModel.ItemsPlaylist, index: Int) {
         self.songInPlaylist = item

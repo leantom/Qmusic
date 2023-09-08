@@ -24,7 +24,7 @@ class ShareScreenViewController: UIViewController {
         
     }
     @IBAction func actionartist(_ sender: Any) {
-        let vc = ArtistViewController.loadFromNib()
+        let vc = ArtistViewController(id: song?.artists?.first?.id ?? "")
         self.navigationController?.push(destinVC: vc)
     }
     
@@ -42,6 +42,7 @@ class ShareScreenViewController: UIViewController {
         vc.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         self.present(vc, animated: true)
     }
+    
     @IBAction func actionShareSong(_ sender: Any) {
         guard let image = self.imgCover.image else {return}
         let imageToShare = [ image ]

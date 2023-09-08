@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,13 +14,13 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="96" id="KGk-i7-Jjw" customClass="AlbumArtistCell" customModule="Qmusic" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eWa-cD-tzs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="ED1C24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="90" id="ZZw-Zv-ye3"/>
                         </constraints>
@@ -34,18 +34,20 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="eWa-cD-tzs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="25m-E7-jOs"/>
-                    <constraint firstAttribute="bottom" secondItem="eWa-cD-tzs" secondAttribute="bottom" id="cP9-eo-JUH"/>
                     <constraint firstAttribute="trailing" secondItem="eWa-cD-tzs" secondAttribute="trailing" id="oaT-dt-x1x"/>
                     <constraint firstItem="eWa-cD-tzs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="uGB-Hd-gem"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="clContent" destination="eWa-cD-tzs" id="xGX-AW-yrg"/>
+            </connections>
             <point key="canvasLocation" x="59.541984732824424" y="38.028169014084511"/>
         </tableViewCell>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="ED1C24">
+            <color red="0.92900002002716064" green="0.10999999940395355" blue="0.14100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

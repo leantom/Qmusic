@@ -414,10 +414,7 @@ class NetworkManager: NSObject {
     // MARK: -- getDetailSong
     public func getDetailSong(id: String)
     -> Observable<SongDetailModel> {
-        let headers = [
-            "X-RapidAPI-Key": "LAW614Sbs9mshQpXupy9yRG24Aipp11WiV5jsn5q7O9MK5B2R0",
-            "X-RapidAPI-Host": "spotify-scraper.p.rapidapi.com"
-        ]
+        
 
         let request = NSMutableURLRequest(url: NSURL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/user?api=song&track=\(id)")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,

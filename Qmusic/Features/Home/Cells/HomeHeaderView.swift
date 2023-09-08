@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeHeaderView: UIView {
+class HomeHeaderView: UITableViewHeaderFooterView {
 
     /*
     // Only override draw() if you perform custom drawing.

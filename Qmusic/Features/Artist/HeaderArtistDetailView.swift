@@ -21,8 +21,10 @@ class HeaderArtistDetailView: UITableViewHeaderFooterView {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblSubDesc: UILabel!
     
-    @IBOutlet weak var lblDesc: UILabel!
-    @IBOutlet weak var btnPlaying: UIButton!
+    @IBOutlet weak var lblNumberListener: UILabel!
+    @IBOutlet weak var lblNumberFollower: UILabel!
+    
+    @IBOutlet weak var lblNumberAlbum: UILabel!
     weak var delegate: HeaderArtistDetailViewDelegate?
     var isTouchPlay : Bool = false
     
@@ -30,51 +32,14 @@ class HeaderArtistDetailView: UITableViewHeaderFooterView {
         // Drawing code
     }
     
-    func setupData(item: HomePage.Items) {
+    func setupData(item: ArtistDetailModel) {
         lblTitle.text = item.name
-        lblSubDesc.text = item.description
-        lblDesc.text = "\(item.trackCount ?? 0) tracks"
-    }
-    
-    func setupData(album: AlbumMetadata) {
-        lblTitle.text = album.name
-        lblSubDesc.text = album.artists?.first?.name
-        lblDesc.text = "\(album.trackCount ?? 0) tracks"
+        lblSubDesc.text = item.biography
+        lblNumberFollower.text = "\(item.stats?.followers ?? 0)"
+        lblNumberListener.text = "\(item.stats?.monthlyListeners ?? 0)"
+        lblNumberAlbum.text = "\(item.discography?.albums?.totalCount ?? 0)"
     }
     
     
-    func setPlaying() {
-        btnPlaying.setImage(UIImage(named: "ic_pause"), for: .normal)
-    }
     
-    func setPause() {
-        btnPlaying.setImage(UIImage(named: "ic_playing"), for: .normal)
-    }
-    
-    @IBAction func actionShufle(_ sender: Any) {
-       
-    }
-    
-    @IBAction func actionSkipPre(_ sender: Any) {
-       
-    }
-    
-    @IBAction func actionPauseOrPlaying(_ sender: Any) {
-       
-        isTouchPlay.toggle()
-        if isTouchPlay {
-            setPlaying()
-        } else {
-            setPause()
-        }
-        
-    }
-    
-    @IBAction func actionSkipNext(_ sender: Any) {
-        
-    }
-    
-    @IBAction func actionLoop(_ sender: Any) {
-       
-    }
 }
