@@ -25,10 +25,20 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="albums3_bg" translatesAutoresizingMaskIntoConstraints="NO" id="UYl-cE-af7">
                         <rect key="frame" x="0.0" y="0.0" width="124" height="128"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius_">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zH0-dz-7b7">
                         <rect key="frame" x="0.0" y="0.0" width="124" height="128"/>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.22352941179999999" blue="0.25882352939999997" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius_">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cho Một Tình Yêu (Original Soundtrack)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ae-FS-0K3">
                         <rect key="frame" x="10" y="39.333333333333329" width="104" height="49.333333333333329"/>
@@ -39,6 +49,7 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="zH0-dz-7b7" secondAttribute="trailing" id="7Yo-Qu-8B1"/>
                 <constraint firstItem="UYl-cE-af7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Akf-Re-WPa"/>
@@ -54,6 +65,10 @@
                 <constraint firstAttribute="bottom" secondItem="UYl-cE-af7" secondAttribute="bottom" id="ove-1X-bMC"/>
             </constraints>
             <size key="customSize" width="124" height="128"/>
+            <connections>
+                <outlet property="imgBg" destination="UYl-cE-af7" id="cex-4M-3FR"/>
+                <outlet property="lblName" destination="8ae-FS-0K3" id="dJq-u6-1vL"/>
+            </connections>
             <point key="canvasLocation" x="116.03053435114504" y="47.183098591549296"/>
         </collectionViewCell>
     </objects>

@@ -18,15 +18,17 @@ struct ArtistModel {
         let id : String?
         let name : String?
         let shareUrl : String?
-        let visuals : Visuals?
-
+        let label: String?
+        let cover: [PlaylistModel.Cover]?
+        
         enum CodingKeys: String, CodingKey {
 
             case type = "type"
             case id = "id"
             case name = "name"
             case shareUrl = "shareUrl"
-            case visuals = "visuals"
+            case label = "label"
+            case cover = "cover"
         }
 
         init(from decoder: Decoder) throws {
@@ -35,7 +37,8 @@ struct ArtistModel {
             id = try values.decodeIfPresent(String.self, forKey: .id)
             name = try values.decodeIfPresent(String.self, forKey: .name)
             shareUrl = try values.decodeIfPresent(String.self, forKey: .shareUrl)
-            visuals = try values.decodeIfPresent(Visuals.self, forKey: .visuals)
+            cover = try values.decodeIfPresent([PlaylistModel.Cover].self, forKey: .cover)
+            label = try values.decodeIfPresent(String.self, forKey: .label)
         }
 
     }

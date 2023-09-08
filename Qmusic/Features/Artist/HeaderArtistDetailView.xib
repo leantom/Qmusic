@@ -15,11 +15,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UITableViewHeaderFooterView">
-            <connections>
-                <outlet property="lblNumberAlbum" destination="n9N-G7-jjE" id="ghg-12-cRi"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UITableViewHeaderFooterView"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HeaderArtistDetailView" customModule="Qmusic" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="393" height="489"/>
@@ -193,6 +189,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="lblNumberAlbum" destination="n9N-G7-jjE" id="6FG-Rs-fb0"/>
                 <outlet property="lblNumberFollower" destination="d8x-a9-XYo" id="Vc5-EG-nN6"/>
                 <outlet property="lblNumberListener" destination="2cu-bd-Ztr" id="ll5-7L-L4I"/>
                 <outlet property="lblSubDesc" destination="ZwO-Pw-Wdd" id="eKY-1q-X0J"/>

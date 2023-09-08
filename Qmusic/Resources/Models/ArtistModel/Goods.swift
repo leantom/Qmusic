@@ -24,7 +24,7 @@ struct Goods : Codable {
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		concerts = try values.decodeIfPresent(Concerts.self, forKey: .concerts)
+		concerts = nil
 		merch = try values.decodeIfPresent([String].self, forKey: .merch)
 	}
 

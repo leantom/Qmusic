@@ -126,7 +126,7 @@ extension NetworkManager {
     -> Observable<ArtistDetailModel> {
         
         
-        var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/user?api=artist&artistId=1CWwyDPjCowRTO4p6A7r6g")!,timeoutInterval: Double.infinity)
+        var request = URLRequest(url: URL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/user?api=artist&artistId=\(id)")!,timeoutInterval: Double.infinity)
         request.addValue(self.jwt, forHTTPHeaderField: "auth")
         request.addValue("false", forHTTPHeaderField: "isExpired")
         
