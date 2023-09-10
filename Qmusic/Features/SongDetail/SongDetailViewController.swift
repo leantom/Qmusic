@@ -181,6 +181,17 @@ extension SongDetailViewController{
         return String(format: "%02d:%02d", minutes, remainingSeconds)
     }
     
+    func timeStringToSeconds(_ timeString: String) -> Float? {
+        let timeComponents = timeString.components(separatedBy: ":")
+        if timeComponents.count == 2,
+            let minutes = Float(timeComponents[0]),
+            let secondsAndMilliseconds = Float(timeComponents[1]) {
+            return (minutes * 60) + secondsAndMilliseconds
+        }
+        return nil
+    }
+
+    
     //MARK: setup firstlaunch
     func setupData(data: PlaylistModel.ItemsPlaylist) {
         
@@ -228,7 +239,7 @@ extension SongDetailViewController{
                 let roundedValue = round(slider.value / stepMs) * stepMs
                 let time = Int((roundedValue/stepMs).rounded()) / 1000
                 self.duration = time
-
+                self.updateUIWhenTimeChange()
                 MusicHelper.sharedHelper.rewindPlaying(time: Double(time))
                 self.isScrollSlider = false
             default:
@@ -239,10 +250,27 @@ extension SongDetailViewController{
     
     func moveSliderPositionTo(value: Float){
         UIView.animate(withDuration: 0.1) {
+            
             self.vSlider.value = (value * 1000) * self.stepMs
             self.vSlider.layoutIfNeeded()
             
             //MARK: HANDLE SCROLL LYRIC TIME
+            if let lyric = self.lyricDetail{
+                for (inde, _) in lyric.enumerated(){
+                    let time = self.timeStringToSeconds(lyric[inde].time) ?? 0
+                    if inde == lyric.count - 1{
+                        //MARK: current
+                        if value > time{
+                            self.vTable.scrollToRow(at: IndexPath(row: inde, section: 0), at: .top, animated: true)
+                        }
+                    } else {
+                        let nextTime = self.timeStringToSeconds(lyric[inde + 1].time) ?? 0
+                        if value > time && value < nextTime{
+                            self.vTable.scrollToRow(at: IndexPath(row: inde, section: 0), at: .top, animated: true)
+                        }
+                    }
+                }
+            }
         }
     }
     
