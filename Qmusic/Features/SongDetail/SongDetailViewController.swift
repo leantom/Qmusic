@@ -33,8 +33,8 @@ class SongDetailViewController: UIViewController {
     @IBOutlet weak var vPageControl: UIPageControl!
     
     @IBOutlet weak var vScroll: UIScrollView!
+    @IBOutlet weak var vTable: UITableView!
     
-    @IBOutlet weak var vTextView: UITextView!
     var step: Float = 0
     var isPlayMusic: Bool = true
     var isLoveSong: Bool = false
@@ -54,7 +54,7 @@ class SongDetailViewController: UIViewController {
         self.setupRx()
         self.vPageControl.numberOfPages = 2
         self.vScroll.delegate = self
-        self.vTextView.textContainerInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+//        self.vTextView.textContainerInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
 //        vPageControl.currentPage = indexPath.row
     }
     
@@ -70,8 +70,9 @@ class SongDetailViewController: UIViewController {
                 } else {
                     self.lyricDetail = value
                     self.lblDescSong.text = value.first?.lyric
-                    let joinedText = value.map { $0.lyric }.joined(separator: "")
-                    self.setTextView(joinedText)
+                    self.vTable.reloadData()
+//                    let joinedText = value.map { $0.lyric }.joined(separator: "")
+//                    self.setTextView(joinedText)
                 }
             })
             .disposed(by: homePageViewModel.disposeBag)
@@ -84,6 +85,13 @@ class SongDetailViewController: UIViewController {
     
    private func setupUI(){
         self.setupSlider()
+       self.setupTableView()
+    }
+    
+    private func setupTableView(){
+        self.vTable.delegate = self
+        self.vTable.dataSource = self
+        self.vTable.register(UINib(nibName: "SongDetail_LyricsTableViewCell", bundle: nil), forCellReuseIdentifier: "SongDetail_LyricsTableViewCell")
     }
     
     @IBAction func actionSlider(_ sender: UISlider) {
@@ -225,17 +233,17 @@ extension SongDetailViewController{
     }
     
     func setTextView(_ text: String) {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 8
-        // Lấy các thuộc tính font và màu từ UITextView
-        let existingAttributes: [NSAttributedString.Key : Any] = [
-            .font: self.vTextView.font as Any,
-            .foregroundColor: self.vTextView.textColor as Any,
-            .paragraphStyle: paragraphStyle
-        ]
-        let attributedString = NSAttributedString(string: text, attributes: existingAttributes)
-
-        self.vTextView.attributedText = attributedString
+//        let paragraphStyle = NSMutableParagraphStyle()
+//        paragraphStyle.lineSpacing = 8
+//        // Lấy các thuộc tính font và màu từ UITextView
+//        let existingAttributes: [NSAttributedString.Key : Any] = [
+//            .font: self.vTextView.font as Any,
+//            .foregroundColor: self.vTextView.textColor as Any,
+//            .paragraphStyle: paragraphStyle
+//        ]
+//        let attributedString = NSAttributedString(string: text, attributes: existingAttributes)
+//
+//        self.vTextView.attributedText = attributedString
     }
 }
 
@@ -261,3 +269,20 @@ extension SongDetailViewController: UIScrollViewDelegate{
     }
 }
 
+extension SongDetailViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.lyricDetail?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SongDetail_LyricsTableViewCell", for: indexPath) as! SongDetail_LyricsTableViewCell
+        if let data = self.lyricDetail{
+            let lyric = data[indexPath.row].lyric
+            cell.setupLyric(lyric)
+        }
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    
+}

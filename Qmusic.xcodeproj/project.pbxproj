@@ -250,6 +250,8 @@
 		FA429DD02A935819007EAE15 /* ExploreTopicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA429DCE2A935819007EAE15 /* ExploreTopicCollectionViewCell.xib */; };
 		FA429DD32A93582D007EAE15 /* ExploreTopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA429DD12A93582D007EAE15 /* ExploreTopicTableViewCell.swift */; };
 		FA429DD42A93582D007EAE15 /* ExploreTopicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA429DD22A93582D007EAE15 /* ExploreTopicTableViewCell.xib */; };
+		FA9290472AAB01EE000F9136 /* SongDetail_LyricsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9290452AAB01EE000F9136 /* SongDetail_LyricsTableViewCell.swift */; };
+		FA9290482AAB01EE000F9136 /* SongDetail_LyricsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9290462AAB01EE000F9136 /* SongDetail_LyricsTableViewCell.xib */; };
 		FAB458842A9DF6CB00E0C65F /* LyricDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB458832A9DF6CB00E0C65F /* LyricDetailModel.swift */; };
 		FAD34CC12A8CB886007FE90D /* ExploreGeezChartHeaderTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD34CC02A8CB886007FE90D /* ExploreGeezChartHeaderTableView.xib */; };
 		FAD34CC32A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD34CC22A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift */; };
@@ -510,6 +512,8 @@
 		FA429DCE2A935819007EAE15 /* ExploreTopicCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreTopicCollectionViewCell.xib; sourceTree = "<group>"; };
 		FA429DD12A93582D007EAE15 /* ExploreTopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTopicTableViewCell.swift; sourceTree = "<group>"; };
 		FA429DD22A93582D007EAE15 /* ExploreTopicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreTopicTableViewCell.xib; sourceTree = "<group>"; };
+		FA9290452AAB01EE000F9136 /* SongDetail_LyricsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetail_LyricsTableViewCell.swift; sourceTree = "<group>"; };
+		FA9290462AAB01EE000F9136 /* SongDetail_LyricsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongDetail_LyricsTableViewCell.xib; sourceTree = "<group>"; };
 		FAB458832A9DF6CB00E0C65F /* LyricDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricDetailModel.swift; sourceTree = "<group>"; };
 		FAD34CC02A8CB886007FE90D /* ExploreGeezChartHeaderTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreGeezChartHeaderTableView.xib; sourceTree = "<group>"; };
 		FAD34CC22A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreGeezChartHeaderTableView.swift; sourceTree = "<group>"; };
@@ -1179,9 +1183,19 @@
 			path = GeezChart;
 			sourceTree = "<group>";
 		};
+		FA9290442AAB01CF000F9136 /* SongDetail_Lyric */ = {
+			isa = PBXGroup;
+			children = (
+				FA9290452AAB01EE000F9136 /* SongDetail_LyricsTableViewCell.swift */,
+				FA9290462AAB01EE000F9136 /* SongDetail_LyricsTableViewCell.xib */,
+			);
+			path = SongDetail_Lyric;
+			sourceTree = "<group>";
+		};
 		FAFDD1A72AA831C700D9710E /* SongDetail */ = {
 			isa = PBXGroup;
 			children = (
+				FA9290442AAB01CF000F9136 /* SongDetail_Lyric */,
 				FAFDD1A82AA831F200D9710E /* SongDetailViewController.swift */,
 				FAFDD1A92AA831F200D9710E /* SongDetailViewController.xib */,
 			);
@@ -1328,6 +1342,7 @@
 				F969A7B42A88C18A00C8CA2F /* Roboto-BoldItalic.ttf in Resources */,
 				F96914B72A8D15C00092B4AD /* RadioPopularTableViewCell.xib in Resources */,
 				F96914C02A8D1A7F0092B4AD /* RadioWeeklyCollectionViewCell.xib in Resources */,
+				FA9290482AAB01EE000F9136 /* SongDetail_LyricsTableViewCell.xib in Resources */,
 				F975A5EA2A8B76B500DA41B7 /* HomeHeaderView.xib in Resources */,
 				F96914BB2A8D170A0092B4AD /* HeaderRadioView.xib in Resources */,
 				F975A5CF2A8B391800DA41B7 /* HomeAlbumsTableViewCell.xib in Resources */,
@@ -1447,6 +1462,7 @@
 				F9168DAF2AAA3B5900BA9D98 /* Result.swift in Sources */,
 				F94F99C72A8A13D5005FA560 /* WEExtensions+CGImage.swift in Sources */,
 				F9168DA62AAA3B5900BA9D98 /* ArtistItems.swift in Sources */,
+				FA9290472AAB01EE000F9136 /* SongDetail_LyricsTableViewCell.swift in Sources */,
 				F9CE868E2AA386120036E9AA /* Avatar.swift in Sources */,
 				FAD34CC62A8CC319007FE90D /* ExploreTopTrendingTableViewCell.swift in Sources */,
 				F97106E42A8FB551009F9013 /* NetworkManager.swift in Sources */,
@@ -1750,6 +1766,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = S3Y6BJQ8MM;
@@ -1768,6 +1785,7 @@
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cymestudio.cyme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -1782,6 +1800,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = S3Y6BJQ8MM;
@@ -1800,6 +1819,7 @@
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cymestudio.cyme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
