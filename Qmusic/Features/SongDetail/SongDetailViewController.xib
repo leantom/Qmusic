@@ -77,22 +77,22 @@
                             </constraints>
                         </view>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKH-vm-2jy">
-                            <rect key="frame" x="0.0" y="90.000000000000028" width="393" height="431.66666666666674"/>
+                            <rect key="frame" x="0.0" y="90" width="393" height="445"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dV3-0d-suS" userLabel="ScrollContainer">
-                                    <rect key="frame" x="0.0" y="0.0" width="786" height="431.66666666666669"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="786" height="445"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QtP-6J-Uy5" userLabel="ContainerFirst">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="431.66666666666669"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="445"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WNe-9u-5if" userLabel="ScreenFirst">
-                                                    <rect key="frame" x="30" y="0.0" width="333" height="431.66666666666669"/>
+                                                    <rect key="frame" x="30" y="0.0" width="333" height="445"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NUV-Ul-l6z" userLabel="ViewImageSong">
-                                                            <rect key="frame" x="0.0" y="0.0" width="333" height="326.33333333333331"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="333" height="334.66666666666669"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fXR-B8-TrY">
-                                                                    <rect key="frame" x="58.333333333333329" y="55.000000000000014" width="216.33333333333337" height="216.33333333333337"/>
+                                                                    <rect key="frame" x="58.333333333333329" y="58.999999999999986" width="216.33333333333337" height="216.66666666666663"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="fXR-B8-TrY" secondAttribute="height" id="Xdt-yy-tep"/>
                                                                     </constraints>
@@ -106,7 +106,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s2r-vz-8rQ" userLabel="ViewTextDescription">
-                                                            <rect key="frame" x="0.0" y="326.33333333333331" width="333" height="105.33333333333331"/>
+                                                            <rect key="frame" x="0.0" y="334.66666666666669" width="333" height="105.33333333333331"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JL6-9a-am4">
                                                                     <rect key="frame" x="0.0" y="0.0" width="333" height="42.333333333333336"/>
@@ -120,7 +120,7 @@
                                                                     <color key="textColor" name="WhiteBG"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zmm-WV-pmN">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zmm-WV-pmN">
                                                                     <rect key="frame" x="0.0" y="88.666666666666686" width="333" height="16.666666666666671"/>
                                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                                     <color key="textColor" red="0.79607843140000001" green="0.98431372549999996" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -150,7 +150,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="s2r-vz-8rQ" secondAttribute="trailing" id="a9R-66-n7M"/>
                                                         <constraint firstItem="s2r-vz-8rQ" firstAttribute="leading" secondItem="WNe-9u-5if" secondAttribute="leading" id="dkM-Gd-Dmw"/>
                                                         <constraint firstItem="s2r-vz-8rQ" firstAttribute="top" secondItem="NUV-Ul-l6z" secondAttribute="bottom" id="jUs-j7-XZe"/>
-                                                        <constraint firstAttribute="bottom" secondItem="s2r-vz-8rQ" secondAttribute="bottom" id="sCi-hy-Oqb"/>
+                                                        <constraint firstAttribute="bottom" secondItem="s2r-vz-8rQ" secondAttribute="bottom" constant="5" id="sCi-hy-Oqb"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -163,10 +163,10 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0VB-Rg-Qhf" userLabel="Container2st">
-                                            <rect key="frame" x="393" y="0.0" width="393" height="431.66666666666669"/>
+                                            <rect key="frame" x="393" y="0.0" width="393" height="445"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWh-oR-tFx" userLabel="ScreenFirst">
-                                                    <rect key="frame" x="30" y="0.0" width="333" height="431.66666666666669"/>
+                                                    <rect key="frame" x="30" y="0.0" width="333" height="445"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lyrics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvl-Fg-8OE">
                                                             <rect key="frame" x="0.0" y="9.9999999999999982" width="333" height="21.333333333333329"/>
@@ -175,7 +175,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sTL-QT-ypX">
-                                                            <rect key="frame" x="0.0" y="51.333333333333343" width="333" height="380.33333333333326"/>
+                                                            <rect key="frame" x="0.0" y="51.333333333333343" width="333" height="393.66666666666663"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </tableView>
                                                     </subviews>
@@ -224,7 +224,7 @@
                             </constraints>
                         </scrollView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R2o-ne-3AF" userLabel="ScreenFirst">
-                            <rect key="frame" x="30" y="541.66666666666663" width="333" height="217.33333333333337"/>
+                            <rect key="frame" x="30" y="555" width="333" height="184"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WrR-tM-0kX">
                                     <rect key="frame" x="33.333333333333343" y="0.0" width="266.33333333333326" height="24"/>
@@ -266,21 +266,21 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SwU-sM-Zil" userLabel="ViewSlider">
                                     <rect key="frame" x="0.0" y="44" width="333" height="56.666666666666657"/>
                                     <subviews>
-                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ajp-oA-qE6">
+                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ajp-oA-qE6">
                                             <rect key="frame" x="-2" y="0.0" width="337" height="31"/>
                                             <color key="tintColor" red="0.79607843137254897" green="0.98431372549019602" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="actionSlider:" destination="-1" eventType="valueChanged" id="Ubb-Ai-28d"/>
                                             </connections>
                                         </slider>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dl0-n3-QFs">
-                                            <rect key="frame" x="0.0" y="40" width="34" height="16.666666666666671"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dl0-n3-QFs">
+                                            <rect key="frame" x="0.0" y="40" width="35" height="16.666666666666671"/>
                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                             <color key="textColor" name="WhiteBG"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlT-9b-wko">
-                                            <rect key="frame" x="299" y="40" width="34" height="16.666666666666671"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlT-9b-wko">
+                                            <rect key="frame" x="298" y="40" width="35" height="16.666666666666671"/>
                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                             <color key="textColor" name="WhiteBG"/>
                                             <nil key="highlightedColor"/>
@@ -300,10 +300,10 @@
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="tFp-yN-UcT">
-                                    <rect key="frame" x="0.0" y="100.66666666666674" width="333" height="116.66666666666669"/>
+                                    <rect key="frame" x="0.0" y="100.66666666666663" width="333" height="83.333333333333314"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMc-OE-agb">
-                                            <rect key="frame" x="0.0" y="0.0" width="24" height="116.66666666666667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="24" height="83.333333333333329"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" image="shuffle"/>
                                             <connections>
@@ -311,7 +311,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ve-BE-JXk">
-                                            <rect key="frame" x="54" y="0.0" width="24" height="116.66666666666667"/>
+                                            <rect key="frame" x="62.333333333333329" y="0.0" width="24" height="83.333333333333329"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" image="skip_previous"/>
                                             <connections>
@@ -319,19 +319,19 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHV-t5-22J">
-                                            <rect key="frame" x="108.33333333333334" y="0.0" width="116.33333333333334" height="116.66666666666667"/>
+                                            <rect key="frame" x="125" y="0.0" width="83" height="83.333333333333329"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="xHV-t5-22J" secondAttribute="height" multiplier="1:1" id="Lbd-on-7rA"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                            <state key="normal" image="Playing"/>
+                                            <state key="normal" image="ic_songdetail_playing"/>
                                             <connections>
                                                 <action selector="actionPlay:" destination="-1" eventType="touchUpInside" id="ZuN-Iu-lRG"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1u-BT-pAM">
-                                            <rect key="frame" x="255" y="0.0" width="24" height="116.66666666666667"/>
+                                            <rect key="frame" x="246.66666666666669" y="0.0" width="24" height="83.333333333333329"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" image="skip_next"/>
                                             <connections>
@@ -339,7 +339,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFe-Ce-gix">
-                                            <rect key="frame" x="309" y="0.0" width="24" height="116.66666666666667"/>
+                                            <rect key="frame" x="309" y="0.0" width="24" height="83.333333333333329"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" image="loop"/>
                                             <connections>
@@ -348,7 +348,7 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="xHV-t5-22J" firstAttribute="width" secondItem="tFp-yN-UcT" secondAttribute="width" multiplier="0.35" id="zCP-h1-3ZC"/>
+                                        <constraint firstItem="xHV-t5-22J" firstAttribute="width" secondItem="tFp-yN-UcT" secondAttribute="width" multiplier="0.25" id="zCP-h1-3ZC"/>
                                     </constraints>
                                 </stackView>
                             </subviews>
@@ -385,7 +385,7 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="R2o-ne-3AF" secondAttribute="bottom" id="D1l-eB-Fha"/>
+                        <constraint firstAttribute="bottom" secondItem="R2o-ne-3AF" secondAttribute="bottom" constant="20" id="D1l-eB-Fha"/>
                         <constraint firstAttribute="trailing" secondItem="UKH-vm-2jy" secondAttribute="trailing" id="DwN-kR-mUf"/>
                         <constraint firstItem="UKH-vm-2jy" firstAttribute="leading" secondItem="LQY-uo-H2x" secondAttribute="leading" id="NeE-SX-rjq"/>
                         <constraint firstItem="UKH-vm-2jy" firstAttribute="top" secondItem="QbH-pa-X6O" secondAttribute="bottom" constant="5" id="OLU-Ps-VF4"/>
@@ -416,11 +416,11 @@
         </view>
     </objects>
     <resources>
-        <image name="Playing" width="133" height="133"/>
         <image name="ic_arrow_back" width="24" height="24.333333969116211"/>
         <image name="ic_explore_heart_white" width="24" height="24"/>
         <image name="ic_songdetail_add" width="24" height="24"/>
         <image name="ic_songdetail_download" width="24" height="24"/>
+        <image name="ic_songdetail_playing" width="93" height="93"/>
         <image name="ic_songdetail_share" width="24" height="24"/>
         <image name="loop" width="24" height="24"/>
         <image name="shuffle" width="24" height="24"/>

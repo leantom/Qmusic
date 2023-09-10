@@ -117,7 +117,7 @@ class MusicHelper: NSObject {
     }
     
     @objc func playerDidFinishPlaying(note: NSNotification) {
-        print("Video Finished")
+        print("Bài hát đã kết thúc phát.")
         musicBar.btnPlay.setImage(UIImage(named: "ic_playing_black"), for: .normal)
         MusicHelper.sharedHelper.setFinishedPlaying()
         NotificationCenter.default.post(name: .songplayfinished, object: nil)
@@ -125,19 +125,36 @@ class MusicHelper: NSObject {
     
     
     @objc func failedToPlayToEndTime(noti: NSNotification) {
-        print(noti)
+        print("Phát nhạc thất bại. Có lỗi xảy ra.")
+            // Thực hiện các biện pháp cần thiết để xử lý sự cố
     }
     
     @objc func playbackStalled(noti: NSNotification) {
-        print(noti)
+        print("Phát nhạc bị tạm dừng do lỗi kết nối hoặc nguồn dữ liệu không đủ.")
+            // Thực hiện các biện pháp cần thiết để xử lý sự cố
+
     }
     
     @objc func newAccessLogEntry(noti: NSNotification) {
-        print(noti)
+        if let currentItem = audioPlayer?.currentItem {
+                if let accessLog = currentItem.accessLog() {
+                    for logEntry in accessLog.events {
+                        print("Truy cập phân đoạn: \(logEntry)")
+                        // Thực hiện các biện pháp cần thiết để xử lý thông tin truy cập
+                    }
+                }
+            }
     }
     
     @objc func newErrorLogEntry(noti: NSNotification) {
-        print(noti)
+        if let currentItem = audioPlayer?.currentItem {
+              if let errorLog = currentItem.errorLog() {
+                  for logEntry in errorLog.events {
+                      print("Lỗi phát nhạc: \(logEntry)")
+                      // Thực hiện các biện pháp cần thiết để xử lý lỗi
+                  }
+              }
+          }
     }
     
     func shufflePlaylist() {
@@ -356,7 +373,12 @@ class MusicHelper: NSObject {
                     
                     Logger.log(message: "audioPlayer: \(String(describing: audioPlayer?.rate))", event: .d)
                     status = .Playing
-                    
+//
+//                    let observer = audioPlayer?.observe(\.currentTime, options: [.new]) { (player, change) in
+//                        guard let newTime = change.newValue else { return }
+//                        let currentTime = newTime.seconds
+//                        print("Thời gian đang chạy: \(currentTime) giây")
+//                    }
                 }
                 
             } catch let err{
@@ -511,7 +533,7 @@ class MusicHelper: NSObject {
                 print("Data Playlist isEmpty")
                 return
             }
-            let vc = SongDetailViewController(data: song)
+            let vc = SongDetailViewController(data: song, duration: self.musicBar.currentDuration)
             (topController as? UINavigationController)?.push(destinVC: vc)
         }
     }

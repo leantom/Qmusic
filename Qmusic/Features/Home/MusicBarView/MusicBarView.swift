@@ -26,6 +26,7 @@ class MusicBarView: UIView {
     weak var delegate:MusicBarViewDelegate?
     var durationMs: Int = 1 // số giây của bài hát
     var timer: Timer?
+    var currentDuration: Int = 0
     var isTogglePlaying = false
     /*
     // Only override draw() if you perform custom drawing.
@@ -54,14 +55,15 @@ class MusicBarView: UIView {
         isTogglePlaying.toggle()
         if isTogglePlaying {
             btnPlay.setImage(UIImage(named: "ic_playing"), for: .normal)
+            self.playMusic(with: self.currentDuration)
         } else {
             btnPlay.setImage(UIImage(named: "ic_pause"), for: .normal)
+            self.pausingMusic()
         }
         
         if let delegate = self.delegate {
             delegate.didSelectedPlay()
         }
-        stopMusic()
     }
     
     @IBAction func actionNext(_ sender: Any) {
@@ -74,6 +76,13 @@ class MusicBarView: UIView {
     func stopMusic() {
         timer?.invalidate()
         timer = nil
+        self.currentDuration = 0
+        self.widthContraintProcessingBar.constant = 0
+    }
+    
+    func pausingMusic() {
+        timer?.invalidate()
+        timer = nil
         self.widthContraintProcessingBar.constant = 0
     }
     
@@ -83,7 +92,7 @@ class MusicBarView: UIView {
     }
     
     @objc func animationProgressBar() {
-        
+        self.currentDuration += 1
         let width = Int(self.frame.width)
         let offset = width/durationMs
         if self.widthContraintProcessingBar.constant > self.frame.width {return}
