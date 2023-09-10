@@ -42,7 +42,7 @@ extension HomePage {
             name = try values.decodeIfPresent(String.self, forKey: .name)
             shareUrl = try values.decodeIfPresent(String.self, forKey: .shareUrl)
             description = try values.decodeIfPresent(String.self, forKey: .description)
-            trackCount = try values.decodeIfPresent(Int.self, forKey: .trackCount)
+            trackCount = 0
             owner = try values.decodeIfPresent(Owner.self, forKey: .owner)
             images = try values.decodeIfPresent([[Images]].self, forKey: .images)
         }

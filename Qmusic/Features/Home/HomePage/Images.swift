@@ -14,9 +14,9 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 import Foundation
 extension HomePage {
     struct Images : Codable {
-        let height : String?
+        let height : Int?
         let url : String?
-        let width : String?
+        let width : Int?
 
         enum CodingKeys: String, CodingKey {
 
@@ -27,9 +27,9 @@ extension HomePage {
 
         init(from decoder: Decoder) throws {
             let values = try decoder.container(keyedBy: CodingKeys.self)
-            height = try values.decodeIfPresent(String.self, forKey: .height)
+            height = try values.decodeIfPresent(Int.self, forKey: .height)
             url = try values.decodeIfPresent(String.self, forKey: .url)
-            width = try values.decodeIfPresent(String.self, forKey: .width)
+            width = try values.decodeIfPresent(Int.self, forKey: .width)
         }
 
     }

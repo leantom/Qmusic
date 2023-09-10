@@ -23,6 +23,7 @@ enum MusicTypePlaying {
     case Single
     case Playlist
     case YoutubeLink
+    case Artist
     case None
 }
 
@@ -35,7 +36,9 @@ class MusicHelper: NSObject {
     private var type:  MusicTypePlaying = .None
     private var playlist: PlaylistDetail?
     private var song: PlaylistModel.ItemsPlaylist?
+    private var songDetail: SongDetailModel?
     private var youtubeModel: YoutubeMp3Info?
+    private var topTracks: [TopTracks]?
     
     private var index: Int = 0
     var homePageViewModel = HomeViewModel()
@@ -187,7 +190,7 @@ class MusicHelper: NSObject {
     func rewindPlaying(time: Double) {
         let targetTime = CMTime(seconds: time, preferredTimescale: 1)
         audioPlayer?.seek(to: targetTime)
-        audioPlayer?.status
+        
     }
     
     // MARK: -- play with playlist
@@ -218,6 +221,36 @@ class MusicHelper: NSObject {
         
         
     }
+    
+    
+    // MARK: -- play with playlist
+    func playMusicWithArtist(link: String,
+                               with index: Int,
+                               with artistSongs: [TopTracks]) {
+        self.type = .Playlist
+        showProgressBar()
+        self.topTracks = artistSongs
+        self.index = index
+        if let items = topTracks,
+           items.count > index {
+            let item = items[index]
+            
+             musicBar.populate(nameSong: item.name ?? "",
+                               urlImage: item.album?.cover?.first?.url ?? "")
+            musicBar.stopMusic()
+            switch status {
+            case .None:
+                playMusicWithURL(link: link,
+                                 with: item.name ?? "cyme",
+                                 with: item.artists?.first?.name ?? "cyme")
+            case .Playing, .Pause, .Finished:
+                playMusicWithURL(link: link, with: item.name ?? "cyme", with: item.artists?.first?.name ?? "cyme")
+            }
+        }
+        
+        
+    }
+    
     // MARK: --playMusicWithYoutube
     func playMusicWithYoutube(link: String,
                               youtubeModel: YoutubeMp3Info,
@@ -297,6 +330,10 @@ class MusicHelper: NSObject {
                             musicBar.playMusic(with: durationMs/1000)
                         }
                     }
+                    
+                    
+                    
+                    
 
                     if let youtubeModel = self.youtubeModel {
                         musicBar.playMusic(with: Int(youtubeModel.duration))

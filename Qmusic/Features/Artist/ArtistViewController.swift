@@ -32,7 +32,10 @@ class ArtistViewController: UIViewController {
     
     var idArtist = ""
     var artistViewModel: ArtistViewModel?
+    var homeViewModel = HomeViewModel()
+    var indexPathSelected: IndexPath?
     
+    @IBOutlet weak var bottomContraintTableView: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -67,9 +70,29 @@ class ArtistViewController: UIViewController {
     }
     
     func setupRx() {
+        
+        homeViewModel.output.songdetail.observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                guard let self = self else { return }
+                if let toptrack = artistViewModel?.topTracks {
+                    MusicHelper.sharedHelper.playMusicWithArtist(link: value.soundcloudTrack?.audio?.first?.url ?? "",
+                                                                 with: indexPathSelected?.row ?? 0,
+                                                                 with: toptrack)
+                }
+                
+                
+            })
+            .disposed(by: homeViewModel.disposeBag)
+        
+        
         artistViewModel?.output.artisDetail.observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] value in
                 guard let self = self else { return }
+                if let urlstr = value.visuals?.avatar?.last?.url,
+                   let url = URL(string: urlstr)
+                {
+                    self.imgBg.setImage(from: url)
+                }
                 self.tbContent.reloadData()
             })
             .disposed(by: artistViewModel!.disposeBag)
@@ -121,7 +144,7 @@ extension ArtistViewController: UITableViewDelegate, UITableViewDataSource {
         case .Info, .Song:
             return tableView.estimatedRowHeight
         case .Album:
-            return 90
+            return 110
         }
     }
     
@@ -142,10 +165,28 @@ extension ArtistViewController: UITableViewDelegate, UITableViewDataSource {
             cell.selectionStyle = .none
             return cell
         case .Album:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumArtistCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumArtistCell", for: indexPath) as! AlbumArtistCell
+            cell.albums = artistViewModel?.albums
+            cell.setupUI()
             cell.selectionStyle = .none
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let tracks = artistViewModel?.topTracks,
+           let id = tracks[indexPath.row].id {
+            
+            homeViewModel.getSongDetail(id: id)
+            indexPathSelected = indexPath
+            
+            bottomContraintTableView.constant = 48
+            
+            
+        }
+        
+        
     }
     
 }

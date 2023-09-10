@@ -9,7 +9,7 @@ import UIKit
 
 class AlbumArtistCell: UITableViewCell {
     @IBOutlet weak var clContent: UICollectionView!
-    
+    var albums : [ArtistModel.Items]?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +19,10 @@ class AlbumArtistCell: UITableViewCell {
         clContent.register(UINib(nibName: "SubAlbumArtistViewCell", bundle: nil), forCellWithReuseIdentifier: "SubAlbumArtistViewCell")
     }
 
+    func setupUI() {
+        clContent.reloadData()
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -28,11 +32,22 @@ class AlbumArtistCell: UITableViewCell {
 }
 extension AlbumArtistCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        if let albums = self.albums {
+            return albums.count
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubAlbumArtistViewCell", for: indexPath) as! SubAlbumArtistViewCell
+        if let albums = self.albums {
+            let album = albums[indexPath.row]
+            cell.lblName.text = album.name
+            if let url = URL(string: album.cover?.last?.url ?? "") {
+                cell.imgBg.setImage(from: url)
+            }
+           
+        }
         
         return cell
     }
@@ -42,7 +57,7 @@ extension AlbumArtistCell: UICollectionViewDelegate, UICollectionViewDataSource,
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSizeMake(collectionView.frame.width - 20 , collectionView.frame.height)
+        return CGSizeMake((collectionView.frame.width - 20) / 3 , collectionView.frame.height)
     }
     
 }
