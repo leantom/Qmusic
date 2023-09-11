@@ -12,6 +12,7 @@ class AppColors {
     static let kPrimary = UIColor(named: "Primary")
     static let kBBD7BD = UIColor(named: "BBD7BD")
     static let kDDEBDE = UIColor(named: "DDEBDE")
+    static let kCBFB5E = UIColor(named: "CBFB5E")
     
     // Second( Orange)
     static let kFF965A = UIColor(named: "FF965A")

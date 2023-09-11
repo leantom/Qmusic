@@ -252,6 +252,8 @@
 		FA429DD42A93582D007EAE15 /* ExploreTopicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA429DD22A93582D007EAE15 /* ExploreTopicTableViewCell.xib */; };
 		FA9290472AAB01EE000F9136 /* SongDetail_LyricsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9290452AAB01EE000F9136 /* SongDetail_LyricsTableViewCell.swift */; };
 		FA9290482AAB01EE000F9136 /* SongDetail_LyricsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9290462AAB01EE000F9136 /* SongDetail_LyricsTableViewCell.xib */; };
+		FAA35BE42AAEB05E001BA099 /* SongDetailViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA35BE32AAEB05E001BA099 /* SongDetailViewController+UI.swift */; };
+		FAA35BE62AAEB094001BA099 /* SongDetailViewController+PlayMusicTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA35BE52AAEB094001BA099 /* SongDetailViewController+PlayMusicTimer.swift */; };
 		FAB458842A9DF6CB00E0C65F /* LyricDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB458832A9DF6CB00E0C65F /* LyricDetailModel.swift */; };
 		FAD34CC12A8CB886007FE90D /* ExploreGeezChartHeaderTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD34CC02A8CB886007FE90D /* ExploreGeezChartHeaderTableView.xib */; };
 		FAD34CC32A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD34CC22A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift */; };
@@ -514,6 +516,8 @@
 		FA429DD22A93582D007EAE15 /* ExploreTopicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreTopicTableViewCell.xib; sourceTree = "<group>"; };
 		FA9290452AAB01EE000F9136 /* SongDetail_LyricsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetail_LyricsTableViewCell.swift; sourceTree = "<group>"; };
 		FA9290462AAB01EE000F9136 /* SongDetail_LyricsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongDetail_LyricsTableViewCell.xib; sourceTree = "<group>"; };
+		FAA35BE32AAEB05E001BA099 /* SongDetailViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongDetailViewController+UI.swift"; sourceTree = "<group>"; };
+		FAA35BE52AAEB094001BA099 /* SongDetailViewController+PlayMusicTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongDetailViewController+PlayMusicTimer.swift"; sourceTree = "<group>"; };
 		FAB458832A9DF6CB00E0C65F /* LyricDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricDetailModel.swift; sourceTree = "<group>"; };
 		FAD34CC02A8CB886007FE90D /* ExploreGeezChartHeaderTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreGeezChartHeaderTableView.xib; sourceTree = "<group>"; };
 		FAD34CC22A8CB88D007FE90D /* ExploreGeezChartHeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreGeezChartHeaderTableView.swift; sourceTree = "<group>"; };
@@ -1198,6 +1202,8 @@
 				FA9290442AAB01CF000F9136 /* SongDetail_Lyric */,
 				FAFDD1A82AA831F200D9710E /* SongDetailViewController.swift */,
 				FAFDD1A92AA831F200D9710E /* SongDetailViewController.xib */,
+				FAA35BE32AAEB05E001BA099 /* SongDetailViewController+UI.swift */,
+				FAA35BE52AAEB094001BA099 /* SongDetailViewController+PlayMusicTimer.swift */,
 			);
 			path = SongDetail;
 			sourceTree = "<group>";
@@ -1431,6 +1437,7 @@
 				F9168DAA2AAA3B5900BA9D98 /* ArtistDetailModel.swift in Sources */,
 				F975A5D22A8B391800DA41B7 /* HomeWeeklyTableViewCell.swift in Sources */,
 				F94F99DA2A8A13D5005FA560 /* WEExtensions+UINib.swift in Sources */,
+				FAA35BE42AAEB05E001BA099 /* SongDetailViewController+UI.swift in Sources */,
 				F95B77B52AA2F7E500B8077B /* ShareScreenViewController.swift in Sources */,
 				F9168DBB2AAA3B5900BA9D98 /* Playlists.swift in Sources */,
 				F977A1A52A94AE5100D90B2E /* Playlist.swift in Sources */,
@@ -1586,6 +1593,7 @@
 				F9168D842AAA3A1200BA9D98 /* ArtistViewModel.swift in Sources */,
 				F975A5E62A8B394B00DA41B7 /* CarouselDataSource.swift in Sources */,
 				F9168DA52AAA3B5900BA9D98 /* Discography.swift in Sources */,
+				FAA35BE62AAEB094001BA099 /* SongDetailViewController+PlayMusicTimer.swift in Sources */,
 				F975A5FC2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.swift in Sources */,
 				F9CE868C2AA37B9E0036E9AA /* Discs.swift in Sources */,
 				F9B6AE6D2AA71713000704E8 /* AlbumArtistCell.swift in Sources */,

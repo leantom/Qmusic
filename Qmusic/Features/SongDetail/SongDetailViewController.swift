@@ -54,12 +54,6 @@ class SongDetailViewController: UIViewController {
         self.stepMs = 1 / Float(data.durationMs ?? 0)
     }
     
-    func updateUIWhenTimeChange(){
-        self.moveSliderPositionTo(value: Float(self.duration))
-        let min = self.millisecondsToMMSS(self.duration * 1000)
-        self.setupTextSlider(min: min)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
@@ -174,7 +168,7 @@ class SongDetailViewController: UIViewController {
 
 extension SongDetailViewController{
     
-    private func millisecondsToMMSS(_ milliseconds: Int) -> String {
+    func millisecondsToMMSS(_ milliseconds: Int) -> String {
         let seconds = milliseconds / 1000
         let minutes = seconds / 60
         let remainingSeconds = seconds % 60
@@ -185,7 +179,7 @@ extension SongDetailViewController{
         let timeComponents = timeString.components(separatedBy: ":")
         if timeComponents.count == 2,
             let minutes = Float(timeComponents[0]),
-            let secondsAndMilliseconds = Float(timeComponents[1]) {
+            let secondsAndMilliseconds = Float(timeComponents[1]) { 
             return (minutes * 60) + secondsAndMilliseconds
         }
         return nil
@@ -201,26 +195,6 @@ extension SongDetailViewController{
         UIView.animate(withDuration: 0.3) {
             self.btnPlay.setImage(UIImage(named: "ic_songdetail_pausing"), for: .normal)
         }
-    }
-    
-    func setupTextSlider(min: String){
-        self.lblSliderMin.text = min
-        self.lblSliderMax.text = self.songDetail?.durationText ?? "00:00"
-    }
-    
-    private func setupTextSong(data: PlaylistModel.ItemsPlaylist) {
-        self.lblTitleSong.text = data.name ?? ""
-        self.lblArtistSong.text = data.artists?.first?.name ?? ""
-        let urlImage = data.album?.cover?.first?.url ?? ""
-        if let url = URL(string: urlImage) {
-            self.imgSong.layer.masksToBounds = true
-            self.imgSong.layer.cornerRadius = self.imgSong.frame.height / 2
-            self.imgSong.setImage(from: url)
-        }
-    }
-    
-    func changeBackGroundImage(){
-        self.imgBackground.image = UIImage(named: "")
     }
     
     func setupSlider(){
@@ -248,31 +222,7 @@ extension SongDetailViewController{
         }
     }
     
-    func moveSliderPositionTo(value: Float){
-        UIView.animate(withDuration: 0.1) {
-            
-            self.vSlider.value = (value * 1000) * self.stepMs
-            self.vSlider.layoutIfNeeded()
-            
-            //MARK: HANDLE SCROLL LYRIC TIME
-            if let lyric = self.lyricDetail{
-                for (inde, _) in lyric.enumerated(){
-                    let time = self.timeStringToSeconds(lyric[inde].time) ?? 0
-                    if inde == lyric.count - 1{
-                        //MARK: current
-                        if value > time{
-                            self.vTable.scrollToRow(at: IndexPath(row: inde, section: 0), at: .top, animated: true)
-                        }
-                    } else {
-                        let nextTime = self.timeStringToSeconds(lyric[inde + 1].time) ?? 0
-                        if value > time && value < nextTime{
-                            self.vTable.scrollToRow(at: IndexPath(row: inde, section: 0), at: .top, animated: true)
-                        }
-                    }
-                }
-            }
-        }
-    }
+    
     
     func setTextView(_ text: String) {
 //        let paragraphStyle = NSMutableParagraphStyle()
@@ -289,76 +239,4 @@ extension SongDetailViewController{
     }
 }
 
-extension SongDetailViewController: UIScrollViewDelegate{
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.stoppedScrolling()
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate {
-            self.stoppedScrolling()
-        }
-    }
-
-    func stoppedScrolling() {
-        let width = Double(self.view.frame.width)
-        let offSetX = self.vScroll.contentOffset.x
-        let currentScreen = (Double(offSetX) / width).rounded()
-        UIView.animate(withDuration: 0.2) {
-            self.vScroll.contentOffset = CGPoint(x: (width * currentScreen), y: 0)
-            self.vPageControl.currentPage = Int(currentScreen)
-        }
-    }
-}
-
-extension SongDetailViewController: UITableViewDelegate, UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.lyricDetail?.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SongDetail_LyricsTableViewCell", for: indexPath) as! SongDetail_LyricsTableViewCell
-        if let data = self.lyricDetail{
-            let lyric = data[indexPath.row].lyric
-            cell.setupLyric(lyric)
-        }
-        cell.selectionStyle = .none
-        return cell
-    }
-    
-    
-}
-extension SongDetailViewController {
-    
-    func playMusic() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(animationProgressBar), userInfo: nil, repeats: true)
-    }
-
-    @objc func animationProgressBar() {
-        UIView.animate(withDuration: 1) {
-            self.imgSong.transform = self.imgSong.transform.rotated(by: .pi / 18) // xoay 10 độ
-        }
-        self.duration += 1
-        if !self.isScrollSlider{
-            self.updateUIWhenTimeChange()
-        }
-    }
-    
-    func stopTimer(){
-        self.timer?.invalidate()
-        self.timer = nil
-        self.duration = 0
-    }
-    
-    func pausingMusic(){
-        self.timer?.invalidate()
-        self.timer = nil
-    }
-    
-    func playingMusic(){
-        self.timer?.invalidate()
-        self.timer = nil
-        self.playMusic()
-    }
-}
 
