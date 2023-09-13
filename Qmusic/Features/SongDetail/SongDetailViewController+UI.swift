@@ -11,13 +11,22 @@ import UIKit
 extension SongDetailViewController{
     
     func moveToRow(_ row: Int){
+        if row > self.currentRowHighlight{
+            self.currentRowHighlight = row
+            self.scrollRowToTopAndHighlight(row)
+        }
+    }
+    
+    func scrollRowToTopAndHighlight(_ row: Int){
         self.lblDescSong.text = self.lyricDetail?[row].lyric ?? "..."
         let index = IndexPath(row: row, section: 0)
-        self.vTable.scrollToRow(at: index, at: .top, animated: true)
         
         print("Index highLight: \(row)")
-        let cell = self.vTable.cellForRow(at: index) as! SongDetail_LyricsTableViewCell
-        cell.highLightText()
+        self.lyricDetail?[row].isHighLight = true
+        self.vTable.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1 ){
+            self.vTable.scrollToRow(at: index, at: .top, animated: true)
+        }
     }
     
     func moveSliderPositionTo(value: Float){
@@ -83,7 +92,7 @@ extension SongDetailViewController: UIScrollViewDelegate{
             self.stoppedScrolling()
         }
     }
-
+    
     func stoppedScrolling() {
         let width = Double(self.view.frame.width)
         let offSetX = self.vScroll.contentOffset.x
@@ -102,11 +111,14 @@ extension SongDetailViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SongDetail_LyricsTableViewCell", for: indexPath) as! SongDetail_LyricsTableViewCell
-        if let data = self.lyricDetail{
-            let lyric = data[indexPath.row].lyric
-            cell.setupLyric(lyric)
+        if let detail = self.lyricDetail{
+            let data = detail[indexPath.row]
+            let lyric = data.lyric
+            let isHighlight = data.isHighLight ?? false
+            cell.setupLyric(lyric, isHighlight: isHighlight)
         }
         cell.selectionStyle = .none
         return cell
     }
+    
 }

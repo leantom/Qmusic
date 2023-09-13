@@ -11,9 +11,7 @@ class SongDetail_LyricsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lblLyric: UILabel!
     
-    var isHighlight = false
-    
-    func setupLyric(_ lyric: String) {
+    func setupLyric(_ lyric: String, isHighlight: Bool) {
         self.lblLyric.text =  lyric
         if isHighlight{
             self.lblLyric.textColor = AppColors.kCBFB5E
@@ -21,9 +19,10 @@ class SongDetail_LyricsTableViewCell: UITableViewCell {
             self.lblLyric.textColor = .white
         }
     }
-    
-    func highLightText(){
-        self.lblLyric.textColor = AppColors.kCBFB5E
-        print("Text highLight: \(self.lblLyric.text ?? "")")
-    }
+//
+//    func highLightText(){
+//        self.isHighlight = true
+//        self.lblLyric.textColor = AppColors.kCBFB5E
+//        print("Text highLight: \(self.lblLyric.text ?? "")")
+//    }
 }

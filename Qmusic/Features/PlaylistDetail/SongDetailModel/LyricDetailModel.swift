@@ -10,6 +10,7 @@ import Foundation
 struct LyricLineModel {
     var time: String
     var lyric: String
+    var isHighLight: Bool?
 }
 
 

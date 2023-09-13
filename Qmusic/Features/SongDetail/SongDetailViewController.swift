@@ -39,6 +39,7 @@ class SongDetailViewController: UIViewController {
     var isPlayMusic: Bool = true
     var isLoveSong: Bool = false
     var lyricDetail: [LyricLineModel]?
+    var currentRowHighlight: Int = -1
     
     var homePageViewModel: HomeViewModel?
     var songDetail: PlaylistModel.ItemsPlaylist?
