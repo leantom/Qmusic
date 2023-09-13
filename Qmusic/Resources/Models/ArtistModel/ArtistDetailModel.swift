@@ -57,8 +57,8 @@ struct ArtistDetailModel : Codable {
 		visuals = try values.decodeIfPresent(Visuals.self, forKey: .visuals)
 		playlists = try values.decodeIfPresent(Playlists.self, forKey: .playlists)
 		discography = try values.decodeIfPresent(Discography.self, forKey: .discography)
-		relatedContent = try values.decodeIfPresent(RelatedContent.self, forKey: .relatedContent)
-		goods = try values.decodeIfPresent(Goods.self, forKey: .goods)
+		relatedContent = nil
+		goods = nil
 	}
 
 }

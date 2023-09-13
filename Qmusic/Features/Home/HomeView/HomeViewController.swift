@@ -14,8 +14,8 @@ protocol HomeViewControllerDelegate: AnyObject {
 class HomeViewController: UIViewController {
 
     enum SectionHeader: Int {
-        case SpotifyChoice = 1
-        case Charts = 2
+        case Charts = 1
+        case SpotifyChoice = 2
         case PianoPeaceful = 3
         case Mood = 4
         case Popular_new_releases = 5
@@ -103,6 +103,9 @@ class HomeViewController: UIViewController {
                 headerSections.append(.PianoPeaceful)
                 headerSections.append(.Mood)
                 headerSections.append(.Popular_new_releases)
+                headerSections.sort { section1, section2 in
+                    return section1.rawValue < section2.rawValue
+                }
                 tbContent.reloadData()
             })
             .disposed(by: homePageModel.disposeBag)
