@@ -31,6 +31,7 @@ class HeaderArtistDetailView: UITableViewHeaderFooterView {
     
     override func draw(_ rect: CGRect) {
         // Drawing code
+        lblSubDesc.windless.start()
     }
     
     func setupData(item: ArtistDetailModel) {
@@ -44,7 +45,7 @@ class HeaderArtistDetailView: UITableViewHeaderFooterView {
         lblNumberFollower.text = "\(item.stats?.followers ?? 0)"
         lblNumberListener.text = "\(item.stats?.monthlyListeners ?? 0)"
         lblNumberAlbum.text = "\(item.discography?.albums?.totalCount ?? 0)"
-        lblSubDesc.windless.end()
+        
         
     }
     

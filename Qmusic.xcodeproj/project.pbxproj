@@ -914,7 +914,7 @@
 				F969A7A02A88C15500C8CA2F /* Fonts */,
 				F97EA3652A8EF1AB0096EC1E /* GoogleService-Info.plist */,
 				F96914A12A8C81F10092B4AD /* Lotties */,
-				F97106E32A8FB551009F9013 /* NetworkManager.swift */,
+				F9A0D9C12AB1C09A00EBFFA8 /* Network */,
 				F9168D852AAA3B4500BA9D98 /* Models */,
 				F97E84072A9CD11100D6E4B2 /* NetworkManager+GetAlbum.swift */,
 			);
@@ -1168,6 +1168,14 @@
 				F9838A802AA07FC100F0A5D0 /* ResetPasswordViewController.xib */,
 			);
 			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		F9A0D9C12AB1C09A00EBFFA8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F97106E32A8FB551009F9013 /* NetworkManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		F9CE86842AA37B9E0036E9AA /* AlbumMetadata */ = {
