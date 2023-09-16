@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 protocol HeaderArtistDetailViewDelegate: AnyObject {
     func didSelectFollow()
 }
@@ -30,14 +31,22 @@ class HeaderArtistDetailView: UITableViewHeaderFooterView {
     
     override func draw(_ rect: CGRect) {
         // Drawing code
+        lblSubDesc.windless.start()
     }
     
     func setupData(item: ArtistDetailModel) {
         lblTitle.text = item.name
-        lblSubDesc.text = item.biography
+        if let html = item.biography {
+            let _html = html.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
+
+            lblSubDesc.text = _html
+        }
+        
         lblNumberFollower.text = "\(item.stats?.followers ?? 0)"
         lblNumberListener.text = "\(item.stats?.monthlyListeners ?? 0)"
         lblNumberAlbum.text = "\(item.discography?.albums?.totalCount ?? 0)"
+        
+        
     }
     
     

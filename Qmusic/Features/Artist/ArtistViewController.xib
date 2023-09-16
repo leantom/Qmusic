@@ -17,6 +17,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArtistViewController" customModule="Qmusic" customModuleProvider="target">
             <connections>
                 <outlet property="bottomContraintTableView" destination="0sO-3E-prb" id="TRZ-eT-pzi"/>
+                <outlet property="btnLike" destination="k6w-Xc-Wwc" id="MUR-TE-tH4"/>
                 <outlet property="imgBg" destination="7jL-tL-iPg" id="Yfn-eH-vDE"/>
                 <outlet property="lblTitle" destination="JRR-8T-W7a" id="w6B-4g-xYg"/>
                 <outlet property="tbContent" destination="jbE-YB-PKS" id="FeH-vo-frR"/>
@@ -62,10 +63,29 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6w-Xc-Wwc">
+                                            <rect key="frame" x="309" y="6" width="60" height="32"/>
+                                            <color key="backgroundColor" red="0.054901960780000002" green="0.043137254899999998" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="fZ9-L6-U6k"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="LIKE">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius_">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="JRR-8T-W7a" firstAttribute="centerY" secondItem="bJ0-XE-vNE" secondAttribute="centerY" id="0vg-tw-SCy"/>
                                         <constraint firstItem="bvF-DX-0L7" firstAttribute="leading" secondItem="bJ0-XE-vNE" secondAttribute="leading" constant="10" id="4Rd-8E-WiZ"/>
+                                        <constraint firstItem="k6w-Xc-Wwc" firstAttribute="centerY" secondItem="bJ0-XE-vNE" secondAttribute="centerY" id="5YO-uz-c7o"/>
+                                        <constraint firstAttribute="trailing" secondItem="k6w-Xc-Wwc" secondAttribute="trailing" constant="24" id="N3w-gQ-3zl"/>
                                         <constraint firstItem="JRR-8T-W7a" firstAttribute="centerX" secondItem="bJ0-XE-vNE" secondAttribute="centerX" id="T4m-Eg-ZAv"/>
                                         <constraint firstItem="bvF-DX-0L7" firstAttribute="centerY" secondItem="bJ0-XE-vNE" secondAttribute="centerY" id="UkM-zB-8ad"/>
                                         <constraint firstAttribute="height" constant="44" id="r0Z-It-mV3"/>

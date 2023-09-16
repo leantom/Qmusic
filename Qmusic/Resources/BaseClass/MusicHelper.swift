@@ -171,6 +171,11 @@ class MusicHelper: NSObject {
             index += 1
             // MARK: -- call api to get song detail
             homePageViewModel.getSongDetail(id: item.id ?? "")
+        } else if let topTracks = self.topTracks {
+            let item = topTracks[index + 1]
+            index += 1
+            // MARK: -- call api to get song detail
+            homePageViewModel.getSongDetail(id: item.id ?? "")
         }
     }
     
@@ -347,25 +352,33 @@ class MusicHelper: NSObject {
                             musicBar.playMusic(with: durationMs/1000)
                         }
                     }
-                    
-                    
-                    
-                    
+                    if let items = topTracks,
+                       items.count > index {
+                        let item = items[index]
+                        if let song = AppSetting.shared.getSongDataFromLocal(id: item.id ?? ""),
+                        let durationMs = song.soundcloudTrack?.audio?.first?.durationMs {
+                            musicBar.playMusic(with: durationMs/1000)
+                        }
+                        
+                    }
 
                     if let youtubeModel = self.youtubeModel {
                         musicBar.playMusic(with: Int(youtubeModel.duration))
                     }
                     
                     self.audioPlayer = AVPlayer(url: url)
-                    
-                    
-                    let albumArt = MPMediaItemArtwork(image:  musicBar.imgAlbums.image!)
-                    
-                    let mpic = MPNowPlayingInfoCenter.default()
-                    mpic.nowPlayingInfo = [MPMediaItemPropertyTitle:tilte,
-                                          MPMediaItemPropertyArtist:artist,
-                                         MPMediaItemPropertyArtwork: albumArt
-                                           ]
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        if let image = self.musicBar.imgAlbums.image {
+                            let albumArt = MPMediaItemArtwork(image:  self.musicBar.imgAlbums.image!)
+                            
+                            let mpic = MPNowPlayingInfoCenter.default()
+                            mpic.nowPlayingInfo = [MPMediaItemPropertyTitle:tilte,
+                                                  MPMediaItemPropertyArtist:artist,
+                                                 MPMediaItemPropertyArtwork: albumArt
+                                                   ]
+                        }
+                    }
+                   
                     
                     Logger.log(message: "loaded song url", event: .e)
                     

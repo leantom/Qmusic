@@ -35,6 +35,9 @@ class ArtistViewController: UIViewController {
     var homeViewModel = HomeViewModel()
     var indexPathSelected: IndexPath?
     
+    @IBOutlet weak var btnLike: UIButton!
+    var headerView: HeaderArtistDetailView?
+    
     @IBOutlet weak var bottomContraintTableView: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,13 +58,14 @@ class ArtistViewController: UIViewController {
         
         tbContent.register(UINib(nibName: "AlbumArtistCell", bundle: nil), forCellReuseIdentifier: "AlbumArtistCell")
         
-        
         tbContent.register(UINib(nibName: "RecentlyMusicTableViewCell", bundle: nil), forCellReuseIdentifier: "RecentlyMusicTableViewCell")
         
         tbContent.register(UINib(nibName: "HeaderArtistDetailView", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderArtistDetailView")
         
         tbContent.register(UINib(nibName: "HomeHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "HomeHeaderView")
-        
+        if MusicHelper.sharedHelper.isShowing {
+            bottomContraintTableView.constant = 48
+        }
         setupRx()
     }
     
@@ -93,6 +97,7 @@ class ArtistViewController: UIViewController {
                 {
                     self.imgBg.setImage(from: url)
                 }
+                lblTitle.text = value.name
                 self.tbContent.reloadData()
             })
             .disposed(by: artistViewModel!.disposeBag)
@@ -112,7 +117,7 @@ extension ArtistViewController: UITableViewDelegate, UITableViewDataSource {
             if let artist = artistViewModel?.artistDetail {
                 header.setupData(item: artist)
             }
-            
+            headerView = header
             return header
             
         case .Song, .Album:
@@ -183,10 +188,23 @@ extension ArtistViewController: UITableViewDelegate, UITableViewDataSource {
             
             bottomContraintTableView.constant = 48
             
-            
         }
         
         
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let minValue: CGFloat = 0
+        let maxValue: CGFloat = 1
+        let heightHeader = headerView?.frame.height ?? 1
+        
+        let offset = 1 - scrollView.contentOffset.y/heightHeader
+        lblTitle.alpha = scrollView.contentOffset.y/heightHeader
+        btnLike.alpha = scrollView.contentOffset.y/heightHeader
+        let alphaOffset = min(max(offset, minValue), maxValue)
+        headerView?.alpha = alphaOffset
+        
+    }
+    
     
 }

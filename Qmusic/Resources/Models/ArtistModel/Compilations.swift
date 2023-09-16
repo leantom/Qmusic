@@ -14,7 +14,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 import Foundation
 struct Compilations : Codable {
 	let totalCount : Int?
-	let items : [String]?
+    let items : [ArtistModel.Items]?
 
 	enum CodingKeys: String, CodingKey {
 
@@ -25,7 +25,7 @@ struct Compilations : Codable {
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		totalCount = try values.decodeIfPresent(Int.self, forKey: .totalCount)
-		items = try values.decodeIfPresent([String].self, forKey: .items)
+		items = try values.decodeIfPresent([ArtistModel.Items].self, forKey: .items)
 	}
 
 }
