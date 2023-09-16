@@ -28,6 +28,7 @@ class HomeViewModel: BaseViewModel {
         let playlistDetail:PublishSubject<PlaylistDetail>
         let songdetail: PublishSubject<SongDetailModel>
         let lyricDetail: PublishSubject<[LyricLineModel]>
+        let trendingDetail: PublishSubject<DataResultTrending>
     }
     
     let input: Input
@@ -40,6 +41,7 @@ class HomeViewModel: BaseViewModel {
     let playlistDetailObserver = PublishSubject<PlaylistDetail>()
     let songdetailObserver = PublishSubject<SongDetailModel>()
     let lyricDetailObserver = PublishSubject<[LyricLineModel]>()
+    let trendingDetailObserver = PublishSubject<DataResultTrending>()
     
     var songdetail: SongDetailModel?
     let disposeBag = DisposeBag()
@@ -61,7 +63,8 @@ class HomeViewModel: BaseViewModel {
                              pianoAlbums: pianoAlbumsObserver,
                              playlistDetail: playlistDetailObserver,
                              songdetail: songdetailObserver,
-                             lyricDetail: lyricDetailObserver)
+                             lyricDetail: lyricDetailObserver,
+                             trendingDetail: trendingDetailObserver)
     }
     
     func getHomePage() {
@@ -252,4 +255,21 @@ class HomeViewModel: BaseViewModel {
         return ""
     }
     
+    func getTrending() {
+        let apiClient = NetworkManager.sharedInstance
+        apiClient.getTrending { result in
+            switch result {
+            case .success(let object):
+                DispatchQueue.main.async {
+                    guard let result = object.result, let data = result.data else {
+                        print("Err Trending")
+                        return
+                    }
+                    self.output.trendingDetail.onNext(data)
+                }
+            case .failure(_):
+             print("Err Trending")
+            }
+        }
+    }
 }

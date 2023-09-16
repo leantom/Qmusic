@@ -12,6 +12,45 @@ import RxCocoa
 class NetworkManager: NSObject {
     static let sharedInstance = NetworkManager()
     internal var jwt = ""
+    
+    func getTrending(completionHandler: @escaping(Result<TrendingModel, Error>) -> Void) {
+     
+    
+        let request = NSMutableURLRequest(url: NSURL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/user?api=trending")! as URL,
+                                                cachePolicy: .useProtocolCachePolicy,
+                                            timeoutInterval: 10.0)
+        
+        request.addValue(self.jwt, forHTTPHeaderField: "auth")
+        request.addValue("false", forHTTPHeaderField: "isExpired")
+        request.httpMethod = "GET"
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest) { data, response, error in
+            if (error != nil) {
+                print(error as Any)
+                completionHandler(.failure(error!))
+            } else {
+                let httpResponse = response as? HTTPURLResponse
+                let jsonDecoder = JSONDecoder()
+                
+                guard let data = data else {
+                    let err = NSError(domain:"", code:httpResponse?.statusCode ?? 1, userInfo:nil)
+                    completionHandler(.failure(err))
+                    return
+                }
+                do {
+                    let objs = try jsonDecoder.decode(TrendingModel.self, from: data)
+                    completionHandler(.success(objs))
+                } catch {
+                    completionHandler(.failure(error))
+                }
+            }
+        }
+
+
+        dataTask.resume()
+    }
+    
     // MARK: -- get link mp3 from youtube link
     func getLyric(id: String,
                        completionHandler: @escaping(Result<String, Error>) -> Void) {
@@ -694,3 +733,82 @@ struct YoutubeDataMP3: Codable {
 }
 
 
+struct TrendingModel : Codable {
+    let reqID : String?
+    let result : ResultTrending?
+
+    enum CodingKeys: String, CodingKey {
+
+        case reqID = "reqID"
+        case result = "result"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        reqID = try values.decodeIfPresent(String.self, forKey: .reqID)
+        result = try values.decodeIfPresent(ResultTrending.self, forKey: .result)
+    }
+
+}
+
+struct ResultTrending : Codable {
+    let code : Int?
+    let message : String?
+    let langCode : String?
+    let isCache : Bool?
+    let data : DataResultTrending?
+
+    enum CodingKeys: String, CodingKey {
+
+        case code = "code"
+        case message = "message"
+        case langCode = "langCode"
+        case isCache = "isCache"
+        case data = "data"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        code = try values.decodeIfPresent(Int.self, forKey: .code)
+        message = try values.decodeIfPresent(String.self, forKey: .message)
+        langCode = try values.decodeIfPresent(String.self, forKey: .langCode)
+        isCache = try values.decodeIfPresent(Bool.self, forKey: .isCache)
+        data = try values.decodeIfPresent(DataResultTrending.self, forKey: .data)
+    }
+
+}
+
+struct DataResultTrending : Codable {
+    let status : Bool?
+    let tracks : TracksTrending?
+
+    enum CodingKeys: String, CodingKey {
+
+        case status = "status"
+        case tracks = "tracks"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        status = try values.decodeIfPresent(Bool.self, forKey: .status)
+        tracks = try values.decodeIfPresent(TracksTrending.self, forKey: .tracks)
+    }
+
+}
+struct TracksTrending : Codable {
+    let totalCount : Int?
+    let items : [String]?
+
+    enum CodingKeys: String, CodingKey {
+
+        case totalCount = "totalCount"
+        case items = "items"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        totalCount = try values.decodeIfPresent(Int.self, forKey: .totalCount)
+        items = try values.decodeIfPresent([String].self, forKey: .items)
+    }
+
+}

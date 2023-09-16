@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 struct FakeSectonExplore{
     var title: String
@@ -21,6 +22,7 @@ enum TypeOfExploreSection: Int{
 class ExploreViewController: UIViewController {
 
     @IBOutlet weak var tbView: UITableView!
+    var homePageViewModel: HomeViewModel?
     
     let fakeDataGeekCharts = [FakeDataGeekchart(id: "01", name: "Nice For Wha", des: "Avinci Nhọ", image: "albums1"),
                     FakeDataGeekchart(id: "02", name: "Nice For Wha", des: "Avinci Nhọ", image: "albums2"),
@@ -44,6 +46,7 @@ class ExploreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initUI()
+        self.setupRx()
     }
     
     func initUI(){
@@ -51,6 +54,19 @@ class ExploreViewController: UIViewController {
         self.tbView.dataSource = self
         self.tbView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
         self.registerCell()
+    }
+    
+    func setupRx() {
+        self.homePageViewModel = HomeViewModel()
+        guard let homePageViewModel = self.homePageViewModel else {return}
+        homePageViewModel.getTrending()
+        
+        homePageViewModel.output.trendingDetail.observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                guard let self = self else { return }
+               print(value)
+            })
+            .disposed(by: homePageViewModel.disposeBag)
     }
     
     func registerCell(){
