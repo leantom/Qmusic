@@ -136,6 +136,12 @@ struct Request {
         let status: Int
     }
     
+    struct CommentSong: Codable {
+        let songId: String
+        let comment: String
+        
+    }
+    
 }
 
 

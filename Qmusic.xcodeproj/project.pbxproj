@@ -170,6 +170,10 @@
 		F975A5F92A8B81F100DA41B7 /* Explore_GeezChartSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5F32A8B81F100DA41B7 /* Explore_GeezChartSubView.swift */; };
 		F975A5FC2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5FA2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.swift */; };
 		F975A5FD2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F975A5FB2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib */; };
+		F97718B52AB35FC40069D5C4 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97718B32AB35FC40069D5C4 /* CommentViewController.swift */; };
+		F97718B62AB35FC40069D5C4 /* CommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F97718B42AB35FC40069D5C4 /* CommentViewController.xib */; };
+		F97718B92AB3641A0069D5C4 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97718B72AB3641A0069D5C4 /* CommentCell.swift */; };
+		F97718BA2AB3641A0069D5C4 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F97718B82AB3641A0069D5C4 /* CommentCell.xib */; };
 		F977A1802A9359B000D90B2E /* AppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F977A17F2A9359B000D90B2E /* AppSetting.swift */; };
 		F977A1882A93663600D90B2E /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = F977A1822A93663600D90B2E /* Genres.swift */; };
 		F977A1892A93663600D90B2E /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = F977A1832A93663600D90B2E /* Items.swift */; };
@@ -238,6 +242,7 @@
 		F9CE86932AA62F140036E9AA /* ArtistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9CE86912AA62F140036E9AA /* ArtistViewController.xib */; };
 		F9CE86962AA6313F0036E9AA /* HeaderArtistDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE86942AA6313F0036E9AA /* HeaderArtistDetailView.swift */; };
 		F9CE86972AA6313F0036E9AA /* HeaderArtistDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9CE86952AA6313F0036E9AA /* HeaderArtistDetailView.xib */; };
+		F9CFC8FA2AB3757000D23CB6 /* NetworkManager+Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CFC8F92AB3757000D23CB6 /* NetworkManager+Comment.swift */; };
 		F9D915222A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D915202A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.swift */; };
 		F9D915232A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9D915212A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.xib */; };
 		F9D915262A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D915242A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.swift */; };
@@ -306,6 +311,7 @@
 		F9168DA22AAA3B5900BA9D98 /* ArtistModelOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistModelOwner.swift; sourceTree = "<group>"; };
 		F9168DA32AAA3B5900BA9D98 /* Albums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Albums.swift; sourceTree = "<group>"; };
 		F9168DA42AAA3B5900BA9D98 /* Concerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Concerts.swift; sourceTree = "<group>"; };
+		F91AFC692AB2149F00196780 /* Qmusic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Qmusic.entitlements; sourceTree = "<group>"; };
 		F94F999C2A8A13D4005FA560 /* WEExtensions+Reactive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WEExtensions+Reactive.swift"; sourceTree = "<group>"; };
 		F94F999D2A8A13D4005FA560 /* WEExtensions+Number.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WEExtensions+Number.swift"; sourceTree = "<group>"; };
 		F94F999E2A8A13D4005FA560 /* FEExtension+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FEExtension+Sequence.swift"; sourceTree = "<group>"; };
@@ -442,6 +448,10 @@
 		F975A5F32A8B81F100DA41B7 /* Explore_GeezChartSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Explore_GeezChartSubView.swift; sourceTree = "<group>"; };
 		F975A5FA2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyMusicTableViewCell.swift; sourceTree = "<group>"; };
 		F975A5FB2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentlyMusicTableViewCell.xib; sourceTree = "<group>"; };
+		F97718B32AB35FC40069D5C4 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		F97718B42AB35FC40069D5C4 /* CommentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentViewController.xib; sourceTree = "<group>"; };
+		F97718B72AB3641A0069D5C4 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		F97718B82AB3641A0069D5C4 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		F977A17F2A9359B000D90B2E /* AppSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSetting.swift; sourceTree = "<group>"; };
 		F977A1822A93663600D90B2E /* Genres.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
 		F977A1832A93663600D90B2E /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
@@ -502,6 +512,7 @@
 		F9CE86912AA62F140036E9AA /* ArtistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistViewController.xib; sourceTree = "<group>"; };
 		F9CE86942AA6313F0036E9AA /* HeaderArtistDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderArtistDetailView.swift; sourceTree = "<group>"; };
 		F9CE86952AA6313F0036E9AA /* HeaderArtistDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderArtistDetailView.xib; sourceTree = "<group>"; };
+		F9CFC8F92AB3757000D23CB6 /* NetworkManager+Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+Comment.swift"; sourceTree = "<group>"; };
 		F9D915202A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenCellCollectionViewFirstCell.swift; sourceTree = "<group>"; };
 		F9D915212A97B7C5001F53B4 /* SplashScreenCellCollectionViewFirstCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenCellCollectionViewFirstCell.xib; sourceTree = "<group>"; };
 		F9D915242A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenCellCollectionViewSecondCell.swift; sourceTree = "<group>"; };
@@ -819,6 +830,7 @@
 		F969A76D2A88BFCD00C8CA2F /* Qmusic */ = {
 			isa = PBXGroup;
 			children = (
+				F91AFC692AB2149F00196780 /* Qmusic.entitlements */,
 				F969A79F2A88C13400C8CA2F /* Resources */,
 				F969A79E2A88C12300C8CA2F /* Components */,
 				F969A76E2A88BFCD00C8CA2F /* AppDelegate.swift */,
@@ -998,6 +1010,18 @@
 			path = ExploreSubViews;
 			sourceTree = "<group>";
 		};
+		F97718BB2AB364240069D5C4 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				F97718B32AB35FC40069D5C4 /* CommentViewController.swift */,
+				F97718B72AB3641A0069D5C4 /* CommentCell.swift */,
+				F97718B82AB3641A0069D5C4 /* CommentCell.xib */,
+				F97718B42AB35FC40069D5C4 /* CommentViewController.xib */,
+				F9CFC8FB2AB3759900D23CB6 /* Network */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
 		F977A17E2A93599900D90B2E /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -1111,6 +1135,7 @@
 				F969A7C02A88C4A000C8CA2F /* SplashScreenViewController */,
 				F9838A7E2AA04B3000F0A5D0 /* ForgotPassword */,
 				F95B77C02AA3746800B8077B /* AlbumDetail */,
+				F97718BB2AB364240069D5C4 /* Comment */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -1160,6 +1185,14 @@
 				F9B6AE702AA75E0D000704E8 /* SubAlbumArtistViewCell.xib */,
 			);
 			path = Artist;
+			sourceTree = "<group>";
+		};
+		F9CFC8FB2AB3759900D23CB6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F9CFC8F92AB3757000D23CB6 /* NetworkManager+Comment.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		FA429DC62A931D91007EAE15 /* TopTrending */ = {
@@ -1389,6 +1422,7 @@
 				F975A5F52A8B81F100DA41B7 /* ExploreGeezChartTableViewCell.xib in Resources */,
 				F969A7B02A88C18900C8CA2F /* Roboto-Light.ttf in Resources */,
 				F969A7BF2A88C49A00C8CA2F /* SplashScreenViewController.xib in Resources */,
+				F97718B62AB35FC40069D5C4 /* CommentViewController.xib in Resources */,
 				FAD34CC72A8CC319007FE90D /* ExploreTopTrendingTableViewCell.xib in Resources */,
 				F977A1A92A94C4B800D90B2E /* PlaylistDetailViewController.xib in Resources */,
 				F969A7B32A88C18A00C8CA2F /* Roboto-ThinItalic.ttf in Resources */,
@@ -1405,6 +1439,7 @@
 				F9D915272A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.xib in Resources */,
 				FAFDD1AB2AA831F200D9710E /* SongDetailViewController.xib in Resources */,
 				F975A5F72A8B81F100DA41B7 /* ExploreViewController.xib in Resources */,
+				F97718BA2AB3641A0069D5C4 /* CommentCell.xib in Resources */,
 				F9B6AE722AA75E0D000704E8 /* SubAlbumArtistViewCell.xib in Resources */,
 				F969A7782A88BFCE00C8CA2F /* Assets.xcassets in Resources */,
 				F969A7B62A88C18A00C8CA2F /* Roboto-Italic.ttf in Resources */,
@@ -1478,6 +1513,7 @@
 				F94F99C72A8A13D5005FA560 /* WEExtensions+CGImage.swift in Sources */,
 				F9168DA62AAA3B5900BA9D98 /* ArtistItems.swift in Sources */,
 				FA9290472AAB01EE000F9136 /* SongDetail_LyricsTableViewCell.swift in Sources */,
+				F97718B92AB3641A0069D5C4 /* CommentCell.swift in Sources */,
 				F9CE868E2AA386120036E9AA /* Avatar.swift in Sources */,
 				FAD34CC62A8CC319007FE90D /* ExploreTopTrendingTableViewCell.swift in Sources */,
 				F97106E42A8FB551009F9013 /* NetworkManager.swift in Sources */,
@@ -1585,7 +1621,9 @@
 				F94F99E02A8A13D5005FA560 /* WEExtensions+String.swift in Sources */,
 				F9168DB82AAA3B5900BA9D98 /* DiscoveredOn.swift in Sources */,
 				F9670FF12A9DA4C8001FAC52 /* LoginViewModel.swift in Sources */,
+				F9CFC8FA2AB3757000D23CB6 /* NetworkManager+Comment.swift in Sources */,
 				F9CE868B2AA37B9E0036E9AA /* Visuals.swift in Sources */,
+				F97718B52AB35FC40069D5C4 /* CommentViewController.swift in Sources */,
 				F97EA36B2A8F16E20096EC1E /* WEBaseSceneDelegate.swift in Sources */,
 				F969A7C62A88CF4B00C8CA2F /* SplashScreenCellCollectionViewCell.swift in Sources */,
 				F94F99D12A8A13D5005FA560 /* WEExtensions+UISlider.swift in Sources */,
@@ -1782,6 +1820,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Qmusic/Qmusic.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
@@ -1816,6 +1855,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Qmusic/Qmusic.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;

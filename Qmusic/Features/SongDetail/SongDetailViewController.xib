@@ -238,7 +238,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-o4-2ql">
-                                            <rect key="frame" x="80.666666666666657" y="0.0" width="24" height="24"/>
+                                            <rect key="frame" x="77.333333333333314" y="0.0" width="24" height="24"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" image="ic_songdetail_add"/>
                                             <connections>
@@ -246,7 +246,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBZ-1D-h5g">
-                                            <rect key="frame" x="161.66666666666666" y="0.0" width="24" height="24"/>
+                                            <rect key="frame" x="155" y="0.0" width="24" height="24"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" image="ic_explore_heart_white"/>
                                             <connections>
@@ -254,10 +254,14 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3A-lT-484">
-                                            <rect key="frame" x="242.33333333333334" y="0.0" width="24.000000000000028" height="24"/>
+                                            <rect key="frame" x="232.33333333333334" y="0.0" width="34.000000000000028" height="24"/>
+                                            <color key="tintColor" name="PureWhite"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                            <state key="normal" image="ic_songdetail_download"/>
+                                            <state key="normal" image="rectangle.and.pencil.and.ellipsis" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                            </state>
                                             <connections>
+                                                <action selector="actionComment:" destination="-1" eventType="touchUpInside" id="JD9-Bg-IbQ"/>
                                                 <action selector="actionDownload:" destination="-1" eventType="touchUpInside" id="LDQ-UD-5o5"/>
                                             </connections>
                                         </button>
@@ -419,15 +423,18 @@
         <image name="ic_arrow_back" width="24" height="24.333333969116211"/>
         <image name="ic_explore_heart_white" width="24" height="24"/>
         <image name="ic_songdetail_add" width="24" height="24"/>
-        <image name="ic_songdetail_download" width="24" height="24"/>
         <image name="ic_songdetail_playing" width="93" height="93"/>
         <image name="ic_songdetail_share" width="24" height="24"/>
         <image name="loop" width="24" height="24"/>
+        <image name="rectangle.and.pencil.and.ellipsis" catalog="system" width="128" height="80"/>
         <image name="shuffle" width="24" height="24"/>
         <image name="skip_next" width="24" height="24"/>
         <image name="skip_previous" width="24" height="24"/>
         <namedColor name="141131">
             <color red="0.054901960784313725" green="0.043137254901960784" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PureWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="WhiteBG">
             <color red="0.96899998188018799" green="0.97600001096725464" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

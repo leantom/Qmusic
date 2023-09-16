@@ -161,6 +161,14 @@ class SongDetailViewController: UIViewController {
         
     }
     
+    @IBAction func actionComment(_ sender: Any) {
+        guard let songDetail = self.songDetail else {
+            return
+        }
+        let vc = CommentViewController(data: songDetail)
+        self.navigationController?.push(destinVC: vc)
+    }
+    
 }
 
 extension SongDetailViewController{

@@ -11,7 +11,6 @@ import RxCocoa
 
 class NetworkManager: NSObject {
     static let sharedInstance = NetworkManager()
-    internal var jwt = ""
     
     func getTrending(completionHandler: @escaping(Result<TrendingModel, Error>) -> Void) {
      
@@ -51,6 +50,7 @@ class NetworkManager: NSObject {
         dataTask.resume()
     }
     
+    internal var jwt = UserDefaults.standard.jwt
     // MARK: -- get link mp3 from youtube link
     func getLyric(id: String,
                        completionHandler: @escaping(Result<String, Error>) -> Void) {
@@ -458,7 +458,6 @@ class NetworkManager: NSObject {
         let request = NSMutableURLRequest(url: NSURL(string: "https://c2ojyq8681.execute-api.ap-southeast-1.amazonaws.com/Prod/user?api=song&track=\(id)")! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
-        
         
         request.addValue(self.jwt, forHTTPHeaderField: "auth")
         request.addValue("false", forHTTPHeaderField: "isExpired")

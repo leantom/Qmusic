@@ -20,7 +20,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Qmusic" customModuleProvider="target">
             <connections>
-                <outlet property="btnApple" destination="XEu-xJ-tIa" id="4Tc-k7-Uan"/>
+                <outlet property="btnApple" destination="XEu-xJ-tIa" id="ccz-bh-9MM"/>
                 <outlet property="btnFacebook" destination="Zm9-ax-6DS" id="b8H-2h-HcL"/>
                 <outlet property="btnGoogle" destination="93j-q6-ac0" id="fnL-Bo-l5A"/>
                 <outlet property="mainView" destination="3pd-E6-5eM" id="1Qx-de-2Y7"/>
@@ -183,11 +183,11 @@
                                         <constraint firstItem="6yK-yU-V7c" firstAttribute="centerY" secondItem="KMn-Xi-rYi" secondAttribute="centerY" id="u3A-Y2-sxU"/>
                                     </constraints>
                                 </view>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="I2L-mO-NKs">
-                                    <rect key="frame" x="120" y="632" width="174" height="50"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="I2L-mO-NKs">
+                                    <rect key="frame" x="20" y="632" width="374" height="50"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zm9-ax-6DS">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="119.66666666666667" height="50"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" image="icons8-facebook">
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
@@ -197,7 +197,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93j-q6-ac0">
-                                            <rect key="frame" x="62" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="131.66666666666666" y="0.0" width="119.66666666666666" height="50"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" image="icons8-google">
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
@@ -206,16 +206,10 @@
                                                 <action selector="actionLoginWithGoogle:" destination="-1" eventType="touchUpInside" id="g21-CR-Mtk"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEu-xJ-tIa">
-                                            <rect key="frame" x="124" y="0.0" width="50" height="50"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEu-xJ-tIa" customClass="ASAuthorizationAppleIDButton">
+                                            <rect key="frame" x="263.33333333333331" y="0.0" width="110.66666666666669" height="50"/>
                                             <color key="tintColor" red="0.79607843140000001" green="0.98431372549999996" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                            <state key="normal">
-                                                <imageReference key="image" image="icons8-apple-logo-50()" symbolScale="large"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="actionLoginWithApple:" destination="-1" eventType="touchUpInside" id="hfr-jf-gc4"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -258,12 +252,14 @@
                             </subviews>
                             <constraints>
                                 <constraint firstItem="Mu0-8p-JHk" firstAttribute="leading" secondItem="3pd-E6-5eM" secondAttribute="leading" constant="40" id="3CJ-5u-y15"/>
+                                <constraint firstAttribute="trailing" secondItem="I2L-mO-NKs" secondAttribute="trailing" constant="20" id="4Sm-Kj-lvQ"/>
                                 <constraint firstItem="x0j-UM-Dnw" firstAttribute="leading" secondItem="3pd-E6-5eM" secondAttribute="leading" constant="40" id="4uH-5y-hju"/>
                                 <constraint firstItem="8Aa-e4-fo4" firstAttribute="leading" secondItem="3pd-E6-5eM" secondAttribute="leading" constant="40" id="91O-YY-Dkk"/>
                                 <constraint firstAttribute="trailing" secondItem="Mu0-8p-JHk" secondAttribute="trailing" constant="40" id="GEL-9S-TCd"/>
                                 <constraint firstItem="KMn-Xi-rYi" firstAttribute="leading" secondItem="3pd-E6-5eM" secondAttribute="leading" constant="40" id="HOP-5W-pPI"/>
                                 <constraint firstItem="AQL-Wg-fAU" firstAttribute="top" secondItem="I2L-mO-NKs" secondAttribute="bottom" constant="20" id="OLJ-DW-WoD"/>
                                 <constraint firstItem="odU-pk-Ntf" firstAttribute="top" secondItem="R8K-Vx-5jZ" secondAttribute="bottom" constant="36" id="RmQ-UM-ONc"/>
+                                <constraint firstItem="I2L-mO-NKs" firstAttribute="leading" secondItem="3pd-E6-5eM" secondAttribute="leading" constant="20" id="Vw0-AZ-9KV"/>
                                 <constraint firstItem="8Aa-e4-fo4" firstAttribute="top" secondItem="3pd-E6-5eM" secondAttribute="top" constant="5" id="WUl-pt-Rye"/>
                                 <constraint firstItem="AQL-Wg-fAU" firstAttribute="centerX" secondItem="3pd-E6-5eM" secondAttribute="centerX" id="Yf5-bX-9dA"/>
                                 <constraint firstItem="R8K-Vx-5jZ" firstAttribute="leading" secondItem="3pd-E6-5eM" secondAttribute="leading" constant="40" id="daP-LT-UYd"/>
@@ -307,7 +303,6 @@
     </objects>
     <resources>
         <image name="arrow.left" catalog="system" width="128" height="95"/>
-        <image name="icons8-apple-logo-50()" width="50" height="50"/>
         <image name="icons8-facebook" width="48" height="48"/>
         <image name="icons8-google" width="48" height="48"/>
         <image name="lock.fill" catalog="system" width="125" height="128"/>

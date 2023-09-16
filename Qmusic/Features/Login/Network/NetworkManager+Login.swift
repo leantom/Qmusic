@@ -36,6 +36,7 @@ extension NetworkManager {
                             //MARK: observer onNext event
                             observer.onNext(objs)
                             self.jwt = objs.result?.jwt ?? ""
+                            UserDefaults.standard.jwt = self.jwt
                         }
                         else {
                             let err = NSError(domain:"", code:httpResponse.statusCode, userInfo:nil)
@@ -65,7 +66,7 @@ extension NetworkManager {
    
         var request = URLRequest(url: URL(string: "\(Constants.urlHost)user?api=checkEmail")!,timeoutInterval: Double.infinity)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-
+        
         request.httpMethod = "POST"
         request.httpBody = postData
         
@@ -158,5 +159,10 @@ extension NetworkManager {
             }
         }
     }
+    
+    
+    
+    
+    
     
 }

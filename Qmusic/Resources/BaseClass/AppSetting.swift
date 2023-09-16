@@ -136,6 +136,7 @@ class AppSetting: NSObject {
 protocol IUserDefault {
     var isLogin: Bool { get set }
     var userName: String { get set }
+    var jwt: String { get set }
 }
 
 
@@ -158,10 +159,19 @@ extension UserDefaults: IUserDefault {
         }
     }
     
+    var jwt: String {
+        get {
+            return self.string(forKey: Keys.jwt) ?? ""
+        }
+        set {
+            self.setValue(newValue, forKey: Keys.jwt)
+        }
+    }
+    
     public enum Keys {
         static let isLogin = "isLogin"
         static let userName = "userName"
-        
+        static let jwt = "jwt"
     }
     
 }

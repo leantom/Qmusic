@@ -100,6 +100,21 @@ class PlaylistDetailViewController: UIViewController {
         self.navigationController?.pop()
     }
     
+    func addCommentSongTemp(songDetail: PlaylistModel.ItemsPlaylist) {
+        for _ in 1...3 {
+            NetworkManager.sharedInstance.getCommentPositiveChatGPT(name: songDetail.artists?.first?.name ?? "" , song: songDetail.name ?? "", songID: songDetail.id ?? "")
+            do {
+                sleep(2)
+            }
+        }
+        
+        for _ in 1...3 {
+            NetworkManager.sharedInstance.getCommentNegativeChatGPT(name: songDetail.artists?.first?.name ?? "" , song: songDetail.name ?? "", songID: songDetail.id ?? "")
+            do {
+                sleep(2)
+            }
+        }
+    }
 
     func setupRx() {
         if playlistDetail == nil,
@@ -107,10 +122,10 @@ class PlaylistDetailViewController: UIViewController {
             if let playlistDetail = AppSetting.shared.getPlaylistDataFromLocal(id: id),
                playlistDetail.contents != nil {
                 self.playlistDetail = playlistDetail
+               
                 self.tbContent.reloadData()
             } else {
                 self.homePageViewModel.getPlaylistDetail(id: id)
-                
                 
                 self.homePageViewModel.output.playlistDetail.observe(on: MainScheduler.instance)
                     .subscribe(onNext: { [weak self] value in
@@ -121,6 +136,13 @@ class PlaylistDetailViewController: UIViewController {
                     })
                     .disposed(by: self.homePageViewModel.disposeBag)
             }
+        } else {
+//            playlistDetail?.contents?.items?.forEach({ item in
+//                self.addCommentSongTemp(songDetail: item)
+//                do {
+//                    sleep(2)
+//                }
+//            })
         }
         homePageViewModel.output.songdetail.observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] value in
@@ -199,13 +221,16 @@ extension PlaylistDetailViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+//        
+//        let vc = CommentViewController.loadFromNib()
+//        self.navigationController?.push(destinVC: vc)
         
         self.indexPathSelected = indexPath
         if let indexs = tableView.indexPathsForVisibleRows {
             tbContent.reloadRows(at: indexs, with: .automatic)
         }
-        
-        
+
+
         if let playlistDetail = self.playlistDetail,
            let items = playlistDetail.contents?.items,
            let id = items[indexPath.row].id{

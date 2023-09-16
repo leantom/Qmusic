@@ -79,6 +79,26 @@ class LoginViewModel: BaseViewModel {
            
     }
     
+    
+    func signInDemo(req: Request.SignIn) {
+        let apiClient = NetworkManager.sharedInstance
+        
+        apiClient.signin(req: req).subscribe(
+            onNext: { result in
+                guard let code = result.result?.code else {
+                    self.output.error.onNext(.login("Đã có lỗi dưới BE"))
+                    return
+                }
+                if code == 0 {
+                    self.output.signin.onNext(result)
+                } else {
+                    self.output.error.onNext(.login(result.result?.message ?? ""))
+                }
+                
+            }).disposed(by: disposeBag)
+           
+    }
+    
     func checkEMail(email:String) {
         let apiClient = NetworkManager.sharedInstance
         
