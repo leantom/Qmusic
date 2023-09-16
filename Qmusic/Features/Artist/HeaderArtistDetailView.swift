@@ -31,7 +31,7 @@ class HeaderArtistDetailView: UITableViewHeaderFooterView {
     
     override func draw(_ rect: CGRect) {
         // Drawing code
-        lblSubDesc.windless.start()
+        
     }
     
     func setupData(item: ArtistDetailModel) {
