@@ -13,6 +13,15 @@ extension SongDetailViewController{
     func moveToRow(_ row: Int){
         if row > self.currentRowHighlight{
             self.currentRowHighlight = row
+            
+            if let lyrics = self.lyricDetail{
+                for (index, _) in lyrics.enumerated() {
+                    if index <= row {
+                        self.lyricDetail?[index].isHighLight = true
+                    }
+                }
+            }
+            
             self.scrollRowToTopAndHighlight(row)
         }
     }
@@ -48,6 +57,8 @@ extension SongDetailViewController{
                         let nextTime = self.timeStringToSeconds(lyric[inde + 1].time) ?? 0
                         if value > time && value < nextTime{
                             self.moveToRow(inde)
+                        } else  if value < time {
+                            print(inde)
                         }
                     }
                 }

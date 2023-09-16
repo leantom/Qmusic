@@ -61,8 +61,6 @@ class SongDetailViewController: UIViewController {
         self.setupRx()
         self.vPageControl.numberOfPages = 2
         self.vScroll.delegate = self
-//        self.vTextView.textContainerInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-//        vPageControl.currentPage = indexPath.row
     }
     
     func setupRx() {
@@ -78,8 +76,6 @@ class SongDetailViewController: UIViewController {
                     self.lyricDetail = value
                     self.lblDescSong.text = value.first?.lyric
                     self.vTable.reloadData()
-//                    let joinedText = value.map { $0.lyric }.joined(separator: "")
-//                    self.setTextView(joinedText)
                 }
             })
             .disposed(by: homePageViewModel.disposeBag)
@@ -179,8 +175,8 @@ extension SongDetailViewController{
     func timeStringToSeconds(_ timeString: String) -> Float? {
         let timeComponents = timeString.components(separatedBy: ":")
         if timeComponents.count == 2,
-            let minutes = Float(timeComponents[0]),
-            let secondsAndMilliseconds = Float(timeComponents[1]) { 
+           let minutes = Float(timeComponents[0]),
+           let secondsAndMilliseconds = Float(timeComponents[1]) {
             return (minutes * 60) + secondsAndMilliseconds
         }
         return nil
