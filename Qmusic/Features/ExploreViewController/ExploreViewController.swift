@@ -65,6 +65,9 @@ class ExploreViewController: UIViewController {
             .subscribe(onNext: { [weak self] value in
                 guard let self = self else { return }
                print(value)
+                self.tbView.reloadData()
+                
+                
             })
             .disposed(by: homePageViewModel.disposeBag)
     }

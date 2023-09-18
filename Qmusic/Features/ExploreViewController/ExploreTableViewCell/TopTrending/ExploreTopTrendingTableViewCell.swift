@@ -11,6 +11,7 @@ class ExploreTopTrendingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var clView: UICollectionView!
     @IBOutlet weak var vPageControl: UIPageControl!
+    var data: DataResultTrending?
     
     var dataCollection = [FakeExploreTopTrendingData(title: "Do it", des: "What the fuck are u doing", image: "splash_1", isLike: false),
                           FakeExploreTopTrendingData(title: "Do it", des: "What the fuck are u doing", image: "splash_2", isLike: false),
@@ -34,7 +35,10 @@ extension ExploreTopTrendingTableViewCell: UICollectionViewDataSource,
                                         UICollectionViewDelegate,
                                         UIScrollViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.dataCollection.count
+        if let data = self.data {
+            return data.tracks?.items?.count ?? 0
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -44,6 +48,9 @@ extension ExploreTopTrendingTableViewCell: UICollectionViewDataSource,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExploreTopTrendingCollectionViewCell", for: indexPath) as? ExploreTopTrendingCollectionViewCell else {return UICollectionViewCell()}
         let data = self.dataCollection[indexPath.row]
+        if let data = self.data {
+            
+        }
         cell.setupData(data, index: indexPath.row)
         cell.ontapLikeTrending = { index in
             self.dataCollection[index].isLike = !self.dataCollection[index].isLike

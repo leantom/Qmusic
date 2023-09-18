@@ -34,6 +34,18 @@ class ExploreTopTrendingCollectionViewCell: UICollectionViewCell {
         let image = data.isLike ? "ic_explore_heart_red" : "ic_explore_heart_white"
         self.btnLike.setImage(UIImage(named: image), for: .normal)
     }
+    
+    
+    func setupData(_ data: ResultTrending, index: Int){
+        self.data = data
+        self.index = index
+        self.lblTitle.text = data.title
+        self.lblDesc.text = data.des
+        self.imgMain.image = UIImage(named: data.image)
+        let image = data.isLike ? "ic_explore_heart_red" : "ic_explore_heart_white"
+        self.btnLike.setImage(UIImage(named: image), for: .normal)
+    }
+    
 
     @IBAction func actionLike(_ sender: Any) {
         let originalTransform = btnLike.transform
