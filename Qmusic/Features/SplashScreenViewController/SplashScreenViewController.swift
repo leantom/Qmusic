@@ -12,21 +12,23 @@ import Lottie
 class SplashScreenViewController: UIViewController {
     
     let listImage = ["splash_1", "splash_2", "splash_3", "splash_4", "splash_5", "splash_6"]
-    let titles = ["Your Melody, Your Mood",
-                  "Your Groove, Your Rules",
-                  "Drown in Sound, Elevate Your Soul",
-                  "Every Note, Every Emotion",
-                  "Harmonize Your Day with Cyme",
-                  "Discover, Stream, Repeat"
+    
+    let titles = ["Nhảy Vui, Nói Điên, Nhạc Hòa, Nghịch Múa",
+                    "Nhảy, Nói, Nghịch!",
+                    "Nhảy, Cười, Nhạc",
+                    "Vui Vẻ, Nhảy Nhót",
+                    "Nhạc Gây Cười, Nói Để Đùa",
+                    "Cười Ôm Nhạc, Nảy Khi Mê"
+]
+    
+    let contents = ["Giai điệu của bạn, tâm trạng của bạn",
+                  "Vì cuộc sống cần một chút nốt hài hước",
+                  "Khám phá, chia sẻ, và yêu âm nhạc",
+                  "Khi âm nhạc trở thành lý do tại sao bạn vẫn thức khuya.",
+                  "Thảo luận âm nhạc, múa bên dưới mái hiên.",
+                  "Nhảy múa theo nốt nhạc và thảo luận bựa về nó."
     ]
     
-    let contents = ["Cyme Delivers the Soundtrack to Your Life",
-                    "Cyme Customizes Your Music Experience.",
-                    "Cyme Takes You on a Musical Journey.",
-                    "Cyme Connects You to the Power of Music.",
-                    "Where Rhythm Meets Routine.",
-                    "Cyme Unlocks a World of Musical Exploration."
-]
     
     @IBOutlet weak var viewButton: UIView!
     @IBOutlet weak var clContent: UICollectionView!
@@ -210,6 +212,7 @@ extension SplashScreenViewController: UICollectionViewDataSource,
 }
 extension SplashScreenViewController: CymeButtonDelegate {
     func actionSelect(btn: UIButton) {
+        
         if AppSetting.shared.getStatusLogin() {
             let vc = HomeMasterViewController.loadFromNib()
             self.navigationController?.push(destinVC: vc)

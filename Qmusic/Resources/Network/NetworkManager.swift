@@ -338,14 +338,7 @@ class NetworkManager: NSObject {
     //MARK: getHomePage
     public func getHomePage()
     -> Observable<HomePageModel> {
-//        let headers = [
-//            "X-RapidAPI-Key": "LAW614Sbs9mshQpXupy9yRG24Aipp11WiV5jsn5q7O9MK5B2R0",
-//            "X-RapidAPI-Host": "spotify-scraper.p.rapidapi.com"
-//        ]
 
-//        let request = NSMutableURLRequest(url: NSURL(string: "https://spotify-scraper.p.rapidapi.com/v1/home?region=vn")! as URL,
-//                                                cachePolicy: .useProtocolCachePolicy,
-//                                            timeoutInterval: 10.0)
         
         var request = URLRequest(url: URL(string: "\(Constants.urlHost)user?api=songHome")!,timeoutInterval: Double.infinity)
         request.addValue(jwt, forHTTPHeaderField: "auth")
@@ -405,19 +398,7 @@ class NetworkManager: NSObject {
     //MARK: getPlaylistDetail
     public func getPlaylistDetail(id: String)
     -> Observable<PlaylistDetail> {
-        
-        
-//        let headers = [
-//            "X-RapidAPI-Key": "LAW614Sbs9mshQpXupy9yRG24Aipp11WiV5jsn5q7O9MK5B2R0",
-//            "X-RapidAPI-Host": "spotify-scraper.p.rapidapi.com"
-//        ]
-//
-//        let request = NSMutableURLRequest(url: NSURL(string: "https://spotify-scraper.p.rapidapi.com/v1/playlist/contents?playlistId=\(id)")! as URL,
-//                                                cachePolicy: .useProtocolCachePolicy,
-//                                            timeoutInterval: 10.0)
 
-        
-        
         var request = URLRequest(url: URL(string: "\(Constants.urlHost)user?api=playList&playlistId=\(id)")!,timeoutInterval: Double.infinity)
         request.addValue(jwt, forHTTPHeaderField: "auth")
         request.addValue("false", forHTTPHeaderField: "isExpired")

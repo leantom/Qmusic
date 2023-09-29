@@ -249,6 +249,7 @@ class MusicHelper: NSObject {
     func playMusicWithArtist(link: String,
                                with index: Int,
                                with artistSongs: [TopTracks]) {
+        
         self.type = .Playlist
         showProgressBar()
         self.topTracks = artistSongs

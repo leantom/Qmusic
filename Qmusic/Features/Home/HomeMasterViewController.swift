@@ -107,7 +107,7 @@ class HomeMasterViewController: UIViewController {
     @IBAction func actionExplore(_ sender: Any) {
         if currentType == .Explore {return}
         setupMenuBottom(type: .Explore, btn: sender as! UIButton)
-        lblTitle.text = "Explore"
+        lblTitle.text = "Khám phá"
         if let viewHome = exploreVC?.view {
             animationShowMainView(mainView: viewHome)
         }

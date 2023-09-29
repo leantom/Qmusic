@@ -92,7 +92,7 @@ class ExploreViewController: UIViewController {
     }
     
     func registerCell(){
-        self.tbView.register(UINib(nibName: "ExploreGeezChartTableViewCell", bundle: nil), forCellReuseIdentifier: "ExploreGeezChartTableViewCell")
+        self.tbView.register(UINib(nibName: "RecentlyMusicTableViewCell", bundle: nil), forCellReuseIdentifier: "RecentlyMusicTableViewCell")
         
         self.tbView.register(UINib(nibName: "ExploreTopTrendingTableViewCell", bundle: nil), forCellReuseIdentifier: "ExploreTopTrendingTableViewCell")
         
@@ -125,7 +125,17 @@ extension ExploreViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        guard let homePageViewModel = self.homePageViewModel else {return 0}
+        let type = TypeOfExploreSection(rawValue: section) ?? .GeekChart
+        switch type {
+        case .GeekChart:
+            return homePageViewModel.getItemsInChart()
+        case .TopTrending:
+            return 1
+        case .Topic:
+            return 1
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -145,13 +155,38 @@ extension ExploreViewController: UITableViewDelegate, UITableViewDataSource{
             }
         case .Topic:
             cell = tableView.dequeueReusableCell(withIdentifier: "ExploreTopicTableViewCell", for: indexPath) as! ExploreTopicTableViewCell
-            if let topic = cell as? ExploreTopicTableViewCell{
-                topic.setDataTopic(self.dataTopic)
+            if let topic = cell as? ExploreTopicTableViewCell,
+               let homePageViewModel = self.homePageViewModel {
+                topic.setDataTopic(homePageViewModel.getTopics())
             }
         }
         
         cell.selectionStyle = .none
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let type = TypeOfExploreSection(rawValue: indexPath.section) ?? .GeekChart
+        switch type {
+        case .GeekChart:
+            print("GeekChart")
+            if let track = homePageViewModel?.getItemChart(by: indexPath.row) {
+                homePageViewModel?.getSongDetail(id: track.id ?? "")
+            }
+            indexPathSelected = indexPath
+        case .TopTrending:
+            print("TopTrending")
+        case .Topic:
+            print("topic")
+        }
+    }
     
+}
+extension ExploreViewController: RecentlyMusicTableViewCellDelegate {
+    func didSelectShowDetail(cell: RecentlyMusicTableViewCell) {
+        if let song = cell.songSelectedInChart {
+            let vc = ShareScreenViewController(songInChart: song)
+            self.navigationController?.push(destinVC: vc)
+        }
+        
+    }
 }

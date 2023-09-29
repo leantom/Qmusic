@@ -31,6 +31,7 @@ class RecentlyMusicTableViewCell: UITableViewCell {
     var songInPlaylist:PlaylistModel.ItemsPlaylist?
     var playlistInHome:HomePage.Items?
     var album: AlbumDetailResp.Items?
+    var songSelectedInChart:TopTracks?
     
     @IBOutlet weak var widthContraintImg: NSLayoutConstraint!
     
@@ -91,9 +92,15 @@ class RecentlyMusicTableViewCell: UITableViewCell {
     }
     
     func popuplate(with item: TopTracks, index: Int) {
+        songSelectedInChart = item
         lblArtist.text = item.name
         lblNameSong.text = item.artists?.first?.name
-        widthContraintImg.constant = 0
+        if let urlImage = item.imageSong,
+           let url = URL(string: urlImage) {
+            self.imgAlbums.setImage(from: url) { result in
+                self.imgAlbums.image = result
+            }
+        }
         lblTitle.text = "\(index + 1)"
     }
     

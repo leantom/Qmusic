@@ -50,16 +50,16 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LqQ-oX-NvM">
-                                <rect key="frame" x="40" y="351.66666666666669" width="295" height="108.66666666666669"/>
+                                <rect key="frame" x="40" y="368" width="295" height="76"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME TO CYME APP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9x-bZ-vn2">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="65.666666666666671"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chào mừng đến Cyme" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9x-bZ-vn2">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="33"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="28"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tune In to Your World - CYME Puts Your Favorite Music at Your Fingertips." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGp-xw-3kf">
-                                        <rect key="frame" x="0.0" y="75.666666666666629" width="295" height="33"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hòa mình vào thế giới của bạn - CYME đưa âm nhạc yêu thích của bạn vào tầm tay bạn." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGp-xw-3kf">
+                                        <rect key="frame" x="0.0" y="43" width="295" height="33"/>
                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -67,7 +67,7 @@
                                 </subviews>
                             </stackView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="eJk-W5-XsD">
-                                <rect key="frame" x="120.66666666666667" y="580.33333333333337" width="133.66666666666663" height="26"/>
+                                <rect key="frame" x="120.66666666666667" y="564" width="133.66666666666663" height="26"/>
                                 <color key="currentPageIndicatorTintColor" red="0.79607843140000001" green="0.98431372549999996" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
                         </subviews>

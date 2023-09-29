@@ -35,13 +35,13 @@ extension ExploreTopTrendingTableViewCell: UICollectionViewDataSource,
                                            UIScrollViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let data = self.data {
-            return data.tracks?.items?.count ?? 0
+            return data.count
         }
         return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.clView.frame.width, height: self.clView.frame.height)
+        return CGSize(width: self.clView.frame.width - 40, height: self.clView.frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -64,5 +64,9 @@ extension ExploreTopTrendingTableViewCell: UICollectionViewDataSource,
             vPageControl.currentPage = indexPath.row
         }
     }
+    
+    
+    
+    
     
 }

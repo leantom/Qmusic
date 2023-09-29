@@ -6,6 +6,10 @@
 //
 
 import UIKit
+enum ShareScreenType {
+    case Chart
+    case Playlist
+}
 
 class ShareScreenViewController: UIViewController {
 
@@ -15,6 +19,8 @@ class ShareScreenViewController: UIViewController {
     
     @IBOutlet weak var imgCover: UIImageView!
     var song: PlaylistModel.ItemsPlaylist?
+    var songInChart:TopTracks?
+    var currentType: ShareScreenType = .Playlist
     
     @IBOutlet weak var bottomContraintMainView: NSLayoutConstraint!
     override func viewDidLoad() {
@@ -54,7 +60,7 @@ class ShareScreenViewController: UIViewController {
     }
     
     @IBAction func actionReport(_ sender: Any) {
-        
+        self.showError(title: "Thành công", desc: "Cảm ơn bạn đã báo cáo vi phạm")
     }
     
     @IBAction func actionAlbum(_ sender: Any) {
@@ -69,6 +75,9 @@ class ShareScreenViewController: UIViewController {
             bottomContraintMainView.constant = 74
         }
         
+        if currentType == .Chart {
+            self.setupUIChart()
+        }
         guard let song = self.song else { return
         }
         
@@ -80,9 +89,28 @@ class ShareScreenViewController: UIViewController {
         }
     }
     
+    func setupUIChart() {
+        guard let song = self.songInChart else { return
+        }
+        
+        lblArtist.text = song.artists?.first?.name
+        lblNameSong.text = song.name
+        
+        if let url = URL(string: song.imageSong ?? "") {
+            imgCover.setImage(from: url)
+        }
+    }
+    
     convenience init(song: PlaylistModel.ItemsPlaylist?) {
         self.init(nibName: "ShareScreenViewController", bundle: nil)
         self.song = song
+        currentType = .Playlist
+    }
+    
+    convenience init(songInChart: TopTracks?) {
+        self.init(nibName: "ShareScreenViewController", bundle: nil)
+        self.songInChart = songInChart
+        currentType = .Chart
     }
 
     @IBAction func actionClose(_ sender: Any) {

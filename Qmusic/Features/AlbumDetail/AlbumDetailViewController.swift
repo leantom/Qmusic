@@ -56,16 +56,13 @@ class AlbumDetailViewController: UIViewController {
         tbContent.register(UINib(nibName: "HeaderPlaylistDetailView", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderPlaylistDetailView")
         tbContent.delegate = self
         tbContent.dataSource = self
-        
-        
+
         
     }
     
     func setupRx() {
+        showLoading(on: self.view)
         albumViewModel.getAlbum(by: idSong)
-        
-        
-        
         
         albumViewModel.output.getAlbumMetadata.observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] value in
@@ -82,10 +79,10 @@ class AlbumDetailViewController: UIViewController {
         
         albumViewModel.output.getAlbumDetail.observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] value in
-                guard let self = self else { return }
-                self.albumDetail = value
-                self.tbContent.reloadData()
                 
+                self?.albumDetail = value
+                self?.tbContent.reloadData()
+                removeLoading(on: self!.view)
             })
             .disposed(by: self.albumViewModel.disposeBag)
         
@@ -95,7 +92,7 @@ class AlbumDetailViewController: UIViewController {
                 MusicHelper.sharedHelper.playMusicWithURL(link: value.soundcloudTrack?.audio?.first?.url ?? "",
                                                           with: value.spotifyTrack?.name ?? "",
                                                           with: value.spotifyTrack?.artists?.first?.name ?? "")
-                
+                removeLoading(on: self.view)
             })
             .disposed(by: homeViewModel.disposeBag)
         
@@ -194,6 +191,7 @@ extension AlbumDetailViewController: UITableViewDelegate, UITableViewDataSource,
             headerView?.setPlaying()
             bottomContraintTableView.constant = 48
             tbContent.reloadRows(at: [indexPath], with: .automatic)
+            showLoading(on: self.view)
         }
     }
     

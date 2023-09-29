@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class CommentViewController: UIViewController {
 
@@ -15,6 +16,7 @@ class CommentViewController: UIViewController {
     @IBOutlet weak var tvComment: UITextView!
     
     @IBOutlet weak var bottomKeyboardContraint: NSLayoutConstraint!
+    var commentViewModel: CommentViewModel?
     
     
     override func viewDidLoad() {
@@ -31,22 +33,44 @@ class CommentViewController: UIViewController {
           NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
 
         // Do any additional setup after loading the view.
+        setupRx()
     }
 
+    func setupRx() {
+        guard let songDetail = self.songDetail else {return}
+        commentViewModel = CommentViewModel(id: songDetail.id ?? "")
+        guard let commentViewModel = self.commentViewModel else {return}
+        commentViewModel.output.getComments.observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                guard let self = self else { return }
+                
+                self.tbContent.reloadData()
+            })
+            .disposed(by: commentViewModel.disposeBag)
+        // MARK: -- addComment
+        commentViewModel.output.addComment.observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                guard let self = self else { return }
+                
+                self.tbContent.reloadData()
+            })
+            .disposed(by: commentViewModel.disposeBag)
+        
+        commentViewModel.getComments()
+    }
+    
     @objc func keyboardWillShow(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             bottomKeyboardContraint.constant = keyboardSize.height
-            
         }
 
     }
 
     @objc func keyboardWillHide(notification: Notification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+        if ((notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             bottomKeyboardContraint.constant = 0
         }
     }
-    
     
     convenience init(data: PlaylistModel.ItemsPlaylist) {
         self.init(nibName: "CommentViewController", bundle: nil)
@@ -58,36 +82,29 @@ class CommentViewController: UIViewController {
     }
     
     @IBAction func actionSend(_ sender: Any) {
-        if let songDetail = self.songDetail {
-            for _ in 1...5 {
-                NetworkManager.sharedInstance.getCommentPositiveChatGPT(name: songDetail.artists?.first?.name ?? "" , song: songDetail.name ?? "", songID: songDetail.id ?? "")
-                do {
-                    sleep(2)
-                }
-            }
-            
-            for _ in 1...5 {
-                NetworkManager.sharedInstance.getCommentPositiveChatGPT(name: songDetail.artists?.first?.name ?? "" , song: songDetail.name ?? "", songID: songDetail.id ?? "")
-                do {
-                    sleep(2)
-                }
-            }
-            
+        guard let songDetail = self.songDetail else {return}
+        guard let commentViewModel = self.commentViewModel else {return}
+        if let comment = tvComment.text {
+            commentViewModel.addCommentSong(comment: comment)
+            self.view.endEditing(true)
+            tvComment.text = textDefault
         }
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            commentViewModel.getComments()
+        }
     }
-    
 }
+
 extension CommentViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 10
+        guard let commentViewModel = self.commentViewModel else {return 0}
+        return commentViewModel.getNumberOfObject()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentCell
-        
+        cell.setupData(comment: (commentViewModel?.getObject(at: indexPath.row))!)
         cell.selectionStyle = .none
         return cell
     }
@@ -97,6 +114,7 @@ extension CommentViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
 }
+
 extension CommentViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == textDefault {
