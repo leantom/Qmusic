@@ -11,29 +11,28 @@ class ExploreTopTrendingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var clView: UICollectionView!
     @IBOutlet weak var vPageControl: UIPageControl!
-    var data: DataResultTrending?
     
-    var dataCollection = [FakeExploreTopTrendingData(title: "Do it", des: "What the fuck are u doing", image: "splash_1", isLike: false),
-                          FakeExploreTopTrendingData(title: "Do it", des: "What the fuck are u doing", image: "splash_2", isLike: false),
-                          FakeExploreTopTrendingData(title: "Do it", des: "What the fuck are u doing", image: "splash_3", isLike: false),
-                          FakeExploreTopTrendingData(title: "Do it", des: "What the fuck are u doing", image: "splash_4", isLike: false)]
+    var data: Trending_DataResult?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.vPageControl.numberOfPages = dataCollection.count
+//        self.vPageControl.numberOfPages = self.data?.tracks?.items?.count ?? 0
+        self.vPageControl.numberOfPages = 3
         self.clView.delegate = self
         self.clView.dataSource = self
         clView.register(UINib(nibName: "ExploreTopTrendingCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ExploreTopTrendingCollectionViewCell")
     }
     
-    func setupPageControler() {
-        
+    func setDataChart(_ data: Trending_DataResult){
+        self.data = data
+        self.clView.reloadData()
     }
     
 }
 
 extension ExploreTopTrendingTableViewCell: UICollectionViewDataSource,
-                                        UICollectionViewDelegate,
-                                        UIScrollViewDelegate, UICollectionViewDelegateFlowLayout {
+                                           UICollectionViewDelegate,
+                                           UIScrollViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let data = self.data {
             return data.tracks?.items?.count ?? 0
@@ -47,13 +46,12 @@ extension ExploreTopTrendingTableViewCell: UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExploreTopTrendingCollectionViewCell", for: indexPath) as? ExploreTopTrendingCollectionViewCell else {return UICollectionViewCell()}
-        let data = self.dataCollection[indexPath.row]
-        if let data = self.data {
-            
-        }
-        cell.setupData(data, index: indexPath.row)
-        cell.ontapLikeTrending = { index in
-            self.dataCollection[index].isLike = !self.dataCollection[index].isLike
+        if let data = self.data, let tracks = data.tracks, let items = tracks.items {
+            let item = items[indexPath.row]
+            cell.setupData(item, index: indexPath.row)
+            cell.ontapLikeTrending = { index in
+    //            self.data[index].isLike = !self.dataCollection[index].isLike
+            }
         }
         return cell
     }

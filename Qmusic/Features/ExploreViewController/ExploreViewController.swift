@@ -24,12 +24,6 @@ class ExploreViewController: UIViewController {
     @IBOutlet weak var tbView: UITableView!
     var homePageViewModel: HomeViewModel?
     
-    let fakeDataGeekCharts = [FakeDataGeekchart(id: "01", name: "Nice For Wha", des: "Avinci Nhọ", image: "albums1"),
-                    FakeDataGeekchart(id: "02", name: "Nice For Wha", des: "Avinci Nhọ", image: "albums2"),
-                    FakeDataGeekchart(id: "03", name: "Nice For Wha", des: "Avinci Nhọ", image: "albums3"),
-                    FakeDataGeekchart(id: "04", name: "Nice For Wha", des: "Avinci Nhọ", image: "albums4"),
-                    FakeDataGeekchart(id: "05", name: "Nice For Wha", des: "Avinci Nhọ", image: "albums5")]
-    
     let dataTopic = [FakeDataTopic(name: "Help", image: "albums1"),
                 FakeDataTopic(name: "Me", image: "albums2"),
                 FakeDataTopic(name: "Bro", image: "albums3"),
@@ -42,6 +36,9 @@ class ExploreViewController: UIViewController {
     let fakeSection = [FakeSectonExplore(title: "Geez Chart", button: "ViewAll"),
                        FakeSectonExplore(title: "Top Trending", button: ""),
                        FakeSectonExplore(title: "Topic", button: "ViewAll")]
+    var dataTrending: Trending_DataResult?
+    var dataChart: Trending_DataResult?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,17 +56,39 @@ class ExploreViewController: UIViewController {
     func setupRx() {
         self.homePageViewModel = HomeViewModel()
         guard let homePageViewModel = self.homePageViewModel else {return}
-        homePageViewModel.getTrending()
+        let callData = DispatchGroup()
+        
+        callData.enter()
+        homePageViewModel.getTrending {
+            callData.leave()
+        }
+        
+        callData.enter()
+        homePageViewModel.getExploreChart {
+            callData.leave()
+        }
+        
+        callData.notify(queue: .main, execute: { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                guard let self = self else {return}
+                self.tbView.reloadData()
+            }
+        })
         
         homePageViewModel.output.trendingDetail.observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] value in
                 guard let self = self else { return }
-               print(value)
-                self.tbView.reloadData()
-                
-                
+                self.dataTrending = value
             })
             .disposed(by: homePageViewModel.disposeBag)
+        
+        homePageViewModel.output.chartDetail.observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                guard let self = self else { return }
+                self.dataChart = value
+            })
+            .disposed(by: homePageViewModel.disposeBag)
+
     }
     
     func registerCell(){
@@ -116,11 +135,14 @@ extension ExploreViewController: UITableViewDelegate, UITableViewDataSource{
         switch type {
         case .GeekChart:
             cell = (tableView.dequeueReusableCell(withIdentifier: "ExploreGeezChartTableViewCell", for: indexPath) as! ExploreGeezChartTableViewCell)
-            if let geek = cell as? ExploreGeezChartTableViewCell{
-                geek.setupDataGeekChart(data: self.fakeDataGeekCharts)
+            if let geek = cell as? ExploreGeezChartTableViewCell, let data = self.dataChart{
+                geek.setupDataGeekChart(data: data)
             }
         case .TopTrending:
             cell = tableView.dequeueReusableCell(withIdentifier: "ExploreTopTrendingTableViewCell", for: indexPath) as! ExploreTopTrendingTableViewCell
+            if let trending = cell as? ExploreTopTrendingTableViewCell , let data = self.dataTrending{
+                trending.setDataChart(data)
+            }
         case .Topic:
             cell = tableView.dequeueReusableCell(withIdentifier: "ExploreTopicTableViewCell", for: indexPath) as! ExploreTopicTableViewCell
             if let topic = cell as? ExploreTopicTableViewCell{

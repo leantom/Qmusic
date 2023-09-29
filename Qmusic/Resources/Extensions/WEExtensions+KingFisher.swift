@@ -69,7 +69,7 @@ extension String {
 
 extension UIButton {
     func setImage(from url: URL) {
-        let source = ImageResource(downloadURL: url)
+        let source = KF.ImageResource(downloadURL: url)
         kf.setImage(with: source, for: .normal)
     }
 }

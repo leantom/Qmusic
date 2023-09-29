@@ -249,6 +249,7 @@
 		F9D915272A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9D915252A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.xib */; };
 		F9D9152A2A97B9CD001F53B4 /* SplashScreenCellCollectionViewThirdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D915282A97B9CD001F53B4 /* SplashScreenCellCollectionViewThirdCell.swift */; };
 		F9D9152B2A97B9CD001F53B4 /* SplashScreenCellCollectionViewThirdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9D915292A97B9CD001F53B4 /* SplashScreenCellCollectionViewThirdCell.xib */; };
+		FA3B7DB52AC58F2A00C3DEA7 /* TrendingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B7DB42AC58F2A00C3DEA7 /* TrendingModel.swift */; };
 		FA429DC92A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA429DC72A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.swift */; };
 		FA429DCA2A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA429DC82A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.xib */; };
 		FA429DCF2A935819007EAE15 /* ExploreTopicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA429DCD2A935819007EAE15 /* ExploreTopicCollectionViewCell.swift */; };
@@ -519,6 +520,7 @@
 		F9D915252A97B7D7001F53B4 /* SplashScreenCellCollectionViewSecondCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenCellCollectionViewSecondCell.xib; sourceTree = "<group>"; };
 		F9D915282A97B9CD001F53B4 /* SplashScreenCellCollectionViewThirdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenCellCollectionViewThirdCell.swift; sourceTree = "<group>"; };
 		F9D915292A97B9CD001F53B4 /* SplashScreenCellCollectionViewThirdCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashScreenCellCollectionViewThirdCell.xib; sourceTree = "<group>"; };
+		FA3B7DB42AC58F2A00C3DEA7 /* TrendingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingModel.swift; sourceTree = "<group>"; };
 		FA429DC72A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTopTrendingCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA429DC82A931DB5007EAE15 /* ExploreTopTrendingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreTopTrendingCollectionViewCell.xib; sourceTree = "<group>"; };
 		FA429DCD2A935819007EAE15 /* ExploreTopicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTopicCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -588,6 +590,9 @@
 		F9168D852AAA3B4500BA9D98 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA3B7DB72AC58FA500C3DEA7 /* ChartModel */,
+				FA3B7DB62AC58F9200C3DEA7 /* TopicModel */,
+				FA3B7DB32AC58F0D00C3DEA7 /* TrendingModel */,
 				F9168D862AAA3B5900BA9D98 /* ArtistModel */,
 				F97E84092A9CD2DF00D6E4B2 /* Album */,
 				F977A1972A94AE5100D90B2E /* PlaylistModel */,
@@ -1195,6 +1200,28 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		FA3B7DB32AC58F0D00C3DEA7 /* TrendingModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA3B7DB42AC58F2A00C3DEA7 /* TrendingModel.swift */,
+			);
+			path = TrendingModel;
+			sourceTree = "<group>";
+		};
+		FA3B7DB62AC58F9200C3DEA7 /* TopicModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TopicModel;
+			sourceTree = "<group>";
+		};
+		FA3B7DB72AC58FA500C3DEA7 /* ChartModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ChartModel;
+			sourceTree = "<group>";
+		};
 		FA429DC62A931D91007EAE15 /* TopTrending */ = {
 			isa = PBXGroup;
 			children = (
@@ -1484,6 +1511,7 @@
 				F95B77B52AA2F7E500B8077B /* ShareScreenViewController.swift in Sources */,
 				F9168DBB2AAA3B5900BA9D98 /* Playlists.swift in Sources */,
 				F977A1A52A94AE5100D90B2E /* Playlist.swift in Sources */,
+				FA3B7DB52AC58F2A00C3DEA7 /* TrendingModel.swift in Sources */,
 				F975A5F62A8B81F100DA41B7 /* ExploreGeezChartTableViewCell.swift in Sources */,
 				F97E840E2A9CD2DF00D6E4B2 /* AlbumItems.swift in Sources */,
 				F977A1B52A94CBDB00D90B2E /* SoundcloudTrack.swift in Sources */,
@@ -1833,12 +1861,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cymestudio.cyme;
+				PRODUCT_BUNDLE_IDENTIFIER = "adhoc-com.cymestudio.cyme";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1868,12 +1897,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cymestudio.cyme;
+				PRODUCT_BUNDLE_IDENTIFIER = "adhoc-com.cymestudio.cyme";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

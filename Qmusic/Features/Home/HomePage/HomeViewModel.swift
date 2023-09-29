@@ -28,7 +28,8 @@ class HomeViewModel: BaseViewModel {
         let playlistDetail:PublishSubject<PlaylistDetail>
         let songdetail: PublishSubject<SongDetailModel>
         let lyricDetail: PublishSubject<[LyricLineModel]>
-        let trendingDetail: PublishSubject<DataResultTrending>
+        let trendingDetail: PublishSubject<Trending_DataResult>
+        let chartDetail: PublishSubject<Trending_DataResult>
     }
     
     let input: Input
@@ -41,7 +42,8 @@ class HomeViewModel: BaseViewModel {
     let playlistDetailObserver = PublishSubject<PlaylistDetail>()
     let songdetailObserver = PublishSubject<SongDetailModel>()
     let lyricDetailObserver = PublishSubject<[LyricLineModel]>()
-    let trendingDetailObserver = PublishSubject<DataResultTrending>()
+    let trendingDetailObserver = PublishSubject<Trending_DataResult>()
+    let chartDetailObserver = PublishSubject<Trending_DataResult>()
     
     var songdetail: SongDetailModel?
     let disposeBag = DisposeBag()
@@ -64,7 +66,8 @@ class HomeViewModel: BaseViewModel {
                              playlistDetail: playlistDetailObserver,
                              songdetail: songdetailObserver,
                              lyricDetail: lyricDetailObserver,
-                             trendingDetail: trendingDetailObserver)
+                             trendingDetail: trendingDetailObserver,
+                             chartDetail: chartDetailObserver)
     }
     
     func getHomePage() {
@@ -255,7 +258,7 @@ class HomeViewModel: BaseViewModel {
         return ""
     }
     
-    func getTrending() {
+    func getTrending(completion: @escaping () -> Void) {
         let apiClient = NetworkManager.sharedInstance
         apiClient.getTrending { result in
             switch result {
@@ -270,6 +273,26 @@ class HomeViewModel: BaseViewModel {
             case .failure(_):
              print("Err Trending")
             }
+            completion()
+        }
+    }
+    
+    func getExploreChart(completion: @escaping () -> Void) {
+        let apiClient = NetworkManager.sharedInstance
+        apiClient.getChart { result in
+            switch result {
+            case .success(let object):
+                DispatchQueue.main.async {
+                    guard let result = object.result, let data = result.data else {
+                        print("Err Chart")
+                        return
+                    }
+                    self.output.chartDetail.onNext(data)
+                }
+            case .failure(_):
+             print("Err Chart")
+            }
+            completion()
         }
     }
 }
