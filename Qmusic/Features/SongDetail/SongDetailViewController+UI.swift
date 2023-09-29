@@ -30,7 +30,6 @@ extension SongDetailViewController{
         self.lblDescSong.text = self.lyricDetail?[row].lyric ?? "..."
         let index = IndexPath(row: row, section: 0)
         
-        print("Index highLight: \(row)")
         self.lyricDetail?[row].isHighLight = true
         self.vTable.reloadData()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1 ){
@@ -58,7 +57,7 @@ extension SongDetailViewController{
                         if value > time && value < nextTime{
                             self.moveToRow(inde)
                         } else  if value < time {
-                            print(inde)
+                            
                         }
                     }
                 }

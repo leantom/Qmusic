@@ -17,7 +17,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
                     <color key="backgroundColor" red="0.79607843140000001" green="0.98431372549999996" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="GET STARTED">
+                    <buttonConfiguration key="configuration" style="plain" title="Bắt đầu">
                         <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                         <color key="baseForegroundColor" systemColor="labelColor"/>
                     </buttonConfiguration>

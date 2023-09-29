@@ -53,40 +53,54 @@
                         </subviews>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="That's a fantastic new app feature. You and your team did an excellent job of incorporating user testing feedback." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Yh-u4-irL">
-                        <rect key="frame" x="24" y="56" width="272" height="59.333333333333343"/>
+                        <rect key="frame" x="24" y="56" width="272" height="54.333333333333343"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 thích" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlY-ob-AIu">
-                        <rect key="frame" x="24.000000000000004" y="123.33333333333333" width="51.333333333333343" height="16.666666666666671"/>
+                        <rect key="frame" x="24.000000000000004" y="118.33333333333333" width="51.333333333333343" height="16.666666666666671"/>
                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
                         <color key="textColor" red="0.53725490196078429" green="0.56862745098039214" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iir-NY-6d7">
-                        <rect key="frame" x="272.66666666666669" y="115.66666666666667" width="23.333333333333314" height="24.333333333333329"/>
+                        <rect key="frame" x="266" y="105" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="No7-9M-Rj3"/>
+                            <constraint firstAttribute="width" constant="30" id="uQw-7w-5ty"/>
+                        </constraints>
                         <color key="tintColor" red="0.53725490200000003" green="0.56862745100000001" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" image="hand.thumbsup" catalog="system">
-                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17"/>
                         </state>
+                        <connections>
+                            <action selector="reportComment:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="6Ew-rg-p45"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="Iir-NY-6d7" firstAttribute="bottom" secondItem="vlY-ob-AIu" secondAttribute="bottom" id="7Gl-bx-snh"/>
                     <constraint firstItem="3Pp-LQ-aJE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="BRT-jQ-w8q"/>
                     <constraint firstItem="8Yh-u4-irL" firstAttribute="top" secondItem="3Pp-LQ-aJE" secondAttribute="bottom" constant="8" id="CEa-00-R5k"/>
                     <constraint firstAttribute="trailing" secondItem="Iir-NY-6d7" secondAttribute="trailing" constant="24" id="GaO-F1-H4d"/>
-                    <constraint firstAttribute="bottom" secondItem="vlY-ob-AIu" secondAttribute="bottom" constant="5" id="Kbb-MM-43i"/>
+                    <constraint firstAttribute="bottom" secondItem="vlY-ob-AIu" secondAttribute="bottom" constant="10" id="Kbb-MM-43i"/>
                     <constraint firstAttribute="trailing" secondItem="8Yh-u4-irL" secondAttribute="trailing" constant="24" id="Xia-Qf-EtL"/>
                     <constraint firstItem="3Pp-LQ-aJE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="b6p-ig-W8R"/>
                     <constraint firstItem="8Yh-u4-irL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="mWb-Ud-5dJ"/>
-                    <constraint firstAttribute="bottom" secondItem="Iir-NY-6d7" secondAttribute="bottom" constant="5" id="uRb-4E-Ase"/>
                     <constraint firstItem="vlY-ob-AIu" firstAttribute="top" secondItem="8Yh-u4-irL" secondAttribute="bottom" constant="8" id="ukw-ET-84W"/>
                     <constraint firstItem="vlY-ob-AIu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="wbq-dq-DSk"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgAVa" destination="Ci6-xs-VmM" id="7vr-gj-Ckg"/>
+                <outlet property="lblContent" destination="8Yh-u4-irL" id="Sth-wf-kRs"/>
+                <outlet property="lblName" destination="FuM-6b-1GM" id="fJH-hz-ELh"/>
+                <outlet property="lblNumberLike" destination="vlY-ob-AIu" id="myV-Ot-f4B"/>
+                <outlet property="lblTimeAt" destination="lDb-mF-CSg" id="gSl-Yp-hfR"/>
+            </connections>
             <point key="canvasLocation" x="27.480916030534349" y="42.605633802816904"/>
         </tableViewCell>
     </objects>

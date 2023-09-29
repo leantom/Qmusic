@@ -7,17 +7,12 @@
 
 import UIKit
 
-struct FakeDataTopic{
-    var name: String
-    var image: String
-}
-
 class ExploreTopicTableViewCell: UITableViewCell {
 
     @IBOutlet weak var constraintHeight: NSLayoutConstraint!
     @IBOutlet weak var clView: UICollectionView!
     
-    var data: [FakeDataTopic] = []
+    var data: [HotTopic] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +25,7 @@ class ExploreTopicTableViewCell: UITableViewCell {
         clView.register(UINib(nibName: "ExploreTopicCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ExploreTopicCollectionViewCell")
     }
     
-    func setDataTopic(_ data: [FakeDataTopic]){
+    func setDataTopic(_ data: [HotTopic]){
         self.data = data
        
         UIView.animate(withDuration: 0.2) {

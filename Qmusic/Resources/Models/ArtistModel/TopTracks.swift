@@ -23,7 +23,8 @@ struct TopTracks : Codable {
 	let playCount : Int?
     let artists : [PlaylistModel.Artists]?
     let album : ArtistModel.Album?
-
+    let imageSong: String?
+    
 	enum CodingKeys: String, CodingKey {
 
 		case type = "type"
@@ -36,6 +37,7 @@ struct TopTracks : Codable {
 		case playCount = "playCount"
 		case artists = "artists"
 		case album = "album"
+        case imageSong = "imageSong"
 	}
 
 	init(from decoder: Decoder) throws {
@@ -48,8 +50,10 @@ struct TopTracks : Codable {
 		durationText = try values.decodeIfPresent(String.self, forKey: .durationText)
 		discNumber = try values.decodeIfPresent(Int.self, forKey: .discNumber)
 		playCount = try values.decodeIfPresent(Int.self, forKey: .playCount)
+        
         artists = try values.decodeIfPresent([PlaylistModel.Artists].self, forKey: .artists)
         album = try values.decodeIfPresent(ArtistModel.Album.self, forKey: .album)
+        imageSong = try values.decodeIfPresent(String.self, forKey: .imageSong)
 	}
 
 }

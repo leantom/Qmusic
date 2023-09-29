@@ -29,6 +29,7 @@ class HomeViewModel: BaseViewModel {
         let songdetail: PublishSubject<SongDetailModel>
         let lyricDetail: PublishSubject<[LyricLineModel]>
         let trendingDetail: PublishSubject<DataResultTrending>
+        let chartByDB: PublishSubject<[TopTracks]>
     }
     
     let input: Input
@@ -42,6 +43,7 @@ class HomeViewModel: BaseViewModel {
     let songdetailObserver = PublishSubject<SongDetailModel>()
     let lyricDetailObserver = PublishSubject<[LyricLineModel]>()
     let trendingDetailObserver = PublishSubject<DataResultTrending>()
+    let chartByDBObserver =  PublishSubject<[TopTracks]>()
     
     var songdetail: SongDetailModel?
     let disposeBag = DisposeBag()
@@ -54,6 +56,8 @@ class HomeViewModel: BaseViewModel {
     private var popularnewRelease:[HomePage.Items] = []
     internal var playlistDetail: PlaylistDetail?
     internal var playlistSelected: HomePage.Items?
+    internal var topTracksInChart: [TopTracks] = []
+    internal var tracksInTrending: [TopTracks] = []
     
     init() {
         self.input = Input()
@@ -64,7 +68,8 @@ class HomeViewModel: BaseViewModel {
                              playlistDetail: playlistDetailObserver,
                              songdetail: songdetailObserver,
                              lyricDetail: lyricDetailObserver,
-                             trendingDetail: trendingDetailObserver)
+                             trendingDetail: trendingDetailObserver,
+                             chartByDB: chartByDBObserver)
     }
     
     func getHomePage() {
@@ -224,21 +229,57 @@ class HomeViewModel: BaseViewModel {
 //        return spotifysChoice
 //    }
 //
+    // MARK: -- chart base on data from spotify
     func getChart() -> HomePage.Genres? {
         return charts
     }
-//
-//    func getpianoAlbums() -> [HomePage.Items] {
-//        return pianoAlbums
-//    }
-//
-//    func getmoodPlaylist() -> [HomePage.Items] {
-//        return moodPlaylist
-//    }
-//
-//    func getpopularNewRelease() -> [HomePage.Items] {
-//        return popularnewRelease
-//    }
+    // MARK: --getChartIntoDBNotSpotify
+    func getChartIntoDBNotSpotify() {
+        let apiClient = NetworkManager.sharedInstance
+        
+        apiClient.getChart().subscribe(
+            onNext: { result in
+                
+                self.output.chartByDB.onNext(result)
+                self.topTracksInChart.append(contentsOf: result)
+            },
+            onError: { error in
+                print(error.localizedDescription)
+            },
+            onCompleted: {
+                print("Completed event.")
+            }).disposed(by: disposeBag)
+    }
+    
+    func getItemsInChart() -> Int {
+        return topTracksInChart.count
+    }
+    
+    func getItemChart(by index:  Int) -> TopTracks? {
+        if topTracksInChart.count > index {
+            return topTracksInChart[index]
+        }
+        return nil
+    }
+    
+    func getTotalTrackInChart() -> [TopTracks] {
+        return topTracksInChart
+    }
+    
+    func getNumberItemsInTrending() -> Int {
+        return tracksInTrending.count
+    }
+    
+    func getItemsInTrending() -> [TopTracks] {
+        return tracksInTrending
+    }
+    
+    func getItemTrending(by index:  Int) -> TopTracks? {
+        if tracksInTrending.count > index {
+            return tracksInTrending[index]
+        }
+        return nil
+    }
     
     
     func getItemInGenre(by index: Int) -> [HomePage.Items] {
@@ -261,10 +302,12 @@ class HomeViewModel: BaseViewModel {
             switch result {
             case .success(let object):
                 DispatchQueue.main.async {
-                    guard let result = object.result, let data = result.data else {
+                    guard let result = object.result, let data = result.data, let tracks = data.tracks?.items else {
                         print("Err Trending")
                         return
                     }
+                    
+                    self.tracksInTrending.append(contentsOf: tracks)
                     self.output.trendingDetail.onNext(data)
                 }
             case .failure(_):
@@ -272,4 +315,20 @@ class HomeViewModel: BaseViewModel {
             }
         }
     }
+    
+    func getTopics() -> [HotTopic] {
+        let pop = HotTopic(image: "pop", name: "Pop")
+        let rap = HotTopic(image: "rap", name: "Rap")
+        let kpop = HotTopic(image: "kpop", name: "Kpop")
+        let dance = HotTopic(image: "dance", name: "Dance")
+        let bolero = HotTopic(image: "bolero", name: "Bolero")
+        let balad = HotTopic(image: "balad", name: "Balad")
+        let acoutic = HotTopic(image: "acoutic", name: "Acoutic")
+        
+        return [pop, rap, kpop, dance, bolero, balad, acoutic]
+    }
+}
+struct HotTopic {
+    let image: String
+    let name: String
 }

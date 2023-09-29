@@ -143,6 +143,17 @@
 		F969A7CB2A88D91900C8CA2F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F969A7C92A88D91900C8CA2F /* LoginViewController.xib */; };
 		F969A7CF2A88D95400C8CA2F /* QTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969A7CE2A88D95400C8CA2F /* QTextView.swift */; };
 		F969A7D12A88D95C00C8CA2F /* QTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F969A7D02A88D95C00C8CA2F /* QTextView.xib */; };
+		F96A29F32AC5CD9F009163C8 /* RSLoadingTwins.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96A29E82AC5CD9F009163C8 /* RSLoadingTwins.swift */; };
+		F96A29F42AC5CD9F009163C8 /* RSLoadingSpinAlone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96A29E92AC5CD9F009163C8 /* RSLoadingSpinAlone.swift */; };
+		F96A29F52AC5CD9F009163C8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96A29EA2AC5CD9F009163C8 /* Utils.swift */; };
+		F96A29F62AC5CD9F009163C8 /* RSLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96A29EB2AC5CD9F009163C8 /* RSLoadingView.swift */; };
+		F96A29F72AC5CD9F009163C8 /* RSLoadingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96A29EC2AC5CD9F009163C8 /* RSLoadingContainerView.swift */; };
+		F96A29F82AC5CD9F009163C8 /* Twins.scnp in Resources */ = {isa = PBXBuildFile; fileRef = F96A29EE2AC5CD9F009163C8 /* Twins.scnp */; };
+		F96A29F92AC5CD9F009163C8 /* SpinAlone.scnp in Resources */ = {isa = PBXBuildFile; fileRef = F96A29EF2AC5CD9F009163C8 /* SpinAlone.scnp */; };
+		F96A29FA2AC5CD9F009163C8 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = F96A29F02AC5CD9F009163C8 /* .gitkeep */; };
+		F96A29FB2AC5CD9F009163C8 /* SpinAlone.png in Resources */ = {isa = PBXBuildFile; fileRef = F96A29F12AC5CD9F009163C8 /* SpinAlone.png */; };
+		F96AD1F62AB7F857003A62D5 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96AD1F52AB7F857003A62D5 /* CommentModel.swift */; };
+		F96AD1F82AB7FABA003A62D5 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96AD1F72AB7FABA003A62D5 /* CommentViewModel.swift */; };
 		F97106E42A8FB551009F9013 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97106E32A8FB551009F9013 /* NetworkManager.swift */; };
 		F97106E62A8FCDA5009F9013 /* SearchPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97106E52A8FCDA5009F9013 /* SearchPlayerView.swift */; };
 		F97106E82A8FCDAA009F9013 /* SearchPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F97106E72A8FCDAA009F9013 /* SearchPlayerView.xib */; };
@@ -229,6 +240,10 @@
 		F9838A842AA084F200F0A5D0 /* CoreDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9838A832AA084F200F0A5D0 /* CoreDataExtension.swift */; };
 		F9838A892AA091EB00F0A5D0 /* YoutubeModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = F9838A882AA091EB00F0A5D0 /* YoutubeModel.xcdatamodel */; };
 		F9838A902AA11DF600F0A5D0 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = F9838A8F2AA11DF600F0A5D0 /* Algorithms */; };
+		F99D4CCA2AC08F710010BECC /* NetworkManager+Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D4CC92AC08F710010BECC /* NetworkManager+Genres.swift */; };
+		F99D4CCC2AC0925E0010BECC /* GenresModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D4CCB2AC0925E0010BECC /* GenresModel.swift */; };
+		F99D4CCE2AC0A51C0010BECC /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D4CCD2AC0A51C0010BECC /* ExploreViewModel.swift */; };
+		F99D4CD02AC0B76D0010BECC /* NetworkManager+Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D4CCF2AC0B76D0010BECC /* NetworkManager+Chart.swift */; };
 		F9B6AE6D2AA71713000704E8 /* AlbumArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B6AE6B2AA71713000704E8 /* AlbumArtistCell.swift */; };
 		F9B6AE6E2AA71713000704E8 /* AlbumArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9B6AE6C2AA71713000704E8 /* AlbumArtistCell.xib */; };
 		F9B6AE712AA75E0D000704E8 /* SubAlbumArtistViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B6AE6F2AA75E0D000704E8 /* SubAlbumArtistViewCell.swift */; };
@@ -421,6 +436,17 @@
 		F969A7C92A88D91900C8CA2F /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		F969A7CE2A88D95400C8CA2F /* QTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QTextView.swift; sourceTree = "<group>"; };
 		F969A7D02A88D95C00C8CA2F /* QTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QTextView.xib; sourceTree = "<group>"; };
+		F96A29E82AC5CD9F009163C8 /* RSLoadingTwins.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSLoadingTwins.swift; sourceTree = "<group>"; };
+		F96A29E92AC5CD9F009163C8 /* RSLoadingSpinAlone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSLoadingSpinAlone.swift; sourceTree = "<group>"; };
+		F96A29EA2AC5CD9F009163C8 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		F96A29EB2AC5CD9F009163C8 /* RSLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSLoadingView.swift; sourceTree = "<group>"; };
+		F96A29EC2AC5CD9F009163C8 /* RSLoadingContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSLoadingContainerView.swift; sourceTree = "<group>"; };
+		F96A29EE2AC5CD9F009163C8 /* Twins.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = Twins.scnp; sourceTree = "<group>"; };
+		F96A29EF2AC5CD9F009163C8 /* SpinAlone.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = SpinAlone.scnp; sourceTree = "<group>"; };
+		F96A29F02AC5CD9F009163C8 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		F96A29F12AC5CD9F009163C8 /* SpinAlone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpinAlone.png; sourceTree = "<group>"; };
+		F96AD1F52AB7F857003A62D5 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
+		F96AD1F72AB7FABA003A62D5 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		F97106E32A8FB551009F9013 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F97106E52A8FCDA5009F9013 /* SearchPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlayerView.swift; sourceTree = "<group>"; };
 		F97106E72A8FCDAA009F9013 /* SearchPlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPlayerView.xib; sourceTree = "<group>"; };
@@ -499,6 +525,10 @@
 		F9838A802AA07FC100F0A5D0 /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
 		F9838A832AA084F200F0A5D0 /* CoreDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtension.swift; sourceTree = "<group>"; };
 		F9838A882AA091EB00F0A5D0 /* YoutubeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YoutubeModel.xcdatamodel; sourceTree = "<group>"; };
+		F99D4CC92AC08F710010BECC /* NetworkManager+Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+Genres.swift"; sourceTree = "<group>"; };
+		F99D4CCB2AC0925E0010BECC /* GenresModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresModel.swift; sourceTree = "<group>"; };
+		F99D4CCD2AC0A51C0010BECC /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
+		F99D4CCF2AC0B76D0010BECC /* NetworkManager+Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+Chart.swift"; sourceTree = "<group>"; };
 		F9B6AE6B2AA71713000704E8 /* AlbumArtistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtistCell.swift; sourceTree = "<group>"; };
 		F9B6AE6C2AA71713000704E8 /* AlbumArtistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumArtistCell.xib; sourceTree = "<group>"; };
 		F9B6AE6F2AA75E0D000704E8 /* SubAlbumArtistViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubAlbumArtistViewCell.swift; sourceTree = "<group>"; };
@@ -874,6 +904,7 @@
 		F969A79F2A88C13400C8CA2F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F96A29E52AC5CD9F009163C8 /* RSLoadingView */,
 				F977A17E2A93599900D90B2E /* BaseClass */,
 				F975A5D52A8B394B00DA41B7 /* CarouselCollectionView */,
 				F94F99F22A8A15DE005FA560 /* Colors.xcassets */,
@@ -884,7 +915,6 @@
 				F96914A12A8C81F10092B4AD /* Lotties */,
 				F9A0D9C12AB1C09A00EBFFA8 /* Network */,
 				F9168D852AAA3B4500BA9D98 /* Models */,
-				F97E84072A9CD11100D6E4B2 /* NetworkManager+GetAlbum.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -944,6 +974,38 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		F96A29E52AC5CD9F009163C8 /* RSLoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				F96A29E62AC5CD9F009163C8 /* Classes */,
+				F96A29ED2AC5CD9F009163C8 /* Assets */,
+			);
+			path = RSLoadingView;
+			sourceTree = "<group>";
+		};
+		F96A29E62AC5CD9F009163C8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F96A29E82AC5CD9F009163C8 /* RSLoadingTwins.swift */,
+				F96A29E92AC5CD9F009163C8 /* RSLoadingSpinAlone.swift */,
+				F96A29EA2AC5CD9F009163C8 /* Utils.swift */,
+				F96A29EB2AC5CD9F009163C8 /* RSLoadingView.swift */,
+				F96A29EC2AC5CD9F009163C8 /* RSLoadingContainerView.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		F96A29ED2AC5CD9F009163C8 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				F96A29EE2AC5CD9F009163C8 /* Twins.scnp */,
+				F96A29EF2AC5CD9F009163C8 /* SpinAlone.scnp */,
+				F96A29F02AC5CD9F009163C8 /* .gitkeep */,
+				F96A29F12AC5CD9F009163C8 /* SpinAlone.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		F975A5C62A8B391800DA41B7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -984,6 +1046,8 @@
 			isa = PBXGroup;
 			children = (
 				F975A5EC2A8B81F100DA41B7 /* ExploreViewController.swift */,
+				F99D4CCB2AC0925E0010BECC /* GenresModel.swift */,
+				F99D4CCD2AC0A51C0010BECC /* ExploreViewModel.swift */,
 				F975A5ED2A8B81F100DA41B7 /* ExploreTableViewCell */,
 				F975A5F02A8B81F100DA41B7 /* ExploreViewController.xib */,
 				F975A5F12A8B81F100DA41B7 /* ExploreSubViews */,
@@ -1013,9 +1077,9 @@
 		F97718BB2AB364240069D5C4 /* Comment */ = {
 			isa = PBXGroup;
 			children = (
-				F97718B32AB35FC40069D5C4 /* CommentViewController.swift */,
 				F97718B72AB3641A0069D5C4 /* CommentCell.swift */,
 				F97718B82AB3641A0069D5C4 /* CommentCell.xib */,
+				F97718B32AB35FC40069D5C4 /* CommentViewController.swift */,
 				F97718B42AB35FC40069D5C4 /* CommentViewController.xib */,
 				F9CFC8FB2AB3759900D23CB6 /* Network */,
 			);
@@ -1154,6 +1218,9 @@
 		F9A0D9C12AB1C09A00EBFFA8 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				F99D4CC92AC08F710010BECC /* NetworkManager+Genres.swift */,
+				F99D4CCF2AC0B76D0010BECC /* NetworkManager+Chart.swift */,
+				F97E84072A9CD11100D6E4B2 /* NetworkManager+GetAlbum.swift */,
 				F97106E32A8FB551009F9013 /* NetworkManager.swift */,
 			);
 			path = Network;
@@ -1191,6 +1258,8 @@
 			isa = PBXGroup;
 			children = (
 				F9CFC8F92AB3757000D23CB6 /* NetworkManager+Comment.swift */,
+				F96AD1F72AB7FABA003A62D5 /* CommentViewModel.swift */,
+				F96AD1F52AB7F857003A62D5 /* CommentModel.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1384,6 +1453,7 @@
 				F969A7B92A88C18A00C8CA2F /* Roboto-Bold.ttf in Resources */,
 				F969A7B72A88C18A00C8CA2F /* LICENSE.txt in Resources */,
 				F95B77B62AA2F7E500B8077B /* ShareScreenViewController.xib in Resources */,
+				F96A29FB2AC5CD9F009163C8 /* SpinAlone.png in Resources */,
 				F94F99FE2A8A1D4C005FA560 /* SignUpViewController.xib in Resources */,
 				F975A5D42A8B391800DA41B7 /* HomeWeeklyTableViewCell.xib in Resources */,
 				F969A7B42A88C18A00C8CA2F /* Roboto-BoldItalic.ttf in Resources */,
@@ -1419,6 +1489,7 @@
 				F97EA35D2A8E667C0096EC1E /* spectrum.json in Resources */,
 				F96914A32A8C81FD0092B4AD /* loading.json in Resources */,
 				F969A7BA2A88C18A00C8CA2F /* Roboto-Thin.ttf in Resources */,
+				F96A29FA2AC5CD9F009163C8 /* .gitkeep in Resources */,
 				F975A5F52A8B81F100DA41B7 /* ExploreGeezChartTableViewCell.xib in Resources */,
 				F969A7B02A88C18900C8CA2F /* Roboto-Light.ttf in Resources */,
 				F969A7BF2A88C49A00C8CA2F /* SplashScreenViewController.xib in Resources */,
@@ -1443,6 +1514,8 @@
 				F9B6AE722AA75E0D000704E8 /* SubAlbumArtistViewCell.xib in Resources */,
 				F969A7782A88BFCE00C8CA2F /* Assets.xcassets in Resources */,
 				F969A7B62A88C18A00C8CA2F /* Roboto-Italic.ttf in Resources */,
+				F96A29F92AC5CD9F009163C8 /* SpinAlone.scnp in Resources */,
+				F96A29F82AC5CD9F009163C8 /* Twins.scnp in Resources */,
 				F96914A72A8CD29F0092B4AD /* MusicBarView.xib in Resources */,
 				F975A5D12A8B391800DA41B7 /* HomeViewController.xib in Resources */,
 				F969A7762A88BFCD00C8CA2F /* Main.storyboard in Resources */,
@@ -1488,6 +1561,8 @@
 				F97E840E2A9CD2DF00D6E4B2 /* AlbumItems.swift in Sources */,
 				F977A1B52A94CBDB00D90B2E /* SoundcloudTrack.swift in Sources */,
 				F9168DBE2AAA3B5900BA9D98 /* Stats.swift in Sources */,
+				F96AD1F82AB7FABA003A62D5 /* CommentViewModel.swift in Sources */,
+				F96A29F42AC5CD9F009163C8 /* RSLoadingSpinAlone.swift in Sources */,
 				F9168DBF2AAA3B5900BA9D98 /* Singles.swift in Sources */,
 				F97E84132A9CFCED00D6E4B2 /* HomeViewModel+AddDB.swift in Sources */,
 				F977A18A2A93663600D90B2E /* HomePageModel.swift in Sources */,
@@ -1554,6 +1629,7 @@
 				F9168DC02AAA3B5900BA9D98 /* ArtistModelOwner.swift in Sources */,
 				F9CE86962AA6313F0036E9AA /* HeaderArtistDetailView.swift in Sources */,
 				F95B77C22AA3747800B8077B /* AlbumViewModel.swift in Sources */,
+				F96A29F62AC5CD9F009163C8 /* RSLoadingView.swift in Sources */,
 				F94F99C52A8A13D5005FA560 /* WEExtensions+LAContext.swift in Sources */,
 				F94F99F52A8A1673005FA560 /* Constants.swift in Sources */,
 				F977A19F2A94AE5100D90B2E /* ItemsPlaylist.swift in Sources */,
@@ -1585,12 +1661,16 @@
 				F94F99C62A8A13D5005FA560 /* WEExtensions+UIImageView.swift in Sources */,
 				FA429DD32A93582D007EAE15 /* ExploreTopicTableViewCell.swift in Sources */,
 				F977A1BD2A94FC5100D90B2E /* HeaderPlaylistDetailView.swift in Sources */,
+				F99D4CCA2AC08F710010BECC /* NetworkManager+Genres.swift in Sources */,
+				F96A29F52AC5CD9F009163C8 /* Utils.swift in Sources */,
+				F96A29F72AC5CD9F009163C8 /* RSLoadingContainerView.swift in Sources */,
 				F965C0FA2A8BDB53000DF320 /* CarouselCollectionViewCell.swift in Sources */,
 				F977A1A32A94AE5100D90B2E /* ContentsPlaylist.swift in Sources */,
 				F94F99C42A8A13D5005FA560 /* FEExtension+Sequence.swift in Sources */,
 				F9168DA92AAA3B5900BA9D98 /* TopCities.swift in Sources */,
 				F9168DB02AAA3B5900BA9D98 /* ArtistAlbum.swift in Sources */,
 				F9168DB62AAA3B5900BA9D98 /* Header.swift in Sources */,
+				F99D4CCC2AC0925E0010BECC /* GenresModel.swift in Sources */,
 				F9168DA82AAA3B5900BA9D98 /* TopTracks.swift in Sources */,
 				F94F99DF2A8A13D5005FA560 /* WEExtensions+Device.swift in Sources */,
 				F94F99D52A8A13D5005FA560 /* WEExtension+Enum.swift in Sources */,
@@ -1620,6 +1700,7 @@
 				F977A18C2A93663600D90B2E /* Images.swift in Sources */,
 				F94F99E02A8A13D5005FA560 /* WEExtensions+String.swift in Sources */,
 				F9168DB82AAA3B5900BA9D98 /* DiscoveredOn.swift in Sources */,
+				F99D4CD02AC0B76D0010BECC /* NetworkManager+Chart.swift in Sources */,
 				F9670FF12A9DA4C8001FAC52 /* LoginViewModel.swift in Sources */,
 				F9CFC8FA2AB3757000D23CB6 /* NetworkManager+Comment.swift in Sources */,
 				F9CE868B2AA37B9E0036E9AA /* Visuals.swift in Sources */,
@@ -1627,7 +1708,9 @@
 				F97EA36B2A8F16E20096EC1E /* WEBaseSceneDelegate.swift in Sources */,
 				F969A7C62A88CF4B00C8CA2F /* SplashScreenCellCollectionViewCell.swift in Sources */,
 				F94F99D12A8A13D5005FA560 /* WEExtensions+UISlider.swift in Sources */,
+				F96A29F32AC5CD9F009163C8 /* RSLoadingTwins.swift in Sources */,
 				F94F99F12A8A15BF005FA560 /* AppFonts.swift in Sources */,
+				F99D4CCE2AC0A51C0010BECC /* ExploreViewModel.swift in Sources */,
 				F9168DB42AAA3B5900BA9D98 /* Goods.swift in Sources */,
 				F94F99E72A8A13D5005FA560 /* WEExtensions+UIImage.swift in Sources */,
 				F94F99CF2A8A13D5005FA560 /* WEExtensions+UITableView.swift in Sources */,
@@ -1644,6 +1727,7 @@
 				F9CE868C2AA37B9E0036E9AA /* Discs.swift in Sources */,
 				F9B6AE6D2AA71713000704E8 /* AlbumArtistCell.swift in Sources */,
 				F977A1882A93663600D90B2E /* Genres.swift in Sources */,
+				F96AD1F62AB7F857003A62D5 /* CommentModel.swift in Sources */,
 				F94F99E12A8A13D5005FA560 /* DateExtensions.swift in Sources */,
 				F96914A52A8CD2940092B4AD /* MusicBarView.swift in Sources */,
 			);
@@ -1824,7 +1908,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = S3Y6BJQ8MM;
+				DEVELOPMENT_TEAM = 58JMRW9E5N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Qmusic/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cyme;
@@ -1833,6 +1917,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1859,7 +1944,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
-				DEVELOPMENT_TEAM = S3Y6BJQ8MM;
+				DEVELOPMENT_TEAM = 58JMRW9E5N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Qmusic/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cyme;
@@ -1868,6 +1953,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

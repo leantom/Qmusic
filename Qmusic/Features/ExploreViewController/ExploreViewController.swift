@@ -30,18 +30,11 @@ class ExploreViewController: UIViewController {
                     FakeDataGeekchart(id: "04", name: "Nice For Wha", des: "Avinci Nhọ", image: "albums4"),
                     FakeDataGeekchart(id: "05", name: "Nice For Wha", des: "Avinci Nhọ", image: "albums5")]
     
-    let dataTopic = [FakeDataTopic(name: "Help", image: "albums1"),
-                FakeDataTopic(name: "Me", image: "albums2"),
-                FakeDataTopic(name: "Bro", image: "albums3"),
-                FakeDataTopic(name: "LC-D", image: "albums4"),
-                FakeDataTopic(name: "WTF-R", image: "albums5"),
-                FakeDataTopic(name: "SWIFT-QMUSIC", image: "albums6"),
-                FakeDataTopic(name: "BestApp", image: "albums7"),
-                FakeDataTopic(name: "Hihu", image: "albums8")]
-    
-    let fakeSection = [FakeSectonExplore(title: "Geez Chart", button: "ViewAll"),
-                       FakeSectonExplore(title: "Top Trending", button: ""),
-                       FakeSectonExplore(title: "Topic", button: "ViewAll")]
+    let fakeSection = [FakeSectonExplore(title: "Cyme Chart", button: ""),
+                       FakeSectonExplore(title: "Xu hướng", button: ""),
+                       FakeSectonExplore(title: "Thể loại", button: "")]
+    var trendingCell : ExploreTopTrendingTableViewCell?
+    var indexPathSelected: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,20 +53,40 @@ class ExploreViewController: UIViewController {
         self.homePageViewModel = HomeViewModel()
         guard let homePageViewModel = self.homePageViewModel else {return}
         homePageViewModel.getTrending()
+        homePageViewModel.getChartIntoDBNotSpotify()
         
         homePageViewModel.output.trendingDetail.observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] value in
                 guard let self = self else { return }
                print(value)
+                if let trendingCell = self.trendingCell {
+                    trendingCell.data = homePageViewModel.getItemsInTrending()
+                }
+            })
+            .disposed(by: homePageViewModel.disposeBag)
+        
+        homePageViewModel.output.chartByDB.observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                guard let self = self else { return }
                 self.tbView.reloadData()
-                
+            })
+            .disposed(by: homePageViewModel.disposeBag)
+        
+        homePageViewModel.output.songdetail.observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                guard let self = self else { return }
+                MusicHelper.sharedHelper.playMusicWithArtist(link: value.soundcloudTrack?.audio?.first?.url ?? "",
+                                                             with: indexPathSelected?.row ?? 0,
+                                                             with: homePageViewModel.getTotalTrackInChart())
                 
             })
             .disposed(by: homePageViewModel.disposeBag)
+        
+        
     }
     
     func registerCell(){
-        self.tbView.register(UINib(nibName: "ExploreGeezChartTableViewCell", bundle: nil), forCellReuseIdentifier: "ExploreGeezChartTableViewCell")
+        self.tbView.register(UINib(nibName: "RecentlyMusicTableViewCell", bundle: nil), forCellReuseIdentifier: "RecentlyMusicTableViewCell")
         
         self.tbView.register(UINib(nibName: "ExploreTopTrendingTableViewCell", bundle: nil), forCellReuseIdentifier: "ExploreTopTrendingTableViewCell")
         
@@ -106,7 +119,17 @@ extension ExploreViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        guard let homePageViewModel = self.homePageViewModel else {return 0}
+        let type = TypeOfExploreSection(rawValue: section) ?? .GeekChart
+        switch type {
+        case .GeekChart:
+            return homePageViewModel.getItemsInChart()
+        case .TopTrending:
+            return 1
+        case .Topic:
+            return 1
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -115,21 +138,51 @@ extension ExploreViewController: UITableViewDelegate, UITableViewDataSource{
         let type = TypeOfExploreSection(rawValue: indexPath.section) ?? .GeekChart
         switch type {
         case .GeekChart:
-            cell = (tableView.dequeueReusableCell(withIdentifier: "ExploreGeezChartTableViewCell", for: indexPath) as! ExploreGeezChartTableViewCell)
-            if let geek = cell as? ExploreGeezChartTableViewCell{
-                geek.setupDataGeekChart(data: self.fakeDataGeekCharts)
-            }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RecentlyMusicTableViewCell", for: indexPath) as! RecentlyMusicTableViewCell
+            guard let homePageViewModel = self.homePageViewModel else {return cell}
+            guard let item = homePageViewModel.getItemChart(by: indexPath.row) else {return cell}
+            cell.popuplate(with: item, index: indexPath.row)
+            cell.delegate = self
+            cell.selectionStyle = .none
+            return cell
         case .TopTrending:
-            cell = tableView.dequeueReusableCell(withIdentifier: "ExploreTopTrendingTableViewCell", for: indexPath) as! ExploreTopTrendingTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ExploreTopTrendingTableViewCell", for: indexPath) as! ExploreTopTrendingTableViewCell
+            trendingCell = cell
+            return cell
         case .Topic:
             cell = tableView.dequeueReusableCell(withIdentifier: "ExploreTopicTableViewCell", for: indexPath) as! ExploreTopicTableViewCell
-            if let topic = cell as? ExploreTopicTableViewCell{
-                topic.setDataTopic(self.dataTopic)
+            if let topic = cell as? ExploreTopicTableViewCell,
+               let homePageViewModel = self.homePageViewModel {
+                topic.setDataTopic(homePageViewModel.getTopics())
             }
         }
         
         cell.selectionStyle = .none
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let type = TypeOfExploreSection(rawValue: indexPath.section) ?? .GeekChart
+        switch type {
+        case .GeekChart:
+            print("GeekChart")
+            if let track = homePageViewModel?.getItemChart(by: indexPath.row) {
+                homePageViewModel?.getSongDetail(id: track.id ?? "")
+            }
+            indexPathSelected = indexPath
+        case .TopTrending:
+            print("TopTrending")
+        case .Topic:
+            print("topic")
+        }
+    }
     
+}
+extension ExploreViewController: RecentlyMusicTableViewCellDelegate {
+    func didSelectShowDetail(cell: RecentlyMusicTableViewCell) {
+        if let song = cell.songSelectedInChart {
+            let vc = ShareScreenViewController(songInChart: song)
+            self.navigationController?.push(destinVC: vc)
+        }
+        
+    }
 }

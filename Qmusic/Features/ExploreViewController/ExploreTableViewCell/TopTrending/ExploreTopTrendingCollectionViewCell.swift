@@ -35,15 +35,14 @@ class ExploreTopTrendingCollectionViewCell: UICollectionViewCell {
         self.btnLike.setImage(UIImage(named: image), for: .normal)
     }
     
-    
-    func setupData(_ data: ResultTrending, index: Int){
-        self.data = data
+    func setupData(_ data: TopTracks, index: Int){
+        
         self.index = index
-        self.lblTitle.text = data.title
-        self.lblDesc.text = data.des
-        self.imgMain.image = UIImage(named: data.image)
-        let image = data.isLike ? "ic_explore_heart_red" : "ic_explore_heart_white"
-        self.btnLike.setImage(UIImage(named: image), for: .normal)
+        self.lblTitle.text = data.name
+        self.lblDesc.text = data.artists?.first?.name
+        
+        //let image = data.isLike ? "ic_explore_heart_red" : "ic_explore_heart_white"
+        self.btnLike.setImage(UIImage(named: "ic_explore_heart_white"), for: .normal)
     }
     
 

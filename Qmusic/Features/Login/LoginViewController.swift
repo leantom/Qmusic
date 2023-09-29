@@ -41,7 +41,7 @@ class LoginViewController: UIViewController {
         
         cymeButton.delegate = self
         self.viewButton.addSubViewFullConstraint(sub: self.cymeButton)
-        
+        btnApple.cornerRadius = 8
         tfEmail.attributedPlaceholder = NSAttributedString(
                 string: "E mail",
                 attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "9F9F9F")]
@@ -59,6 +59,11 @@ class LoginViewController: UIViewController {
         super.viewDidAppear(animated)
         
         btnApple.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeLoading(on: self.view)
     }
     
     // - Tag: perform_appleid_password_request
@@ -137,7 +142,7 @@ class LoginViewController: UIViewController {
             //MARK: -- vô thẳng app
             let email = token.userID
             let password = token.tokenString
-
+            showLoading(on: self.view)
             let req = Request.SignIn(email: email, password: password, channel: LoginType.FaceBook.rawValue)
             self.signInViewModel.signIn(req: req)
             
@@ -164,12 +169,9 @@ class LoginViewController: UIViewController {
                 //MARK: -- vô thẳng app
                 let email = token.userID
                 let password = token.tokenString
-
+                showLoading(on: self.view)
                 let req = Request.SignIn(email: email, password: password, channel: LoginType.FaceBook.rawValue)
                 self.signInViewModel.signIn(req: req)
-                
-                
-               
                 
             }
         }
@@ -178,6 +180,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func actionLoginWithGoogle(_ sender: Any) {
+        showLoading(on: self.view)
         GIDSignIn.sharedInstance.signIn(withPresenting: self) {result, error in
             guard let result = result else {
                 // Inspect error
@@ -221,7 +224,7 @@ extension LoginViewController: CymeButtonDelegate {
 //                sleep(1)
 //            }
 //        }
-        
+        showLoading(on: self.view)
         let email = tfEmail.text ?? ""
         let password = tfPassword.text ?? ""
 
@@ -276,8 +279,8 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
         
         
         //MARK: -- vô thẳng app
-                
-        let req = Request.SignIn(email: "apple\(NetworkManager.sharedInstance.random(digits: 4))@gmail.com", password: "123456".hash256(), channel: LoginType.Apple.rawValue)
+        showLoading(on: self.view)
+        let req = Request.SignIn(email: "apple@gmail.com", password: "123456".hash256(), channel: LoginType.Apple.rawValue)
         self.signInViewModel.signIn(req: req)
        
     }

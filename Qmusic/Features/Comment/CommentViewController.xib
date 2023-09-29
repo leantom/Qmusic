@@ -63,6 +63,12 @@
                                 <constraint firstAttribute="height" constant="79" id="rdD-df-GVo"/>
                             </constraints>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Không có dữ liệu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZ3-cZ-qc1">
+                            <rect key="frame" x="132.66666666666666" y="369" width="127.66666666666666" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lkh-WK-TrD">
                             <rect key="frame" x="0.0" y="79" width="393" height="540"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -130,11 +136,13 @@
                         <constraint firstAttribute="trailing" secondItem="JTS-cN-PmB" secondAttribute="trailing" id="PJJ-B7-NFB"/>
                         <constraint firstAttribute="trailing" secondItem="wZL-uL-NSg" secondAttribute="trailing" constant="24" id="UlC-Fo-s7t"/>
                         <constraint firstItem="lkh-WK-TrD" firstAttribute="top" secondItem="JTS-cN-PmB" secondAttribute="bottom" id="UyD-c0-lpT"/>
+                        <constraint firstItem="qZ3-cZ-qc1" firstAttribute="centerY" secondItem="JoG-8R-r1P" secondAttribute="centerY" id="XAF-JJ-hJX"/>
                         <constraint firstItem="wZL-uL-NSg" firstAttribute="leading" secondItem="JoG-8R-r1P" secondAttribute="leading" constant="24" id="bXb-9E-MkE"/>
                         <constraint firstAttribute="bottom" secondItem="wZL-uL-NSg" secondAttribute="bottom" id="bk6-Rl-3l0"/>
                         <constraint firstAttribute="trailing" secondItem="lkh-WK-TrD" secondAttribute="trailing" id="q5R-OJ-n1a"/>
                         <constraint firstItem="lkh-WK-TrD" firstAttribute="leading" secondItem="JoG-8R-r1P" secondAttribute="leading" id="qqW-E2-hCj"/>
                         <constraint firstItem="wZL-uL-NSg" firstAttribute="top" secondItem="lkh-WK-TrD" secondAttribute="bottom" constant="10" id="vNi-Ke-aeI"/>
+                        <constraint firstItem="qZ3-cZ-qc1" firstAttribute="centerX" secondItem="JoG-8R-r1P" secondAttribute="centerX" id="wKT-Yh-6tw"/>
                     </constraints>
                 </view>
             </subviews>

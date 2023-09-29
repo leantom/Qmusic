@@ -20,7 +20,6 @@ extension NetworkManager {
         //MARK: creating our observable
         return Observable.create { observer in
            
-            
             //MARK: create URLSession dataTask
             let session = URLSession.shared
             let task = session.dataTask(with: request as URLRequest) { (data,

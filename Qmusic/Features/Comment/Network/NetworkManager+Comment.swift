@@ -12,7 +12,7 @@ import UIKit
 extension NetworkManager {
     // MARK: -- getDetailSong
     public func addCommentSong(req : Request.CommentSong)
-    -> Observable<SongDetailModel> {
+    -> Observable<Bool> {
         let data = try! req.asDictionary()
         let jsonData = try! JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
         
@@ -21,11 +21,10 @@ extension NetworkManager {
         
         request.httpMethod = "POST"
         request.httpBody = jsonData
+        request.addValue(self.jwt, forHTTPHeaderField: "auth")
         
         //MARK: creating our observable
         return Observable.create { observer in
-            
-            
             //MARK: create URLSession dataTask
             let session = URLSession.shared
             let task = session.dataTask(with: request as URLRequest) { (data,
@@ -37,7 +36,7 @@ extension NetworkManager {
                         let _data = data ?? Data()
                         if (200...399).contains(statusCode) {
                             print("Comment thành công: \(req.songId)")
-                            
+                            observer.onNext(true)
                         }
                         else {
                             let err = NSError(domain:"", code:httpResponse.statusCode, userInfo:nil)
@@ -60,6 +59,64 @@ extension NetworkManager {
             }
         }
         
+    }
+    
+    public func getComment(by songID: String) -> Observable<[CommentModel]>  {
+        let parameters = "{\n    \"songId\":\"\(songID)\"\n}"
+        let postData = parameters.data(using: .utf8)
+        
+        var request = URLRequest(url: URL(string: "\(Constants.urlHost)user?track=\(songID))&api=getListComment")!,timeoutInterval: Double.infinity)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(self.jwt, forHTTPHeaderField: "auth")
+        request.httpMethod = "POST"
+        request.httpBody = postData
+        
+        
+        //MARK: creating our observable
+        return Observable.create { observer in
+            
+            
+            //MARK: create URLSession dataTask
+            let session = URLSession.shared
+            let task = session.dataTask(with: request as URLRequest) { (data,
+                                                          response, error) in
+                if let httpResponse = response as? HTTPURLResponse{
+                    let statusCode = httpResponse.statusCode
+                    let jsonDecoder = JSONDecoder()
+                    do {
+                        let _data = data ?? Data()
+                        if (200...399).contains(statusCode) {
+                            let objs = try jsonDecoder.decode(Response.CommentModelWrapper.self, from:
+                                                                _data)
+                            if let obj = objs.result?.data {
+                                observer.onNext(obj)
+                            } else {
+                                let err = NSError(domain:"", code:httpResponse.statusCode, userInfo:nil)
+                                observer.onError(err)
+                            }
+                            
+                        }
+                        else {
+                            let err = NSError(domain:"", code:httpResponse.statusCode, userInfo:nil)
+                            observer.onError(err)
+                            
+                        }
+                    } catch {
+                        //MARK: observer onNext event
+                        observer.onError(error)
+                    }
+                }
+                //MARK: observer onCompleted event
+                observer.onCompleted()
+            }
+            task.resume()
+            //MARK: return our disposable
+            return Disposables.create {
+                task.cancel()
+            }
+        }
+        
+    
     }
     
     public func addCommentSongTemp(req : Request.CommentSong) {

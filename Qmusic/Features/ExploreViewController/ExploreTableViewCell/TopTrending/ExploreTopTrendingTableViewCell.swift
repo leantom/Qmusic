@@ -11,22 +11,24 @@ class ExploreTopTrendingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var clView: UICollectionView!
     @IBOutlet weak var vPageControl: UIPageControl!
-    var data: DataResultTrending?
+    var data: [TopTracks]? {
+        didSet {
+            clView.reloadData()
+            setupPageControler()
+        }
+    }
     
-    var dataCollection = [FakeExploreTopTrendingData(title: "Do it", des: "What the fuck are u doing", image: "splash_1", isLike: false),
-                          FakeExploreTopTrendingData(title: "Do it", des: "What the fuck are u doing", image: "splash_2", isLike: false),
-                          FakeExploreTopTrendingData(title: "Do it", des: "What the fuck are u doing", image: "splash_3", isLike: false),
-                          FakeExploreTopTrendingData(title: "Do it", des: "What the fuck are u doing", image: "splash_4", isLike: false)]
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.vPageControl.numberOfPages = dataCollection.count
+        self.vPageControl.numberOfPages = data?.count ?? 0
         self.clView.delegate = self
         self.clView.dataSource = self
         clView.register(UINib(nibName: "ExploreTopTrendingCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ExploreTopTrendingCollectionViewCell")
     }
     
     func setupPageControler() {
-        
+        vPageControl.numberOfPages = data?.count ?? 0
     }
     
 }
@@ -36,24 +38,24 @@ extension ExploreTopTrendingTableViewCell: UICollectionViewDataSource,
                                         UIScrollViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let data = self.data {
-            return data.tracks?.items?.count ?? 0
+            return data.count
         }
         return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.clView.frame.width, height: self.clView.frame.height)
+        return CGSize(width: self.clView.frame.width - 40, height: self.clView.frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExploreTopTrendingCollectionViewCell", for: indexPath) as? ExploreTopTrendingCollectionViewCell else {return UICollectionViewCell()}
-        let data = self.dataCollection[indexPath.row]
+        
         if let data = self.data {
-            
+            cell.setupData(data[indexPath.row], index: indexPath.row)
         }
-        cell.setupData(data, index: indexPath.row)
+        
         cell.ontapLikeTrending = { index in
-            self.dataCollection[index].isLike = !self.dataCollection[index].isLike
+           
         }
         return cell
     }
@@ -66,5 +68,9 @@ extension ExploreTopTrendingTableViewCell: UICollectionViewDataSource,
             vPageControl.currentPage = indexPath.row
         }
     }
+    
+    
+    
+    
     
 }

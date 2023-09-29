@@ -17,7 +17,7 @@ class ExploreTopicCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func setupData(_ data: FakeDataTopic){
+    func setupData(_ data: HotTopic){
         self.lblTitle.text = data.name
         self.imgTopic.image = UIImage(named: data.image)
     }

@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -31,7 +30,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XhV-OU-0dq">
                                 <rect key="frame" x="0.0" y="0.0" width="307" height="187.66666666666666"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ki3-YO-Iql">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="albums3_bg" translatesAutoresizingMaskIntoConstraints="NO" id="ki3-YO-Iql">
                                         <rect key="frame" x="0.0" y="0.0" width="307" height="187.66666666666666"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ki3-YO-Iql" secondAttribute="height" multiplier="327:200" id="dHg-ca-os2"/>
@@ -95,7 +94,6 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="XhV-OU-0dq" firstAttribute="top" secondItem="wK1-X7-5nB" secondAttribute="top" id="4Ew-HI-isC"/>
                             <constraint firstAttribute="bottom" secondItem="XhV-OU-0dq" secondAttribute="bottom" id="r2G-Ax-aOg"/>
@@ -122,9 +120,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="albums3_bg" width="200" height="200"/>
         <image name="ic_explore_heart_white" width="24" height="24"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

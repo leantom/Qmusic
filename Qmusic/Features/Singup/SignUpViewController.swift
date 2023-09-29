@@ -23,16 +23,21 @@ class SignUpViewController: UIViewController {
             )
         
         tfPassword.attributedPlaceholder = NSAttributedString(
-                string: "Password",
+                string: "Mật khẩu",
                 attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "9F9F9F")]
             )
         
         tfUsername.attributedPlaceholder = NSAttributedString(
-                string: "Phone Number",
+                string: "Số điện thoại",
                 attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "9F9F9F")]
             )
         setupRx()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeLoading(on: self.view)
     }
     
     func setupRx() {
@@ -57,26 +62,34 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func actionSignup(_ sender: Any) {
-        var phone = tfUsername.text ?? ""
-        var email = tfEmail.text ?? ""
-        var password = tfPassword.text ?? ""
+        let phone = tfUsername.text ?? ""
+        let email = tfEmail.text ?? ""
+        let password = tfPassword.text ?? ""
         
         let req = Request.Signup(phone: phone, email: email, password: password.hash256())
         signupViewModel.signUp(req: req)
+        showLoading(on: self.view)
     }
     
     @IBAction func actionBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
+}
+
+
+func showLoading(on view: UIView) {
+    let loadingView = RSLoadingView(effectType: RSLoadingView.Effect.twins)
+    loadingView.tag = 1000
+    loadingView.shouldTapToDismiss = true
+    loadingView.show(on: view)
+    
+}
+
+func removeLoading(on view: UIView) {
+    if let loadingView = view.viewWithTag(1000) as? RSLoadingView {
+        loadingView.hide()
     }
-    */
-
 }
