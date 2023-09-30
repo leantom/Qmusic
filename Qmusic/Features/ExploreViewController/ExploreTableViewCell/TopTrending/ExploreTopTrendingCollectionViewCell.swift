@@ -37,6 +37,18 @@ class ExploreTopTrendingCollectionViewCell: UICollectionViewCell {
 //        self.btnLike.setImage(UIImage(named: image), for: .normal)
     }
     
+    func setupData(_ data: TopTracks, index: Int){
+        
+        self.index = index
+        self.lblTitle.text = data.name
+        self.lblDesc.text = data.artists?.first?.name
+        if let url = URL(string: data.imageSong ?? "") {
+            self.imgMain.setImage(from: url)
+        }
+//        let image = data.isLike ? "ic_explore_heart_red" : "ic_explore_heart_white"
+//        self.btnLike.setImage(UIImage(named: image), for: .normal)
+    }
+    
 
     @IBAction func actionLike(_ sender: Any) {
 //        let originalTransform = btnLike.transform

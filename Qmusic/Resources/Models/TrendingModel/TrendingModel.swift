@@ -71,7 +71,7 @@ struct Trending_DataResult : Codable {
 }
 struct Trending_Data_Tracks : Codable {
     let totalCount : Int?
-    let items : [Trending_TrackItems]?
+    let items : [TopTracks]?
 
     enum CodingKeys: String, CodingKey {
 
@@ -82,7 +82,7 @@ struct Trending_Data_Tracks : Codable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         totalCount = try values.decodeIfPresent(Int.self, forKey: .totalCount)
-        items = try values.decodeIfPresent([Trending_TrackItems].self, forKey: .items)
+        items = try values.decodeIfPresent([TopTracks].self, forKey: .items)
     }
 
 }

@@ -25,14 +25,14 @@ class ExploreGeezChartTableViewCell: UITableViewCell {
     }()
     
     func setupDataGeekChart(data: Trending_DataResult){
-//        var topConstraint: CGFloat = 0
-        guard let items = data.tracks?.items else {return}
-        items.forEach { item in
-            let sub = Explore_GeezChartSubView.instantiate()
-            sub.translatesAutoresizingMaskIntoConstraints = false
-            self.containerView.addArrangedSubview(sub)
-            sub.setupData(item: item)
-        }
+////        var topConstraint: CGFloat = 0
+//        guard let items = data.tracks?.items else {return}
+//        items.forEach { item in
+//            let sub = Explore_GeezChartSubView.instantiate()
+//            sub.translatesAutoresizingMaskIntoConstraints = false
+//            self.containerView.addArrangedSubview(sub)
+//            sub.setupData(item: item)
+//        }
     }
 
 }

@@ -24,21 +24,14 @@ class ExploreViewController: UIViewController {
     @IBOutlet weak var tbView: UITableView!
     var homePageViewModel: HomeViewModel?
     
-    let dataTopic = [FakeDataTopic(name: "Help", image: "albums1"),
-                FakeDataTopic(name: "Me", image: "albums2"),
-                FakeDataTopic(name: "Bro", image: "albums3"),
-                FakeDataTopic(name: "LC-D", image: "albums4"),
-                FakeDataTopic(name: "WTF-R", image: "albums5"),
-                FakeDataTopic(name: "SWIFT-QMUSIC", image: "albums6"),
-                FakeDataTopic(name: "BestApp", image: "albums7"),
-                FakeDataTopic(name: "Hihu", image: "albums8")]
     
-    let fakeSection = [FakeSectonExplore(title: "Geez Chart", button: "ViewAll"),
-                       FakeSectonExplore(title: "Top Trending", button: ""),
-                       FakeSectonExplore(title: "Topic", button: "ViewAll")]
+    
+    let fakeSection = [FakeSectonExplore(title: "Cyme Chart", button: ""),
+                       FakeSectonExplore(title: "Trending", button: ""),
+                       FakeSectonExplore(title: "Thể loại", button: "")]
     var dataTrending: Trending_DataResult?
     var dataChart: Trending_DataResult?
-    
+    var indexPathSelected: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,15 +137,18 @@ extension ExploreViewController: UITableViewDelegate, UITableViewDataSource{
         let type = TypeOfExploreSection(rawValue: indexPath.section) ?? .GeekChart
         switch type {
         case .GeekChart:
-            cell = (tableView.dequeueReusableCell(withIdentifier: "ExploreGeezChartTableViewCell", for: indexPath) as! ExploreGeezChartTableViewCell)
-            if let geek = cell as? ExploreGeezChartTableViewCell, let data = self.dataChart{
-                geek.setupDataGeekChart(data: data)
+            let cell = (tableView.dequeueReusableCell(withIdentifier: "RecentlyMusicTableViewCell", for: indexPath) as! RecentlyMusicTableViewCell)
+            if let toptrack = self.homePageViewModel?.getItemChart(by: indexPath.row) {
+                cell.popuplate(with: toptrack, index: indexPath.row)
             }
+            cell.selectionStyle = .none
+            return cell
         case .TopTrending:
             cell = tableView.dequeueReusableCell(withIdentifier: "ExploreTopTrendingTableViewCell", for: indexPath) as! ExploreTopTrendingTableViewCell
-            if let trending = cell as? ExploreTopTrendingTableViewCell , let data = self.dataTrending{
+            if let trending = cell as? ExploreTopTrendingTableViewCell , let data = self.dataTrending {
                 trending.setDataChart(data)
             }
+            
         case .Topic:
             cell = tableView.dequeueReusableCell(withIdentifier: "ExploreTopicTableViewCell", for: indexPath) as! ExploreTopicTableViewCell
             if let topic = cell as? ExploreTopicTableViewCell,

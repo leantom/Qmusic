@@ -181,6 +181,7 @@
 		F975A5F92A8B81F100DA41B7 /* Explore_GeezChartSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5F32A8B81F100DA41B7 /* Explore_GeezChartSubView.swift */; };
 		F975A5FC2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A5FA2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.swift */; };
 		F975A5FD2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F975A5FB2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib */; };
+		F975A9792AC7DFA1000B26CA /* CollectionViewCenterLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F975A9782AC7DFA1000B26CA /* CollectionViewCenterLayout.swift */; };
 		F97718B52AB35FC40069D5C4 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97718B32AB35FC40069D5C4 /* CommentViewController.swift */; };
 		F97718B62AB35FC40069D5C4 /* CommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F97718B42AB35FC40069D5C4 /* CommentViewController.xib */; };
 		F97718B92AB3641A0069D5C4 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97718B72AB3641A0069D5C4 /* CommentCell.swift */; };
@@ -475,6 +476,7 @@
 		F975A5F32A8B81F100DA41B7 /* Explore_GeezChartSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Explore_GeezChartSubView.swift; sourceTree = "<group>"; };
 		F975A5FA2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyMusicTableViewCell.swift; sourceTree = "<group>"; };
 		F975A5FB2A8B856A00DA41B7 /* RecentlyMusicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentlyMusicTableViewCell.xib; sourceTree = "<group>"; };
+		F975A9782AC7DFA1000B26CA /* CollectionViewCenterLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewCenterLayout.swift; path = Qmusic/Components/CollectionViewCenterLayout.swift; sourceTree = SOURCE_ROOT; };
 		F97718B32AB35FC40069D5C4 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		F97718B42AB35FC40069D5C4 /* CommentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentViewController.xib; sourceTree = "<group>"; };
 		F97718B72AB3641A0069D5C4 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -920,6 +922,7 @@
 				F96914A12A8C81F10092B4AD /* Lotties */,
 				F9A0D9C12AB1C09A00EBFFA8 /* Network */,
 				F9168D852AAA3B4500BA9D98 /* Models */,
+				F975A9782AC7DFA1000B26CA /* CollectionViewCenterLayout.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1680,6 +1683,7 @@
 				F9CE86922AA62F140036E9AA /* ArtistViewController.swift in Sources */,
 				F975A5E42A8B394B00DA41B7 /* CarouselConfiguration.swift in Sources */,
 				F9838A7C2AA04B2C00F0A5D0 /* ForgotViewController.swift in Sources */,
+				F975A9792AC7DFA1000B26CA /* CollectionViewCenterLayout.swift in Sources */,
 				F975A5E82A8B76AD00DA41B7 /* HomeHeaderView.swift in Sources */,
 				F94F99D82A8A13D5005FA560 /* WEExtensions+UILabel.swift in Sources */,
 				F9D9152A2A97B9CD001F53B4 /* SplashScreenCellCollectionViewThirdCell.swift in Sources */,

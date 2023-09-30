@@ -13,6 +13,7 @@ class HomeAlbumsTableViewCell: UITableViewCell {
   
     var parentVC: HomeViewController?
     
+    @IBOutlet weak var collectionLayout: WLCollectionViewLayout!
     @IBOutlet weak var clContent: UICollectionView!
    
     var playlists: [HomePage.Items] = []
@@ -23,7 +24,8 @@ class HomeAlbumsTableViewCell: UITableViewCell {
         clContent.delegate = self
         clContent.dataSource = self
         
-        
+        collectionLayout.itemSize = CGSizeMake(clContent.frame.width - 40 , clContent.frame.height)
+        collectionLayout.minimumLineSpacing = 20
         clContent.register(UINib(nibName: "SubHomeAlbumsTableViewCell", bundle: nil), forCellWithReuseIdentifier: "SubHomeAlbumsTableViewCell")
     }
 

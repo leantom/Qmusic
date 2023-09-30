@@ -240,7 +240,7 @@ class HomeViewModel: BaseViewModel {
         apiClient.getChart().subscribe(
             onNext: { result in
                 
-                self.output.chartByDB.onNext(result)
+                
                 self.topTracksInChart.append(contentsOf: result)
             },
             onError: { error in
@@ -307,7 +307,7 @@ class HomeViewModel: BaseViewModel {
                         return
                     }
                     
-                    self.tracksInTrending.append(contentsOf: tracks)
+                    
                     self.output.trendingDetail.onNext(data)
                 }
             case .failure(_):
@@ -327,6 +327,10 @@ class HomeViewModel: BaseViewModel {
                         print("Err Chart")
                         return
                     }
+                    if let topTracks = data.tracks?.items {
+                        self.topTracksInChart.append(contentsOf: topTracks)
+                    }
+                    
                     self.output.chartDetail.onNext(data)
                 }
             case .failure(_):
